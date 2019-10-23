@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -68,7 +75,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +87,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -103,8 +110,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,11 +136,7 @@
 
 
 
-  <title> Hexo </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hexo</title>
   
 
 
@@ -147,13 +151,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -201,8 +209,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -212,7 +240,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -248,8 +276,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -267,16 +299,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/" itemprop="url">
-                  CentOS7下安装MySQL及连接
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/" itemprop="url">Python语言程序设计_1</a></h1>
         
 
         <div class="post-meta">
@@ -288,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">
-                2019-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
+                2019-05-16
               </time>
             
 
@@ -317,7 +341,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -327,138 +353,30 @@
         
           
             <blockquote>
-<p>前段时间在闲置的电脑上装了centos7，打算先装个MySQL试试。在此记录一下。</p>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
 </blockquote>
-<h1 id="一、添加yum源"><a href="#一、添加yum源" class="headerlink" title="一、添加yum源"></a>一、添加yum源</h1><p>MySQL官网：<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a></p>
-<p>进入官网去选择和是的rpm包，包的作用是添加MySQL yum源，我在这里下载的是 mysql80-community-release-el7-3.noarch.rpm。下载之后通过XFTP上传文件到服务器，然后在rpm文件目录下执行yum localinstall 命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql80-community-release-el7-3.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h1 id="编译与解释"><a href="#编译与解释" class="headerlink" title="编译与解释"></a>编译与解释</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>将源代码一次性转换为目标代码的过程。类似英文翻译。<br><img src="https://i.loli.net/2019/05/17/5cde554bd813521498.png" alt="编译"></p>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>将源代码逐条转换为目标代码同时逐条运行的过程。类似实时同声传译。<br><img src="https://i.loli.net/2019/05/17/5cde55678fc4c61789.png" alt="解释"></p>
+<h1 id="静态语言和脚本语言"><a href="#静态语言和脚本语言" class="headerlink" title="静态语言和脚本语言"></a>静态语言和脚本语言</h1><h2 id="静态语言"><a href="#静态语言" class="headerlink" title="静态语言"></a>静态语言</h2><p>使用编译执行的编程语言，运行速度更快。C/C++/Java等。</p>
+<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><p>使用解释执行的编程语言，维护更方便。Python/JavaScript/Php等。</p>
+<h1 id="温度转换实例"><a href="#温度转换实例" class="headerlink" title="温度转换实例"></a>温度转换实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#TempConvert.py</span><br><span class="line">TempStr = input(&quot;请输入带有符号的温度值: &quot;)</span><br><span class="line">if TempStr[-1] in [&apos;F&apos;, &apos;f&apos;]:</span><br><span class="line">    C = (eval(TempStr[0:-1]) - 32)/1.8</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;C&quot;.format(C))</span><br><span class="line">elif TempStr[-1] in [&apos;C&apos;, &apos;c&apos;]:</span><br><span class="line">    F = 1.8*eval(TempStr[0:-1]) + 32</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;F&quot;.format(F))</span><br><span class="line">else:</span><br><span class="line">    print(&quot;输入格式错误&quot;)</span><br></pre></td></tr></table></figure>
 
-<p>如果权限不够请使用sudo执行，执行完毕过后我们可以使用 cd /etc/yum.repos.d进入到目录中查看文件，发现会有如下两个文件：</p>
-<ul>
-<li>mysql-community.repo</li>
-<li>mysql-community-source.repo</li>
-</ul>
-<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>当我们添加好yum源之后就可以执行安装命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、启动"><a href="#三、启动" class="headerlink" title="三、启动"></a>三、启动</h1><p>安装完成之后使用 systemctl start 执行启动MySQL命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
-
-<p>使用  systemctl status mysqld.service  可以查看MySQL的运行状态。</p>
-<p><img src="https://i.loli.net/2019/08/30/t37pmNBPezIiOXW.png" alt=""></p>
-<p>关闭命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop mysqld.service</span><br></pre></td></tr></table></figure>
-
-<p>重启命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、修改密码"><a href="#四、修改密码" class="headerlink" title="四、修改密码"></a>四、修改密码</h1><p>当MySQL服务启动之后我们就需要对密码进行更改：MySQL 默认创建了 root 用户的密码，这个密码打印在 MySQL 的日志文件<code>/var/log/mysqld.log</code>中，可以通过<code>temporary password</code>关键字来找出这个临时的密码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-
-<p>找到密码之后使用改密码连接数据库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
-<p>然后修改密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;NewPassword&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>执行上述命令密码将被修改为：NewPassword</p>
-<p>PS：新版本的MySQL对密码强度有限制，执行到上一步的时候，会提示密码强度不够，则应更改为更高强度的密码。</p>
-<p>密码更改完成之后重启MySQL服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="五、开放远程连接"><a href="#五、开放远程连接" class="headerlink" title="五、开放远程连接"></a>五、开放远程连接</h1><p>MySQL默认只对本机开放连接，我们则需要对mysql表的host字段进行修改以支持其他主机连接,%表示所有。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 先连接数据库</span><br><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>更改完成之后刷新权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-<p>然后在navicat新建连接：</p>
-<p><img src="https://i.loli.net/2019/08/30/XnKBdbcOxWtPizu.png" alt=""></p>
-<p>问题解决步骤：</p>
-<p>发现是防火墙未关闭，有两种方法去解决。</p>
-<ol>
-<li>关闭防火墙</li>
-<li>设置防火墙开放端口</li>
-</ol>
-<p>第一种方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//停止</span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
-
-<p>第二种方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//这里发现防火墙是开启的，再来查看防火墙控制的端口</span><br><span class="line">systemctl status firewalld</span><br><span class="line">//查看防火墙控制的端口，发现我想要监听的8081端口没有开启</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line">//永久开启3306端口</span><br><span class="line">sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">//重载防火墙</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我使用了第一种</p>
-<p><img src="https://i.loli.net/2019/08/30/geVp1iWMNvorOXU.png" alt=""></p>
-<p>再次实验，成功</p>
-<p><img src="https://i.loli.net/2019/08/30/bFtJRPHxdwViOyz.png" alt=""></p>
-<p><strong>注：</strong>在用正版navicat连接MySQL8+时没问题，但使用破解版会出现2059错误，这是由于新版本的MySQL使用的是caching_sha2_password验证方式，但此时的navicat还没有支持这种验证方式。解决方法就是将验证方式改为以前版本(5.7及以下)使用的验证方式mysql_native_password。</p>
-<hr>
-<h1 id="后续："><a href="#后续：" class="headerlink" title="后续："></a>后续：</h1><p>2019.09.12</p>
-<p>后期在安装mysql5.7时遇到了不少大坑，在此记录一下。</p>
-<h2 id="1、安装mysql5-7"><a href="#1、安装mysql5-7" class="headerlink" title="1、安装mysql5.7"></a>1、安装mysql5.7</h2><p>CentOS 7之后的版本yum的默认源中使用MariaDB替代原先MySQL，因此安装方式较为以往有一些改变：</p>
-<p>下载mysql的源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>安装yum库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall -y mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>安装MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<p>启动MySQL服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、修改MySQL的root密码"><a href="#2、修改MySQL的root密码" class="headerlink" title="2、修改MySQL的root密码"></a>2、修改MySQL的root密码</h2><p>MySQL5.7加强了root用户的安全性，因此在第一次安装后会初始化一个随机密码，以下为查看初始随机密码的方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-
-<p>进入mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`mysql ``-``uroot ``-``p`</span><br></pre></td></tr></table></figure>
-
-<p>完成之后进入，首先修改密码策略，然后修改密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password.policy=0;</span><br><span class="line">set global validate_password.length=1;</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456789&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>然后退出后即可用新密码登录。</p>
-<h2 id="3、远程连接授权"><a href="#3、远程连接授权" class="headerlink" title="3、远程连接授权"></a>3、远程连接授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;root&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
-
-<p>授权之后，用nevicat检查一下是否可以连接，如果不可以，可能是防火墙限制了。需要在防火墙里面加开放数据库端口的规则。</p>
-<h2 id="4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）"><a href="#4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）" class="headerlink" title="4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）"></a>4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）</h2><p>【1】查看目前防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>【2】开放3306端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<p>【3】重启防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service firewalld restart</span><br></pre></td></tr></table></figure>
-
-<p>【4】查看3306端口是否开放</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<p>【5】再次查看现在防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>【6】再次测试是否可以远程连接，成功。</p>
-<h2 id="5、设置开机自启"><a href="#5、设置开机自启" class="headerlink" title="5、设置开机自启"></a>5、设置开机自启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -472,6 +390,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -484,8 +406,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -503,16 +429,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/" itemprop="url">
-                  前端开发(2)-JavaScript核心DOM BOM1
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/" itemprop="url">Python语言程序设计_2</a></h1>
         
 
         <div class="post-meta">
@@ -524,8 +442,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T00:00:00+08:00">
-                2019-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
+                2019-05-16
               </time>
             
 
@@ -553,7 +471,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -563,100 +483,43 @@
         
           
             <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
 </blockquote>
-<h1 id="Web-API"><a href="#Web-API" class="headerlink" title="Web API"></a>Web API</h1><h2 id="Web-API介绍"><a href="#Web-API介绍" class="headerlink" title="Web API介绍"></a>Web API介绍</h2><h3 id="API的概念"><a href="#API的概念" class="headerlink" title="API的概念"></a>API的概念</h3><p>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</p>
-<ul>
-<li>任何开发语言都有自己的API</li>
-<li>API的特征输入和输出(I/O)</li>
-<li>API的使用方法(console.log())</li>
-</ul>
-<h3 id="Web-API的概念"><a href="#Web-API的概念" class="headerlink" title="Web API的概念"></a>Web API的概念</h3><p>浏览器提供的一套操作浏览器功能和页面元素的API(BOM和DOM)</p>
-<p>此处的Web API特指浏览器提供的API(一组方法)，Web API在后面的课程中有其它含义</p>
-<h3 id="掌握常见的浏览器提供的API的调用方式"><a href="#掌握常见的浏览器提供的API的调用方式" class="headerlink" title="掌握常见的浏览器提供的API的调用方式"></a>掌握常见的浏览器提供的API的调用方式</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="noopener">MDN-Web API</a></p>
-<h3 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h3><p>![1496912475691](D:/Study/02-JavaScript-WEB-API-第1天/01教学资料/02-Web API/media/1496912475691.png)</p>
-<h4 id="ECMAScript-JavaScript的核心"><a href="#ECMAScript-JavaScript的核心" class="headerlink" title="ECMAScript - JavaScript的核心"></a>ECMAScript - JavaScript的核心</h4><p>定义了javascript的语法规范</p>
-<p>JavaScript的核心，描述了语言的基本语法和数据类型，ECMAScript是一套标准，定义了一种语言的标准与具体实现无关</p>
-<h4 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM - 浏览器对象模型"></a>BOM - 浏览器对象模型</h4><p>一套操作浏览器功能的API</p>
-<p>通过BOM可以操作浏览器窗口，比如：弹出框、控制浏览器跳转、获取分辨率等</p>
-<h4 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM - 文档对象模型"></a>DOM - 文档对象模型</h4><p>一套操作页面元素的API</p>
-<p>DOM可以把HTML看做是文档树，通过DOM提供的API可以对树上的节点进行操作</p>
-<h1 id="Dom"><a href="#Dom" class="headerlink" title="Dom"></a>Dom</h1><p><img src="https://i.loli.net/2019/08/23/guHfc9jkz6JmOwM.png" alt=""></p>
-<ul>
-<li>文档：一个页面就是一个文档，DOM 中使用 document 表示</li>
-<li>元素：页面中的所有标签都是元素，DOM 中使用 element 表示</li>
-<li>节点：网页中的所有内容都是节点（标签、属性、文本、注释等），DOM 中使用 node 表示</li>
-</ul>
-<p><strong>DOM 把以上内容都看做是对象</strong></p>
-<h2 id="获取页面元素"><a href="#获取页面元素" class="headerlink" title="获取页面元素"></a>获取页面元素</h2><h3 id="根据ID获取"><a href="#根据ID获取" class="headerlink" title="根据ID获取"></a>根据ID获取</h3><p>使用 getElementById() 方法可以获取带有ID 的元素对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="turtle库"><a href="#turtle库" class="headerlink" title="turtle库"></a>turtle库</h1><p>turtle（海龟）是turtle绘图体系的Python实现，是Python的标准库之一，使用RGB色彩模式。</p>
+<h2 id="空间坐标系"><a href="#空间坐标系" class="headerlink" title="空间坐标系"></a>空间坐标系</h2><p>画布上以中心为原点的空间坐标系：绝对坐标&amp;海龟坐标。</p>
+<h2 id="角度坐标系"><a href="#角度坐标系" class="headerlink" title="角度坐标系"></a>角度坐标系</h2><p>画布上以空间x轴为0度的角度坐标系：绝对角度&amp;海龟角度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#PythonDraw.py，绘制“蟒蛇”</span><br><span class="line">import turtle</span><br><span class="line">turtle.setup(650, 350, 200, 200)</span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.fd(-250)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.pensize(25)</span><br><span class="line">turtle.pencolor(&quot;purple&quot;)</span><br><span class="line">turtle.seth(-40)</span><br><span class="line">for i in range(4):</span><br><span class="line">    turtle.circle(40, 80)</span><br><span class="line">    turtle.circle(-40, 80)</span><br><span class="line">turtle.circle(40, 80/2)</span><br><span class="line">turtle.fd(40)</span><br><span class="line">turtle.circle(16, 180)</span><br><span class="line">turtle.fd(40 * 2/3)</span><br><span class="line">turtle.done()</span><br></pre></td></tr></table></figure>
 
-<h3 id="根据标签名获取"><a href="#根据标签名获取" class="headerlink" title="根据标签名获取"></a>根据标签名获取</h3><p>使用 getElementsByTagName() 方法可以返回带有指定标签名的对象的集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意： </p>
-<p>1.因为得到的是一个对象的集合，所以我们想要操作里面的元素就需要遍历。</p>
-<p>2.得到元素对象是动态的</p>
-<p>3.如果获取不到元素,则返回为空的伪数组(因为获取不到对象)</p>
-<p>还可以获取某个元素(父元素)内部所有指定标签名的子元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：父元素必须是单个对象(必须指明是哪一个元素对象)，获取的时候不包括父元素自己。</p>
-<h3 id="Html5新增的获取方法"><a href="#Html5新增的获取方法" class="headerlink" title="Html5新增的获取方法"></a>Html5新增的获取方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="built_in">document</span>.getElementsByClassName(‘类名’)；<span class="comment">// 根据类名返回元素对象集合</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.querySelector(<span class="string">'选择器'</span>);        <span class="comment">// 根据指定选择器返回第一个元素对象</span></span><br><span class="line"><span class="number">3.</span> <span class="built_in">document</span>.querySelectorAll(<span class="string">'选择器'</span>);     <span class="comment">// 根据指定选择器返回</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：querySelector 和 querySelectorAll里面的选择器需要加符号,比如:document.querySelector(‘#nav’); </p>
-<h3 id="特殊元素（body-html获取）"><a href="#特殊元素（body-html获取）" class="headerlink" title="特殊元素（body/html获取）"></a>特殊元素（body/html获取）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> doucumnet.body  <span class="comment">// 返回body元素对象</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.documentElement  <span class="comment">// 返回html元素对象</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="事件基础"><a href="#事件基础" class="headerlink" title="事件基础"></a>事件基础</h2><h3 id="事件概述"><a href="#事件概述" class="headerlink" title="事件概述"></a>事件概述</h3><p>JavaScript 使我们有能力创建动态页面，而事件是可以被 JavaScript 侦测到的行为。</p>
-<p>简单理解： 触发— 响应机制。</p>
-<p>网页中的每个元素都可以产生某些可以触发 JavaScript 的事件，例如，我们可以在用户点击某按钮时产生一个 事件，然后去执行某些操作。</p>
-<h3 id="事件执行步骤"><a href="#事件执行步骤" class="headerlink" title="事件执行步骤"></a>事件执行步骤</h3><ol>
-<li><p>获取事件源</p>
-</li>
-<li><p>注册事件（绑定事件）</p>
-</li>
-<li><p>添加事件处理程序（采取函数赋值形式）</p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2019/08/23/BYRD13zFGnq5dmw.png" alt=""></p>
-<h2 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h2><h3 id="改变元素内容"><a href="#改变元素内容" class="headerlink" title="改变元素内容"></a>改变元素内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerText</span><br></pre></td></tr></table></figure>
-
-<p>从起始位置到终止位置的内容, 但它去除 html 标签，同时空格和换行也会去掉。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerHTML</span><br></pre></td></tr></table></figure>
-
-<p>起始位置到终止位置的全部内容，包括 html 标签，同时保留空格和换行。</p>
-<h3 id="常用元素的属性操作"><a href="#常用元素的属性操作" class="headerlink" title="常用元素的属性操作"></a>常用元素的属性操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> src、href</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> id、alt、title</span><br></pre></td></tr></table></figure>
-
-<p>直接在事件中修改元素.属性即可。</p>
-<h3 id="表单元素属性修改"><a href="#表单元素属性修改" class="headerlink" title="表单元素属性修改"></a>表单元素属性修改</h3><p>利用 DOM 可以操作如下表单元素的属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  type、value、checked、selected、disabled</span><br><span class="line">- value 用于大部分表单元素的内容获取(option除外)</span><br><span class="line">- type 可以获取input标签的类型(输入框或复选框等)</span><br><span class="line">- disabled 禁用属性</span><br><span class="line">- checked 复选框选中属性</span><br><span class="line">- selected 下拉菜单选中属性</span><br></pre></td></tr></table></figure>
-
-<h3 id="样式属性操作"><a href="#样式属性操作" class="headerlink" title="样式属性操作"></a>样式属性操作</h3><p>我们可以通过 JS 修改元素的大小、颜色、位置等样式。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> element.style     行内样式操作</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> element.className 类名样式操作</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：</p>
+<h1 id="库引用"><a href="#库引用" class="headerlink" title="库引用"></a>库引用</h1><p>扩充Python程序功能的方式。</p>
 <ol>
-<li>JS 里面的样式采取驼峰命名法 比如 fontSize、 backgroundColor</li>
-<li>JS 修改 style 样式操作，产生的是行内样式，权重比CSS 高</li>
-<li>如果样式修改较多，可以采取操作类名方式更改元素样式。 </li>
-<li>class因为是个保留字，因此使用className来操作元素类名属性</li>
-<li>className 会直接更改元素的类名，会覆盖原先的类名，如果想要保留原类名，使用多类名选择器，即this.className=’原类名 新类名’。</li>
+<li>使用import保留字完成</li>
 </ol>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<pre><code>import &lt;库名&gt;
+&lt;库名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><ol start="2">
+<li>使用from和import保留字完成</li>
+</ol>
+<pre><code>from &lt;库名&gt; import &lt;函数名&gt;
+from &lt;库名&gt; import *
+&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><ol start="3">
+<li>使用as和import保留字完成</li>
+</ol>
+<pre><code>import &lt;库名&gt; as &lt;库别名&gt;
+&lt;库别名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -670,6 +533,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -682,8 +549,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/2019-08-22-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%982/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -701,16 +572,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/22/2019-08-22-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%982/" itemprop="url">
-                  前端开发(2)-JavaScript入门与提高2
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/" itemprop="url">Python数据分析与展示_3</a></h1>
         
 
         <div class="post-meta">
@@ -722,8 +585,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T00:00:00+08:00">
-                2019-08-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
+                2019-05-16
               </time>
             
 
@@ -751,7 +614,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -761,173 +626,47 @@
         
           
             <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
 </blockquote>
-<h1 id="对象定义"><a href="#对象定义" class="headerlink" title="对象定义"></a>对象定义</h1><p>对象是由属性和方法组成的。</p>
-<ul>
-<li>属性：事物的<strong>特征，</strong>在对象中用<strong>属性</strong>来表示（常用名词）</li>
-<li>方法：事物的<strong>行为，</strong>在对象中用<strong>方法</strong>来表示（常用动词）</li>
-</ul>
-<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="利用字面量创建对象"><a href="#利用字面量创建对象" class="headerlink" title="利用字面量创建对象"></a>利用字面量创建对象</h2><p>对象字面量：就是花括号 { } 里面包含了表达这个具体事物（对象）的属性和方法。</p>
-<p>{ } 里面采取<strong>键值对</strong>的形式表示 </p>
-<ul>
-<li>键：相当于属性名</li>
-<li>值：相当于属性值，可以是任意类型的值（数字类型、字符串类型、布尔类型，函数类型等）</li>
-</ul>
-<h3 id="对象的调用"><a href="#对象的调用" class="headerlink" title="对象的调用"></a>对象的调用</h3><ul>
-<li>对象里面的属性调用 : 对象.属性名 ，这个小点 . 就理解为“ 的 ”  </li>
-<li>对象里面属性的另一种调用方式 : 对象[‘属性名’]<strong>，</strong>注意方括号里面的属性必须加引号</li>
-<li>对象里面的方法调用：对象.方法名() <strong>，</strong>注意这个方法名字后面一定加括号 </li>
-</ul>
-<h2 id="利用new-Object创建对象"><a href="#利用new-Object创建对象" class="headerlink" title="利用new Object创建对象"></a>利用new Object创建对象</h2><ul>
-<li>Object() ：第一个字母大写   </li>
-<li>new Object() ：需要 new 关键字</li>
-<li>使用的格式：对象.属性 =  值;     </li>
-</ul>
-<h2 id="利用构造函数创建对象"><a href="#利用构造函数创建对象" class="headerlink" title="利用构造函数创建对象"></a>利用构造函数创建对象</h2><p><strong>构造函数 ：</strong>是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，它总与 new 运算符一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。</p>
-<p>在 js 中，使用构造函数要时要注意以下两点：</p>
-<ul>
-<li>构造函数用于创建某一类对象，其首字母要大写</li>
-<li>构造函数要和 new 一起使用才有意义</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    <span class="keyword">this</span>.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'我的名字叫：'</span> + <span class="keyword">this</span>.name + <span class="string">'，年龄：'</span> + <span class="keyword">this</span>.age + <span class="string">'，性别：'</span> + <span class="keyword">this</span>.sex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.sing = <span class="function"><span class="keyword">function</span>(<span class="params">song</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我会唱'</span> + song);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bigbai = <span class="keyword">new</span> Person(<span class="string">'大白'</span>, <span class="number">100</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">var</span> smallbai = <span class="keyword">new</span> Person(<span class="string">'小白'</span>, <span class="number">21</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bigbai.name);</span><br><span class="line"><span class="built_in">console</span>.log(smallbai.name);</span><br><span class="line">bigbai.sayHi();</span><br><span class="line">smallbai.sing(<span class="string">'爱你一万年'</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong></p>
-<ol>
-<li><p>构造函数约定首字母大写。</p>
-</li>
-<li><p>函数内的属性和方法前面需要添加 this ，表示当前对象的属性和方法。</p>
-</li>
-<li><p>构造函数中不需要 return 返回结果。</p>
-</li>
-<li><p>当我们创建对象的时候，必须用 new 来调用构造函数。</p>
-</li>
+<h1 id="单元7：Pandas库入门"><a href="#单元7：Pandas库入门" class="headerlink" title="单元7：Pandas库入门"></a>单元7：Pandas库入门</h1><p>Pandas是提供高性能易用数据类型和分析工具的第三方python库，可以说是基于Numpy库。<br>import pandas as pd<br>Pandas提供两个数据类型：Series(一维)、DataFrame(二维及多维)，基于这两种数据类型，可以进行基本操作、运算操作、特征类操作、关联类操作等。</p>
+<h2 id="Series数据类型"><a href="#Series数据类型" class="headerlink" title="Series数据类型"></a>Series数据类型</h2><p>Series类型由一组数据及与之相关的数据索引组成，索引与数据一一对应，索引可以自定义。</p>
+<h3 id="Series类型的创建"><a href="#Series类型的创建" class="headerlink" title="Series类型的创建"></a>Series类型的创建</h3><ol>
+<li>从Python列表创建，index与列表元素个数一致；</li>
+<li>从标量值创建，此时不能省略index；</li>
+<li>从字典类型创建，将字典直接赋给series；</li>
+<li>从adarray类型创建；</li>
 </ol>
-<p><strong>new在执行时会做四件事情</strong>：</p>
-<ol>
-<li><p>在内存中创建一个新的空对象。</p>
-</li>
-<li><p>让 this 指向这个新的对象。</p>
-</li>
-<li><p>执行构造函数里面的代码，给这个新对象添加属性和方法。</p>
-</li>
-<li><p>返回这个新对象（所以构造函数里面不需要return）。</p>
-</li>
+<h3 id="Series类型的基本操作"><a href="#Series类型的基本操作" class="headerlink" title="Series类型的基本操作"></a>Series类型的基本操作</h3><p>由index和values两部分构成，操作类似于ndarray类型，也类似于Python字典类型。需要注意的是，numpy是基于维度的运算，而series是基于索引的运算。</p>
+<h2 id="DataFrame数据类型"><a href="#DataFrame数据类型" class="headerlink" title="DataFrame数据类型"></a>DataFrame数据类型</h2><p>DataFrame类型是由共同相同索引的一组列组成。其实是一个表格型的数据类型，每列值类型可以不同。其中既有行索引（index,axis=0），也有列索引(column,axis=1)。常用来表达二维数据。</p>
+<h3 id="DataFrame类型的创建"><a href="#DataFrame类型的创建" class="headerlink" title="DataFrame类型的创建"></a>DataFrame类型的创建</h3><ol>
+<li>从二维ndarray创建；</li>
+<li>从一维ndarray对象字典创建；</li>
+<li>从列表类型的字典创建；</li>
 </ol>
-<h1 id="遍历对象属性"><a href="#遍历对象属性" class="headerlink" title="遍历对象属性"></a>遍历对象属性</h1><p>for…in 语句用于对数组或者对象的属性进行循环操作。</p>
-<p>其语法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量 <span class="keyword">in</span> 对象名字) &#123;</span><br><span class="line">    <span class="comment">// 在此执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>语法中的变量是自定义的，它需要符合命名规范，通常我们会将这个变量写为 k 或者 key。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(k);      <span class="comment">// 这里的 k 是属性名</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[k]); <span class="comment">// 这里的 obj[k] 是属性值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h1><h2 id="MDN"><a href="#MDN" class="headerlink" title="MDN"></a>MDN</h2><p>Mozilla 开发者网络（MDN）提供了有关开放网络技术（Open Web）的信息，包括 HTML、CSS 和万维网及 HTML5 应用的 API。</p>
-<p>MDN:   <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">https://developer.</a><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">mozilla.org/zh-CN/</a></p>
-<h2 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h2><p>Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用Math 中的成员。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.PI		 <span class="comment">// 圆周率</span></span><br><span class="line"><span class="built_in">Math</span>.floor() 	 <span class="comment">// 向下取整</span></span><br><span class="line"><span class="built_in">Math</span>.ceil()            <span class="comment">// 向上取整</span></span><br><span class="line"><span class="built_in">Math</span>.round()           <span class="comment">// 四舍五入版 就近取整   注意 -3.5   结果是  -3 </span></span><br><span class="line"><span class="built_in">Math</span>.abs()		 <span class="comment">// 绝对值</span></span><br><span class="line"><span class="built_in">Math</span>.max()/<span class="built_in">Math</span>.min()	 <span class="comment">// 求最大和最小值 </span></span><br><span class="line"><span class="built_in">Math</span>.random()		<span class="comment">//随机返回一个小数，其取值范围是 [0，1)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2><p>Date 对象和 Math 对象不一样，他是一个构造函数，所以我们需要实例化后才能使用。Date 实例用来处理日期和时间。</p>
-<p><strong>Date() 构造函数的参数</strong></p>
-<p>如果括号里面有时间，就返回参数里面的时间。例如日期格式字符串为‘2019-5-1’，可以写成new Date(‘2019-5-1’)  或者 new Date(‘2019/5/1’)</p>
-<ul>
-<li>如果Date()不写参数，就返回当前时间</li>
-<li>如果Date()里面写参数，就返回括号里面输入的时间 </li>
-</ul>
-<p><strong>日期格式化</strong></p>
-<p><img src="https://i.loli.net/2019/08/23/Okb9uAYSzGscI35.png" alt=""></p>
-<p>​        <strong>注意：</strong></p>
-<ul>
-<li>月份因为返回的是0到11，所以要+1才正确；</li>
-<li>星期一到六返回1-6，但是星期日返回的是0而不是7；</li>
-</ul>
-<p><strong>时间戳</strong></p>
-<p>Date 对象是基于1970年1月1日（世界标准时间）起的毫秒数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> date1 = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> date2 = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><p><strong>检测是否为数组</strong></p>
-<ul>
-<li>instanceof 运算符，可以判断一个对象是否属于某种类型</li>
-<li>Array.isArray判断一个对象是否为() 5 中提供的方法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">23</span>];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arr));   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(obj));   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>数组增删元素</strong></p>
-<p><img src="https://i.loli.net/2019/08/23/b1F8oh9AxB6Yrp3.png" alt=""></p>
-<p><strong>数组排序</strong></p>
-<p><img src="https://i.loli.net/2019/08/23/lNJcaLtmfzDQv3R.png" alt=""></p>
-<p>​        <strong>注意</strong></p>
-<p>sort排序会有问题，如[1,4,13,56,43,5]sort排序后结果为[1,13,4,43,5,56]解决方案如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">64</span>, <span class="number">9</span>, <span class="number">6</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b - a;      <span class="comment">// 降a序</span></span><br><span class="line">    <span class="comment">// return a - b;   // 升序</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
-
-<p><strong>数组转换为字符串</strong></p>
-<p><img src="https://i.loli.net/2019/08/23/oDsI1fW4baF5kxK.png" alt=""></p>
-<h2 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h2><p><strong>基本包装类型</strong></p>
-<p>为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
-<p>基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
-
-<p>按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为<br>js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>字符串的不可变</strong></p>
-<p>指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给 str 赋值的时候，常量'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">    str += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 这个结果需要花费大量时间来显示，因为需要不断的开辟新的空间</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>字符串转换为数组</strong></p>
-<p>split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'a,b,c,d'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">','</span>));   <span class="comment">// 返回的是一个数组 [a, b, c, d]</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="简单对象与复杂对象"><a href="#简单对象与复杂对象" class="headerlink" title="简单对象与复杂对象"></a>简单对象与复杂对象</h1><p>简单类型又叫做基本数据类型或者值类型，复杂类型又叫做引用类型。</p>
-<ul>
-<li><p>值类型：简单数据类型/基本数据类型，在存储时变量中存储的是值本身，因此叫做值类型。</p>
-<p>string ，number，boolean，undefined，null</p>
-</li>
-<li><p>引用类型：复杂数据类型，在存储时变量中存储的仅仅是地址（引用），因此叫做引用数据类型。</p>
-<p>通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date等</p>
-</li>
-</ul>
-<p><strong>堆栈空间分配区别：</strong></p>
-<p>　　1、栈（操作系统）：由操作系统自动分配释放存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈；</p>
-<p><em>简单数据类型存放到栈里面</em></p>
-<p>　　2、堆（操作系统）：存储复杂类型(对象)，一般由程序员分配释放，若程序员不释放，由垃圾回收机制回收。</p>
-<p><em>复杂数据类型存放到堆里面</em></p>
-<p><strong>注意：</strong><code>JavaScript</code>中没有堆栈的概念，通过堆栈的方式，可以让大家更容易理解代码的一些执行方式，便于将来学习其他语言。</p>
-<p><strong>简单对象内存分配</strong></p>
-<ul>
-<li>值类型（简单数据类型）： string ，number，boolean，undefined，null</li>
-<li>值类型变量的数据直接存放在变量（栈空间）中</li>
-</ul>
-<p><img src="https://i.loli.net/2019/08/23/I7tC4Tk3pjO8VWr.png" alt=""></p>
-<p><strong>复杂对象内存分配</strong></p>
-<ul>
-<li>引用类型（复杂数据类型）：通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date等</li>
-<li>引用类型变量（栈空间）里存放的是地址，真正的对象实例存放在堆空间中</li>
-</ul>
-<p><img src="https://i.loli.net/2019/08/23/FZMg8OEDvKPioIr.png" alt=""></p>
-<p><strong>简单对象传参</strong></p>
-<p>函数的形参也可以看做是一个变量，当我们把一个值类型变量作为参数传给函数的形参时，其实是把变量在栈空间里的值复制了一份给形参，那么在方法内部对形参做任何修改，都不会影响到的外部变量。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    <span class="built_in">console</span>.log(a);  <span class="comment">//11</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">fn(x);</span><br><span class="line"><span class="built_in">console</span>.log(x)；  <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>复杂对象传参</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x</span>) </span>&#123; <span class="comment">// x = p</span></span><br><span class="line">    <span class="built_in">console</span>.log(x.name); <span class="comment">// 2. 这个输出什么 ?   刘德华 </span></span><br><span class="line">    x.name = <span class="string">"张学友"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(x.name); <span class="comment">// 3. 这个输出什么 ?   张学友</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">"刘德华"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p.name);    <span class="comment">// 1. 这个输出什么 ?   刘德华</span></span><br><span class="line">f1(p);</span><br><span class="line"><span class="built_in">console</span>.log(p.name);    <span class="comment">// 4. 这个输出什么 ?   张学友</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<h2 id="Pandas库数据类型操作"><a href="#Pandas库数据类型操作" class="headerlink" title="Pandas库数据类型操作"></a>Pandas库数据类型操作</h2><h3 id="改变Series和DataFrame对象"><a href="#改变Series和DataFrame对象" class="headerlink" title="改变Series和DataFrame对象"></a>改变Series和DataFrame对象</h3><p>增加或者重排：重新索引，通过.reindex()函数实现<br>删除：.drop()</p>
+<h2 id="Pandas库数据类型运算"><a href="#Pandas库数据类型运算" class="headerlink" title="Pandas库数据类型运算"></a>Pandas库数据类型运算</h2><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>算术运算根据行列索引，补齐后运算，补齐时缺项填充NaN(空值)，运算默认产生浮点数，采用+-*/符号进行运算的二元运算将会产生新的对象，还可以使用方法形式进行运算，如.add()、.sub()、.mul()、.div()，这些均可以选择参数。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h3 id="比较运算"><a href="#比较运算" class="headerlink" title="比较运算"></a>比较运算</h3><p>比较运算只能比较相同索引的元素，不进行补齐，采用&gt;&lt;&gt;=&lt;=!=等符号进行运算的二元运算将会产生布尔对象。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h1 id="单元8：Pandas数据特征分析"><a href="#单元8：Pandas数据特征分析" class="headerlink" title="单元8：Pandas数据特征分析"></a>单元8：Pandas数据特征分析</h1><h2 id="数据的排序"><a href="#数据的排序" class="headerlink" title="数据的排序"></a>数据的排序</h2><p>.sort_index(axis=0,ascending=True)方法在指定轴上根据<strong>索引</strong>进行排序，默认升序。<br>.sort_values(axis=0,ascending=True)方法在指定轴上根据<strong>数值</strong>进行排序，默认升序。</p>
+<h2 id="数据的基本统计分析"><a href="#数据的基本统计分析" class="headerlink" title="数据的基本统计分析"></a>数据的基本统计分析</h2><p>基本同numpy相同。<br>.describe()方法可以针对0轴（各列）做统计汇总，包括非空计数、均值、方差等。</p>
+<h2 id="数据的累计统计分析"><a href="#数据的累计统计分析" class="headerlink" title="数据的累计统计分析"></a>数据的累计统计分析</h2><p>.cumsum()、.cumprod()、.cummax()、.cummin()，分别为依次给出前1、2、……、n个数的和、积、最大值、最小值。</p>
+<p>滚动计算（窗口计算）：<br>.rolling(w).sum()、.rolling(w).mean()、.rolling(w).var()、.rolling(w).std()、.rolling(w).min()、.rolling(w).max(),分别为依次给出x相邻w个元素的和、平均值、方差、标准差、最大值、最小值。</p>
+<h2 id="数据的相关分析"><a href="#数据的相关分析" class="headerlink" title="数据的相关分析"></a>数据的相关分析</h2><p>.cov()，计算协方差矩阵；<br>.corr()，计算相关系数矩阵，Pearson、Spearman、Kendall等系数；</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -941,6 +680,820 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/2019-05-15-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/15/2019-05-15-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_2/" itemprop="url">Python数据分析与展示_2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-15T00:00:00+08:00">
+                2019-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="单元4：matplotlib库入门"><a href="#单元4：matplotlib库入门" class="headerlink" title="单元4：matplotlib库入门"></a>单元4：matplotlib库入门</h1><p>matplotlib是python优秀的数据可视化第三方库，想法源于matlab(所以个人感觉用法也很像)。<br>matplotlib.pyplot是绘制各类可视化图像的命令子库，相当于快捷方式。import matplotlib.pyplot as plt。</p>
+<h2 id="plot函数"><a href="#plot函数" class="headerlink" title="plot函数"></a>plot函数</h2><p>plt.plot(x,y,format_string,**kwargs)<br>x:X轴数据，列表或数组，可选。<br>y:Y轴数据，列表或数组.<br>format_string:控制曲线的格式化字符串，可选，由颜色字符color、风格字符linestyle、标记字符marker组成。</p>
+<p>**kwargs：第二组或者多组(x,y,format_string）</p>
+<h2 id="pyplot的中文显示"><a href="#pyplot的中文显示" class="headerlink" title="pyplot的中文显示"></a>pyplot的中文显示</h2><p>pyplot默认并不支持中文显示，</p>
+<ol>
+<li>改变全局字体，需要rcParams修改字体实现。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib</span><br><span class="line">matplotlib.rcParams[&apos;font.family&apos;]=&apos;SimHei&apos;</span><br><span class="line">matplotlib.rcParams[&apos;font.size&apos;]=20</span><br><span class="line">plt.xlabel(&apos;横轴：时间&apos;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>font.family:字体名称；<br>font.style:字体风格，斜体’italie’;<br>font.size:字体大小，整数字号或者’large’、’x-small’;</p>
+<ol start="2">
+<li>改变局部字体，在有中文输出的地方，增加一个属性：fontproperties<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.xlabel(&apos;横轴：时间&apos;，fontproperties=&apos;SimHei&apos;,fontsize=20)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="pyplot的文本显示"><a href="#pyplot的文本显示" class="headerlink" title="pyplot的文本显示"></a>pyplot的文本显示</h2><p>plt.xlable/plt.ylable/plt.title/plt.text/plt.annotate(在图形中增加戴箭头的注释)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.annotate(s,xy=arrow_crd,xytext=text_crd,arrowprops=dict)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/05/15/5cdb7cc11ecc069534.png" alt="annotate"></p>
+<h2 id="pyplot的子绘图区域"><a href="#pyplot的子绘图区域" class="headerlink" title="pyplot的子绘图区域"></a>pyplot的子绘图区域</h2><p><img src="https://i.loli.net/2019/05/15/5cdb8182cc74b24680.png" alt="subplot2gird"></p>
+<p><img src="https://i.loli.net/2019/05/15/5cdb81c122aee50154.png" alt="girdspec"></p>
+<h1 id="单元5：matplotlib库基础绘图函数示例"><a href="#单元5：matplotlib库基础绘图函数示例" class="headerlink" title="单元5：matplotlib库基础绘图函数示例"></a>单元5：matplotlib库基础绘图函数示例</h1><h2 id="pyplot饼图的绘制"><a href="#pyplot饼图的绘制" class="headerlink" title="pyplot饼图的绘制"></a>pyplot饼图的绘制</h2><p>函数：plt.pie<br><img src="https://i.loli.net/2019/05/15/5cdbc2efb6e9181159.png" alt="饼图"></p>
+<h2 id="pyplot直方图的绘制"><a href="#pyplot直方图的绘制" class="headerlink" title="pyplot直方图的绘制"></a>pyplot直方图的绘制</h2><p>函数：plt.hist<br><img src="https://i.loli.net/2019/05/15/5cdbc63b4486b28677.png" alt="直方图"></p>
+<h2 id="pyplot极坐标图的绘制"><a href="#pyplot极坐标图的绘制" class="headerlink" title="pyplot极坐标图的绘制"></a>pyplot极坐标图的绘制</h2><p><img src="https://i.loli.net/2019/05/15/5cdbc69b4bc6355879.png" alt="极坐标图"></p>
+<h2 id="pyplot散点图的绘制"><a href="#pyplot散点图的绘制" class="headerlink" title="pyplot散点图的绘制"></a>pyplot散点图的绘制</h2><p><img src="https://i.loli.net/2019/05/15/5cdbc6e79836f32001.png" alt="散点图"></p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/2019-05-14-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/14/2019-05-14-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_10/" itemprop="url">数据结构_10</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T00:00:00+08:00">
+                2019-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="散列表（哈希表）"><a href="#散列表（哈希表）" class="headerlink" title="散列表（哈希表）"></a>散列表（哈希表）</h1><p>查找对象时，静态查找可以用二分查找，动态查找可以建树，但是比对的过程是数的话可以，如果是字符串的话就比较费时，那么能否把字符串映射为数字呢？这就是散列表。</p>
+<p>查找的本质：已知对象找位置。</p>
+<ul>
+<li>有序安排对象：全序、半序；</li>
+<li>直接”算出”对象位置：散列；</li>
+</ul>
+<p>散列查找的两项基本工作：</p>
+<ul>
+<li>计算位置：构造散列函数确定关键词存储位置；</li>
+<li>解决冲突：应用某种策略解决多个关键字位置相同的问题；</li>
+</ul>
+<p>“散列（Hashing）”的基本思想：<br>1）以关键字key为自变量，通过一个确定的函数h计算出对应的函数值h(key)，作为数据对象的存储地址。<br>2）可能不同的关键字会映射到同一个散列地址上，称为”冲突”，需要冲突解决策略。</p>
+<h1 id="散列函数构造方法"><a href="#散列函数构造方法" class="headerlink" title="散列函数构造方法"></a>散列函数构造方法</h1><p>考虑因素：</p>
+<ol>
+<li>计算简单，以便提高转换效率</li>
+<li>关键字对应的地址空间分布均匀，以尽量减少冲突</li>
+</ol>
+<h2 id="数字关键字"><a href="#数字关键字" class="headerlink" title="数字关键字"></a>数字关键字</h2><ol>
+<li>直接定制法</li>
+<li>除留余数法</li>
+<li>数字分析法</li>
+<li>折叠法</li>
+<li>平方取中法</li>
+</ol>
+<h2 id="字符关键字"><a href="#字符关键字" class="headerlink" title="字符关键字"></a>字符关键字</h2><ol>
+<li>简单方法-ASCII码加和法</li>
+<li>简单改进法-前三个字符移位法</li>
+<li>好的方法-全部字符移位法</li>
+</ol>
+<h1 id="冲突处理方法"><a href="#冲突处理方法" class="headerlink" title="冲突处理方法"></a>冲突处理方法</h1><p>常见思路：</p>
+<ul>
+<li>换个位置：开放地址法</li>
+<li>同一位置的冲突对象组织在一起：链地址法</li>
+</ul>
+<h2 id="开放地址法"><a href="#开放地址法" class="headerlink" title="开放地址法"></a>开放地址法</h2><ol>
+<li>线性探测法</li>
+<li>平方探测法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#define MAXTABLESIZE 100000 /* 允许开辟的最大散列表长度 */</span><br><span class="line">typedef int ElementType;    /* 关键词类型用整型 */</span><br><span class="line">typedef int Index;          /* 散列地址类型 */</span><br><span class="line">typedef Index Position;     /* 数据所在位置与散列地址是同一类型 */</span><br><span class="line">/* 散列单元状态类型，分别对应：有合法元素、空单元、有已删除元素 */</span><br><span class="line">typedef enum &#123; Legitimate, Empty, Deleted &#125; EntryType;</span><br><span class="line"> </span><br><span class="line">typedef struct HashEntry Cell; /* 散列表单元类型 */</span><br><span class="line">struct HashEntry&#123;</span><br><span class="line">    ElementType Data; /* 存放元素 */</span><br><span class="line">    EntryType Info;   /* 单元状态 */</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">typedef struct TblNode *HashTable; /* 散列表类型 */</span><br><span class="line">struct TblNode &#123;   /* 散列表结点定义 */</span><br><span class="line">    int TableSize; /* 表的最大长度 */</span><br><span class="line">    Cell *Cells;   /* 存放散列单元数据的数组 */</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">int NextPrime( int N )</span><br><span class="line">&#123; /* 返回大于N且不超过MAXTABLESIZE的最小素数 */</span><br><span class="line">    int i, p = (N%2)? N+2 : N+1; /*从大于N的下一个奇数开始 */</span><br><span class="line"> </span><br><span class="line">    while( p &lt;= MAXTABLESIZE ) &#123;</span><br><span class="line">        for( i=(int)sqrt(p); i&gt;2; i-- )</span><br><span class="line">            if ( !(p%i) ) break; /* p不是素数 */</span><br><span class="line">        if ( i==2 ) break; /* for正常结束，说明p是素数 */</span><br><span class="line">        else  p += 2; /* 否则试探下一个奇数 */</span><br><span class="line">    &#125;</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">HashTable CreateTable( int TableSize )</span><br><span class="line">&#123;</span><br><span class="line">    HashTable H;</span><br><span class="line">    int i;</span><br><span class="line"> </span><br><span class="line">    H = (HashTable)malloc(sizeof(struct TblNode));</span><br><span class="line">    /* 保证散列表最大长度是素数 */</span><br><span class="line">    H-&gt;TableSize = NextPrime(TableSize);</span><br><span class="line">    /* 声明单元数组 */</span><br><span class="line">    H-&gt;Cells = (Cell *)malloc(H-&gt;TableSize*sizeof(Cell));</span><br><span class="line">    /* 初始化单元状态为“空单元” */</span><br><span class="line">    for( i=0; i&lt;H-&gt;TableSize; i++ )</span><br><span class="line">        H-&gt;Cells[i].Info = Empty;</span><br><span class="line"> </span><br><span class="line">    return H;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Position Find( HashTable H, ElementType Key )</span><br><span class="line">&#123;</span><br><span class="line">    Position CurrentPos, NewPos;</span><br><span class="line">    int CNum = 0; /* 记录冲突次数 */</span><br><span class="line"> </span><br><span class="line">    NewPos = CurrentPos = Hash( Key, H-&gt;TableSize ); /* 初始散列位置 */</span><br><span class="line">    /* 当该位置的单元非空，并且不是要找的元素时，发生冲突 */</span><br><span class="line">    while( H-&gt;Cells[NewPos].Info!=Empty &amp;&amp; H-&gt;Cells[NewPos].Data!=Key ) &#123;</span><br><span class="line">                                           /* 字符串类型的关键词需要 strcmp 函数!! */</span><br><span class="line">        /* 统计1次冲突，并判断奇偶次 */</span><br><span class="line">        if( ++CNum%2 )&#123; /* 奇数次冲突 */</span><br><span class="line">            NewPos = CurrentPos + (CNum+1)*(CNum+1)/4; /* 增量为+[(CNum+1)/2]^2 */</span><br><span class="line">            if ( NewPos &gt;= H-&gt;TableSize )</span><br><span class="line">                NewPos = NewPos % H-&gt;TableSize; /* 调整为合法地址 */</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123; /* 偶数次冲突 */</span><br><span class="line">            NewPos = CurrentPos - CNum*CNum/4; /* 增量为-(CNum/2)^2 */</span><br><span class="line">            while( NewPos &lt; 0 )</span><br><span class="line">                NewPos += H-&gt;TableSize; /* 调整为合法地址 */</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return NewPos; /* 此时NewPos或者是Key的位置，或者是一个空单元的位置（表示找不到）*/</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool Insert( HashTable H, ElementType Key )</span><br><span class="line">&#123;</span><br><span class="line">    Position Pos = Find( H, Key ); /* 先检查Key是否已经存在 */</span><br><span class="line"> </span><br><span class="line">    if( H-&gt;Cells[Pos].Info != Legitimate ) &#123; /* 如果这个单元没有被占，说明Key可以插入在此 */</span><br><span class="line">        H-&gt;Cells[Pos].Info = Legitimate;</span><br><span class="line">        H-&gt;Cells[Pos].Data = Key;</span><br><span class="line">        /*字符串类型的关键词需要 strcpy 函数!! */</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;键值已存在&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>双散列探测法</li>
+<li>再散列</li>
+</ol>
+<h2 id="分离链接法"><a href="#分离链接法" class="headerlink" title="分离链接法"></a>分离链接法</h2><p>将相同位置上冲突的所有关键词存储在同一个单链表中。</p>
+<h1 id="散列表性能分析"><a href="#散列表性能分析" class="headerlink" title="散列表性能分析"></a>散列表性能分析</h1><p>指标：平均查找长度（ASL）用来衡量散列表的查找效率：成功、不成功<br>关键词的比较次数，取决于产生冲突的多少，影响产生冲突多少有以下三个因素：</p>
+<ol>
+<li>散列函数是否均匀</li>
+<li>处理冲突的方法</li>
+<li>散列表的装填因子α，应在0.5-0.85之间</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/2019-05-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/2019-05-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_9/" itemprop="url">数据结构_9</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T00:00:00+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。<br>这里只讨论内部排序，即默认内存空间足够大，可以存放下所有需要排序的数据。</p>
+</blockquote>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>策略：分而治之<br>步骤：从待排数组中找一个主元pivot，按照比主元大和比主元小将数组分为两个数集再分别递归调用，进行排序。<br>最好情况：每次选的主元都正好是中分，T(N)=O(N logN)<br>选主元：方法很多，例如取头中尾三个数的中位数等<br>适用情况：大规模数据，如果是小规模数据，使用递归可能更费时。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/* 快速排序 - 直接调用库函数 */</span><br><span class="line"> </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"> </span><br><span class="line">/*---------------简单整数排序--------------------*/</span><br><span class="line">int compare(const void *a, const void *b)</span><br><span class="line">&#123; /* 比较两整数。非降序排列 */</span><br><span class="line">    return (*(int*)a - *(int*)b);</span><br><span class="line">&#125;</span><br><span class="line">/* 调用接口 */ </span><br><span class="line">qsort(A, N, sizeof(int), compare);</span><br><span class="line">/*---------------简单整数排序--------------------*/</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">/*--------------- 一般情况下，对结构体Node中的某键值key排序 ---------------*/</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key1, key2;</span><br><span class="line">&#125; A[MAXN];</span><br><span class="line">  </span><br><span class="line">int compare2keys(const void *a, const void *b)</span><br><span class="line">&#123; /* 比较两种键值：按key1非升序排列；如果key1相等，则按key2非降序排列 */</span><br><span class="line">    int k;</span><br><span class="line">    if ( ((const struct Node*)a)-&gt;key1 &lt; ((const struct Node*)b)-&gt;key1 )</span><br><span class="line">        k = 1;</span><br><span class="line">    else if ( ((const struct Node*)a)-&gt;key1 &gt; ((const struct Node*)b)-&gt;key1 )</span><br><span class="line">        k = -1;</span><br><span class="line">    else &#123; /* 如果key1相等 */</span><br><span class="line">        if ( ((const struct Node*)a)-&gt;key2 &lt; ((const struct Node*)b)-&gt;key2 )</span><br><span class="line">            k = -1;</span><br><span class="line">        else</span><br><span class="line">            k = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return k;</span><br><span class="line">&#125;</span><br><span class="line">/* 调用接口 */ </span><br><span class="line">qsort(A, N, sizeof(struct Node), compare2keys);</span><br><span class="line">/*--------------- 一般情况下，对结构体Node中的某键值key排序 ---------------*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/* 快速排序 */</span><br><span class="line"> </span><br><span class="line">ElementType Median3( ElementType A[], int Left, int Right )</span><br><span class="line">&#123; </span><br><span class="line">    int Center = (Left+Right) / 2;</span><br><span class="line">    if ( A[Left] &gt; A[Center] )</span><br><span class="line">        Swap( &amp;A[Left], &amp;A[Center] );</span><br><span class="line">    if ( A[Left] &gt; A[Right] )</span><br><span class="line">        Swap( &amp;A[Left], &amp;A[Right] );</span><br><span class="line">    if ( A[Center] &gt; A[Right] )</span><br><span class="line">        Swap( &amp;A[Center], &amp;A[Right] );</span><br><span class="line">    /* 此时A[Left] &lt;= A[Center] &lt;= A[Right] */</span><br><span class="line">    Swap( &amp;A[Center], &amp;A[Right-1] ); /* 将基准Pivot藏到右边*/</span><br><span class="line">    /* 只需要考虑A[Left+1] … A[Right-2] */</span><br><span class="line">    return  A[Right-1];  /* 返回基准Pivot */</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void Qsort( ElementType A[], int Left, int Right )</span><br><span class="line">&#123; /* 核心递归函数 */ </span><br><span class="line">     int Pivot, Cutoff, Low, High;</span><br><span class="line">       </span><br><span class="line">     if ( Cutoff &lt;= Right-Left ) &#123; /* 如果序列元素充分多，进入快排 */</span><br><span class="line">          Pivot = Median3( A, Left, Right ); /* 选基准 */ </span><br><span class="line">          Low = Left; High = Right-1;</span><br><span class="line">          while (1) &#123; /*将序列中比基准小的移到基准左边，大的移到右边*/</span><br><span class="line">               while ( A[++Low] &lt; Pivot ) ;</span><br><span class="line">               while ( A[--High] &gt; Pivot ) ;</span><br><span class="line">               if ( Low &lt; High ) Swap( &amp;A[Low], &amp;A[High] );</span><br><span class="line">               else break;</span><br><span class="line">          &#125;</span><br><span class="line">          Swap( &amp;A[Low], &amp;A[Right-1] );   /* 将基准换到正确的位置 */ </span><br><span class="line">          Qsort( A, Left, Low-1 );    /* 递归解决左边 */ </span><br><span class="line">          Qsort( A, Low+1, Right );   /* 递归解决右边 */  </span><br><span class="line">     &#125;</span><br><span class="line">     else InsertionSort( A+Left, Right-Left+1 ); /* 元素太少，用简单排序 */ </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void QuickSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 统一接口 */</span><br><span class="line">     Qsort( A, 0, N-1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="表排序"><a href="#表排序" class="headerlink" title="表排序"></a>表排序</h1><p>表排序是一种间接排序算法，定义一个指针数组作为“表”（table）<br><img src="https://i.loli.net/2019/05/14/5cda2bcef36b512015.png" alt="表排序"></p>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p><img src="https://i.loli.net/2019/05/14/5cda2dfbcc17e29869.png" alt="基数排序"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 次位优先 */</span><br><span class="line"> </span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"> </span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line">  </span><br><span class="line">int GetDigit ( int X, int D )</span><br><span class="line">&#123; /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line">     </span><br><span class="line">    for (i=1; i&lt;=D; i++) &#123;</span><br><span class="line">        d = X % Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void LSDRadixSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 基数排序 - 次位优先 */</span><br><span class="line">     int D, Di, i;</span><br><span class="line">     Bucket B;</span><br><span class="line">     PtrToNode tmp, p, List = NULL; </span><br><span class="line">      </span><br><span class="line">     for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">         B[i].head = B[i].tail = NULL;</span><br><span class="line">     for (i=0; i&lt;N; i++) &#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">         tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">         tmp-&gt;key = A[i];</span><br><span class="line">         tmp-&gt;next = List;</span><br><span class="line">         List = tmp;</span><br><span class="line">     &#125;</span><br><span class="line">     /* 下面开始排序 */ </span><br><span class="line">     for (D=1; D&lt;=MaxDigit; D++) &#123; /* 对数据的每一位循环处理 */</span><br><span class="line">         /* 下面是分配的过程 */</span><br><span class="line">         p = List;</span><br><span class="line">         while (p) &#123;</span><br><span class="line">             Di = GetDigit(p-&gt;key, D); /* 获得当前元素的当前位数字 */</span><br><span class="line">             /* 从List中摘除 */</span><br><span class="line">             tmp = p; p = p-&gt;next;</span><br><span class="line">             /* 插入B[Di]号桶尾 */</span><br><span class="line">             tmp-&gt;next = NULL;</span><br><span class="line">             if (B[Di].head == NULL)</span><br><span class="line">                 B[Di].head = B[Di].tail = tmp;</span><br><span class="line">             else &#123;</span><br><span class="line">                 B[Di].tail-&gt;next = tmp;</span><br><span class="line">                 B[Di].tail = tmp;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         /* 下面是收集的过程 */</span><br><span class="line">         List = NULL; </span><br><span class="line">         for (Di=Radix-1; Di&gt;=0; Di--) &#123; /* 将每个桶的元素顺序收集入List */</span><br><span class="line">             if (B[Di].head) &#123; /* 如果桶不为空 */</span><br><span class="line">                 /* 整桶插入List表头 */</span><br><span class="line">                 B[Di].tail-&gt;next = List;</span><br><span class="line">                 List = B[Di].head;</span><br><span class="line">                 B[Di].head = B[Di].tail = NULL; /* 清空桶 */</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     /* 将List倒入A[]并释放空间 */</span><br><span class="line">     for (i=0; i&lt;N; i++) &#123;</span><br><span class="line">        tmp = List;</span><br><span class="line">        List = List-&gt;next;</span><br><span class="line">        A[i] = tmp-&gt;key;</span><br><span class="line">        free(tmp);</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 主位优先 */</span><br><span class="line"> </span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line"> </span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"> </span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node&#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line">  </span><br><span class="line">int GetDigit ( int X, int D )</span><br><span class="line">&#123; /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line">     </span><br><span class="line">    for (i=1; i&lt;=D; i++) &#123;</span><br><span class="line">        d = X%Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void MSD( ElementType A[], int L, int R, int D )</span><br><span class="line">&#123; /* 核心递归函数: 对A[L]...A[R]的第D位数进行排序 */</span><br><span class="line">     int Di, i, j;</span><br><span class="line">     Bucket B;</span><br><span class="line">     PtrToNode tmp, p, List = NULL; </span><br><span class="line">     if (D==0) return; /* 递归终止条件 */</span><br><span class="line">      </span><br><span class="line">     for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">         B[i].head = B[i].tail = NULL;</span><br><span class="line">     for (i=L; i&lt;=R; i++) &#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">         tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">         tmp-&gt;key = A[i];</span><br><span class="line">         tmp-&gt;next = List;</span><br><span class="line">         List = tmp;</span><br><span class="line">     &#125;</span><br><span class="line">     /* 下面是分配的过程 */</span><br><span class="line">     p = List;</span><br><span class="line">     while (p) &#123;</span><br><span class="line">         Di = GetDigit(p-&gt;key, D); /* 获得当前元素的当前位数字 */</span><br><span class="line">         /* 从List中摘除 */</span><br><span class="line">         tmp = p; p = p-&gt;next;</span><br><span class="line">         /* 插入B[Di]号桶 */</span><br><span class="line">         if (B[Di].head == NULL) B[Di].tail = tmp;</span><br><span class="line">         tmp-&gt;next = B[Di].head;</span><br><span class="line">         B[Di].head = tmp;</span><br><span class="line">     &#125;</span><br><span class="line">     /* 下面是收集的过程 */</span><br><span class="line">     i = j = L; /* i, j记录当前要处理的A[]的左右端下标 */</span><br><span class="line">     for (Di=0; Di&lt;Radix; Di++) &#123; /* 对于每个桶 */</span><br><span class="line">         if (B[Di].head) &#123; /* 将非空的桶整桶倒入A[], 递归排序 */</span><br><span class="line">             p = B[Di].head;</span><br><span class="line">             while (p) &#123;</span><br><span class="line">                 tmp = p;</span><br><span class="line">                 p = p-&gt;next;</span><br><span class="line">                 A[j++] = tmp-&gt;key;</span><br><span class="line">                 free(tmp);</span><br><span class="line">             &#125;</span><br><span class="line">             /* 递归对该桶数据排序, 位数减1 */</span><br><span class="line">             MSD(A, i, j-1, D-1);</span><br><span class="line">             i = j; /* 为下一个桶对应的A[]左端 */</span><br><span class="line">         &#125; </span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void MSDRadixSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 统一接口 */</span><br><span class="line">    MSD(A, 0, N-1, MaxDigit); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="排序算法比较"><a href="#排序算法比较" class="headerlink" title="排序算法比较"></a>排序算法比较</h1><p><img src="https://i.loli.net/2019/05/14/5cda2f24f15e577385.png" alt="排序算法比较"></p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/2019-05-12-R-CNN%E7%B3%BB%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/12/2019-05-12-R-CNN%E7%B3%BB%E5%88%97/" itemprop="url">R-CNN系列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T00:00:00+08:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>在解析Mask R-CNN之前，不得不告诉大家一个事实，Mask R-CNN是继承于Faster R-CNN (2016)的，Mask R-CNN只是在Faster R-CNN上面加了一个Mask Prediction Branch (Mask 预测分支)，并且改良了ROI Pooling，提出了ROI Align。所以，在解析Mask R-CNN之前，先给大家分析一下Faster R-CNN。<br>在给大家解析Faster R-CNN之前，又要告诉大家，Faster R-CNN是继承于Fast R-CNN (2015)，Fast R-CNN继承于R-CNN (2014)。因此，索性破釜沉舟，在本篇博文中，就按照R-CNN, Fast R-CNN，Faster R-CNN再到Mask R-CNN的发展顺序全部解析。</p>
+</blockquote>
+<h1 id="1-R-CNN"><a href="#1-R-CNN" class="headerlink" title="1. R-CNN"></a>1. R-CNN</h1><p>简单来说，R-CNN首先模型输入为一张图片，然后在图片上提出了约2000个待检测区域，然后这2000个待检测区域一个一个地(串联方式)通过卷积神经网络提取特征，然后这些被提取的特征通过一个支持向量机(SVM)进行分类，得到物体的类别，并通过一个bounding box regression调整目标包围框的大小。<br>具体步骤分为四步：</p>
+<ol>
+<li>候选区域提出阶段（Proposal）：采用selective-search方法，从一幅图像生成1K~2K个候选区域；</li>
+<li>特征提取：对每个候选区域，使用CNN进行特征提取；</li>
+<li>分类：每个候选区域的特征放入分类器SVM，得到该候选区域的分类结果；</li>
+<li>回归：候选区域的特征放入回归器，得到bbox的修正量。</li>
+</ol>
+<h2 id="1-1-候选区域提出阶段所产生的结果尺寸不同？"><a href="#1-1-候选区域提出阶段所产生的结果尺寸不同？" class="headerlink" title="1.1 候选区域提出阶段所产生的结果尺寸不同？"></a>1.1 候选区域提出阶段所产生的结果尺寸不同？</h2><p>由于RCNN特征提取阶段采用的是AlexNet，其最后两层是全连接层fc6和fc7，所以必须保证输入的图片尺寸相同。</p>
+<p>而候选区域所产生的结果尺寸是不相同的。为此，论文中作者采用了多种方式对图片进行放缩（各向同性、各向异性、加padding），最后经过对比实验确定各向异性加padding的放缩方式效果最好。各向同性、各向异性、加padding的具体效果可以看上面链接中的文章。</p>
+<h2 id="1-2-分类器SVM使用的是二分类？"><a href="#1-2-分类器SVM使用的是二分类？" class="headerlink" title="1.2 分类器SVM使用的是二分类？"></a>1.2 分类器SVM使用的是二分类？</h2><p>论文中，单个SVM实现的是二分类，分类器阶段由多个SVM组合而成。比如总共有20种不同的物体（加1种背景），那么分类阶段必须要有21个SVM：第1个SVM的输出是该候选区域属于分类1的概率；第2个SVM的输出是该候选区域属于分类2的概率；……；第21个SVM的输出是该候选区域属于背景的概率。</p>
+<p>对21个SVM的输出结果进行排序，哪个输出最大，候选区域就属于哪一类。比如，对于某个候选区域，第21个SVM的输出最大，那么就将该候选区域标为背景。</p>
+<h2 id="1-3-分类器的输入是？回归器的输入是？"><a href="#1-3-分类器的输入是？回归器的输入是？" class="headerlink" title="1.3 分类器的输入是？回归器的输入是？"></a>1.3 分类器的输入是？回归器的输入是？</h2><p>分类器的输入是特征提取器AlexNet的fc6的输出结果，回归器的输入是特征提取器AlexNet的pool5的输出结果。</p>
+<p>之所以这样取输入，是因为，分类器不依赖坐标信息，所以取fc6全连接层的结果是没有问题的。但是回归器依赖坐标信息（要输出坐标的修正量），必须取坐标信息还没有丢失前的层。而fc6全连接层已经丢失了坐标信息。</p>
+<h2 id="1-4-正负样本的选择？"><a href="#1-4-正负样本的选择？" class="headerlink" title="1.4 正负样本的选择？"></a>1.4 正负样本的选择？</h2><p>正负样本是必须要考虑的问题。论文的做法是每个batch所采样的正负样本比为1：3。当然这个比例是可以变化的，这个系列的后续改进就把正负样本比变为了1：1。</p>
+<p>如果之前没有接触过类似问题的话，是比较容易想当然地认为训练特征提取器、分类器、回归器时，就是把候选区域生成阶段的所有候选区域都放入训练。这样的思路是错的。一张图片中，背景占了绝大多数地方，这样就导致训练用的正样本远远少于负样本，对训练不利。</p>
+<p>正确的做法是对所有候选区域进行随机采样，要求采样的结果中正样本有x张，负样本y张，且保证x与y在数值上相近。（对于一些问题，不大容易做到x:y = 1:1，但至少x与y应该在同一数量级下）</p>
+<h2 id="1-5-如何训练？"><a href="#1-5-如何训练？" class="headerlink" title="1.5 如何训练？"></a>1.5 如何训练？</h2><p>RCNN的网络架构，注定了它不能像其他网络那样进行端到端（end-to-end）的训练。</p>
+<p>前面提到RCNN分为4个阶段：Proposal阶段、特征提取阶段、分类阶段、回归阶段。这4个阶段都是相互独立训练的。</p>
+<p>首先，特征提取器是AlexNet，将它的最后一层fc7进行改造，使得fc7能够输出分类结果。Proposal阶段对每张图片产生了1k~2k个候选区域，把这些图片依照正负样本比例喂给特征提取器，特征提取器fc7输出的分类结果与标签结果进行比对，完成特征提取器的训练。特征提取器的训练完成后，fc7层的使命也完成了，后面的分类器和回归器只会用到fc6、pool5的输出。</p>
+<p>然后，Proposal和特征提取器已经训练完毕了。把它们的结果fc6，输入到分类器SVM中，SVM输出与标签结果比对，完成SVM的训练。</p>
+<p>最后，回归器的训练也和SVM类似，只不过回归器取的是pool5的结果。</p>
+<p>为什么不能同时进行上面3步的训练？因为特征提取器是CNN，分类器是SVM，回归器是脊回归器，不属于同一体系，无法共同训练。甚至在测试时，也需要把每一阶段的结果先保存到磁盘，再喂入下一阶段。这是非常麻烦的一件事。</p>
+<p>聪明的你可能已经想到了：CNN不就能完成分类器和回归器的任务嘛？为什么不只用CNN？这就是RCNN系列后续做的改进之一，我们在下面会讲到。但由于某些原因，在RCNN这篇论文发表时，采用的是特征提取、分类器、回归器相互独立的结构。</p>
+<h2 id="1-6-Proposal的每个候选区域单独提取特征，是不是很慢？"><a href="#1-6-Proposal的每个候选区域单独提取特征，是不是很慢？" class="headerlink" title="1.6 Proposal的每个候选区域单独提取特征，是不是很慢？"></a>1.6 Proposal的每个候选区域单独提取特征，是不是很慢？</h2><p>是的，很慢。Proposal阶段会产生1k<del>2k个候选区域，每个候选区域都独立提取特征的话，那相当于每幅图片都要进行1k</del>2k次CNN。（当然由于有正负样本采样，实际并没有有这么多）</p>
+<p>有没有什么好方法？聪明的你应该能想到：既然候选区域都是图片的一部分，那么先对整张图片进行特征提取，然后根据每个候选区域在原图上的位置选择相应的特征不就行了。</p>
+<p>这种方式正是RCNN系列的后续改进之一，只不过在实现上要动点脑筋。（这种方式得到的每个区域的特征数目是不同的，如何把不同特征数目变为相同数目？）</p>
+<h1 id="2-Fast-RCNN"><a href="#2-Fast-RCNN" class="headerlink" title="2. Fast-RCNN"></a>2. Fast-RCNN</h1><p>首先还是采用selective search提取2000个候选框，然后，使用一个神经网络对全图进行特征提取。接着，使用一个RoI Pooling Layer在全图特征上摘取每一个RoI对应的特征，再通过全连接层(FC Layer)进行分类与包围框的修正。Fast R-CNN的贡献可以主要分为两个方面：</p>
+<p>1) 取代R-CNN的串行特征提取方式，直接采用一个神经网络对全图提取特征(这也是为什么需要RoI Pooling的原因)。<br>2) 除了selective search，其他部分都可以合在一起训练。</p>
+<h2 id="2-1-为什么叫Fast？"><a href="#2-1-为什么叫Fast？" class="headerlink" title="2.1 为什么叫Fast？"></a>2.1 为什么叫Fast？</h2><p>将特征提取器、分类器、回归器合并，使得训练过程不需要再将每阶段结果保存磁盘单独训练，可以一次性完成训练，加快了训练速度。这是Fast之一。</p>
+<p>对整张图片进行特征提取，用ROI层处理候选区域的特征，使得原本每一个候选区域都要做一次特征提取，变为了现在一整张图片做一次特征提取。训练速度（8.8倍）和测试速度（146倍）都大大加快，这是Fast之二。</p>
+<h2 id="2-2-分类器和回归器的实现细节？"><a href="#2-2-分类器和回归器的实现细节？" class="headerlink" title="2.2 分类器和回归器的实现细节？"></a>2.2 分类器和回归器的实现细节？</h2><p>分类器应该都能想到，用的softmax代替SVM。</p>
+<p>回归器求出（x,y,w,h）4个量，分别代表定位框左上角的坐标xy、宽度w、高度h，损失函数用的是Smooth-L1。</p>
+<h2 id="2-3-Proposal阶段看上去有点违和？"><a href="#2-3-Proposal阶段看上去有点违和？" class="headerlink" title="2.3 Proposal阶段看上去有点违和？"></a>2.3 Proposal阶段看上去有点违和？</h2><p>发展到Fast-RCNN，后续3个阶段都是CNN完成的了，只剩下Proposal阶段还没有用CNN方式解决。Proposal阶段的结果还是需要先保存到磁盘，再喂入后续阶段，有点违和。</p>
+<p>RCNN系列后续的改进，将把Proposal阶段也用CNN实现，真正做到端到端（end-to-end）。</p>
+<h1 id="3-Faster-RCNN"><a href="#3-Faster-RCNN" class="headerlink" title="3.Faster-RCNN"></a>3.Faster-RCNN</h1><p>Faster-RCNN引入了RPN网络（region proposal network）来代替selective-search。这使得整个网络实现了端到端。</p>
+<h2 id="3-1-RPN网络是如何工作的？"><a href="#3-1-RPN网络是如何工作的？" class="headerlink" title="3.1 RPN网络是如何工作的？"></a>3.1 RPN网络是如何工作的？</h2><p>整张图片经过特征提取，得到FeatureMap；将FeatureMap中的每一点按照视野域找到原图中对应的位置，称为Anchor；每个Anchor生成不同大小不同长宽比的多个候选区域。</p>
+<p>回忆下selective-search的候选区域生成方式，它是按照颜色和纹理不断合并得到候选区域的，候选区域的产生没有规律，而RPN是每个Anchor都有对应的固定数量的候选区域，规律很明显。</p>
+<p>理论上说，selective-search生成候选区域的方式更符合我们的直觉，而实验结果，在Faster-RCNN中RPN并不比selective-search差</p>
+<h2 id="3-2-为什么是Faster？"><a href="#3-2-为什么是Faster？" class="headerlink" title="3.2 为什么是Faster？"></a>3.2 为什么是Faster？</h2><p>容易想到，现在RPN网络可以与其他3个阶段共用同一个特征提取结果了，省掉了selective-search的时间。而事实上，selective-search是非常慢的，所以叫Faster。</p>
+<h1 id="4-Mask-RCNN"><a href="#4-Mask-RCNN" class="headerlink" title="4.Mask-RCNN"></a>4.Mask-RCNN</h1><h2 id="4-1-为什么叫mask？"><a href="#4-1-为什么叫mask？" class="headerlink" title="4.1 为什么叫mask？"></a>4.1 为什么叫mask？</h2><p>Faster-RCNN网络的最后分别是分类网络和回归网络两条路并行，Mask-RCNN则是再加一条Mask网络与它们并行。</p>
+<p>Mask网络的实现是FCN网络，这也是语义分割领域中非常经典的网络结构。</p>
+<p>由于Mask网络的加入，Mask-RCNN不仅能处理物体检测问题，还能处理语义分割问题。</p>
+<h2 id="4-2-还有哪些细节上的变化？"><a href="#4-2-还有哪些细节上的变化？" class="headerlink" title="4.2 还有哪些细节上的变化？"></a>4.2 还有哪些细节上的变化？</h2><p>首先是ROI层变为了ROIAlign，目的是一样的。那为什么要加入ROIAlign呢？这是因为ROI层会有对齐问题，对齐问题在分类和框选时影响不大，但在语义分割需要严格依赖每个像素点的坐标时，影响会很大。ROIAlign能够解决对齐问题。</p>
+<p>然后是特征提取网络改为了ResNet101+FPN；FPN建议对语义分割或者关键点定位感兴趣的同学了解下，FPN是这两个领域中非常经典的结构。</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/2019-05-07-Mask%20R-CNN%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/07/2019-05-07-Mask%20R-CNN%E6%80%BB%E7%BB%93/" itemprop="url">Mask R-CNN总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T00:00:00+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>原文链接：<a href="https://arxiv.org/abs/1703.06870" target="_blank" rel="noopener">https://arxiv.org/abs/1703.06870</a><br>目前找到了非常好的一位博客：<a href="https://blog.csdn.net/WZZ18191171661/article/details/79453780，" target="_blank" rel="noopener">https://blog.csdn.net/WZZ18191171661/article/details/79453780，</a> 感谢！<br><a href="https://blog.csdn.net/jiongnima/article/details/79094159，" target="_blank" rel="noopener">https://blog.csdn.net/jiongnima/article/details/79094159，</a> 这个也不错。<br>相关知识介绍：<br>R-CNN-<a href="https://www.jianshu.com/p/5056e6143ed5" target="_blank" rel="noopener">https://www.jianshu.com/p/5056e6143ed5</a>;<br>Faster R-CNN-<a href="https://blog.csdn.net/qq_17448289/article/details/52871461" target="_blank" rel="noopener">https://blog.csdn.net/qq_17448289/article/details/52871461</a><br><a href="https://blog.csdn.net/u011974639/article/details/78053203" target="_blank" rel="noopener">https://blog.csdn.net/u011974639/article/details/78053203</a>, 个人感觉这两篇讲的很好。</p>
+</blockquote>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><ul>
+<li>Mask RCNN可以看做是一个通用实例分割架构。</li>
+<li>Mask RCNN以Faster RCNN原型，增加了一个分支用于分割任务。</li>
+<li>Mask RCNN比Faster RCNN速度慢一些，达到了5fps。</li>
+<li>可用于人的姿态估计等其他任务</li>
+</ul>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1><ul>
+<li>实例分割不仅要正确的找到图像中的objects，还要对其精确的分割。所以Instance Segmentation可以看做object dection和semantic segmentation的结合。</li>
+<li>Mask RCNN是Faster RCNN的扩展，对于Faster RCNN的每个Proposal Box都要使用FCN进行语义分割，分割任务与定位、分类任务是同时进行的。</li>
+<li>引入了RoI Align代替Faster RCNN中的RoI Pooling。因为RoI Pooling并不是按照像素一一对齐的（pixel-to-pixel alignment），也许这对bbox的影响不是很大，但对于mask的精度却有很大影响。使用RoI Align后mask的精度从10%显著提高到50%，第3节将会仔细说明。</li>
+<li>引入语义分割分支，实现了mask和class预测的关系的解耦，mask分支只做语义分割，类型预测的任务交给另一个分支。这与原本的FCN网络是不同的，原始的FCN在预测mask时还用同时预测mask所属的种类。</li>
+<li>没有使用什么花哨的方法，Mask RCNN就超过了当时所有的state-of-the-art模型。</li>
+<li>使用8-GPU的服务器训练了两天。</li>
+</ul>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h1><ul>
+<li>相比于FCIS，FCIS使用全卷机网络，同时预测物体classes、boxes、masks，速度更快，但是对于重叠物体的分割效果不好。</li>
+</ul>
+<h1 id="3-Mask-R-CNN"><a href="#3-Mask-R-CNN" class="headerlink" title="3.Mask R-CNN"></a>3.Mask R-CNN</h1><ul>
+<li>Mask R-CNN基本结构：与Faster RCNN采用了相同的two-state步骤：首先是找出RPN，然后对RPN找到的每个RoI进行分类、定位、并找到binary mask。这与当时其他先找到mask然后在进行分类的网络是不同的。</li>
+<li>Mask R-CNN的损失函数：L = L<sub>cls</sub> + L<sub>box</sub> + L<sub>mask</sub></li>
+<li>Mask的表现形式(Mask Representation)：因为没有采用全连接层并且使用了RoIAlign，可以实现输出与输入的像素一一对应。</li>
+<li>RoIAlign：RoIPool的目的是为了从RPN网络确定的ROI中导出较小的特征图(a small feature map，eg 7x7)，ROI的大小各不相同，但是RoIPool后都变成了7x7大小。RPN网络会提出若干RoI的坐标以[x,y,w,h]表示，然后输入RoI Pooling，输出7x7大小的特征图供分类和定位使用。问题就出在RoI Pooling的输出大小是7x7上，如果RON网络输出的RoI大小是8*8的，那么无法保证输入像素和输出像素是一一对应，首先他们包含的信息量不同（有的是1对1，有的是1对2），其次他们的坐标无法和输入对应起来（1对2的那个RoI输出像素该对应哪个输入像素的坐标？）。这对分类没什么影响，但是对分割却影响很大。RoIAlign的输出坐标使用插值算法得到，不再量化；每个grid中的值也不再使用max，同样使用差值算法。</li>
+<li>Network Architecture: 为了表述清晰，有两种分类方法</li>
+</ul>
+<ol>
+<li>使用了不同的backbone：resnet-50，resnet-101，resnext-50，resnext-101；</li>
+<li>使用了不同的head Architecture：Faster RCNN使用resnet50时，从CONV4导出特征供RPN使用，这种叫做ResNet-50-C4</li>
+<li>作者使用除了使用上述这些结构外，还使用了一种更加高效的backbone——FPN</li>
+</ol>
+<h2 id="3-1-Implementation-Details"><a href="#3-1-Implementation-Details" class="headerlink" title="3.1.Implementation Details"></a>3.1.Implementation Details</h2><p>使用Fast/Faster相同的超参数，同样适用于Mask RCNN</p>
+<ul>
+<li>Training:<br>1、与之前相同，当IoU与Ground Truth的IoU大于0.5时才会被认为有效的RoI，L{_{mask}}只把有效RoI计算进去。<br>2、采用image-centric training，图像短边resize到800，每个GPU的mini-batch设置为2，每个图像生成N个RoI，对于C4 backbone的N=64，对于FPN作为backbone的，N=512。作者服务器中使用了8块GPU，所以总的minibatch是16，迭代了160k次，初始lr=0.02，在迭代到120k次时，将lr设定到 lr=0.002，另外学习率的weight_decay=0.0001，momentum = 0.9。如果是resnext，初始lr=0.01,每个GPU的mini-batch是1。<br>3、RPN的anchors有5种scale，3种ratios。为了方便剥离、如果没有特别指出，则RPN网络是单独训练的且不与Mask R-CNN共享权重。但是在本论文中，RPN和Mask R-CNN使用一个backbone，所以他们的权重是共享的。<br>（Ablation Experiments 为了方便研究整个网络中哪个部分其的作用到底有多大，需要把各部分剥离开）</li>
+</ul>
+<ul>
+<li>Inference：<br>在测试时，使用C4 backbone情况下proposal number=300，使用FPN时proposal number=1000。然后在这些proposal上运行bbox预测，接着进行非极大值抑制。mask分支只应用在得分最高的100个proposal上。顺序和train是不同的，但这样做可以提高速度和精度。mask 分支对于每个roi可以预测k个类别，但是我们只要背景和前景两种，所以只用k-th mask，k是根据分类分支得到的类型。然后把k-th mask resize成roi大小，同时使用阈值分割(threshold=0.5)二值化</li>
+</ul>
+<h1 id="4-Experiments-Instance-Segmentation"><a href="#4-Experiments-Instance-Segmentation" class="headerlink" title="4.Experiments: Instance Segmentation"></a>4.Experiments: Instance Segmentation</h1><h2 id="4-1-Main-Results"><a href="#4-1-Main-Results" class="headerlink" title="4.1.Main Results"></a>4.1.Main Results</h2><p>在下图中可以明显看出，FCIS的分割结果中都会出现一条竖着的线(systematic artifacts)，这线主要出现在物体重的部分，作者认为这是FCIS架构的问题，无法解决的。但是在Mask RCNN中没有出现。<br><img src="https://i.loli.net/2019/04/29/5cc65cc9ecfc3.png" alt="figure6&amp;table2"></p>
+<h2 id="4-2-Ablation-Experiments"><a href="#4-2-Ablation-Experiments" class="headerlink" title="4.2. Ablation Experiments"></a>4.2. Ablation Experiments</h2><ul>
+<li>Architecture:<br>从table 2a中看出，Mask RCNN随着增加网络的深度、采用更先进的网络，都可以提高效果。注意：并不是所有的网络都是这样。</li>
+<li>Multinomial vs. Independent Masks:(mask分支是否进行类别预测)                                                                                    从table 2b中可以看出，使用sigmoid(二分类)和使用softmax(多类别分类)的AP相差很大，证明了分离类别和mask的预测是很有必要的</li>
+<li>Class-Specific vs. Class-Agnostic Masks:                                                                                                                            目前使用的mask rcnn都使用class-specific masks，即每个类别都会预测出一个mxm的mask，然后根据类别选取对应的类别的mask。但是使用Class-Agnostic Masks，即分割网络只输出一个mxm的mask，可以取得相似的成绩29.7vs30.3</li>
+<li>RoIAlign:                                                                                                                                                                                    tabel 2c证明了RoIAlign的性能</li>
+<li>Mask Branch:<br>tabel 2e，FCN比MLP性能更好</li>
+</ul>
+<h2 id="4-3-Bounding-Box-Detection-Results"><a href="#4-3-Bounding-Box-Detection-Results" class="headerlink" title="4.3.Bounding Box Detection Results"></a>4.3.Bounding Box Detection Results</h2><ul>
+<li>Mask RCNN精度高于Faster RCNN</li>
+<li>Faster RCNN使用RoI Align的精度更高</li>
+<li>Mask RCNN的分割任务得分与定位任务得分相近，说明Mask RCNN已经缩小了这部分差距。</li>
+</ul>
+<h2 id="4-4-Timing"><a href="#4-4-Timing" class="headerlink" title="4.4.Timing"></a>4.4.Timing</h2><ul>
+<li>Inference：195ms一张图片，显卡Nvidia Tesla M40。其实还有速度提升的空间，比如减少proposal的数量等。</li>
+<li>Training：ResNet-50-FPN on COCO trainval35k takes 32 hours  in our synchronized 8-GPU implementation (0.72s per 16-image mini-batch)，and 44 hours with ResNet-101-FPN。</li>
+</ul>
+<h1 id="5-Mask-R-CNN-for-Human-Pose-Estimation"><a href="#5-Mask-R-CNN-for-Human-Pose-Estimation" class="headerlink" title="5. Mask R-CNN for Human Pose Estimation"></a>5. Mask R-CNN for Human Pose Estimation</h1><p>让Mask R-CNN预测k个masks，每个mask对应一个关键点的类型，比如左肩、右肘，可以理解为one-hot形式。</p>
+<ul>
+<li>使用cross entropy loss，可以鼓励网络只检测一个关键点;</li>
+<li>ResNet-FPN结构</li>
+<li>训练了90k次，最开始lr=0.02，在迭代60k次时，lr=0.002,80k次时变为0.0002</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/29/5cc65f4085801.png" alt="figure7"><br><em>图7.使用Mask R-CNN（ResNet-50-FPN）在COCO测试中的关键点检测结果，以及从相同模型预测的人分割掩码。该模型的关键点AP为63.1，运行速度为5 fps。</em></p>
+<p><img src="https://i.loli.net/2019/04/29/5cc6605e29496.png" alt="table4/5/6"></p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -949,11 +1502,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/8/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -973,6 +1526,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -990,11 +1544,11 @@
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">89</span>
+              <a href="/archives/">
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1003,8 +1557,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1079,7 +1635,7 @@
         
       </div>
     
-    
+
   </div>
 
   
@@ -1099,6 +1655,14 @@
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1125,26 +1689,29 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
 
 
   
@@ -1170,21 +1737,22 @@
 
 
 
-  
-
-
-
-  
-  
 
   
 
-  
+
+
+
 
   
 
   
 
+  
+
+  
+
+  
 
   
 

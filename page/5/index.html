@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -68,7 +75,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +87,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -103,8 +110,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,11 +136,7 @@
 
 
 
-  <title> Hexo </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hexo</title>
   
 
 
@@ -147,13 +151,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -201,8 +209,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -212,7 +240,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -248,8 +276,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/2019-09-15-JavaWeb2/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -267,16 +299,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/09/15/2019-09-15-JavaWeb2/" itemprop="url">
-                  JavaWeb2
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/" itemprop="url">前端开发(1)-CSS入门及提高1</a></h1>
         
 
         <div class="post-meta">
@@ -288,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T00:00:00+08:00">
-                2019-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T00:00:00+08:00">
+                2019-07-19
               </time>
             
 
@@ -317,7 +341,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -327,152 +353,579 @@
         
           
             <blockquote>
-<p>动态资源分为Servlet和JSP，前者是基础。</p>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
 </blockquote>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Sun公司在其API中提供了一个Servlet接口，用户若想开发一个动态web资源（即开发一个java程序向浏览器输出数据），需要完成以下两个步骤：</p>
+<h1 id="CSS的发展历程"><a href="#CSS的发展历程" class="headerlink" title="CSS的发展历程"></a>CSS的发展历程</h1><p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。<br>随着HTML的成长，为了满足页面设计者的要求，HTML添加了很多显示功能。但是随着这些功能的增加，HTML变的越来越杂乱，而且HTML页面也越来越臃肿。于是CSS便诞生了。</p>
+<h1 id="CSS-网页的美容师"><a href="#CSS-网页的美容师" class="headerlink" title="CSS 网页的美容师"></a>CSS 网页的美容师</h1><p>CSS的最大贡献就是：实现了网页结构和样式的相分离。拯救了混乱的HTML，让我们的网页更加丰富多彩，当然更加拯救了我们web开发者。 </p>
+<h1 id="CSS定义"><a href="#CSS定义" class="headerlink" title="CSS定义"></a>CSS定义</h1><p>CSS(Cascading Style Sheets)</p>
+<p>CSS通常称为CSS样式表或层叠样式表（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。</p>
+<p>CSS以HTML为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不同的样式。</p>
+<h1 id="CSS样式规则"><a href="#CSS样式规则" class="headerlink" title="CSS样式规则"></a>CSS样式规则</h1><p>使用HTML时，需要遵从一定的规范。CSS亦如此，要想熟练地使用CSS对网页进行修饰，首先需要了解CSS样式规则，具体格式如下：                                          </p>
+<p><img src="https://i.loli.net/2019/07/19/5d3110402ed4e50465.png" alt="CSS样式规则"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在上面的样式规则中:</span><br><span class="line"></span><br><span class="line">1.选择器用于指定CSS样式作用的HTML对象，花括号内是对该对象设置的具体样式。</span><br><span class="line">2.属性和属性值以“键值对”的形式出现。</span><br><span class="line">3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等。</span><br><span class="line">4.属性和属性值之间用英文“:”连接。</span><br><span class="line">5.多个“键值对”之间用英文“;”进行区分。</span><br><span class="line">可以用段落 和 表格的对齐的演示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS字体样式属性"><a href="#CSS字体样式属性" class="headerlink" title="CSS字体样式属性"></a>CSS字体样式属性</h1><h2 id="font-size-字号大小"><a href="#font-size-字号大小" class="headerlink" title="font-size:字号大小"></a>font-size:字号大小</h2><p>font-size属性用于设置字号，该属性的值可以使用相对长度单位，也可以使用绝对长度单位。其中，相对长度单位比较常用，推荐使用像素单位px，绝对长度单位使用较少。</p>
+<h2 id="font-family-字体"><a href="#font-family-字体" class="headerlink" title="font-family:字体"></a>font-family:字体</h2><p>font-family属性用于设置字体。网页中常用的字体有宋体、微软雅黑、黑体等，例如将网页中所有段落文本的字体设置为微软雅黑，可以使用如下CSS样式代码：</p>
+<p>p{ font-family:”微软雅黑”;}</p>
+<p>可以同时指定多个字体，中间以逗号隔开，表示如果浏览器不支持第一个字体，则会尝试下一个，直到找到合适的字体。</p>
+<blockquote>
+<p><img src="media/good.png" />常用技巧：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 现在网页中普遍使用14px+。</span><br><span class="line">2. 尽量使用偶数的数字字号。ie6等老式浏览器支持奇数会有bug。</span><br><span class="line">3. 各种字体之间必须使用英文状态下的逗号隔开。</span><br><span class="line">4. 中文字体需要加英文状态下的引号，英文字体一般不需要加引号。当需要设置英文字体时，英文字体名必须位于中文字体名之前。</span><br><span class="line">5. 如果字体名中包含空格、#、$等符号，则该字体必须加英文状态下的单引号或双引号，例如font-family: &quot;Times New Roman&quot;;。</span><br><span class="line">6. 尽量使用系统默认字体，保证在任何用户的浏览器中都能正确显示。</span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS-Unicode字体"><a href="#CSS-Unicode字体" class="headerlink" title="CSS Unicode字体"></a>CSS Unicode字体</h2><p>在 CSS 中设置字体名称，直接写中文是可以的。但是在文件编码（GB2312、UTF-8 等）不匹配时会产生乱码的错误。xp 系统不支持 类似微软雅黑的中文。</p>
+<p>方案一： 你可以使用英文来替代。 比如 font-family:”Microsoft Yahei”。</p>
+<p>方案二： 在 CSS 直接使用 Unicode 编码来写字体名称可以避免这些错误。使用 Unicode 写中文字体名称，浏览器是可以正确的解析的。<br>font-family: “\5FAE\8F6F\96C5\9ED1”，表示设置字体为“微软雅黑”。</p>
+<p>可以通过escape()  来测试属于什么字体。</p>
+<table>
+<thead>
+<tr>
+<th>字体名称</th>
+<th>英文名称</th>
+<th>Unicode 编码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>宋体</td>
+<td>SimSun</td>
+<td>\5B8B\4F53</td>
+</tr>
+<tr>
+<td>新宋体</td>
+<td>NSimSun</td>
+<td>\65B0\5B8B\4F53</td>
+</tr>
+<tr>
+<td>黑体</td>
+<td>SimHei</td>
+<td>\9ED1\4F53</td>
+</tr>
+<tr>
+<td>微软雅黑</td>
+<td>Microsoft YaHei</td>
+<td>\5FAE\8F6F\96C5\9ED1</td>
+</tr>
+<tr>
+<td>楷体_GB2312</td>
+<td>KaiTi_GB2312</td>
+<td>\6977\4F53_GB2312</td>
+</tr>
+<tr>
+<td>隶书</td>
+<td>LiSu</td>
+<td>\96B6\4E66</td>
+</tr>
+<tr>
+<td>幼园</td>
+<td>YouYuan</td>
+<td>\5E7C\5706</td>
+</tr>
+<tr>
+<td>华文细黑</td>
+<td>STXihei</td>
+<td>\534E\6587\7EC6\9ED1</td>
+</tr>
+<tr>
+<td>细明体</td>
+<td>MingLiU</td>
+<td>\7EC6\660E\4F53</td>
+</tr>
+<tr>
+<td>新细明体</td>
+<td>PMingLiU</td>
+<td>\65B0\7EC6\660E\4F53</td>
+</tr>
+</tbody></table>
+<p>为了照顾不同电脑的字体安装问题，我们尽量只使用宋体和微软雅黑中文字体。</p>
+<h2 id="font-weight-字体粗细"><a href="#font-weight-字体粗细" class="headerlink" title="font-weight:字体粗细"></a>font-weight:字体粗细</h2><p>字体加粗除了用b和strong标签之外，可以使用CSS来实现，但是CSS是没有语义的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-weight属性用于定义字体的粗细，其可用属性值：normal、bold、bolder、lighter、100~900（100的整数倍）。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数字 400 等价于 <span class="selector-tag">normal</span>，而 700 等价于 <span class="selector-tag">bold</span>。  但是我们更喜欢用数字来表示。</span><br></pre></td></tr></table></figure>
+
+<h2 id="font-style-字体风格"><a href="#font-style-字体风格" class="headerlink" title="font-style:字体风格"></a>font-style:字体风格</h2><p>字体倾斜除了用i和em标签之外，可以使用CSS来实现，但是CSS       是没有语     义的。</p>
+<p>font-style属性用于定义字体风格，如设置斜体、倾斜或正常字体，其可用属性值如下：</p>
+<p>normal：默认值，浏览器会显示标准的字体样式。</p>
+<p>italic：浏览器会显示斜体的字体样式。</p>
+<h2 id="font-综合设置字体样式-重点"><a href="#font-综合设置字体样式-重点" class="headerlink" title="font:综合设置字体样式 (重点)"></a>font:综合设置字体样式 (重点)</h2><p>font属性用于对字体样式进行综合设置，其基本语法格式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;<span class="attribute">font</span>: font-style  font-weight  font-size/line-height  font-family;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</span><br><span class="line"></span><br><span class="line">注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/2019-07-18-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B54/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/18/2019-07-18-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B54/" itemprop="url">前端开发(1)-HTML入门与实践4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-18T00:00:00+08:00">
+                2019-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
+</blockquote>
+<h1 id="HTML5新标签"><a href="#HTML5新标签" class="headerlink" title="HTML5新标签"></a>HTML5新标签</h1><h2 id="常用新标签"><a href="#常用新标签" class="headerlink" title="常用新标签"></a>常用新标签</h2><p> w3c  手册中文官网     :   <a href="http://w3school.com.cn/" target="_blank" rel="noopener">http://w3school.com.cn/</a></p>
 <ul>
-<li>编写一个Java类，实现Servlet接口；</li>
-<li>把开发好的Java类部署到web服务器；</li>
+<li><p>header：定义文档的页眉 头部</p>
+</li>
+<li><p>nav：定义导航链接的部分</p>
+</li>
+<li><p>footer：定义文档或节的页脚 底部</p>
+</li>
+<li><p>article：定义文章。</p>
+</li>
+<li><p>section：定义文档中的节（section、区段）</p>
+</li>
+<li><p>aside：定义其所处内容之外的内容 侧边</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span> 语义 :定义页面的头部  页眉<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>  语义 :定义导航栏 <span class="tag">&lt;/<span class="name">nav</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span> 语义: 定义 页面底部 页脚<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span> 语义:  定义文章<span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span> 语义： 定义区域<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span> 语义： 定义其所处内容之外的内容 侧边<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p>datalist   标签定义选项列表。请与 input 元素配合使用该元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"输入明星"</span> <span class="attr">list</span>=<span class="string">"star"</span>/&gt;</span> <span class="comment">&lt;!--  input里面用 list --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"star"</span>&gt;</span>   <span class="comment">&lt;!-- datalist 里面用 id  来实现和 input 链接 --&gt;</span>  </span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>刘德华<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>刘若英<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>刘晓庆<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>郭富城<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>张学友<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">option</span>&gt;</span>郭郭<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p>fieldset 元素可将表单内的相关元素分组，打包      legend 搭配使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">legend</span>&gt;</span>用户登录<span class="tag">&lt;/<span class="name">legend</span>&gt;</span>  <span class="comment">&lt;!-- 标题 --&gt;</span></span><br><span class="line">    		用户名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    		密　码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>如同人一样，六岁上学，十八岁上大学，三十岁结婚，六十岁退休……这些事件是和人这个对象的生命周期相关的，到了某个特定时间就会做。同样，Servlet中有些方法和Servlet的生命周期也是相关的，文档中原文</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This interface defines methods to initialize a servlet, to service requests, and to remove a servlet from the server. These are known as life-cycle methods and are called in the following sequence: </span><br><span class="line"></span><br><span class="line">1. The servlet is constructed, then initialized with the init method. </span><br><span class="line">2. Any calls from clients to the service method are handled. </span><br><span class="line">3. The servlet is taken out of service, then destroyed with the destroy method, then garbage collected and finalized.</span><br></pre></td></tr></table></figure>
+<h2 id="新增的input-type属性值："><a href="#新增的input-type属性值：" class="headerlink" title="新增的input type属性值："></a>新增的input type属性值：</h2><table>
+<thead>
+<tr>
+<th><strong>类型****</strong></th>
+<th><strong>使用示例****</strong></th>
+<th><strong>含义****</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>email****</strong></td>
+<td><input type="email"></td>
+<td>输入邮箱格式</td>
+</tr>
+<tr>
+<td><strong>tel****</strong></td>
+<td><input type="tel"></td>
+<td>输入手机号码格式</td>
+</tr>
+<tr>
+<td><strong>url****</strong></td>
+<td><input type="url"></td>
+<td>输入url格式</td>
+</tr>
+<tr>
+<td><strong>number****</strong></td>
+<td><input type="number"></td>
+<td>输入数字格式</td>
+</tr>
+<tr>
+<td><strong>search****</strong></td>
+<td><input type="search"></td>
+<td>搜索框（体现语义化）</td>
+</tr>
+<tr>
+<td><strong>range****</strong></td>
+<td><input type="range"></td>
+<td>自由拖动滑块</td>
+</tr>
+<tr>
+<td><strong>time****</strong></td>
+<td><input type="time"></td>
+<td>小时分钟</td>
+</tr>
+<tr>
+<td><strong>date****</strong></td>
+<td><input type="date"></td>
+<td>年月日</td>
+</tr>
+<tr>
+<td><strong>datetime****</strong></td>
+<td><input type="datetime"></td>
+<td>时间</td>
+</tr>
+<tr>
+<td><strong>month****</strong></td>
+<td><input type="month"></td>
+<td>月年</td>
+</tr>
+<tr>
+<td><strong>week****</strong></td>
+<td><input type="week"></td>
+<td>星期 年</td>
+</tr>
+</tbody></table>
+<h2 id="常用新属性"><a href="#常用新属性" class="headerlink" title="常用新属性"></a>常用新属性</h2><table>
+<thead>
+<tr>
+<th><strong>属性****</strong></th>
+<th><strong>用法****</strong></th>
+<th><strong>含义****</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>placeholder****</strong></td>
+<td><input type="text" placeholder="请输入用户名"></td>
+<td>占位符  当用户输入的时候 里面的文字消失  删除所有文字，自动返回</td>
+</tr>
+<tr>
+<td><strong>autofocus****</strong></td>
+<td><input type="text" autofocus></td>
+<td>规定当页面加载时 input 元素应该自动获得焦点</td>
+</tr>
+<tr>
+<td><strong>multiple****</strong></td>
+<td><input type="file" multiple></td>
+<td>多文件上传</td>
+</tr>
+<tr>
+<td><strong>autocomplete****</strong></td>
+<td><input type="text" autocomplete="off"></td>
+<td>规定表单是否应该启用自动完成功能  有2个值，一个是on 一个是off      on 代表记录已经输入的值  1.autocomplete 首先需要提交按钮 <br/>2.这个表单您必须给他名字</td>
+</tr>
+<tr>
+<td><strong>required****</strong></td>
+<td><input type="text" required></td>
+<td>必填项  内容不能为空</td>
+</tr>
+<tr>
+<td><strong>accesskey****</strong></td>
+<td><input type="text" accesskey="s"></td>
+<td>规定激活（使元素获得焦点）元素的快捷键   采用 alt + s的形式</td>
+</tr>
+</tbody></table>
+<h1 id="多媒体标签"><a href="#多媒体标签" class="headerlink" title="多媒体标签"></a>多媒体标签</h1><ul>
+<li><p>embed：标签定义嵌入的内容</p>
+</li>
+<li><p>audio：播放音频</p>
+</li>
+<li><p>video：播放视频</p>
+</li>
+</ul>
+<h2 id="多媒体-embed"><a href="#多媒体-embed" class="headerlink" title="多媒体 embed"></a>多媒体 embed</h2><p>embed可以用来插入各种多媒体，格式可以是 Midi、Wav、AIFF、AU、MP3等等。url为音频或视频文件及其路径，可以是相对路径或绝对路径。</p>
+<p>因为兼容性问题，我们这里只讲解 插入网络视频， 后面H5会讲解 audio 和video 视频多媒体。 </p>
+<h2 id="多媒体-audio"><a href="#多媒体-audio" class="headerlink" title="多媒体 audio"></a>多媒体 audio</h2><p>HTML5通过<audio>标签来解决音频播放的问题。可以通过附加属性可以更友好控制音频的播放，如：<br>autoplay 自动播放</p>
+<p>controls 是否显不默认播放控件</p>
+<p>loop 循环播放   loop = 2 就是循环2次   loop  或者  loop = “-1”   无限循环</p>
+<h2 id="多媒体-video"><a href="#多媒体-video" class="headerlink" title="多媒体 video"></a>多媒体 video</h2><p>HTML5通过<video>标签来解决视频播放的问题。</p>
+<p>同样，通过附加属性可以更友好的控制视频的播放</p>
+<p>autoplay 自动播放</p>
+<p>controls 是否显示默认播放控件</p>
+<p>loop 循环播放</p>
+<p>width 设置播放窗口宽度</p>
+<p>height 设置播放窗口的高度</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
-<p>也就是初始化init()、响应请求service()、移除destory()这些方法在某个特定时刻必定会执行。具体来说，客户端第一次访问web资源时会创建一个servlet对象，随后init方法会完成对象的初始化，servlet对象不会随着此次访问结束而摧毁，而是留于内存中，客户端访问调用service方法，调用service方法时先创建request对象和response对象，直至关闭服务器或者web应用从服务器删除才会调用servlet的destory()方法。</p>
-<p><img src="https://i.loli.net/2019/09/18/J7SmpFgCARqaV4s.png" alt=""></p>
-<h2 id="初试"><a href="#初试" class="headerlink" title="初试"></a>初试</h2><ol>
-<li>在tomcat中新建一个servlettest应用，在应用中新建一个WEB-INF/classes目录；</li>
-<li>在classes目录中新建一个FirstServlet.java</li>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/2019-07-17-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B53/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/17/2019-07-17-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B53/" itemprop="url">前端开发(1)-HTML入门与实践3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T00:00:00+08:00">
+                2019-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
+</blockquote>
+<h1 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h1><h2 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h2><p>创建表格的基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格内的文字<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.table用于定义一个表格。</span><br><span class="line"></span><br><span class="line">2.tr 用于定义表格中的一行，必须嵌套在 table标签中，在 table中包含几对 tr，就有几行表格。</span><br><span class="line"></span><br><span class="line">3.td /td：用于定义表格中的单元格，必须嵌套在&lt;tr&gt;&lt;/tr&gt;标签中，一对 &lt;tr&gt; &lt;/tr&gt;中包含几对&lt;td&gt;&lt;/td&gt;，就表示该行中有多少列（或多少个单元格）。</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. &lt;tr&gt;&lt;/tr&gt;中只能嵌套&lt;td&gt;&lt;/td&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. &lt;td&gt;&lt;/td&gt;标签，他就像一个容器，可以容纳所有的元素</span><br></pre></td></tr></table></figure>
+
+<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><p><img src="https://i.loli.net/2019/07/17/5d2e7ac7dccd934808.png" alt="表格属性"></p>
+<h2 id="表头标签"><a href="#表头标签" class="headerlink" title="表头标签"></a>表头标签</h2><p>表头一般位于表格的第一行或第一列，其文本加粗居中，即为设置了表头的表格。需用表头标签&lt;th&gt;&lt;/th&gt;替代相应的单元格标签&lt;td&gt;&lt;/td&gt;即可。</p>
+<h2 id="表格结构"><a href="#表格结构" class="headerlink" title="表格结构"></a>表格结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;thead&gt;&lt;/thead&gt;：用于定义表格的头部。</span><br><span class="line">必须位于&lt;table&gt;&lt;/table&gt; 标签中，一般包含网页的logo和导航等头部信息。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;tbody&gt;&lt;/tbody&gt;：用于定义表格的主体。</span><br><span class="line">位于&lt;table&gt;&lt;/table&gt;标签中，一般包含网页中除头部和底部之外的其他内容。</span><br></pre></td></tr></table></figure>
+<h2 id="表格标题"><a href="#表格标题" class="headerlink" title="表格标题"></a>表格标题</h2><p><strong>表格的标题： caption</strong></p>
+<p><strong>定义和用法</strong></p>
+<p>caption 元素定义表格标题。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>caption 标签必须紧随 table 标签之后。只能对每个表格定义一个标题。通常这个标题会被居中于表格之上。</p>
+<h2 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h2><p>跨行合并：rowspan    跨列合并：colspan</p>
+<p>合并的顺序：跨行合并从上到下合并，跨列合并从左到右合并。 </p>
+<h2 id="总结表格"><a href="#总结表格" class="headerlink" title="总结表格"></a>总结表格</h2><ol>
+<li><p>表格提供了HTML 中定义表格式数据的方法。</p>
+</li>
+<li><p>表格中由行中的单元格组成。</p>
+</li>
+<li><p>表格中没有列元素，列的个数取决于行的单元格个数。</p>
+</li>
+<li><p>表格不要纠结于外观，那是CSS 的作用。</p>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package cn.itcast;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line"></span><br><span class="line">public class FirstServlet extends GenericServlet &#123;</span><br><span class="line">	public void service(ServletRequest req,ServletResponse res) throws ServletException,java.io.IOException</span><br><span class="line">	&#123;</span><br><span class="line">		OutputStream out = res.getOutputStream();</span><br><span class="line">		out.write(&quot;hello world&quot;.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>进入classes文件夹，进行编译，但需先导入jar包</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set classpath=%classpath%;E:\apache-tomcat-8.5.45\lib\servlet-api.jar</span><br></pre></td></tr></table></figure>
-
-<p>再进行编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -d . FirstServlet.java</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>编写配置文件，在WEB-INF目录下新建web.xml，配置servlet对外访问路径</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee</span><br><span class="line">                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span><br><span class="line">    version=&quot;3.1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;cn.itcast.FirstServlet&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/FirstServlet&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>启动服务器，浏览器地址栏输入<a href="http://localhost:8080/servlettest/FirstServlet即可。" target="_blank" rel="noopener">http://localhost:8080/servlettest/FirstServlet即可。</a></li>
-</ol>
-<h2 id="在Eclipse中初始"><a href="#在Eclipse中初始" class="headerlink" title="在Eclipse中初始"></a>在Eclipse中初始</h2><p>参考这几个博客：</p>
+<h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。</p>
 <ol>
-<li><a href="https://blog.csdn.net/ldw4033/article/details/18313281" target="_blank" rel="noopener">https://blog.csdn.net/ldw4033/article/details/18313281</a></li>
+<li>表单控件：<br>包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</li>
+<li>提示信息：<br>一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</li>
+<li>表单域：<br>相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</li>
 </ol>
-<p>这篇介绍的最基本的，截至2.3都是没问题的，但是按照他的方法启动有些问题，浏览器一直404，也可能是自己启动方法不对；</p>
-<ol start="2">
-<li><a href="https://blog.csdn.net/u014079773/article/details/51397850" target="_blank" rel="noopener">https://blog.csdn.net/u014079773/article/details/51397850</a></li>
+<h2 id="input-控件"><a href="#input-控件" class="headerlink" title="input 控件"></a>input 控件</h2><p>&lt;input /&gt;标签为单标签，type属性为其最基本的属性，其取值有多种，用于指定不同的控件类型。除了type属性之外，&lt;input /&gt;标签还可以定义很多其他的属性，其常用属性如下表所示。<br><img src="https://i.loli.net/2019/07/17/5d2e915f6dcf539772.png" alt="input 控件属性"></p>
+<h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p>label标签为input元素定义标注(标签)。</p>
+<p>作用：用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点。</p>
+<h2 id="textarea控件"><a href="#textarea控件" class="headerlink" title="textarea控件"></a>textarea控件</h2><p>如果需要输入大量的信息，就需要用到&lt;textarea&gt;&lt;/textarea&gt;标签。通过textarea控件可以轻松地创建多行文本输入框，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">cols</span>=<span class="string">"每行中的字符数"</span> <span class="attr">rows</span>=<span class="string">"显示的行数"</span>&gt;</span></span><br><span class="line">  文本内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><p>使用select控件定义下拉菜单的基本语法格式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>&lt;select&gt;&lt;/select&gt;中至少应包含一对&lt;option&gt;&lt;/option&gt;。</li>
+<li>在option 中定义selected =” selected “时，当前项即为默认选中项。</li>
 </ol>
-<p>这篇主要参考设置服务器，也就是第10项；</p>
-<ol start="3">
-<li><a href="https://www.cnblogs.com/SamWeb/p/7627044.html" target="_blank" rel="noopener">https://www.cnblogs.com/SamWeb/p/7627044.html</a></li>
+<h2 id="表单域"><a href="#表单域" class="headerlink" title="表单域"></a>表单域</h2><p>在HTML中，form标签被用于定义表单域，即创建一个表单，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。创建表单的基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"url地址"</span> <span class="attr">method</span>=<span class="string">"提交方式"</span> <span class="attr">name</span>=<span class="string">"表单名称"</span>&gt;</span></span><br><span class="line">  各种表单控件</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>常用属性：</p>
+<ol>
+<li>Action<br>在表单收集到信息后，需要将信息传递给服务器进行处理，action属性用于指定接收并处理表单数据的服务器程序的url地址。</li>
+<li>method<br>用于设置表单数据的提交方式，其取值为get或post。</li>
+<li>name<br>用于指定表单的名称，以区分同一个页面中的多个表单。</li>
 </ol>
-<p>这篇主要参考最后总结修改class文件生成路径部分；</p>
-<ol start="4">
-<li><p>参考以上，最后右击项目，Run As=&gt;Run on Server，成功。</p>
-</li>
-<li><p>但是有一个问题，在工程的web.xml下也没有对servlet进行配置，如何成功的呢？这里存疑。</p>
-<p>（找到了！！！在servlet3.0后，eclipse中开发服务器的时候，Eclipse不会自动在web.xml中生成该Servlet对应的mapping信息，而是在Servlet代码中加入注解@WebServlet。）</p>
-</li>
-</ol>
-<h1 id="Servlet接口实现类"><a href="#Servlet接口实现类" class="headerlink" title="Servlet接口实现类"></a>Servlet接口实现类</h1><p>Servlet接口Sun公司定义了两个默认实现类，分别为：GenericServlet和HttpServlet，前者就是之前讲过的，后者指能够处理HTTP请求的servlet，它在原有接口上添加了一些与HTTP协议处理方法，它比servlet接口的功能更为强大，因此在开发过程中，通常应该继承这个类，在刚才Eclipse自动创建servlet对象中也是继承的这个类。</p>
-<p>HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用doGet方法；如为POST请求，则调用doPost方法，因此，在实际开发中，通常只需要覆写这两种方法，而不去覆写service方法。</p>
-<h1 id="Servlet的一些细节"><a href="#Servlet的一些细节" class="headerlink" title="Servlet的一些细节"></a>Servlet的一些细节</h1><h2 id="web-xml配置"><a href="#web-xml配置" class="headerlink" title="web.xml配置"></a>web.xml配置</h2><p>这部分内容其实已经不需要了，但是为了深入了解，还是在此记录，简单学习一下。</p>
-<p>由于客户端是通过URL地址访问web服务器中的资源，所以Servlet程序若想被外界访问，必须把servlet程序映射到一个URL地址上，这个工作在web.xml文件中使用&lt; servlet &gt;元素和&lt; servlet-mapping &gt;元素完成。</p>
-<p>&lt; servlet &gt;元素用于注册Servlet，它包含两个主要的元素：&lt; servlet-name &gt;和&lt; servlet-class &gt;，分别用于设置Servlet的注册名称和Servlet的完整类名。</p>
-<p>&lt; servlet-mapping &gt;元素用于映射一个已注册的Servlet的一个对外访问路径，也就是说同一个Servlet可以被映射到多个URL上，每一个&lt; servlet-mapping &gt;包含两个子元素：&lt; servlet-name &gt;和&lt; url-pattern &gt;，分别用于指定Servlet的注册名称和Servlet的对外访问路径。</p>
-<p><img src="https://i.loli.net/2019/09/19/kSoKL5EMvOy6AWq.png" alt=""></p>
-<p>如果在&lt; servlet &gt;元素中配置了一个&lt; load-on-startup &gt;元素，那么web应用程序在启动时，就会装载并创建Servlet的实例对象以及调用Servlet实例对象的init()方法，&lt; load-on-startup &gt;2&lt; /load-on-startup &gt;中的数字代表创建的优先级，正整数越小代表优先级越高。</p>
-<h2 id="Servlet引擎"><a href="#Servlet引擎" class="headerlink" title="Servlet引擎"></a>Servlet引擎</h2><p>需要说明的是，Servlet是一个供其他Java程序调用的Java类，它不能独立运行，它的运行完全由Servlet引擎来控制和调度。这里的Servlet引擎其实就是调用它的其他Java程序，也就是web服务器。</p>
-<h2 id="缺省Servlet"><a href="#缺省Servlet" class="headerlink" title="缺省Servlet"></a>缺省Servlet</h2><p>如果某个Servlet的映射路径仅仅为一个正斜杠/，那么这个Servlet就成为当前web应用的缺省Servlet。</p>
-<p>凡是在web.xml文件中找不到匹配的&lt; servlet-mapping &gt;元素的URL，它们的访问请求都将交给缺省Servlet处理，也就是说，缺省Servlet用于处理其他Servlet都不处理的访问请求。</p>
-<p>当访问Tomcat服务器中某个静态HTML文件或者图片时，实际上是在访问这个缺省Servlet。也就是说你在浏览器中输入动态web资源也好，静态web资源也好，其实浏览器客户端都交给了Servlet，只不过输入静态web资源，例如访问xxxxxxxx/a.html，这个a.html资源并没有在&lt; servlet-mapping &gt;中进行映射，所以调用缺省Servlet，缺省Servlet寻找同名的a.html进行显示，若缺省Servlet也找不到，则返回404界面。</p>
-<h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet &#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	protected void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">	protected void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>假设有两个用户，第一个用户的页面应该输出1，但是假如在该用户线程休眠过程中有另一个用户访问，则最后输出2，这样就涉及到了线程安全，当然，可以通过synchronized()方法来保证线程安全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">synchronized(this)&#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是，很显然在实际开发中，不可能这么做，否则一个用户访问其他用户只能等待。还有另外一种方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet implements SingleThreadModel</span><br></pre></td></tr></table></figure>
-
-<p>SingleThreadModel接口中没有定义任何内容，称为标记接口，相当于只是给该类贴了一个线程安全的标签，这种方法在servlet 2.4之后就已经Deprecated。</p>
-<p>线程安全问题很大部分是由实例变量造成的，只要在Servlet里面的任何方法里面都不使用实例变量，那么该Servlet就是线程安全的。<strong>所以，在Servlet中避免使用实例变量是保证Servlet线程安全的最佳选择。</strong></p>
-<p>Java 内存模型中，方法中的临时变量是在栈上分配空间，而且每个线程都有自己私有的栈空间，所以它们不会影响线程的安全。</p>
-<h1 id="Servlet对象"><a href="#Servlet对象" class="headerlink" title="Servlet对象"></a>Servlet对象</h1><p>服务器在创建Servlet时，除了有request、response对象，还有ServletConfig、ServletContext、Session、Cookie等对象。</p>
-<h2 id="ServletConfig对象"><a href="#ServletConfig对象" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h2><p>在Servlet配置文件中，可以在&lt; servlet &gt;元素中使用一个或多个&lt; init-param &gt;标签为Servlet配置一些初始化参数，配置之后，web容器在创建Servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用init()方法时，将ServletConfig对象传递给servlet，进而，开发人员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;date&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;2019&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<p>java程序中调用即可得到“2019”：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String value = this.getServletConfig().getInitParameter(&quot;data&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>在实际开发中，例如字符码表、要连接的数据库以及读取哪个配置文件等不适合在程序中显示，就用到了ServletConfig。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;charset&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;UTF-8&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;url&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;jdbc:mysql://localhost:3306/test&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;username&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;password&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;config&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;/struts-config.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><p> web容器在启动时，会为每个web应用都创建一个ServletContext对象，ServletConfig对象中维护ServletContext对象的引用，可以通过ServletConfig().ServletContext()方法获得ServletContext对象。、</p>
-<p>由于一个web应用中所有Servlet共用一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象实现通讯。ServletContext对象通常也称之为context域对象。</p>
-<p>在实际开发中，ServletContext具体有以下几个应用：</p>
-<ul>
-<li>多个servlet之间实现数据共享，一个写入，其他就可以读到；</li>
-<li>获取WEB应用的初始化参数，和上边ServletConfig设置初始化参数类似，只不过这里设置的是整个web应用，使用&lt; context-param &gt;</li>
-<li>实现servlet转发，关于转发和重定向的区别，打个比方，你找我借钱，我让你去找他借，这是重定向；你找我借钱，我帮你去找他借，这是转发。在开发中，转发用的很多，比如servlet的内容肯定要转发，让html去排版再在浏览器显示。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RequestDispatcher rd = this.getServletContext().getRequestDispatcher(&quot;/1.jsp&quot;);</span><br><span class="line">rd.forward(request，response);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>读取资源文件</li>
-</ul>
-<p>假设读取应用下的db.properties：(常见的两种配置文件，如果配置文件内数据有关联，则用xml，否则properties)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql://localhost:3306/test</span><br><span class="line">username=root</span><br><span class="line">password=root</span><br></pre></td></tr></table></figure>
-
-<p>在servlet中读取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = this.getServletContext().getResourceAsStream(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//不能使用传统方法</span><br><span class="line">//FileInputStream in = new FileInputStream(&quot;classes/db.properties&quot;);</span><br><span class="line">//因为执行这行代码的是JVM，也就是说相对路径是以Tomcat下startup.bat来看的，此时并没有classes目录</span><br><span class="line">//要想使用，应该采用如下方法;</span><br><span class="line">//String path = this.getServletContext().getRealPath(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//FileInputStream in = new FileInputStream(path);</span><br><span class="line">Properties props = new properties();	//map</span><br><span class="line">props.load(in);		//将in的内容装载到props</span><br><span class="line"></span><br><span class="line">String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println(url);</span><br><span class="line">System.out.println(username);</span><br><span class="line">System.out.println(password);</span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">&gt;&gt;jdbc:mysql://localhost:3306/test</span><br><span class="line">&gt;&gt;root</span><br><span class="line">&gt;&gt;root</span><br></pre></td></tr></table></figure>
-
-<p>如果读取资源文件的不是servlet，而是普通的Java文件，就只能通过<a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/index.html" target="_blank" rel="noopener">类加载器</a>，例如在dao读取db.properties:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#servlet</span><br><span class="line">……………………</span><br><span class="line">UserDao dao = new UserDao();</span><br><span class="line">dao.update();</span><br><span class="line">……………………</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#UserDao.java</span><br><span class="line">package cn.itcast.dao;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">		InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">		Properties props = new properties();	</span><br><span class="line">		props.load(in);		</span><br><span class="line">		</span><br><span class="line">		String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">		String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">		String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(url);</span><br><span class="line">		System.out.println(username);</span><br><span class="line">		System.out.println(password);</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>扩展一：</p>
-<p>类加载器读取的文件不能太大，因为类加载器加载的文件直接存在内存中，文件太大会导致内存溢出，JVM爆掉。</p>
-<p>扩展二：</p>
-<p>UserDao.java中除了update方法还可能有find、delete等方法，但是这写方法只加载一次就可以，不用每个方法里都加载，所以可以写成静态代码块，实际开发中常这样写。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	private static Properties dbconfig = new Properties();</span><br><span class="line">	static &#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">			dbconfig.load(in);		</span><br><span class="line">		&#125;catch (Exception e)&#123;</span><br><span class="line">			throw new ExceptionInInitializerError(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>扩展三：</p>
-<p>这样的话，启动服务器后，在db.properties中进行修改，这边是无法更新的，因为类加载加载到内存中，要想更新，只能重启服务器，显然不是想要的，所以应该如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">	//通过类装载的方式得到资源文件的位置，再通过传统方式读取资源文件的数据，这样可以读取到更新后的数据</span><br><span class="line">			String path = UserDao.class.getClassLoader().getResource(&quot;db.properties&quot;).getPath();</span><br><span class="line">			FileInputStream in = new FileInputStream(path);</span><br><span class="line">			Properties dbconfig = new Properties();</span><br><span class="line">			dbconfig.load(in);</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<p>注意：每个表单都应该有自己表单域。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -486,6 +939,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -498,8 +955,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/2019-09-10-JavaWeb1/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -517,16 +978,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/09/10/2019-09-10-JavaWeb1/" itemprop="url">
-                  JavaWeb1
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/" itemprop="url">前端开发(1)-HTML入门与实践1</a></h1>
         
 
         <div class="post-meta">
@@ -538,8 +991,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T00:00:00+08:00">
-                2019-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T00:00:00+08:00">
+                2019-07-16
               </time>
             
 
@@ -567,195 +1020,9 @@
       </header>
     
 
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Web开发相关概念"><a href="#Web开发相关概念" class="headerlink" title="Web开发相关概念"></a>Web开发相关概念</h1><ol>
-<li><p>静态Web资源开发技术：Html</p>
-<p>动态Web资源开发技术：JSP/Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。</p>
-</li>
-<li><p>常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；</p>
-</li>
-<li><p>一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及Jsp文件、java程序、支持jar包和配置文件等；</p>
-</li>
-<li><p>Web应用开发好之后，若想供外界访问，需要把web应用所在目录交给web服务器管理，这个过程称之为虚拟目录的映射，<a href="https://tomcat.apache.org/tomcat-8.5-doc/config/context.html#Defining_a_context" target="_blank" rel="noopener">详情</a>，目前已经不推荐直接在server.xml中直接修改 &lt; Context &gt;，例如直接写入&lt; Context path=“/login” docBase=”C:\login” /&gt;，这样直接浏览器输入<a href="http://localhost:8080/login/1.html" target="_blank" rel="noopener">http://localhost:8080/login/1.html</a> 就可以直接访问C盘login文件夹下的1.html资源了，但是这样一旦修改server.xml，服务器就必须重启；</p>
-</li>
-<li><p>补充小知识：互联网上一些协议及常用的端口：http-80;smtp-25;pop3-110;ftp-23;https-443;mysql-3306;oracle-1521;</p>
-</li>
-</ol>
-<h1 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h1><h2 id="服务器目录结构"><a href="#服务器目录结构" class="headerlink" title="服务器目录结构"></a>服务器目录结构</h2><p>bin：存放启动和关闭Tomcat的脚本文件；</p>
-<p>conf：存放Tomcat服务器的各种配置文件，最重要的是server.xml；</p>
-<p>lib：存放Tomcat服务器支持的jar包；</p>
-<p>logs：存放Tomcat服务器的日志文件，若启动不成功无法通过控制台查看问题的话可查看日志文件；</p>
-<p>temp：存放Tomcat服务器产生的临时文件；</p>
-<p>webapps：web应用所在目录，即供外界访问的web资源的存放目录，对于开发人员最重要的目录；</p>
-<p>work：存放Tomcat服务器的工作目录，JSP需要用到；</p>
-<h2 id="web应用的组成结构"><a href="#web应用的组成结构" class="headerlink" title="web应用的组成结构"></a>web应用的组成结构</h2><p>webapps下的web应用需要严格按照以下存放规则</p>
-<p><img src="https://i.loli.net/2019/09/10/T5ry6kOdICmjUXs.png" alt=""></p>
-<p>web.xml文件是整个web应用中最重要的配置文件，必须放在WEB-INF目录中，在开发web应用时，但凡涉及到对web应用中某个web资源的配置，往往都在web.xml中进行设置。例如把某个资源配置成网站首页，直接参考Tomcat中自带的Web.xml文件，取头取尾即可。</p>
-<p>应用发布到服务器上时需要打包成war包，这样服务器会自动解析。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//进入应用目录</span><br><span class="line">jar -cvf xxx.war xxx</span><br></pre></td></tr></table></figure>
-
-<p>打包后的war文件直接放到服务器的webapps目录，会看到自动解析出xxx文件。</p>
-<h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>所谓配置虚拟主机，就是在tomcat服务器中配置一个网站，一个tomcat服务器中可以放置多个文档，在Web服务器中配置一个网站，需使用Host元素在server.xml进行配置，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host name=&quot;www.google.com&quot; appBase=&quot;C:\login&quot;&gt;&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
-
-<p>但是配置的主机要想被外界访问，必须在DNS进行注册IP，很显然，<a href="http://www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。" target="_blank" rel="noopener">www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。</a></p>
-<h2 id="配置https连接器"><a href="#配置https连接器" class="headerlink" title="配置https连接器"></a>配置https连接器</h2><p>主要用于表单等提交时的加密，设计密码学尤其是非对称加密，这部分略过。</p>
-<p>首先需要为网站生产一份数字证书（公钥），cmd命令行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure>
-
-<p>系统将产生的数字证书保存到密钥库。然后将这份密钥库文件拷贝到Tomcat安装目录下的conf文件夹下，之后在server.xml中进行配置，也就是使网站自动提取密钥库中的密钥给网站使用用户。具体配置可以打开server.xml文件中关于8443端口的部分，这部分视频使用的方法在Tomcat官方文档中显示deprecated，故不记录，另外，这里配置的只是单向加密连接器，实际开发中应配置https双向加密连接器。</p>
-<h2 id="Tomcat管理器"><a href="#Tomcat管理器" class="headerlink" title="Tomcat管理器"></a>Tomcat管理器</h2><p>在官方文档首先有Manger APP，点击需要用户名密码。这个在复制文件中可以进行配置，打开tomcat-users.xml可以看到几个注释的用户名密码，可以用这几个或者自己再配置。注意默认正好无权限，需要加一个manager的角色。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;both&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;role1&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;role1&quot;/&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p>客户端连上web服务器之后，若想要获得web服务器中某个web资源，需遵守一定的通讯格式，HTTP协议用于定义客户端与web服务器通讯的格式，时TCP/IP协议的一个应用层协议。</p>
-<p>可以使用windows自带的telnet程序连上web服务器并使用HTTP协议获取某个页面或者浏览器的一些插件也可以实现查看HTTP的请求和响应。</p>
-<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>客户端连上服务器后，向服务器请求某个web资源，称之为客户端向服务器发送了一个HTTP请求，一个完整的HTTP请求包括：一个请求行、若干请求头、以及实体内容。请求行用于描述客户端的请求方式、请求的资源名称以及使用的HTTP协议版本号；请求头用于描述客户端请求哪台主机以及客户端的一些环境信息等；实体内容为表单请求的数据等。</p>
-<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行中常用的请求方式有GET和POST，如果用户没有设置，默认都是GET，用户想把请求方式改为POST，可通过更改表单的提交方式实现。GET在请求的URL地址后以?的形式带上交给服务器的数据，多个数据之间以&amp;进行分隔，例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mail/1.html?name=abc&amp;password=123456 HTTP/1.1</span><br></pre></td></tr></table></figure>
-
-<p>其数据容量通常不能超过1K，POST传送的数据量无限制。</p>
-<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>Accept：用于告诉服务器，客户机支持的数据类型；</p>
-<p>Accept-Charset：用于告诉服务器，客户机采用的编码；</p>
-<p>Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；</p>
-<p>Accept-Language：用于告诉服务器，客户机的语言环境；</p>
-<p>Host：客户机通过这个头告诉服务器，想访问的主机名；</p>
-<p>If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；</p>
-<p>Referer：客户机通过这个头告诉服务器，它是从哪个资源来访问服务器的（主要用于防盗链）；</p>
-<p>User-Agent：客户机通过这个头告诉服务器，客户机的软件环境；</p>
-<p>Cookie：客户机通过这个头可以向服务器带一点数据；</p>
-<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><p>一个HTTP响应代表服务器向客户端回送的数据。HTTP响应包括：一个状态行、若干响应头、以及实体内容。状态行用于描述服务器对于请求的处理结果；响应头用于描述服务器的基本信息，以及数据的描述，服务器通过这些数据的描述信息，可以通知客户端如何处理等一会儿它回送的数据；实体内容为服务器向客户端回送的数据。</p>
-<h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><p>状态码用于表示服务器对请求的处理结果，它是一个三位的十进制数，响应状态码分为三类：</p>
-<p><img src="https://i.loli.net/2019/09/15/gyEoDF23zGwltV9.png" alt=""></p>
-<p>例如302：服务器告诉客户端去其他地址找；304/307：服务器告诉客户端去找缓存；404：服务器告诉客户端资源找不到；403：服务器告诉客户端没有权限访问该资源；</p>
-<p>响应头</p>
-<p>Location：这个头配合302状态码使用，用于告诉客户端找谁，实现请求重定向；</p>
-<p>Server：通过这个头，告诉浏览器服务器的类型；</p>
-<p>Context-Type：通过这个头，告诉浏览器回送数据的类型，不同的文件类型对应的具体书写格式可在Tomcat/conf/web.xml中查看；</p>
-<p>Refresh：通过这个头，服务器告诉浏览器多久刷新一次；</p>
-<p>Content-Disposition：通过这个头，服务器告诉浏览器以下载方式打开数据；</p>
-<p>ETag：缓存相头的头；</p>
-<p>Expirse：通过这个头，服务器告诉浏览器把回送的资源缓存多长时间，-1或0代表不缓存；</p>
-<p>Set-Cookie、Cache-Control、Pragma等其他一些头和缓存相关；</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/2019-09-09-XML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/09/09/2019-09-09-XML/" itemprop="url">
-                  XML
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T00:00:00+08:00">
-                2019-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -765,133 +1032,72 @@
         
           
             <blockquote>
-<p>XML语言出现的根本目标在于描述在现实生活中经常出现的有关系的数据。在XML语言中，它允许用户自定义标签。除了用于保存有关系的数据，还经常用作软件配置文件，以描述程序模块之间的关系。</p>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
 </blockquote>
-<h1 id="XML内容"><a href="#XML内容" class="headerlink" title="XML内容"></a>XML内容</h1><ul>
-<li><p>文档申明</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
+<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
+</li>
+<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
+</li>
+<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
+</li>
+<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
+</li>
+</ol>
+<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
+<ol>
+<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
+<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
+<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
+</ol>
+<p>理想状态的源码：.html .css .js</p>
+<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
+<p>1.双标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.单标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<ul>
-<li><p>元素</p>
-<p>XML元素指的就是XML文件中出现的标签，一个标签分为开始标签和结束标签，格式良好的XML文档必须有且仅有一个根标签，其他标签都是这个根标签的子孙标签。</p>
-<p>由于在XML中，空格和换行都作为原始内容被处理，所以，在编写XML文件时，使用换行和缩进等方式让原文件内容清晰可读的习惯可能要被迫改变。</p>
-</li>
-<li><p>属性</p>
-<p>一个标签可以有多个属性，每个属性都有它自己名称和取值，在XML中，标签属性所代表的信息也可以被改成用子元素的形式来描述，例如下面两种写法是一样的：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
+<ol>
+<li>html: 5   </li>
+<li>!</li>
+</ol>
+<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>text<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注释</p>
-<p>需要注意XML声明之前不能有注释。</p>
-</li>
-<li><p>CDATA区</p>
-<p>在编写XML文件时，有些内容可能不想让解析引擎解析执行，而是当作原始数据处理。在这种情况下，就把这些内容放在CDATA区里，对于CDATA区域里的内容，XML解析程序不会处理，而是直接原封不动的输出。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x&lt;![CDATA[</span><br><span class="line">	内容</span><br><span class="line">]]&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理指令</p>
-</li>
-</ul>
-<p>处理指令用来指挥解析引擎如何解析XML文档内容，处理指令必须以&lt; ? 开头，以? &gt;作为结尾，XML声明语句是最常见的处理指令。另外，在XML文档中可以使用xml-stylesheet指令通知XML解析引擎，应用css文件显示xml文档内容。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/css" href="1.css"?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="XML约束"><a href="#XML约束" class="headerlink" title="XML约束"></a>XML约束</h1><p>在XML技术里，可以编写一个文档来约束一个XML文档的书写规范，这称之为XML约束。常用的约束技术包括XML DTD和XML Schema</p>
-<h2 id="XML-DTD"><a href="#XML-DTD" class="headerlink" title="XML DTD"></a>XML DTD</h2><p>DTD:Document Type Definition，举例：</p>
-<p>book.xml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 书架 SYSTEM &quot;book.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
+<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
 
-<p>book.dtd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT 书架（书+）&gt;</span><br><span class="line">	&lt;!ELEMENT 书（书名，作者，售价）&gt;</span><br><span class="line">	&lt;!ELEMENT 书名（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 作者（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 售价（#PCDATA）&gt;</span><br></pre></td></tr></table></figure>
-
-<p>查看一份XML文档是否遵循对应的DTD约束，可以使用Eclipse进行校验，DTD文件应该使用UTF-8或者Unicode。</p>
-<p>具体DTD的语法在此略过。</p>
-<h2 id="XML-Schema"><a href="#XML-Schema" class="headerlink" title="XML Schema"></a>XML Schema</h2><ul>
-<li><p>XML Schema符合XML语法，也就是说它本身就是一个XML文档，但它扩展名为.xsd，同时，它也必须有一个根节点，名称为chema；</p>
-</li>
-<li><p>XML Schema对<strong>名称空间</strong>支持得很好；</p>
-</li>
-<li><p>XML Schema比DTD支持更多的数据类型，并支持用户自定义新的数据类型；</p>
-</li>
-<li><p>XML Schema定义约束的能力非常强大，可以对XML实例文档作出细致的语义限制；</p>
-</li>
-<li><p>XML Schema不能像DTD一样定义实体，比DTD更复杂，但已成为W3C标准，正逐步取代DTD;</p>
-</li>
-<li><p>编写一个XML Schema约束文档之后，需要把这个文件中声明的元素绑定到一个URI地址上，这个地址，也就是所谓的名称空间，以后XML文件就可以通过这个URL来告诉解析引擎，xml文档中编写的元素来自哪里，被谁约束。</p>
-</li>
-<li><p>关于名称空间：每个约束模式文档都可以被赋予一个唯一的名称空间，用一个唯一的URI表示。在XML文件中书写标签时，可以通过名称空间声明（xmlns）,来声明当前编写的标签来自哪个Schema约束文档。如：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;gsynf:书架 xmlns:gsynf=&quot;http://gsynf.github.io&quot;&gt;</span><br><span class="line">	&lt;gsynf:书&gt;……&lt;/gsynf:书&gt;</span><br><span class="line">&lt;/gsynf:书架&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此处使用gsynf来指向声明的名称，方便后面对名称空间的引用。</p>
-<p>注意：名称空间的名字语法 很容易让人混淆，尽管以http://开始，那个URL并不指向一个包含模式定义的文件。事实上，这个URL：http ://gsynf.github.io 根本没有指向任何文件，只是一个分配的名字。</p>
-<p>为了在一个XML文档中声明它所遵循的Schema文件的具体位置，通常需要在Xml文档中的根节点使用schemaLocation属性来指定，例如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gsynf:书架</span> <span class="attr">xmlns:gsynf</span>=<span class="string">"http://gsynf.github.io"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://gsynf.github.io"</span> <span class="attr">book.xsd</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>schemaLocation此属性有两个值，第一个值是需要的命名空间，第二个值是供命名空间使用的XML Schema文件位置。</p>
-<h1 id="XML编程"><a href="#XML编程" class="headerlink" title="XML编程"></a>XML编程</h1><p>所谓XML编程，其实就是CRUD（create,read,update,delete）。</p>
-<h2 id="XMl解析方式"><a href="#XMl解析方式" class="headerlink" title="XMl解析方式"></a>XMl解析方式</h2><p>DOM：W3C官方推荐的解析方式；</p>
-<p>SAX：社区事实上的标准；</p>
-<p>XML解析开发包：Jaxp(sun)、Jdom、dom4j</p>
-<h3 id="DOM解析"><a href="#DOM解析" class="headerlink" title="DOM解析"></a>DOM解析</h3><p>把XML中的节点均变为对象，标签成为Element对象，文本成为Text对象，属性成为Attribute对象，然后根据这些对象之间的关系生成DOM树。DOM解析对增删改查比较容易，DOM解析对内存资源占用较大，不适用于较大的文档对象。</p>
-<p>以JAXP为例，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到dom解析器</span></span><br><span class="line">DocumentBuilder builder = factory.newDocumentBuilder();</span><br><span class="line"><span class="comment">//3.解析xml文档，得到代表文档的document</span></span><br><span class="line">Document document = builder.parse(<span class="string">"src/book.xml"</span>);</span><br><span class="line"><span class="comment">//4.调用Document方法获取某个节点内容</span></span><br><span class="line">NodeList list = document.getElementsByTagName(<span class="string">"书名"</span>);</span><br><span class="line">Node node = list.item(<span class="number">1</span>);</span><br><span class="line">String content = node.getTextContent();</span><br><span class="line"><span class="comment">//5.对某个节点进行操作，例如增加一个属性</span></span><br><span class="line">Element price = document.creatElement(<span class="string">"售价"</span>);</span><br><span class="line">price.setTextContent(<span class="string">"59元"</span>);</span><br><span class="line">Element book = (Element) document.getElementsByTagName(<span class="string">"书"</span>).item(<span class="number">0</span>);<span class="comment">//把创建的节点挂到第一本书上</span></span><br><span class="line">book.appendChild(price);</span><br></pre></td></tr></table></figure>
-
-<h3 id="SAX解析"><a href="#SAX解析" class="headerlink" title="SAX解析"></a>SAX解析</h3><p>从上向下读取，读取一行处理一行。所以对内存压力较小，解析速度快，但是只适合读取，不适合增删改查。</p>
-<p>SAX采用事件处理的方式解析XML文档，利用SAX解析文档，涉及两个部分：解析器和事件处理器。</p>
-<ul>
-<li><p>解析器可以使用JAXP的API创建，创建出解析器之后，就可以指定解析器去解析某个XML文档</p>
-</li>
-<li><p>解析器采用SAX方式在解析某个XML文档时，只要解析到XML文档中的一个组成部分，都会调用事件处理器的一个方法，解析器在调用事件处理器的方法时，会把当前解析到的xml文档内容作为方法的参数传递给事件处理器；</p>
-</li>
-<li><p>事件处理器由程序员编写，通过事件处理器中方法的参数，就可以轻松得到sax解析器解析到的数据，从而决定如何对数据进行处理。</p>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2019/09/10/6JRPor4UqTduI27.png" alt=""></p>
-<p>以JAXP为例，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">SAXParserFactory factory = SAXParseFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到解析器</span></span><br><span class="line">SAXParser sp = factory.newSAXParser();</span><br><span class="line"><span class="comment">//3.得到读取器</span></span><br><span class="line">XMLReader reader = sp.getXMLReader();</span><br><span class="line"><span class="comment">//4.设置内容处理器</span></span><br><span class="line">reader.SetContentHandler();</span><br><span class="line"><span class="comment">//5.读取xml文档</span></span><br><span class="line">reader.parse(<span class="string">"src/book.xml"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>除了JAXP，dom4j是一个简单、灵活的开放源代码的第三方库，使用接口和抽象基类，性能优异、功能强大，目前使用最多。</p>
-<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><p>快速定位需要找到的节点：</p>
-<ul>
-<li><p>如果路径以斜线/开始，表示到一个元素的绝对路径；</p>
-</li>
-<li><p>如果路径以双斜线//开始，表示选择文档中所有满足双斜线//之后规则的元素（无论层级关系）；</p>
-</li>
-<li><p>星号*表示选择所有由星号之前的路径所定位的元素；</p>
-</li>
-<li><p>方块中的表达式可以进一步指定元素，其中数字表示元素在选择集里的位置，而last()函数则表示选择集中的最后一个元素；</p>
-</li>
-<li><p>[@ATT]找到有特定属性的元素，还可以选择属性值[@ATT=‘att’];</p>
-</li>
-<li><p>……………………………………</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/AAA/BBB  找到AAA下的所有BBB</span><br><span class="line">//AAA/BBB  选择所有父元素是AAA的BBB元素</span><br><span class="line">/AAA/BBB/*  选择所有路径依附于/AAA/BBB的元素</span><br><span class="line">/AAA/BBB[1]  选择AAA的第一个BBB子元素</span><br><span class="line">//BBB[@name]  选择有name属性的BBB元素</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -905,6 +1111,642 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B52/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B52/" itemprop="url">前端开发(1)-HTML入门与实践2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T00:00:00+08:00">
+                2019-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
+</blockquote>
+<h1 id="排版标签"><a href="#排版标签" class="headerlink" title="排版标签"></a>排版标签</h1><h2 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h2><p>单词缩写：  head 头部<br>为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML提供了6个等级的标题，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;、&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;、&lt;h5&gt;和&lt;h6&gt;</span><br></pre></td></tr></table></figure>
+<p>标题标签语义：作为标题使用，并且依据重要性递减</p>
+<blockquote>
+<p>注意：h1标签因为重要，尽量少用。 一般h1都是给logo使用。</p>
+</blockquote>
+<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2><p>单词缩写：paragraph  段落<br>在网页中要把文字有条理地显示出来，离不开段落标签，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标签就是</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>  文本内容  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>是HTML文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。</p>
+<h2 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h2><p>单词缩写：horizontal 横线<br>在网页中常常看到一些水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。这些水平线可以通过插入图片实现，也可以简单地通过标签来完成，&#60; hr /&#62;就是创建横跨网页水平线的标签。其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span>   是单标签</span><br></pre></td></tr></table></figure>
+
+<p>在网页中显示默认样式的水平线。</p>
+<h2 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h2><p>单词缩写：break   打断 ,换行</p>
+<p>在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="div-span标签"><a href="#div-span标签" class="headerlink" title="div span标签"></a>div span标签</h2><p>div  span是没有语义的，是我们网页布局主要的2个盒子。</p>
+<p>div 就是division的缩写，分割，分区的意思。其实有很多div来组合网页。</p>
+<p>span, 跨度，跨距；范围    </p>
+<p>语法格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> 这是头部 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>    <span class="tag">&lt;<span class="name">span</span>&gt;</span>今日价格<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h1><p>在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显示。<br><img src="https://i.loli.net/2019/07/16/5d2d912790ee149390.png" alt="文本格式化标签"></p>
+<h1 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h1><p>使用HTML制作网页时，如果想让HTML标签提供更多的信息，可以使用HTML标签的属性加以设置。其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> 属性<span class="attr">1</span>=<span class="string">"属性值1"</span> 属性<span class="attr">2</span>=<span class="string">"属性值2"</span> …&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的语法中，</p>
+<ol>
+<li>标签可以拥有多个属性，必须写在开始标签中，位于标签名后面。</li>
+<li>属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</li>
+<li>任何标签的属性都有默认值，省略该属性则取默认值。</li>
+</ol>
+<h1 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h1><p>单词缩写：image  图像</p>
+<p>其基本语法格式如下：</p>
+<p>该语法中src属性用于指定图像文件的路径和文件名，它是img标签的必需属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"图像URL"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/07/16/5d2db8a5aa0ae94843.png" alt="/img标记属性"></p>
+<h1 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h1><h2 id="锚点标签"><a href="#锚点标签" class="headerlink" title="锚点标签"></a>锚点标签</h2><p>单词缩写：anchor 的缩写 。基本解释 锚, 铁锚 的</p>
+<p>在HTML中创建超链接只需用标签环绕需要被链接的对象即可，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"跳转目标"</span> <span class="attr">target</span>=<span class="string">"目标窗口的弹出方式"</span>&gt;</span>文本或图像<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>href：用于指定链接目标的url地址，当为标签应用href属性时，它就具有了超链接的功能。  Hypertext Reference的缩写。意思是超文本引用。</p>
+<p>target：用于指定链接页面的打开方式，其取值有_self和_blank两种，其中_self为默认值，_blank为在新窗口中打开方式。</p>
+<p>注意：</p>
+<ol>
+<li>外部链接 需要添加 http:// </li>
+<li>内部链接 直接链接内部页面名称即可 比如 &#60; a href=”index.html”&#62; 首页  &#60;/a  &#62;</li>
+<li>如果当时没有确定链接目标时，通常将链接标签的href属性值定义为“#”(即href=”#”)，表示该链接暂时为一个空链接。</li>
+<li>不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。</li>
+</ol>
+<h3 id="锚点定位"><a href="#锚点定位" class="headerlink" title="锚点定位"></a>锚点定位</h3><p>通过创建锚点链接，用户能够快速定位到目标内容。<br>创建锚点链接分为两步：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.使用<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#id名"</span>&gt;</span> "链接文本" <span class="tag">&lt;/<span class="name">a</span>&gt;</span>创建链接文本。</span><br><span class="line"></span><br><span class="line">2.使用相应的“id=id名”标注跳转目标的位置。</span><br></pre></td></tr></table></figure>
+
+<h2 id="base标签"><a href="#base标签" class="headerlink" title="base标签"></a>base标签</h2><p>base 可以设置整体链接的打开状态。<br>base 写到 &#60; head &#62;   &#60; /head &#62; 之间。</p>
+<h1 id="特殊字符标签"><a href="#特殊字符标签" class="headerlink" title="特殊字符标签"></a>特殊字符标签</h1><p><img src="https://i.loli.net/2019/07/16/5d2dc2d50ddaf51377.png" alt="特殊字符标签"></p>
+<h1 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h1><p>基本语法格式如下：      </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注释语句 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h1><p>路径可以分为： 相对路径和绝对路径</p>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><ol>
+<li>图像文件和HTML文件位于同一文件夹：只需输入图像文件的名称即可，如&lt;img src=”logo.gif” /&gt;。</li>
+<li>图像文件位于HTML文件的下一级文件夹：输入文件夹名和文件名，之间用“/”隔开，如&lt;img src=”img/img01/logo.gif” /&gt;。</li>
+<li>图像文件位于HTML文件的上一级文件夹：在文件名之前加入“../” ，如果是上两级，则需要使用 “../ ../”，以此类推，如&lt;img src=”../logo.gif” /&gt;。</li>
+</ol>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>“D:\web\img\logo.gif”，或完整的网络地址，例如“<a href="http://www.itcast.cn/images/logo.gif”。" target="_blank" rel="noopener">http://www.itcast.cn/images/logo.gif”。</a></p>
+<h1 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h1><p>容器里面装载着文字或图表的一种形式，叫列表。</p>
+<p>列表最大的特点就是整齐 、整洁、 有序</p>
+<h2 id="无序列表ul"><a href="#无序列表ul" class="headerlink" title="无序列表ul"></a>无序列表ul</h2><p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的几点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. &lt;ul&gt;&lt;/ul&gt;中只能嵌套&lt;li&gt;&lt;/li&gt;，直接在&lt;ul&gt;&lt;/ul&gt;标签中输入其他标签或者文字的做法是不被允许的。</span><br><span class="line">2. &lt;li&gt;与&lt;/li&gt;之间相当于一个容器，可以容纳所有元素。</span><br><span class="line">3. 无序列表会带有自己样式属性，放下那个样式，一会让CSS来！</span><br></pre></td></tr></table></figure>
+<h2 id="有序列表ol"><a href="#有序列表ol" class="headerlink" title="有序列表ol"></a>有序列表ol</h2><p>有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义列表"><a href="#自定义列表" class="headerlink" title="自定义列表"></a>自定义列表</h2><p>定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词1<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词2<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://i.loli.net/2019/07/16/5d2ddadf1f0e569351.png" alt="总结"></p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/2019-07-15-%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%89%A9%E8%81%94%E7%BD%91%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/2019-07-15-%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%89%A9%E8%81%94%E7%BD%91%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" itemprop="url">LinkDevelop阿里云物联网应用开发方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T00:00:00+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>关于阿里云物联网平台的介绍前边已涉及，在这里不再做太多介绍；<br>学习视频地址：<a href="https://edu.aliyun.com/course/1693?spm=5176.10731542.0.0.55e61b3anm2b7N" target="_blank" rel="noopener">戳这里</a>。</p>
+</blockquote>
+<h1 id="STM32节点设备接入阿里云物联网平台"><a href="#STM32节点设备接入阿里云物联网平台" class="headerlink" title="STM32节点设备接入阿里云物联网平台"></a>STM32节点设备接入阿里云物联网平台</h1><h1 id="服务端应用开发"><a href="#服务端应用开发" class="headerlink" title="服务端应用开发"></a>服务端应用开发</h1><h2 id="服务端软件架构介绍"><a href="#服务端软件架构介绍" class="headerlink" title="服务端软件架构介绍"></a>服务端软件架构介绍</h2><p>这一节的内容主要基于物联网架构中的应用层。<br><img src="https://i.loli.net/2019/07/15/5d2c446c3325c85531.png" alt="应用层在系统中定位"></p>
+<p><img src="https://i.loli.net/2019/07/15/5d2c54875389695455.png" alt="应用层系统技术体系"></p>
+<h2 id="后端服务开发"><a href="#后端服务开发" class="headerlink" title="后端服务开发"></a>后端服务开发</h2><h3 id="认识后端框架"><a href="#认识后端框架" class="headerlink" title="认识后端框架"></a>认识后端框架</h3><p>-前端是软件系统中直接和用户交互的部分，后端控制着软件的输出。前端的JavaScript代码通过ajsx等技术向后端进行网络请求，后端收到请求后对数据库进行操作，返回给前端JSON数据，前端把相应数据战士在页面上；</p>
+<p>-后端常用语言包括Java、MySQL、XML等；</p>
+<p>-本例程基于以下框架进行开发：MySQL、Mybatis、SpringBoot；<br><img src="https://i.loli.net/2019/07/15/5d2c57ff4536991340.png" alt="后端框架"></p>
+<h3 id="应用系统开发"><a href="#应用系统开发" class="headerlink" title="应用系统开发"></a>应用系统开发</h3><p><img src="https://i.loli.net/2019/07/15/5d2c6d8d14c9879064.png" alt=""></p>
+<h3 id="应用调试与部署"><a href="#应用调试与部署" class="headerlink" title="应用调试与部署"></a>应用调试与部署</h3><h2 id="前端服务开发"><a href="#前端服务开发" class="headerlink" title="前端服务开发"></a>前端服务开发</h2><h3 id="认识前端框架"><a href="#认识前端框架" class="headerlink" title="认识前端框架"></a>认识前端框架</h3><p>-前端的开发语言：HTML、JavaScript、CSS；</p>
+<ol>
+<li>HTML即超文本标记语言，用来描述网页的一种语言，与编程语言不同，它用来记录信息而非执行逻辑处理，HTML语言的内容被各类标签所包裹；</li>
+<li>JavaScript是一种直译试的脚本语言，是一种动态的解释形语言，它不需要经过编辑为机器码再运行，而是直接可以由解释器（称为JavaScript引擎，内置再各类浏览器中）运行；</li>
+<li>CSS是指层叠样式表，定义如何显示HTML元素，一般存储在.css后缀的文件中，通过HTML标签中的className以及id属性来进行绑定；</li>
+</ol>
+<p>-前端框架：React框架、Umi.js框架、Ant Design UI组件、Dva.js数据流方案；</p>
+<ol>
+<li>React框架提供底层技术支撑，是一个为数据提供渲染为HTML视图的开源JavaScript库，React技术方案-虚拟DOM，React核心思想-组件；</li>
+<li>Umi.js框架集成了页面路由、项目打包等工具，简化开发者配置和繁杂的操作；</li>
+<li>Ant Design UI组件提供丰富的页面UI组件库，Umi在初始化时选择antd插件即可集成，也可以通过命令行执行npm install -g antd进行安装；</li>
+<li>Dva.js数据流方案，将UI和数据解耦，提高前端的开发效率，Umi在初始化时选择dva插件即可集成，也可以通过命令行执行npm install -g dva进行安装；</li>
+</ol>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/" itemprop="url">LinkDevelop阿里云物联网应用开发方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T00:00:00+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>阿里云的物联网应用开发，即<a href="https://iot.aliyun.com/products/iotstudio" target="_blank" rel="noopener">Link Develop</a>。虽然现在已经不存在，被IoT Studio所取代，但基本框架并没有改变，所以在此仍然简单了解学习一下。<br>学习视频地址：<a href="https://edu.aliyun.com/course/1392/learn?spm=5176.8764728.aliyun-edu-course-header.15.6926319aoN2rnZ#lesson/11620" target="_blank" rel="noopener">戳这里</a>。</p>
+</blockquote>
+<h1 id="设备开发"><a href="#设备开发" class="headerlink" title="设备开发"></a>设备开发</h1><p>-将设备模型抽象成三类：属性、服务、事件；<br>-实时查看设备上报的数据并进行在线调试；</p>
+<h1 id="服务编排"><a href="#服务编排" class="headerlink" title="服务编排"></a>服务编排</h1><p>-直接使用官方根据物联网需求建好的服务；<br>-做服务的二次开发；</p>
+<h1 id="Bone开发框架"><a href="#Bone开发框架" class="headerlink" title="Bone开发框架"></a>Bone开发框架</h1><p><a href="https://bone.aliyun.com/" target="_blank" rel="noopener">Bone开发框架</a>分为两部分：Bone Moblie和Bone Web。<br>Bone Web是一个基于react+redux封装的Web开发框架，在使用上进行了简化并且提供了一些常用的UI组件。<br>可以在此下载模板进行三元组的修改之后打包上传，进行构建，实现简单功能的实现。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/2019-06-26-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/26/2019-06-26-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_9/" itemprop="url">Python语言程序设计_9</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T00:00:00+08:00">
+                2019-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="从数据处理到人工智能"><a href="#从数据处理到人工智能" class="headerlink" title="从数据处理到人工智能"></a>从数据处理到人工智能</h1><p>数据表示 ==&gt; 数据清洗 ==&gt; 数据统计 ==&gt; 数据可视化 ==&gt; 数据挖掘 ==&gt; 人工智能 </p>
+<h2 id="Python库之数据分析"><a href="#Python库之数据分析" class="headerlink" title="Python库之数据分析"></a>Python库之数据分析</h2><p>Numpy:表达N维数组的最基本库；<br>Pandas:Python数据分析高层次应用；<br>SciPy：数学、科学和工程计算功能库；</p>
+<h2 id="Python库之数据可视化"><a href="#Python库之数据可视化" class="headerlink" title="Python库之数据可视化"></a>Python库之数据可视化</h2><p>Matpoltlib:高质量的二维数据可视化库；<br>Seaborn:统计类数据可视化功能库；<br>Mayavi：三维科学数据可视化功能库；</p>
+<h2 id="Python库之文本处理"><a href="#Python库之文本处理" class="headerlink" title="Python库之文本处理"></a>Python库之文本处理</h2><p>PyPDF2:用来处理PDF文件的工具集；<br>NLTK:自然语言处理第三方库；<br>Python-docx：创建或更新Microsoft Word文件的第三方库；</p>
+<h2 id="Python库之机器学习"><a href="#Python库之机器学习" class="headerlink" title="Python库之机器学习"></a>Python库之机器学习</h2><p>Scikit-learn:机器学习方法工具集；<br>TensorFlow:AlphaGO背后的机器学习计算框架；<br>MXNet：基于神经网络的深度学习计算框架；</p>
+<h1 id="实例：霍兰德人格分析雷达图"><a href="#实例：霍兰德人格分析雷达图" class="headerlink" title="实例：霍兰德人格分析雷达图"></a>实例：霍兰德人格分析雷达图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#HollandRadarDraw</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import matplotlib</span><br><span class="line">matplotlib.rcParams[&apos;font.family&apos;]=&apos;SimHei&apos;</span><br><span class="line">radar_labels = np.array([&apos;研究型(I)&apos;,&apos;艺术型(A)&apos;,&apos;社会型(S)&apos;,\</span><br><span class="line">                         &apos;企业型(E)&apos;,&apos;常规型(C)&apos;,&apos;现实型(R)&apos;]) #雷达标签</span><br><span class="line">nAttr = 6</span><br><span class="line">data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],</span><br><span class="line">                 [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],</span><br><span class="line">                 [0.43, 0.89, 0.30, 0.28, 0.22, 0.30],</span><br><span class="line">                 [0.30, 0.25, 0.48, 0.85, 0.45, 0.40],</span><br><span class="line">                 [0.20, 0.38, 0.87, 0.45, 0.32, 0.28],</span><br><span class="line">                 [0.34, 0.31, 0.38, 0.40, 0.92, 0.28]]) #数据值</span><br><span class="line">data_labels = (&apos;艺术家&apos;, &apos;实验员&apos;, &apos;工程师&apos;, &apos;推销员&apos;, &apos;社会工作者&apos;,&apos;记事员&apos;)</span><br><span class="line">angles = np.linspace(0, 2*np.pi, nAttr, endpoint=False)</span><br><span class="line">data = np.concatenate((data, [data[0]]))</span><br><span class="line">angles = np.concatenate((angles, [angles[0]]))</span><br><span class="line">fig = plt.figure(facecolor=&quot;white&quot;)</span><br><span class="line">plt.subplot(111, polar=True)</span><br><span class="line">plt.plot(angles,data,&apos;o-&apos;, linewidth=1, alpha=0.2)</span><br><span class="line">plt.fill(angles,data, alpha=0.25)</span><br><span class="line">plt.thetagrids(angles*180/np.pi, radar_labels,frac = 1.2)</span><br><span class="line">plt.figtext(0.52, 0.95, &apos;霍兰德人格分析&apos;, ha=&apos;center&apos;, size=20)</span><br><span class="line">legend = plt.legend(data_labels, loc=(0.94, 0.80), labelspacing=0.1)</span><br><span class="line">plt.setp(legend.get_texts(), fontsize=&apos;large&apos;)</span><br><span class="line">plt.grid(True)</span><br><span class="line">plt.savefig(&apos;holland_radar.jpg&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>运行程序会发现，所有中文字体都变成了方框，网上找到了不少方法，在此记录自己成功的方案，总体来讲就是为系统安装需要的SimHei字体并增加到matplotlib中。</p>
+<p>(1)下载一个ttf中文字体，并在系统中安装。可在此下载 <a href="https://github.com/dolbydu/font" target="_blank" rel="noopener">https://github.com/dolbydu/font</a>, 我这里下载好后放在了桌面。</p>
+<p>(2)在 /usr/share/fonts 路径下创建存放此字体的文件夹myfonts，并下载的ttf文件复制到此文件夹中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/fonts</span><br><span class="line">sudo mkdir myfonts</span><br><span class="line">cd myfonts/</span><br><span class="line">sudo cp /home/hpf/桌面/SimHei.ttf  /usr/share/fonts/myfonts/</span><br></pre></td></tr></table></figure>
+
+<p>(3)给系统安装这个字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#生成字体索引信息. 会显示字体的font-family</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo mkfontdir</span><br><span class="line">#更新字体缓存：</span><br><span class="line">fc-cache</span><br></pre></td></tr></table></figure>
+<p>此时在终端运行:fc-list :lang=zh，会发现系统已经安装。</p>
+<p>(4)修改matplotlibrc文件<br>找到路径/home/hpf/anaconda3/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 去掉这一行注释</span><br><span class="line">font.family         : sans-serif        </span><br><span class="line"># 去掉这一行注释，并新增我们刚下载的中文字体　</span><br><span class="line">font.sans-serif     : DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif,SimHei</span><br></pre></td></tr></table></figure>
+<p>下面这句注释要去掉，不然中文减号也显示方块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axes.unicode_minus  : False</span><br></pre></td></tr></table></figure>
+
+<p>(5)为matplotlib增加中文字体<br>将下载的字体文件复制一份到步骤4找到的配置文件的同级文件夹fonts/ttf中。</p>
+<p>(6) 清除本地matplotlib中的缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/.cache/matplotlib</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="从Web解析到网络空间"><a href="#从Web解析到网络空间" class="headerlink" title="从Web解析到网络空间"></a>从Web解析到网络空间</h1><h2 id="Python库之网络爬虫"><a href="#Python库之网络爬虫" class="headerlink" title="Python库之网络爬虫"></a>Python库之网络爬虫</h2><p>Requests:最友好的网络爬虫功能库；<br>Scrapy:优秀的网络爬虫框架；<br>pyspider：强大的Web页面爬取系统；</p>
+<h2 id="Python库之Web信息提取"><a href="#Python库之Web信息提取" class="headerlink" title="Python库之Web信息提取"></a>Python库之Web信息提取</h2><p>Beautiful Soup:HTML和XL的解析库；<br>Re:正则表达式解析和处理功能库；<br>Python-Goose：提取文章类型Web页面的功能库；</p>
+<h2 id="Python库之Web网站开发"><a href="#Python库之Web网站开发" class="headerlink" title="Python库之Web网站开发"></a>Python库之Web网站开发</h2><p>Django:最流行的Web应用框架；<br>Pyramid:规模适中的Web应用框架；<br>Flask：Web应用开发微框架；</p>
+<h2 id="Python库之网络应用开发"><a href="#Python库之网络应用开发" class="headerlink" title="Python库之网络应用开发"></a>Python库之网络应用开发</h2><p>WeRoBot:微信公众号开发框架；<br>aip:百度AI开放平台接口；<br>MyQR：二维码生成第三方库；</p>
+<h1 id="从人机交互到艺术设计"><a href="#从人机交互到艺术设计" class="headerlink" title="从人机交互到艺术设计"></a>从人机交互到艺术设计</h1><h2 id="Python库之图形用户界面"><a href="#Python库之图形用户界面" class="headerlink" title="Python库之图形用户界面"></a>Python库之图形用户界面</h2><p>PyQt5:Qt开发框架的Python接口；<br>wxPython:跨平台GUI开发框架；<br>PyGObject：使用GTK+开发GUI的功能库；</p>
+<h2 id="Python库之游戏开发"><a href="#Python库之游戏开发" class="headerlink" title="Python库之游戏开发"></a>Python库之游戏开发</h2><p>PyGame:简单的游戏开发功能库；<br>Panda3D:开源、跨平台的3D渲染和游戏开发库；<br>cocos2D：构建2D游戏和图形界面交互式应用的框架；</p>
+<h2 id="Python库之虚拟现实"><a href="#Python库之虚拟现实" class="headerlink" title="Python库之虚拟现实"></a>Python库之虚拟现实</h2><p>VR Zero:在树莓派上开发VR应用的Python库；<br>pyvor:Oculus Rift的Python开发接口；<br>Vizard：基于Python的通用VR开发引擎；</p>
+<h2 id="Python库之图形艺术"><a href="#Python库之图形艺术" class="headerlink" title="Python库之图形艺术"></a>Python库之图形艺术</h2><p>Quads：迭代的艺术；<br>ascii_art:ASCII艺术库；<br>turtle：海龟绘图体系；</p>
+<h1 id="实例：玫瑰花绘制"><a href="#实例：玫瑰花绘制" class="headerlink" title="实例：玫瑰花绘制"></a>实例：玫瑰花绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#RoseDraw.py</span><br><span class="line">import turtle as t</span><br><span class="line"># 定义一个曲线绘制函数</span><br><span class="line">def DegreeCurve(n, r, d=1):</span><br><span class="line">    for i in range(n):</span><br><span class="line">        t.left(d)</span><br><span class="line">        t.circle(r, abs(d))</span><br><span class="line"># 初始位置设定</span><br><span class="line">s = 0.2 # size</span><br><span class="line">t.setup(450*5*s, 750*5*s)</span><br><span class="line">t.pencolor(&quot;black&quot;)</span><br><span class="line">t.fillcolor(&quot;red&quot;)</span><br><span class="line">t.speed(100)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(0, 900*s)</span><br><span class="line">t.pendown()</span><br><span class="line"># 绘制花朵形状</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.circle(200*s,30)</span><br><span class="line">DegreeCurve(60, 50*s)</span><br><span class="line">t.circle(200*s,30)</span><br><span class="line">DegreeCurve(4, 100*s)</span><br><span class="line">t.circle(200*s,50)</span><br><span class="line">DegreeCurve(50, 50*s)</span><br><span class="line">t.circle(350*s,65)</span><br><span class="line">DegreeCurve(40, 70*s)</span><br><span class="line">t.circle(150*s,50)</span><br><span class="line">DegreeCurve(20, 50*s, -1)</span><br><span class="line">t.circle(400*s,60)</span><br><span class="line">DegreeCurve(18, 50*s)</span><br><span class="line">t.fd(250*s)</span><br><span class="line">t.right(150)</span><br><span class="line">t.circle(-500*s,12)</span><br><span class="line">t.left(140)</span><br><span class="line">t.circle(550*s,110)</span><br><span class="line">t.left(27)</span><br><span class="line">t.circle(650*s,100)</span><br><span class="line">t.left(130)</span><br><span class="line">t.circle(-300*s,20)</span><br><span class="line">t.right(123)</span><br><span class="line">t.circle(220*s,57)</span><br><span class="line">t.end_fill()</span><br><span class="line"># 绘制花枝形状</span><br><span class="line">t.left(120)</span><br><span class="line">t.fd(280*s)</span><br><span class="line">t.left(115)</span><br><span class="line">t.circle(300*s,33)</span><br><span class="line">t.left(180)</span><br><span class="line">t.circle(-300*s,33)</span><br><span class="line">DegreeCurve(70, 225*s, -1)</span><br><span class="line">t.circle(350*s,104)</span><br><span class="line">t.left(90)</span><br><span class="line">t.circle(200*s,105)</span><br><span class="line">t.circle(-500*s,63)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(170*s,-30*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.left(160)</span><br><span class="line">DegreeCurve(20, 2500*s)</span><br><span class="line">DegreeCurve(220, 250*s, -1)</span><br><span class="line"># 绘制一个绿色叶子</span><br><span class="line">t.fillcolor(&apos;green&apos;)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(670*s,-180*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(140)</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.circle(300*s,120)</span><br><span class="line">t.left(60)</span><br><span class="line">t.circle(300*s,120)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(180*s,-550*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(85)</span><br><span class="line">t.circle(600*s,40)</span><br><span class="line"># 绘制另一个绿色叶子</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(-150*s,-1000*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.rt(120)</span><br><span class="line">t.circle(300*s,115)</span><br><span class="line">t.left(75)</span><br><span class="line">t.circle(300*s,100)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(430*s,-1070*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(30)</span><br><span class="line">t.circle(-600*s,35)</span><br><span class="line">t.done()</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -913,11 +1755,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/6/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -937,6 +1779,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -954,11 +1797,11 @@
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">89</span>
+              <a href="/archives/">
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -967,8 +1810,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1043,7 +1888,7 @@
         
       </div>
     
-    
+
   </div>
 
   
@@ -1063,6 +1908,14 @@
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1089,26 +1942,29 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
 
 
   
@@ -1134,21 +1990,22 @@
 
 
 
-  
-
-
-
-  
-  
 
   
 
-  
+
+
+
 
   
 
   
 
+  
+
+  
+
+  
 
   
 

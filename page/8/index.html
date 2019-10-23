@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -68,7 +75,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +87,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -103,8 +110,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,11 +136,7 @@
 
 
 
-  <title> Hexo </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hexo</title>
   
 
 
@@ -147,13 +151,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -201,8 +209,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -212,7 +240,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -248,8 +276,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/2019-08-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%981/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/2019-04-29-Mask%20R-CNN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -267,16 +299,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/19/2019-08-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%981/" itemprop="url">
-                  前端开发(2)-JavaScript入门与提高1
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/04/29/2019-04-29-Mask%20R-CNN/" itemprop="url">Mask R-CNN</a></h1>
         
 
         <div class="post-meta">
@@ -288,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T00:00:00+08:00">
-                2019-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T00:00:00+08:00">
+                2019-04-29
               </time>
             
 
@@ -317,7 +341,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -327,124 +353,41 @@
         
           
             <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+<p>原文链接：<a href="https://arxiv.org/abs/1703.06870" target="_blank" rel="noopener">https://arxiv.org/abs/1703.06870</a><br>Mask R-CNN是ICCV 2017的best paper，彰显了机器学习计算机视觉领域在2017年的最新成果。在机器学习2017年的最新发展中，单任务的网络结构已经逐渐不再引人瞩目，取而代之的是集成，复杂，一石多鸟的多任务网络模型。Mask R-CNN就是典型的代表。本篇大作的一作是何凯明，在该篇论文发表的时候，何凯明已经去了FaceBook。</p>
 </blockquote>
-<h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><p>断点调试是指自己在程序的某一行设置一个断点，调试时，程序运行到这一行就会停住，然后你可以一步一步往下调试，调试过程中可以看各个变量当前的值，出错的话，调试到出错的代码行即显示错误，停下。</p>
-<p><strong>断点调试可以帮我们观察程序的运行过程</strong></p>
-<p>浏览器中按 F12–&gt; sources –&gt;找到需要调试的文件–&gt;在程序的某一行设置断点</p>
-<p>Watch: 监视，通过watch可以监视变量的值的变化。</p>
-<p>F11: 程序单步执行，让程序一行一行的执行，这个时候，观察watch中变量的值的变化。</p>
-<h1 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do while循环"></a>do while循环</h1><p>do… while 语句其实是 while 语句的一个变体。该循环会先执行一次代码块，然后对条件表达式进行判断，如果条件为真，就会重复执行循环体，否则退出循环。</p>
-<p>do… while 语句的语法结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    // 循环体代码 - 条件表达式为 true 时重复执行循环体代码</span><br><span class="line">&#125; while(条件表达式);</span><br></pre></td></tr></table></figure>
-
-<p>执行顺序：</p>
-<p>①先执行一次循环体代码 </p>
-<p>②再执行条件表达式，如果结果为 true，则继续执行循环体代码，如果为 false，则退出循环，继续执行后面代码</p>
-<p><strong>注意：</strong>先再执行循环体，再判断，我们会发现 do…while<br>循环语句<strong>至少</strong>会执行一次循环体代码。</p>
-<h1 id="continue和-break"><a href="#continue和-break" class="headerlink" title="continue和 break"></a>continue和 break</h1><p><strong>continue 关键字</strong></p>
-<p>continue 关键字用于立即跳出本次循环<strong>，</strong>继续下一次循环（本次循环体中 continue 之后的代码就会少执行一次）。</p>
-<p>例如，吃5个包子，第3个有虫子，就扔掉第3个，继续吃第4个第5个。</p>
-<p><strong>break关键字</strong></p>
-<p>break关键字用于立即跳出整个循环（循环结束）。</p>
-<p>例如，吃5个包子，吃到第3个发现里面有半个虫子，其余的不吃。</p>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h2><p><strong>利用数组字面量创建数组</strong> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 使用数组字面量方式创建空的数组</span></span><br><span class="line"><span class="keyword">var</span>  数组名 = []；</span><br><span class="line"><span class="comment">//2. 使用数组字面量方式创建带初始值的数组</span></span><br><span class="line"><span class="keyword">var</span>  数组名 = [<span class="string">'小白'</span>,<span class="string">'小黑'</span>,<span class="string">'大黄'</span>,<span class="string">'瑞奇'</span>];</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组长度"><a href="#数组长度" class="headerlink" title="数组长度"></a>数组长度</h2><p>使用“数组名.length”可以访问数组元素的数量（数组长度）。  </p>
-<p>筛选数组案例</p>
-<p>要求：将数组 [2, 0,<br>6, 1, 77, 0, 52, 0, 25, 7] 中大于等于 10 的元素选出来，放入新数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">0</span>, <span class="number">52</span>, <span class="number">0</span>, <span class="number">25</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="comment">// 索引号直接用newArr.length</span></span><br><span class="line">        newArr[newArr.length] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></table></figure>
-
-<h1 id="函数形参和实参个数匹配"><a href="#函数形参和实参个数匹配" class="headerlink" title="函数形参和实参个数匹配"></a>函数形参和实参个数匹配</h1><p><img src="https://i.loli.net/2019/08/22/tP4MwfpA2yhcxio.png" alt=""></p>
-<h1 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h1><ol>
-<li><p>return 语句之后的代码不被执行。、</p>
-</li>
-<li><p><strong>return</strong> <strong>只能返回一个值</strong>。如果用逗号隔开多个值，以最后一个为准。</p>
-</li>
-<li><p>return若要返回多个值，采取数组等方法。</p>
-</li>
-<li><p>函数都是有返回值的</p>
-<p>1）如果有return 则返回 return 后面的值；</p>
-<p>2）如果没有return 则返回 undefined ；</p>
-</li>
-<li><ul>
-<li><p>break ：结束当前的循环体（如 for、while）</p>
-</li>
-<li><p>continue ：跳出本次循环，继续执行下次循环（如 for、while）</p>
-</li>
-<li><p>return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="arguments的使用"><a href="#arguments的使用" class="headerlink" title="arguments的使用"></a>arguments的使用</h1><p>当我们不确定有多少个参数传递的时候，可以用 arguments 来获取。在 JavaScript 中，arguments实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。</p>
-<p>arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点：</p>
-<ul>
-<li>具有 length 属性</li>
-<li>按索引方式储存数据</li>
-<li>不具有数组的 push , pop 等方法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxValue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> max = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (max &lt; <span class="built_in">arguments</span>[i]) &#123;</span><br><span class="line">                    max = <span class="built_in">arguments</span>[i];</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>));</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">12</span>, <span class="number">4</span>, <span class="number">9</span>));</span><br></pre></td></tr></table></figure>
-
-<h1 id="函数两种声明方式"><a href="#函数两种声明方式" class="headerlink" title="函数两种声明方式"></a>函数两种声明方式</h1><ol>
-<li><p>自定义函数方式（命名函数）</p>
-<p>利用函数关键字 function 自定义函数方式。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明定义方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;...&#125;</span><br><span class="line"><span class="comment">// 调用  </span></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数表达式方式 （匿名函数）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是函数表达式写法，匿名函数后面跟分号结束</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;；</span><br><span class="line"><span class="comment">// 调用的方式，函数调用必须写到函数体下面</span></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="变量分类"><a href="#变量分类" class="headerlink" title="变量分类"></a>变量分类</h1><p>在JavaScript中，根据作用域的不同，变量可以分为两种：</p>
-<ol>
-<li><p>全局变量</p>
-<p>全局变量在代码的任何位置都可以使用。只有在浏览器关闭时才会被销毁，因此比较占内存。</p>
-<ul>
-<li>在全局作用域下 var 声明的变量，是全局变量</li>
-<li>特殊情况下，在函数内不使用 var 声明的变量也是全局变量（不建议使用）</li>
-</ul>
-</li>
-<li><p>局部变量</p>
-<p>局部变量只能在该函数内部使用。当代码块运行结束后，就会被销毁，因此更节省内存空间。</p>
-<ul>
-<li>在函数内部 var 声明的变量是局部变量</li>
-<li>函数的形参实际上就是局部变量</li>
-</ul>
-</li>
-</ol>
-<p>预解析</p>
-<p>JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步：预解析和代码执行。</p>
-<p><strong>预解析：</strong>在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。</p>
-<p><strong>代码执行：</strong> 从上到下执行JS语句。</p>
-<p>预解析只会发生在通过 var 定义的变量和 function 上。</p>
-<h2 id="变量预解析（变量提升）"><a href="#变量预解析（变量提升）" class="headerlink" title="变量预解析（变量提升）"></a>变量预解析（变量提升）</h2><p>变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。</p>
-<h2 id="函数预解析（函数提升）"><a href="#函数预解析（函数提升）" class="headerlink" title="函数预解析（函数提升）"></a>函数预解析（函数提升）</h2><p>函数的声明会被提升到当前作用域的最上面，但是不会调用函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经典案例，下面结果是什么？</span></span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = b = c = <span class="number">9</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="built_in">console</span>.log(b);</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>按照预解析规则解析以及按照作用域规则执行后，相当于执行以下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    a = b = c = <span class="number">9</span>;</span><br><span class="line">    <span class="comment">// 相当于 var  a  = 9; b = 9; c = 9; b 和 c 直接赋值 没有var声明 当全局变量看，只有a进行了声明，为局部变量。</span></span><br><span class="line">    <span class="comment">// 集体声明  var a = 9, b = 9, c = 9;</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先执行函数内的三个console.log，输出9，9，9，再执行函数外的三个console.log，输出9，9，报错（a为局部变量，全局未定义）。</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p><em>我们提出了一个概念上简单，灵活和通用的对象实例分割框架。我们的方法有效地检测图像中的对象，同时为每个实例生成高质量的分割蒙版。这种称为Mask R-CNN的方法通过添加一个用于预测对象掩码的分支来扩展更快的R-CNN，该分支与现有的用于边界框识别的分支并行。掩码R-CNN训练简单，只增加了一小部分开销，以更快的R-CNN，以5fps运行。此外，Mask R-CNN很容易推广到其他任务，例如允许我们在相同的框架中估计人的姿势。我们在COCO全套挑战的所有三个轨道中展示了最佳结果，包括实例分段，边界盒对象检测和人员关键点检测。Mask R-CNN无需花费大量时间就可胜任所有现有的单一模型作品，包括COCO 2016挑战获胜者。我们希望我们简单有效的方法将成为一个坚实的基线，并有助于缓解未来实例级别识别的研究。代码已在：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> facebookresearch / Detectron上提供。</em></p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1><p>视觉社区在短时间内迅速改进了对象检测和语义分割结果。在很大程度上，这些进步是由强大的基线系统驱动的，例如分别用于对象检测和语义分割的快速/更快RCNN [12,36]和全卷积网络（FCN）[30]框架。这些方法在概念上是直观的，并且具有灵活性和鲁棒性，以及快速训练和推理时间。我们在这项工作中的目标是为实例分割开发一个相对有利的框架。实例分割具有挑战性，因为它需要正确检测图像中的所有对象，同时也精确地分割每个实例。因此，它将经典的目标检测计算机视觉任务的元素进行了组合，其目标是对各个对象进行分类并使用边界框对每个对象进行本地化，然后进行语义分割，其目的是将每个像素分类为固定的一组类别，而不区分对象实例.1鉴于此，人们可能期望需要一个复杂的方法才能取得好的结果。然而，我们表明，一个令人惊讶的简单，灵活和快速的系统可以超越先前的最新实例分割结果。<br>我们的方法称为Mask R-CNN，可以使R-CNN更快。<br><img src="https://i.loli.net/2019/04/29/5cc657a3425e5.png" alt="figure1"><br><em>图1.用于实例分段的Mask R-CNN框架。</em></p>
+<p>[36]通过添加一个分支来预测每个感兴趣区域（RoI）上的分割掩模，并与现有分支进行分类和边界框回归（图1）。掩模分支是应用于每个RoI的小FCN，以像素 - 顶像素方式预测分割掩模。由于R-CNN框架更加快速，面罩R-CNN的实施和训练变得非常简单，这有助于广泛的灵活架构设计。另外，掩码分支只会增加一个小的计算开销，从而实现快速系统和快速实验。<br>原则上，Mask R-CNN是R-CNN的直观扩展，但正确构建掩模分支对于获得好的结果至关重要。最重要的是，更快的RCNN并非针对网络输入和输出之间的像素对像素对齐而设计的。RoIPool [18,12]是参与实例的事实核心操作，为特征提取执行粗略的空间量化，这一点最为明显。为了找到错位，我们提出了一个简单的，无量化的图层，称为RoIAlign，忠实地保留了确切的空间位置。尽管1遵循通用术语，但我们使用对象检测来表示通过边界框而不是掩码进行检测，并使用语义分割来表示每像素分类而不区分实例。但是我们注意到，实例分割既是语义的，也是一种检测形式。<br><img src="https://i.loli.net/2019/04/29/5cc658728ff4e.png" alt="figure2"><br><em>图2.掩盖COCO测试集上的R-CNN结果。这些结果基于ResNet-101 [19]，实现了35.7的掩模AP，并以5 fps运行。面具以彩色显示，还显示了边界框，类别和置信度。</em></p>
+<p>一个看似微小的变化，RoIAlign具有很大的影响：它将掩模精度提高了10％到50％，在更严格的本地化指标下显示出更大的收益。其次，我们发现解耦模板和类别预测至关重要：我们独立预测每个类别的二进制掩码，而不需要在类别间进行竞争，并依靠网络的RoI分类分支来预测类别。相比之下，FCNs通常执行每像素多类别分类，结合分割和分类，并基于我们的实验在分割实例方面效果不佳。<br>没有花里胡哨之力，Mask R-CNN超越了COCO实例分割任务中所有先前的最新单模型结果[28]，其中包括来自2016年竞赛冠军的大量工程项目。作为副产品，我们的方法也擅长COCO物体检测任务。在消融实验中，我们评估了多个基本实例，这使我们能够展示其强大性并分析核心因素的影响。<br>我们的模型可以在GPU上以每帧200毫秒的速度运行，并且在单个8 GPU计算机上进行COCO培训需要一到两天。我们相信，快速训练和测试速度，以及框架的灵活性和准确性，将会对实例分割的未来研究起到一定的作用。<br>最后，我们通过COCO关键点数据集上的人体姿态估计任务展示了我们框架的一般性[28]。通过将每个关键点视为一个热门的二进制掩码，只需进行最少的修改Mask R-CNN可用于检测实例特定的姿势。Mask R-CNN超越2016年COCO关键点竞赛的冠军，同时运行速度为5 fps。因此，面膜R-CNN可以更广泛地视为实例级别识别的灵活框架，并且可以很容易地扩展到更复杂的任务。<br>我们已发布代码以促进未来的研究。</p>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h1><p>R-CNN：基于区域的CNN（R-CNN）方法[13]对边界框对象进行检测是为了关注可管理数量的候选目标区域[42,20]并独立评估卷积网络[25,24]在每个RoI上。R-CNN得到了扩展[18,12]，允许使用RoIPool在功能地图上参与RoI，从而实现更快的速度和更高的准确性。更快的R-CNN [36]通过学习区域建议网络（RPN）的注意机制来推进这一流程。更快速的R-CNN灵活性强，适用于许多后续改进（例如[38,27,21]），并且是几个基准测试中的当前领先框架。<br>实例细分：在RCNN的有效性的推动下，许多实例细分的方法都基于细分提案。早期的方法[13,15,16,9]采用了自下而上的方法[42,2]。DeepMask [33]和以下着作[34,8]学会提出片段候选者，然后由Fast R-CNN进行分类。在这些方法中，分割先于识别，这是缓慢的并且不太准确。同样，戴等人。 [10]提出了一个复杂的多级级联，从包围盒提议中预测段提议，然后进行分类。相反，我们的方法基于面具和类标签的并行预测，它更简单，更灵活。<br>最近，李等人。 [26]将[8]中的段提议系统和[11]中的对象检测系统合并为“完全卷积实例分段”（FCIS）。[8,11,26]中的共同想法是预测一组完全卷积的位置敏感输出通道。这些通道同时处理对象类，框和掩码，使系统更快。但是FCIS在重叠实例上表现出系统性错误并产生虚假边缘（图6），表明它受到分割实例的根本困难的挑战。<br>另一个解决方案家族[23,4,3,29]实例分割是由语义分割的成功驱动的。从每像素分类结果（例如，FCN输出）开始，这些方法试图将相同类别的像素切割成不同的实例。与这些方法的分段第一策略相比，Mask R-CNN基于实例第一策略。我们预计未来将研究更深入的两种战略。</p>
+<h1 id="3-Mask-R-CNN"><a href="#3-Mask-R-CNN" class="headerlink" title="3.Mask R-CNN"></a>3.Mask R-CNN</h1><p>掩码R-CNN在概念上是简单的：更快的R-CNN对于每个候选对象具有两个输出，一个类别标签和一个边界框偏移;为此，我们添加一个输出对象掩码的第三个分支。面具R-CNN因此是一个自然而直观的想法。但是额外的掩码输出与类和盒输出不同，需要提取对象的更精细的空间布局。接下来，我们介绍Mask R-CNN的关键元素，包括像素对像素对齐，这是Fast / Faster R-CNN的主要缺失部分。<br>更快的R-CNN：我们首先回顾一下更快的R-CNN探测器[36]。更快的R-CNN由两个阶段组成。第一阶段称为区域提议网络（RPN），提出候选对象边界框。第二阶段本质上是Fast R-CNN [12]，使用每个候选框中的RoIPool提取特征，并执行分类和边界框回归。两个阶段使用的功能可以共享以加快推断速度。我们引用读者[21]对Faster R-CNN和其他框架进行最新，全面的比较。<br>掩码R-CNN：掩码R-CNN采用相同的两阶段过程，具有相同的第一阶段（即RPN）。在第二阶段，与预测类和盒子偏移并行，Mask R-CNN也为每个RoI输出一个二进制掩码。这与大多数最近的系统形成对比，其中分类依赖于掩模预测（例如[33,10,26]）。我们的方法遵循Fast R-CNN [12]的精神，它并行地应用了边界框分类和回归（其原来大大简化了原始R-CNN的多级流水线[13]）。<br>形式上，在训练期间，我们将每个抽样的RoI的多任务丢失定义为L = Lcls + Lbox + Lmask。分类损失Lcls和边界框损失Lbox与[12]中定义的相同。掩码分支对每个RoI都有一个Km<sup>2</sup>维输出，它编码分辨率为m*m的K个二进制掩码，每个K类一个掩码。为此，我们应用每像素S形，并将Lmask定义为平均二叉交叉熵损失。对于与地面实况类别k相关的RoI，Lmask仅在第k个掩模上定义（其他掩模输出不会造成损失）。<br>我们对Lmask的定义允许网络为每个班级生成口罩，而不需要在班级间进行竞争;我们依靠专用分类分支来预测用于选择输出掩码的类别标签。这样可以将掩码和类别预测分开。这与将FCN [30]应用于语义分割时的常见做法不同，后者通常使用每像素softmax和多项叉熵损失。在这种情况下，跨班级的面具竞争;在我们的例子中，每像素S形和二进制丢失，他们不。我们通过实验显示这个公式对于良好的实例分割结果是关键的。<br><img src="https://i.loli.net/2019/04/29/5cc65a2a8366b.png" alt="figure3"></p>
+<p>掩码表示法：掩码编码输入对象的空间布局。因此，与通过完全连接（fc）层不可避免地折叠成短输出矢量的类标签或框偏移不同，提取掩模的空间结构可以通过卷积提供的像素到像素对应自然地解决。<br>具体而言，我们使用FCN预测每个RoI的m<em>m掩码[30]。这允许掩码分支中的每个层保持显式m*m对象空间布局，而不将其折叠成缺少空间维度的向量表示。与之前采用fc层进行掩模预测的方法不同[33,34,10]，我们的完全卷积表示需要更少的参数，并且如实验所证明的那样更精确。<br>这种像素到像素的行为要求我们的RoI特征（它们本身是小特征图）能够很好地对齐以忠实地保留显式的每像素空间对应关系。这促使我们开发了以下RoAlign图层，该图层在遮罩预测中发挥关键作用。<br>RoIlign：RoIPool [12]是从每个RoI提取小特征映射（例如7×7）的标准操作。RoIPool首先将浮点数RoI量化为特征映射的离散粒度，然后将这个量化的RoI细分为自身量化的空间仓，最后汇总每个仓所涵盖的特征值（通常通过最大池）。例如，通过计算在连续坐标x上执行量化，其中16是特征映射步长并且是舍入;同样地，当分成分箱（例如，7×7）时执行量化。这些量化引入了RoI和提取的特征之间的错位。虽然这可能不会影响分类，这对于小型翻译很有用，但它对预测像素精确的蒙版有很大的负面影响。<br>为了解决这个问题，我们提出一个RoIlign层，它可以消除RoIPool的严格量化，正确地将提取的特征与输入对齐。我们提出的改变很简单：我们避免任何RoI边界或分区的量化（即，我们使用x/16而不是|x/16|）。我们使用双线性插值[22]来计算每个RoI bin中四个有规律采样位置的输入特征的精确值，并汇总结果（使用最大值或平均值），详细信息请参见图3。我们注意到，只要未执行量化，结果对精确的采样位置不敏感，或者采样了多少个点。<br>正如我们在§4.2中所展示的，RoIAlign带来了巨大的改进。我们也比较了[10]中提出的RoIWarp操作。与RoIlign不同，RoIWarp忽略了对齐问题，并在[10]中将RoI与RoIPool一样量化为RoI。所以即使RoIWarp也采用[22]激励的双线性重采样，它可以像RoIPool一样实验（表2c中的更多细节），证明了对齐的关键作用。<br>网络体系结构：为了演示我们的方法的一般性，我们实例化具有多种体系结构的Mask R-CNN。为了清楚起见，我们区分：（i）用于整个图像上的特征提取的卷积骨干架构，以及（ii）用于边界框识别（分类和回归）的网络头和分别应用于每个RoI的掩模预测。我们用命名网络深度特征来表示骨干架构。我们评估深度为50或101层的ResNet [19]和ResNeXt [45]网络。带ResNets的更快的R-CNN的原始实施。<br>[19]从第四阶段的最后卷积层提取特征，我们称之为C4。例如，ResNet-50的骨干用ResNet-50-C4表示。这是[19,10,21,39]中常用的选择。<br>我们还探索了Lin等人最近提出的另一种更有效的骨干。 [27]，称为特征金字塔网络（FPN）。FPN使用具有横向连接的自顶向下架构从单一比例输入构建网络内特征金字塔。更快的R-CNN和FPN骨干网根据其规模从不同层次的特征金字塔中提取RoI特征，但其他方法与vanilla ResNet类似。使用ResNet-FPN主干进行MaskNRCNN特征提取，可以提高精度和速度。有关FPN的更多详细信息，请参阅[27]。<br>对于网络负责人，我们密切关注以前工作中提出的架构，并在其中添加完全卷积掩码预测分支。具体而言，我们从ResNet [19]和FPN [27]论文中扩展了更快的R-CNN盒头。详细情况如图4所示。ResNet-C4主干上包含ResNet的第5级（即9层’res5’[19]），它是计算密集型的。对于FPN，骨干已经包含res5，因此可以使用更少的滤波器来提高效率。我们注意到我们的面具分支有一个简单的结构。更复杂的设计有提高性能的潜力，但不是这项工作的重点。<br><img src="https://i.loli.net/2019/04/29/5cc65b1069756.png" alt="figure4"><br>*图4.头架构：我们扩展了两个现有的更快的RCNN头[19,27]。左/右面板分别显示来自[19]和[27]的ResNet C4和FPN骨干的头部，其中添加了掩膜分支。数字表示空间分辨率和频道。箭头表示可以从上下文推断的conv，deconv或fc图层（conv会保留空间维度，而deconv会增加它）。所有的转换都是3×3，除了输出转换为1×1，解压缩为2×2和步长2，并且我们在隐藏层中使用了ReLU [31]。左：res5表示ResNet的第五阶段，为了简单起见，我们改变了第一阶段的第一阶段，以步幅1（而不是14×14 /步幅2，如[19]中的7×7阶段）操作。右：“×4”表示一连串四次转换。</em></p>
+<h2 id="3-1-Implementation-Details"><a href="#3-1-Implementation-Details" class="headerlink" title="3.1.Implementation Details"></a>3.1.Implementation Details</h2><p>我们在现有的快速/更快的R-CNN工作之后设置超参数[12,36,27]。尽管这些决策是在原始文件中进行对象检测的[12,36,27]，但我们发现我们的实例分割系统对它们是强健的。<br>培训：与Fast R-CNN一样，如果RoI的IoU的地面实况框至少为0.5，则认为是正面的，否则为负面。掩模损失Lmask仅在正向RoI上定义。掩码目标是RoI与其关联的地面实况蒙版之间的交集。<br>我们采用图像中心训练[12]。调整图像的大小以使其比例（较短的边缘）为800像素[27]。每个微型批次每个GPU有2个图像，每个图像具有N个采样的RoI，比例为1：3的正负极[12]。C4骨架的N为64（如[12,36]），FPN为512（如[27]）。我们在8个GPU（有效小批量大小为16）上进行160k次迭代训练，学习率为0.02，在120k迭代时减少10。我们使用0.0001的重量衰减和0.9的动量。使用ResNeXt [45]，我们每个GPU训练1个图像，迭代次数相同，初始学习率为0.01。RPN锚点跨越5个尺度和3个纵横比，见[27]。为了方便消融，除非另有说明，否则RPN将单独进行培训并且不会与Mask R-CNN共享特征。对于本文中的每个条目，RPN和Mask R-CNN具有相同的主干，因此它们可共享。<br>推论：在测试时，C4主干的提案编号为300（如[36]），FPN的提案编号为1000（如[27]）。我们对这些提议运行盒子预测分支，然后是非最大抑制[14]。然后将掩码分支应用于得分最高的100个检测框。虽然这与训练中使用的并行计算不同，但它加快了推理速度并提高了准确性（由于使用了更少，更准确的RoI）。掩模分支可以预测每个RoI的K个掩模，但我们只使用第k个掩模，其中k是分类分支预测的类。然后将m×m浮点数掩码输出调整为RoI大小，并在阈值0.5下进行二进制化。<br><img src="https://i.loli.net/2019/04/29/5cc65b990f59b.png" alt="figure5"><br><em>图5.在COCO测试图像上使用ResNet-101-FPN并以5 fps运行并带有35.7掩模AP（表1）的Mask R-CNN的更多结果。</em></p>
+<p><img src="https://i.loli.net/2019/04/29/5cc65bd2acd59.png" alt="table1"><br><em>表1. COCO test-dev上的实例分段掩码AP。跨国公司[10]和FCIS [26]分别是2015年和2016年分类挑战的赢家。没有花里胡哨的，Mask R-CNN胜过了更复杂的FCIS +++，其中包括多尺度训练/测试，水平测试和OHEM [38]。所有条目都是单模型结果。</em></p>
+<p>请注意，由于我们仅计算前100个检测框中的掩码，Mask R-CNN为其较快的R-CNN对象（例如典型模型上的约20％）增加了一个小的开销。</p>
+<h1 id="4-Experiments-Instance-Segmentation"><a href="#4-Experiments-Instance-Segmentation" class="headerlink" title="4.Experiments: Instance Segmentation"></a>4.Experiments: Instance Segmentation</h1><p>我们对Mask R-CNN进行了彻底的比较，并对COCO数据集进行了全面的消融[28]。我们报告标准的COCO指标，包括AP（平均在IoU阈值上），AP50，AP75和APS，APM，APL（AP在不同尺度上）。除非另有说明，否则AP正在使用掩膜IoU进行评估。和以前的工作[5,27]一样，我们训练使用80k列车图像和val图像的35k子集（trainval35k）的联合，并报告其余5k val图像（微型）上的消融。我们还在测试开发中报告结果[28]。</p>
+<h2 id="4-1-Main-Results"><a href="#4-1-Main-Results" class="headerlink" title="4.1.Main Results"></a>4.1.Main Results</h2><p>我们将Mask R-CNN与表1中实例分割中的最新方法进行了比较。我们模型的所有实例都优于先前最先进的模型的基线变体。其中包括MNC [10]和FCIS [26]，分别是2015年和2016年分类挑战的获胜者。ResNet-101-FPN骨干网掩码R-CNN的性能优于FCIS +++ [26]，其中包括多尺度训练/测试，水平流测试和在线硬示例挖掘（OHEM）[38]。虽然超出了本工作的范围，但我们预计许多此类改进将适用于我们的工作。图2和图5中显示了掩膜R-CNN输出。面具R-CNN即使在具有挑战性的条件下也能取得良好效果。在图6中，我们比较了我们的Mask R-CNN基线和FCIS +++ [26]。FCIS +++在重叠的实例中展现出系统性的人为因素，这表明它受到实例分割根本困难的挑战。掩码R-CNN没有显示这样的文物。<br><img src="https://i.loli.net/2019/04/29/5cc65cc9ecfc3.png" alt="figure6&amp;table2"></p>
+<h2 id="4-2-Ablation-Experiments"><a href="#4-2-Ablation-Experiments" class="headerlink" title="4.2. Ablation Experiments"></a>4.2. Ablation Experiments</h2><p>我们运行一些消融来分析Mask R-CNN。结果显示在表2中并在下面详细讨论。<br>架构：表2a显示了具有各种骨架的Mask R-CNN。它受益于更深的网络（50对101）和先进的设计，包括FPN和ResNeXt。我们注意到并非所有框架都自动从更深或更高级的网络中获益（参见[21]中的基准测试）。<br>多项式与独立式掩码：掩码R-CNN分离掩码和类别预测：由于现有的分支预测类别标签，因此我们为每个类别生成一个掩码，而不会在类别间进行竞争（按像素S形和二进制丢失）。在表2b中，我们将其与使用每像素softmax和多项损失（如FCN [30]中常用的）进行比较。这种替代方案将掩模和类别预测的任务相结合，并导致掩模AP（5.5分）的严重损失。这表明一旦实例被整体分类（通过盒子分支），预测二进制掩码就足够了，而不用考虑类别，这使得模型更易于训练。<br>Class-Speci fi c与Class-Agnostic Masks：我们的默认实例化预测了类特定的掩码，即一个m<em>m每个班级的面具。有趣的是，具有分类掩码的掩码R-CNN（即预测单个m*m输出而不管类别）几乎同样有效：它具有29.7掩码AP，而对于ResNet-50-C4上的类别特定对应字符，掩码AP为30.3。这进一步突出了我们的方法中的分工，这种分工在很大程度上将分类和分割分开。<br>Roialign：我们建议的RoIlign层的评估如表2c所示。在这个实验中，我们使用了跨度为16的ResNet50-C4主干。RoIAlign比RoIPool提高了约3个点，其中很大的收益来自高IoU（AP75）。RoIlign对最大/平均水池不敏感;我们在本文的其余部分使用平均值。另外，我们与在MNC [10]中提出的RoIWarp进行比较，该方法也采用双线性采样。正如§3所讨论的那样，RoIWarp仍然量化了RoI，失去了与输入的一致性。从表2c可以看出，RoIWarp的表现与RoIPool相当，比RoIAlign差很多。这突出表明正确的对齐是关键。<br>我们还用一个ResNet-50-C5骨干来评估RoIlign，这个骨干有32个像素的更大步幅。我们使用与图4（右）相同的头，因为res5头不适用。表2d显示RoIAlign提高了掩模AP的7.3点，掩盖AP75 10.5点（相对提高50％）。此外，我们注意到使用RoIAlign，使用步幅-32 C5功能（30.9 AP）比使用步幅-16 C4功能（30.3 AP，表2c）更准确。RoIAlign在很大程度上解决了使用大步功能进行检测和分割的长期挑战。最后，与FPN一起使用时，RoIAlign显示1.5掩模AP和0.5盒AP的增益，FPN具有更精细的多级步幅。对于需要精细对齐的关键点检测，RoIAlign即使使用FPN也显示出较大的增益（表6）。<br><img src="https://i.loli.net/2019/04/29/5cc65e0ebda46.png" alt="table3"><br>*遮罩分支：分割是一个像素到像素的任务，我们通过使用FCN来利用遮罩的空间布局。在表2e中，我们使用ResNet-50-FPN主干比较了多层感知器（MLP）和FCN。使用FCN可以提供2.1 Mbps的AP掩码。我们注意到，我们选择了这个骨干，这样FCN头部的conv层没有经过预先训练，与MLP进行公平比较。</em></p>
+<h2 id="4-3-Bounding-Box-Detection-Results"><a href="#4-3-Bounding-Box-Detection-Results" class="headerlink" title="4.3.Bounding Box Detection Results"></a>4.3.Bounding Box Detection Results</h2><p>我们将Mask R-CNN与表3中的最新COCO包围盒对象检测进行比较。对于这个结果，即使训练完整的Mask R-CNN模型，只有分类和框输出用于推理（掩码输出被忽略）。使用ResNet-101FPN的面罩R-CNN优于以前所有先进模型的基础变体，其中包括COMI 2016检测挑战赛获胜者GRMI [21]的单模型变体。使用ResNeXt-101-FPN，Mask R-CNN进一步改进了结果，与[39]（使用Inception-ResNet-v2-TDM）的最佳单一模型条目相比，框AP的余量为3.0分。<br>作为进一步的比较，我们训练了一个版本的掩模R-CNN，但没有掩模分支，表3中的“Faster R-CNN，RoIlign”表示。由于RoIlign的原因，该模型的性能比[27]中介绍的模型要好。另一方面，比面具R-CNN低0.9个盒子AP。因此掩模R-CNN在盒子检测上的差距仅仅是由于多任务训练的好处。<br>最后，我们注意到Mask R-CNN在其掩模和盒AP之间获得了一个小间隙：例如，在37.1（掩模，表1）和39.8（框3）之间的2.7个点。这表明我们的方法在很大程度上缩小了对象检测与更具挑战性的实例分割任务之间的差距。</p>
+<h2 id="4-4-Timing"><a href="#4-4-Timing" class="headerlink" title="4.4.Timing"></a>4.4.Timing</h2><p>推论：我们训练了一个ResNet-101-FPN模型，该模型在R-CNN更快的四步训练之后训练RPN和Mask R-CNN阶段之间的特征[36]。Nvidia Tesla M40 GPU（加上15ms CPU时间，将输出调整为原始分辨率）时，该模型以195ms的速度运行，并实现与非共享模式相同的掩模AP。我们还报告说ResNet-101-C4变体需要400毫秒，因为它有一个较重的盒子头（图4），所以我们不建议在实践中使用C4变体。<br>尽管掩模R-CNN速度很快，但我们注意到我们的设计并未针对速度进行优化，并且可以实现更好的速度/精度折衷[21]，例如，通过改变图像尺寸和提案编号，这超出了本白皮书的范围。<br>训练：面具R-CNN训练也很快。在COCO trainval35k上使用ResNet-50-FPN进行培训的同步8 GPU实现需要32小时（每16图像微型批次0.72s），使用ResNet-101-FPN需要44小时。实际上，快速原型设计可以在不到一天的时间内在火车上进行训练时完成。我们希望这种快速培训能够消除该领域的一个主要障碍，并鼓励更多的人对这个具有挑战性的话题进行研究。</p>
+<h1 id="5-Mask-R-CNN-for-Human-Pose-Estimation"><a href="#5-Mask-R-CNN-for-Human-Pose-Estimation" class="headerlink" title="5. Mask R-CNN for Human Pose Estimation"></a>5. Mask R-CNN for Human Pose Estimation</h1><p>我们的框架可以很容易地扩展到人体姿态估计。我们将一个关键点的位置建模为一个单独的热掩模，并采用掩模R-CNN预测K个掩模，每个K个关键点类型（例如左肩，右肘）各一个。这项任务有助于展示Mask R-CNN的灵活性。我们注意到，我们的系统利用了人类姿态的最小领域知识，因为实验主要是为了展示Mask R-CNN框架的一般性。我们期望领域知识（例如，建模结构[6]）将与我们简单的方法相辅相成。<br>实施细节：对关键点进行调整时，我们对细分系统进行细微修改。对于实例的每个K关键点，训练目标是一个热点二进制掩码，其中只有一个像素标记为前景。在训练过程中，对于每个可见的地面真值关键点，我们将 -way softmax输出的交叉熵损失最小化（鼓励[6]是2016年竞赛获胜者，使用多尺度测试，CPM后处理[使用两种模型（Inception-ResNet-1）对G-RMI进行COCO加MPII [1]（25k图像）的训练，并用目标检测器进行滤波，累加约5个点（在个人通信中加以澄清） v2用于边界框检测，ResNet-101用于关键点）。<br><img src="https://i.loli.net/2019/04/29/5cc65f4085801.png" alt="figure7"><br><em>图7.使用Mask R-CNN（ResNet-50-FPN）在COCO测试中的关键点检测结果，以及从相同模型预测的人分割掩码。该模型的关键点AP为63.1，运行速度为5 fps。</em></p>
+<p>单点待检测）。我们注意到，与实例分割一样，K关键点仍然是独立处理的。我们采用ResNet-FPN变体，关键点头结构与图4（右）相似。关键点头由8个3×3 512-d的conv层组成，其后是去卷积层和2倍双线性放大，产生56×56的输出分辨率。我们发现对于关键点级别的定位精度需要相对较高的分辨率输出（与掩模相比）。<br>模型在所有包含注释关键点的COCO trainval35k图像上进行训练。为减少过度训练，由于训练集较小，我们使用从[640,800]像素中随机采样的图像比例进行训练;推断是在800像素的单一尺度上进行的。我们训练90k迭代，从0.02的学习率开始，在60k和80k迭代时将其减少10。我们使用边界框NMS，阈值为0.5。其他细节与§3.1中的相同。<br>主要结果和消融：我们评估人员关键点AP（APkp）并尝试使用ResNet-50-FPN主干;附录中将研究更多骨干。表4显示我们的结果（62.7 APkp）比使用多级处理管道的COCO 2016关键点检测获胜者[6]高0.9个点（见表4的标题）。我们的方法相当简单快捷。<br>更重要的是，我们有一个统一的模型，可以在5 fps下运行时同时预测盒子，分段和关键点。添加段分支（针对人员类别）将test-dev上的APkp值提高到63.1（表4）。表5中更多关于微型多任务学习的消除。将掩码分支添加到仅包装盒（即更快的R-CNN）或仅有关键点的版本可以持续改进这些任务。但是，添加关键点分支会略微减少盒/掩码AP，这表明虽然多任务训练可以实现关键点检测，但它不会帮助其他任务。不过，联合学习所有三项任务可以使统一系统同时有效地预测所有输出（图7）。我们还调查RoIAlign对关键点检测的影响（表6）。尽管ResNet-50-FPN骨干网有很大的进展（例如，在嵌套层面上有4个像素），但RoIAlign仍然显示出比RoIPool有显着的提高，APkp增加4.4点。这是因为关键点检测对定位精度更敏感。这再次表明，对齐对像素级本地化至关重要，包括掩码和关键点。<br><img src="https://i.loli.net/2019/04/29/5cc6605e29496.png" alt="table4/5/6"></p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -458,6 +401,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -470,8 +417,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/2019-08-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9812/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/2019-04-26-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -489,16 +440,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/16/2019-08-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9812/" itemprop="url">
-                  前端开发(1)-CSS入门及提高12
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/04/26/2019-04-26-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_8/" itemprop="url">数据结构_8</a></h1>
         
 
         <div class="post-meta">
@@ -510,8 +453,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T00:00:00+08:00">
-                2019-08-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T00:00:00+08:00">
+                2019-04-26
               </time>
             
 
@@ -539,7 +482,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -549,299 +494,40 @@
         
           
             <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。<br>这里只讨论内部排序，即默认内存空间足够大，可以存放下所有需要排序的数据。</p>
 </blockquote>
-<h1 id="过渡-CSS3"><a href="#过渡-CSS3" class="headerlink" title="过渡(CSS3)"></a>过渡(CSS3)</h1><p>过渡（transition)是CSS3中具有颠覆性的特征之一，我们可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。</p>
-<p>在CSS3里使用transition可以实现补间动画（过渡效果），并且当前元素只要有“属性”发生变化时即存在两种状态(我们用A和B代指），就可以实现平滑的过渡，为了方便演示采用hover切换两种状态，但是并不仅仅局限于hover状态来实现过渡。</p>
-<p>语法格式:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transition: 要过渡的属性  花费时间  运动曲线  何时开始;</span><br><span class="line">如果有多组属性变化，还是用逗号隔开。</span><br></pre></td></tr></table></figure>
+<h1 id="简单排序（冒泡、插入）"><a href="#简单排序（冒泡、插入）" class="headerlink" title="简单排序（冒泡、插入）#"></a>简单排序（冒泡、插入）#</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>从上到下比较两个相邻的泡泡，小在上，大在下则不动，否则交换顺序。这为第一趟冒泡，保证将最大的元素放到最下边，然后重复冒泡，直到所有元素均排好序。<br>最好情况：顺序T=O(N)<br>最坏情况：倒序T=O(N<sup>2</sup>)</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>类比于打牌时抓牌的过程。<br>最好情况：顺序T=O(N)<br>最坏情况：倒序T=O(N<sup>2</sup>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void InsertionSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 插入排序 */</span><br><span class="line">     int P, i;</span><br><span class="line">     ElementType Tmp;</span><br><span class="line">      </span><br><span class="line">     for ( P=1; P&lt;N; P++ ) &#123;</span><br><span class="line">         Tmp = A[P]; /* 取出未排序序列中的第一个元素*/</span><br><span class="line">         for ( i=P; i&gt;0 &amp;&amp; A[i-1]&gt;Tmp; i-- )</span><br><span class="line">             A[i] = A[i-1]; /*依次与已排序序列中元素比较并右移*/</span><br><span class="line">         A[i] = Tmp; /* 放进合适的位置 */</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="时间复杂度下界"><a href="#时间复杂度下界" class="headerlink" title="时间复杂度下界"></a>时间复杂度下界</h2><p>对于下标i&lt;j，如果A[i]&gt;A[j]，则称（i,j）是一对逆序对。<br>冒泡排序和插入排序中需要交换的次数即逆序对数，也就是每次交换消除一个逆序对。</p>
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p><img src="https://i.loli.net/2019/04/26/5cc2bed0950e0.png" alt="希尔排序"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void ShellSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 希尔排序 - 用Sedgewick增量序列 */</span><br><span class="line">     int Si, D, P, i;</span><br><span class="line">     ElementType Tmp;</span><br><span class="line">     /* 这里只列出一小部分增量 */</span><br><span class="line">     int Sedgewick[] = &#123;929, 505, 209, 109, 41, 19, 5, 1, 0&#125;;</span><br><span class="line">      </span><br><span class="line">     for ( Si=0; Sedgewick[Si]&gt;=N; Si++ ) </span><br><span class="line">         ; /* 初始的增量Sedgewick[Si]不能超过待排序列长度 */</span><br><span class="line"> </span><br><span class="line">     for ( D=Sedgewick[Si]; D&gt;0; D=Sedgewick[++Si] )</span><br><span class="line">         for ( P=D; P&lt;N; P++ ) &#123; /* 插入排序*/</span><br><span class="line">             Tmp = A[P];</span><br><span class="line">             for ( i=P; i&gt;=D &amp;&amp; A[i-D]&gt;Tmp; i-=D )</span><br><span class="line">                 A[i] = A[i-D];</span><br><span class="line">             A[i] = Tmp;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-<th>CSS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>transition</td>
-<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>transition-property</td>
-<td>规定应用过渡的 CSS 属性的名称。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>定义过渡效果花费的时间。默认是 0。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>规定过渡效果何时开始。默认是 0。</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<p>如果多个属性都要效果，用逗号隔开即可；如果想要所有的属性都变化过渡， 写一个all 就可以。</p>
-<p>运动曲线示意图：</p>
-<p><img src="https://i.loli.net/2019/08/16/nW2VBGMACaYmeSR.png" alt=""></p>
-<h1 id="2D变形-CSS3-transform"><a href="#2D变形-CSS3-transform" class="headerlink" title="2D变形(CSS3) transform"></a>2D变形(CSS3) transform</h1><p>transform是CSS3中具有颠覆性的特征之一，可以实现元素的位移、旋转、倾斜、缩放，甚至支持矩阵方式，配合过渡和即将学习的动画知识，可以取代大量之前只能靠Flash才可以实现的效果。</p>
-<h2 id="移动-translate-x-y"><a href="#移动-translate-x-y" class="headerlink" title="移动 translate(x, y)"></a>移动 translate(x, y)</h2><p><img src="https://i.loli.net/2019/08/18/M3Xa4CQWFiKwoOJ.png" alt=""></p>
-<p>可以改变元素的位置，x、y可为负值；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">translate(x,y)水平方向和垂直方向同时移动（也就是X轴和Y轴同时移动）</span><br><span class="line">translateX(x)仅水平方向移动（X轴移动）</span><br><span class="line">translateY(Y)仅垂直方向移动（Y轴移动）</span><br></pre></td></tr></table></figure>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>在i从0到N的循环里，从A[i]到A[i-1]中找到最小元，并将其位置赋给MinPostion，将未排序部分的最小元换到有序部分的最后位置，即交换A[i]和A[MinPostion]。</p>
+<h2 id="堆排序-1"><a href="#堆排序-1" class="headerlink" title="堆排序"></a>堆排序</h2><p>将找最小元用最小堆来解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">void Swap( ElementType *a, ElementType *b )</span><br><span class="line">&#123;</span><br><span class="line">     ElementType t = *a; *a = *b; *b = t;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">void PercDown( ElementType A[], int p, int N )</span><br><span class="line">&#123; /* 改编代码4.24的PercDown( MaxHeap H, int p )    */</span><br><span class="line">  /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = A[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; (Parent*2+1)&lt;N; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2 + 1;</span><br><span class="line">        if( (Child!=N-1) &amp;&amp; (A[Child]&lt;A[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= A[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            A[Parent] = A[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    A[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void HeapSort( ElementType A[], int N ) </span><br><span class="line">&#123; /* 堆排序 */</span><br><span class="line">     int i;</span><br><span class="line">       </span><br><span class="line">     for ( i=N/2-1; i&gt;=0; i-- )/* 建立最大堆 */</span><br><span class="line">         PercDown( A, i, N );</span><br><span class="line">      </span><br><span class="line">     for ( i=N-1; i&gt;0; i-- ) &#123;</span><br><span class="line">         /* 删除最大堆顶 */</span><br><span class="line">         Swap( &amp;A[0], &amp;A[i] ); /* 见代码7.1 */</span><br><span class="line">         PercDown( A, 0, i );</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="缩放-scale-x-y"><a href="#缩放-scale-x-y" class="headerlink" title="缩放 scale(x, y)"></a>缩放 scale(x, y)</h2><p><img src="https://i.loli.net/2019/08/18/ZFJwyPhBe6a1WAG.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scale(X,Y)使元素水平方向和垂直方向同时缩放（也就是X轴和Y轴同时缩放）</span><br><span class="line">scaleX(x)元素仅水平方向缩放（X轴缩放）</span><br><span class="line">scaleY(y)元素仅垂直方向缩放（Y轴缩放）</span><br></pre></td></tr></table></figure>
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>核心：有序子列的归并</p>
+<h2 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h2><p>分而治之，T(N)=O(NlogN)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">/* 归并排序 - 递归实现 */</span><br><span class="line"> </span><br><span class="line">/* L = 左边起始位置, R = 右边起始位置, RightEnd = 右边终点位置*/</span><br><span class="line">void Merge( ElementType A[], ElementType TmpA[], int L, int R, int RightEnd )</span><br><span class="line">&#123; /* 将有序的A[L]~A[R-1]和A[R]~A[RightEnd]归并成一个有序序列 */</span><br><span class="line">     int LeftEnd, NumElements, Tmp;</span><br><span class="line">     int i;</span><br><span class="line">      </span><br><span class="line">     LeftEnd = R - 1; /* 左边终点位置 */</span><br><span class="line">     Tmp = L;         /* 有序序列的起始位置 */</span><br><span class="line">     NumElements = RightEnd - L + 1;</span><br><span class="line">      </span><br><span class="line">     while( L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd ) &#123;</span><br><span class="line">         if ( A[L] &lt;= A[R] )</span><br><span class="line">             TmpA[Tmp++] = A[L++]; /* 将左边元素复制到TmpA */</span><br><span class="line">         else</span><br><span class="line">             TmpA[Tmp++] = A[R++]; /* 将右边元素复制到TmpA */</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     while( L &lt;= LeftEnd )</span><br><span class="line">         TmpA[Tmp++] = A[L++]; /* 直接复制左边剩下的 */</span><br><span class="line">     while( R &lt;= RightEnd )</span><br><span class="line">         TmpA[Tmp++] = A[R++]; /* 直接复制右边剩下的 */</span><br><span class="line">          </span><br><span class="line">     for( i = 0; i &lt; NumElements; i++, RightEnd -- )</span><br><span class="line">         A[RightEnd] = TmpA[RightEnd]; /* 将有序的TmpA[]复制回A[] */</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void Msort( ElementType A[], ElementType TmpA[], int L, int RightEnd )</span><br><span class="line">&#123; /* 核心递归排序函数 */ </span><br><span class="line">     int Center;</span><br><span class="line">      </span><br><span class="line">     if ( L &lt; RightEnd ) &#123;</span><br><span class="line">          Center = (L+RightEnd) / 2;</span><br><span class="line">          Msort( A, TmpA, L, Center );              /* 递归解决左边 */ </span><br><span class="line">          Msort( A, TmpA, Center+1, RightEnd );     /* 递归解决右边 */  </span><br><span class="line">          Merge( A, TmpA, L, Center+1, RightEnd );  /* 合并两段有序序列 */ </span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void MergeSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 归并排序 */</span><br><span class="line">     ElementType *TmpA;</span><br><span class="line">     TmpA = (ElementType *)malloc(N*sizeof(ElementType));</span><br><span class="line">      </span><br><span class="line">     if ( TmpA != NULL ) &#123;</span><br><span class="line">          Msort( A, TmpA, 0, N-1 );</span><br><span class="line">          free( TmpA );</span><br><span class="line">     &#125;</span><br><span class="line">     else printf( &quot;空间不足&quot; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="非递归算法"><a href="#非递归算法" class="headerlink" title="非递归算法"></a>非递归算法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* 归并排序 - 循环实现 */</span><br><span class="line">/* 这里Merge函数在递归版本中给出 */</span><br><span class="line"> </span><br><span class="line">/* length = 当前有序子列的长度*/</span><br><span class="line">void Merge_pass( ElementType A[], ElementType TmpA[], int N, int length )</span><br><span class="line">&#123; /* 两两归并相邻有序子列 */</span><br><span class="line">     int i, j;</span><br><span class="line">       </span><br><span class="line">     for ( i=0; i &lt;= N-2*length; i += 2*length )</span><br><span class="line">         Merge( A, TmpA, i, i+length, i+2*length-1 );</span><br><span class="line">     if ( i+length &lt; N ) /* 归并最后2个子列*/</span><br><span class="line">         Merge( A, TmpA, i, i+length, N-1);</span><br><span class="line">     else /* 最后只剩1个子列*/</span><br><span class="line">         for ( j = i; j &lt; N; j++ ) TmpA[j] = A[j];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void Merge_Sort( ElementType A[], int N )</span><br><span class="line">&#123; </span><br><span class="line">     int length; </span><br><span class="line">     ElementType *TmpA;</span><br><span class="line">      </span><br><span class="line">     length = 1; /* 初始化子序列长度*/</span><br><span class="line">     TmpA = malloc( N * sizeof( ElementType ) );</span><br><span class="line">     if ( TmpA != NULL ) &#123;</span><br><span class="line">          while( length &lt; N ) &#123;</span><br><span class="line">              Merge_pass( A, TmpA, N, length );</span><br><span class="line">              length *= 2;</span><br><span class="line">              Merge_pass( TmpA, A, N, length );</span><br><span class="line">              length *= 2;</span><br><span class="line">          &#125;</span><br><span class="line">          free( TmpA );</span><br><span class="line">     &#125;</span><br><span class="line">     else printf( &quot;空间不足&quot; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p> scale()的取值默认的值为1，当值设置为0.01到0.99之间的任何值，作用使一个元素缩小；而任何大于或等于1.01的值，作用是让元素放大。</p>
-<h2 id="旋转-rotate-deg"><a href="#旋转-rotate-deg" class="headerlink" title="旋转 rotate(deg)"></a>旋转 rotate(deg)</h2><p><img src="https://i.loli.net/2019/08/18/3PV4dGBDxnF9Mk2.png" alt=""></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(45deg)</span>;</span><br></pre></td></tr></table></figure>
-
-<p> 注意单位是 deg 度数      </p>
-<p>transform-origin可以调整元素转换变形的原点。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;<span class="attribute">transform-origin</span>: left top;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(45deg); &#125;  <span class="comment">/* 改变元素原点到左上角，然后进行顺时旋转45度 */</span></span><br></pre></td></tr></table></figure>
-
-<p> 如果是4个角，可以用 left top这些，如果想要精确的位置， 可以用  px 像素。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;<span class="attribute">transform-origin</span>: <span class="number">10px</span> <span class="number">10px</span>;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(45deg); &#125;  <span class="comment">/* 改变元素原点到x 为10  y 为10，然后进行顺时旋转45度 */</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2019/08/18/5oLbuKF3Iq6TpXV.png" alt=""></p>
-<h2 id="倾斜-skew-deg-deg"><a href="#倾斜-skew-deg-deg" class="headerlink" title="倾斜 skew(deg, deg)"></a>倾斜 skew(deg, deg)</h2><p><img src="https://i.loli.net/2019/08/18/Y3yMilbtRao6BKs.png" alt=""></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:skew(30deg</span>,0<span class="selector-tag">deg</span>);</span><br></pre></td></tr></table></figure>
-
-<p>该实例通过skew方法把元素水平方向上倾斜30度，处置方向保持不变。</p>
-<p>可以使元素按一定的角度进行倾斜，可为负值，第二个参数不写默认为0。</p>
-<h1 id="3D变形-CSS3-transform"><a href="#3D变形-CSS3-transform" class="headerlink" title="3D变形(CSS3) transform"></a>3D变形(CSS3) transform</h1><h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><h3 id="rotateX"><a href="#rotateX" class="headerlink" title="rotateX()"></a>rotateX()</h3><p> 沿着 x 立体旋转。</p>
-<h3 id="rotateY"><a href="#rotateY" class="headerlink" title="rotateY()"></a>rotateY()</h3><p>沿着y轴进行旋转。</p>
-<h3 id="rotateZ-"><a href="#rotateZ-" class="headerlink" title="rotateZ()"></a>rotateZ()</h3><p>沿着z轴进行旋转。</p>
-<h2 id="透视-perspective"><a href="#透视-perspective" class="headerlink" title="透视(perspective)"></a>透视(perspective)</h2><p>电脑显示屏是一个2D平面，图像之所以具有立体感（3D效果），其实只是一种视觉呈现，通过透视可以实现此目的。</p>
-<p>透视可以将一个2D平面，在转换的过程当中，呈现3D效果。</p>
-<ul>
-<li>透视原理： 近大远小 。</li>
-<li>浏览器透视：把近大远小的所有图像，透视在屏幕上。</li>
-<li>perspective：视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置</li>
-</ul>
-<p>注：并非任何情况下需要透视效果，根据开发需要进行设置。</p>
-<p>perspective 一般作为一个属性，设置给父元素，作用于所有3D转换的子元素</p>
-<p>理解透视距离原理：</p>
-<p><img src="https://i.loli.net/2019/08/18/OKtFYf8Az1xhJWw.png" alt=""></p>
-<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><h3 id="translateX-x"><a href="#translateX-x" class="headerlink" title="translateX(x)"></a>translateX(x)</h3><p>仅水平方向移动**（X轴移动）</p>
-<p><img src="https://i.loli.net/2019/08/18/45YPNsmgDZCR2WX.png" alt=""></p>
-<p>主要目的实现移动效果。</p>
-<h3 id="translateY-y"><a href="#translateY-y" class="headerlink" title="translateY(y)"></a>translateY(y)</h3><p>仅垂直方向移动（Y轴移动）</p>
-<p><img src="https://i.loli.net/2019/08/18/UcuZoiNAwq5nEhR.png" alt=""></p>
-<h3 id="translateZ-z"><a href="#translateZ-z" class="headerlink" title="translateZ(z)"></a>translateZ(z)</h3><p>transformZ的直观表现形式就是大小变化，实质是XY平面相对于视点的远近变化（说远近就一定会说到离什么参照物远或近，在这里参照物就是perspective属性）。比如设置了perspective为200px;那么transformZ的值越接近200，就是离的越近，看上去也就越大，超过200就看不到了，因为相当于跑到后脑勺去了，我相信你正常情况下，是看不到自己的后脑勺的。</p>
-<h3 id="translate3d-x-y-z"><a href="#translate3d-x-y-z" class="headerlink" title="translate3d(x,y,z)"></a>translate3d(x,y,z)</h3><p>[注意]其中，x和y可以是长度值，也可以是百分比，百分比是相对于其本身元素水平方向的宽度和垂直方向的高度和；z只能设置长度值</p>
-<h3 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a>backface-visibility</h3><p>backface-visibility 属性定义当元素不面向屏幕时是否可见。</p>
-<h1 id="动画-CSS3-animation"><a href="#动画-CSS3-animation" class="headerlink" title="动画(CSS3) animation"></a>动画(CSS3) animation</h1><p>动画是CSS3中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。</p>
-<p>动画调用语法格式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">animation</span>:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2019/08/18/jHQsoxCn5ulKfLh.png" alt=""></p>
-<p>关于几个值，除了名字，动画时间，延时有严格顺序要求其它随意。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation-iteration-count:infinite;  无限循环播放animation-play-state:paused;   暂停动画</span><br></pre></td></tr></table></figure>
-
-<p>动画定义语法格式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> 动画名称 &#123;</span><br><span class="line">  from&#123; 开始位置 &#125;  0%</span><br><span class="line">  to&#123;  结束  &#125;  100%</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="伸缩布局-CSS3"><a href="#伸缩布局-CSS3" class="headerlink" title="伸缩布局(CSS3)"></a>伸缩布局(CSS3)</h1><p>CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。</p>
-<p>主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向</p>
-<p>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的</p>
-<p>方向：默认主轴从左向右，侧轴默认从上到下</p>
-<p>主轴和侧轴并不是固定不变的，通过flex-direction可以互换。</p>
-<p><img src="https://i.loli.net/2019/08/18/CXqchO6JIu8sSwa.png" alt=""></p>
-<p>Flex布局的语法规范经过几年发生了很大的变化，也给Flexbox的使用带来一定的局限性，因为语法规范版本众多，浏览器支持不一致，致使Flexbox布局使用不多</p>
-<h2 id="各属性详解"><a href="#各属性详解" class="headerlink" title="各属性详解"></a>各属性详解</h2><p>1.flex子项目在主轴的缩放比例，不指定flex属性，则不参与伸缩分配</p>
-<p>min-width  最小值      min-width: 280px  最小宽度  不能小于 280</p>
-<p>max-width: 1280px  最大宽度  不能大于 1280</p>
-<p>2.flex-direction调整主轴方向（默认为水平方向）</p>
-<p>flex-direction: column 垂直排列</p>
-<p>flex-direction: row  水平排列</p>
-<p>3、justify-content调整主轴对齐（水平对齐）</p>
-<p>子盒子如何在父盒子里面水平对齐</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-<th>白话文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>flex-start</td>
-<td>默认值。项目位于容器的开头。</td>
-<td>让子元素从父容器的开头开始排序但是盒子顺序不变</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>项目位于容器的结尾。</td>
-<td>让子元素从父容器的后面开始排序但是盒子顺序不变</td>
-</tr>
-<tr>
-<td>center</td>
-<td>项目位于容器的中心。</td>
-<td>让子元素在父容器中间显示</td>
-</tr>
-<tr>
-<td>space-between</td>
-<td>项目位于各行之间留有空白的容器内。</td>
-<td>左右的盒子贴近父盒子，中间的平均分布空白间距</td>
-</tr>
-<tr>
-<td>space-around</td>
-<td>项目位于各行之前、之间、之后都留有空白的容器内。</td>
-<td>相当于给每个盒子添加了左右margin外边距</td>
-</tr>
-</tbody></table>
-<p>4、align-items调整侧轴对齐（垂直对齐）</p>
-<p>子盒子如何在父盒子里面垂直对齐（单行）</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-<th>白话文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>stretch</td>
-<td>默认值。项目被拉伸以适应容器。</td>
-<td>让子元素的高度拉伸适用父容器（子元素不给高度的前提下)</td>
-</tr>
-<tr>
-<td>center</td>
-<td>项目位于容器的中心。</td>
-<td>垂直居中</td>
-</tr>
-<tr>
-<td>flex-start</td>
-<td>项目位于容器的开头。</td>
-<td>垂直对齐开始位置 上对齐</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>项目位于容器的结尾。</td>
-<td>垂直对齐结束位置 底对齐</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>5、flex-wrap控制是否换行</p>
-<p>当我们子盒子内容宽度多于父盒子的时候如何处理</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>nowrap</td>
-<td>默认值。规定灵活的项目不拆行或不拆列。  不换行，则 收缩（压缩） 显示  强制一行内显示</td>
-</tr>
-<tr>
-<td>wrap</td>
-<td>规定灵活的项目在必要的时候拆行或拆列。</td>
-</tr>
-<tr>
-<td>wrap-reverse</td>
-<td>规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>6、flex-flow是flex-direction、flex-wrap的简写形式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">flex-direction</span>  <span class="selector-tag">flex-wrap</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>白话记：    flex-flow: 排列方向   换不换行; </p>
-<p>两个中间用空格</p>
-<p>例如：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br><span class="line"><span class="comment">/* flex-direction: row;</span></span><br><span class="line"><span class="comment">flex-wrap: wrap;   这两句话等价于下面的这句话*/</span></span><br><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">column</span> <span class="selector-tag">wrap</span>;  <span class="comment">/* 两者的综合 */</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>7、align-content堆栈（由flex-wrap产生的独立行）多行垂直对齐方式齐</p>
-<p>align-content是针对flex容器里面多轴(多行)的情况,align-items是针对一行的情况进行排列。</p>
-<p>必须对父元素设置自由盒属性display:flex;，并且设置排列方式为横向排列flex-direction:row;并且设置换行，flex-wrap:wrap;这样这个属性的设置才会起作用。</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-<th>测试</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>stretch</td>
-<td>默认值。项目被拉伸以适应容器。</td>
-<td></td>
-</tr>
-<tr>
-<td>center</td>
-<td>项目位于容器的中心。</td>
-<td></td>
-</tr>
-<tr>
-<td>flex-start</td>
-<td>项目位于容器的开头。</td>
-<td></td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>项目位于容器的结尾。</td>
-<td></td>
-</tr>
-<tr>
-<td>space-between</td>
-<td>项目位于各行之间留有空白的容器内。</td>
-<td></td>
-</tr>
-<tr>
-<td>space-around</td>
-<td>项目位于各行之前、之间、之后都留有空白的容器内。</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>8、order控制子项目的排列顺序，正序方式排序，从小到大</p>
-<p>用css 来控制盒子的前后顺序。  用order 就可以</p>
-<p>用整数值来定义排列顺序，数值小的排在前面。可以为负值。 默认值是 0</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">order</span>: 1;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -855,6 +541,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -867,8 +557,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/2019-08-15-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9811/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/2019-04-25-%E4%B8%AD%E5%85%B3%E6%9D%91%E7%A7%91%E5%AD%A6%E5%9F%8E%E7%9A%84%E5%85%B4%E8%B5%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -886,16 +580,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/08/15/2019-08-15-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9811/" itemprop="url">
-                  前端开发(1)-CSS入门及提高11
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/04/25/2019-04-25-%E4%B8%AD%E5%85%B3%E6%9D%91%E7%A7%91%E5%AD%A6%E5%9F%8E%E7%9A%84%E5%85%B4%E8%B5%B7/" itemprop="url">中关村科学城的兴起(1953-1966)</a></h1>
         
 
         <div class="post-meta">
@@ -907,8 +593,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T00:00:00+08:00">
-                2019-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-25T00:00:00+08:00">
+                2019-04-25
               </time>
             
 
@@ -936,7 +622,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -946,158 +634,32 @@
         
           
             <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+<p>《中关村科学城的兴起(1953-1966)》由胡亚东/郑哲敏/严陆光等口述/杨小林访问整理，湖南教育出版社出版，是20世纪中国科学口述史中其中一部，在此感谢！<br>《中关村科学城的兴起(1953-1966)》选择亲历中国20世纪科学技术发展史的中国著名科学家作为主要访谈对象，本求真之原则，记录其亲历亲闻的史实，并按大致统一的编例整理成书稿。</p>
 </blockquote>
-<h1 id="元素的显示与隐藏"><a href="#元素的显示与隐藏" class="headerlink" title="元素的显示与隐藏"></a>元素的显示与隐藏</h1><p>在CSS中有三个显示和隐藏的单词比较常见，我们要区分开，他们分别是 display visibility 和 overflow。</p>
-<p>他们的主要目的是让一个元素在页面中消失，但是不在文档源码中删除。 最常见的是网站广告，当我们点击类似关闭不见了，但是我们重新刷新页面，它们又会出现和你玩躲猫猫！！</p>
-<h2 id="display-显示"><a href="#display-显示" class="headerlink" title="display 显示"></a>display 显示</h2><p>display 设置或检索对象是否及如何显示。</p>
-<p>display : none 隐藏对象 与它相反的是 display:block 除了转换为块级元素之外，同时还有显示元素的意思。</p>
-<p>特点： 隐藏之后，不再保留位置。</p>
-<h2 id="visibility-可见性"><a href="#visibility-可见性" class="headerlink" title="visibility 可见性"></a>visibility 可见性</h2><p>设置或检索是否显示对象。</p>
-<p>visible : 　对象可视</p>
-<p>hidden : 　对象隐藏</p>
-<p>特点： 隐藏之后，继续保留原有位置。（停职留薪）</p>
-<h2 id="overflow-溢出"><a href="#overflow-溢出" class="headerlink" title="overflow 溢出"></a>overflow 溢出</h2><p>检索或设置当对象的内容超过其指定高度及宽度时如何管理内容。</p>
-<p>visible : 　不剪切内容也不添加滚动条。</p>
-<p>auto : 　 超出自动显示滚动条，不超出不显示滚动条</p>
-<p>hidden : 　不显示超过对象尺寸的内容，超出的部分隐藏掉</p>
-<p>scroll : 　不管超出内容否，总是显示滚动条</p>
-<h1 id="CSS用户界面样式"><a href="#CSS用户界面样式" class="headerlink" title="CSS用户界面样式"></a>CSS用户界面样式</h1><p> 所谓的界面样式， 就是更改一些用户操作样式， 比如 更改用户的鼠标样式， 表单轮廓等。但是比如滚动条的样式改动受到了很多浏览器的抵制，因此我们就放弃了。 防止表单域拖拽</p>
-<h2 id="鼠标样式cursor"><a href="#鼠标样式cursor" class="headerlink" title="鼠标样式cursor"></a>鼠标样式cursor</h2><p> 设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。 </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cursor :  default  小白 | pointer  小手  | move  移动  |  text  文本</span><br></pre></td></tr></table></figure>
-
-<p> 鼠标放我身上查看效果哦：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:default"</span>&gt;</span>我是小白<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span>&gt;</span>我是小手<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:move"</span>&gt;</span>我是移动<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:text"</span>&gt;</span>我是文本<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> 尽量不要用hand  因为 火狐不支持     pointer ie6以上都支持的尽量用</p>
-<h2 id="轮廓-outline"><a href="#轮廓-outline" class="headerlink" title="轮廓 outline"></a>轮廓 outline</h2><p> 是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outline : outline-color ||outline-style || outline-width</span><br></pre></td></tr></table></figure>
-
-<p> 但是我们都不关心可以设置多少，我们平时都是去掉的。</p>
-<p>最直接的写法是 ：  outline: 0;   或者  outline: none;</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">style</span>=<span class="string">"outline: 0;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="防止拖拽文本域resize"><a href="#防止拖拽文本域resize" class="headerlink" title="防止拖拽文本域resize"></a>防止拖拽文本域resize</h2><p>resize：none    这个单词可以防止 火狐 谷歌等浏览器随意的拖动 文本域。</p>
-<p>右下角可以拖拽： </p>
-<p><textarea></textarea></p>
-<p>右下角不可以拖拽：  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span>  <span class="attr">style</span>=<span class="string">"resize: none;"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="vertical-align-垂直对齐"><a href="#vertical-align-垂直对齐" class="headerlink" title="vertical-align 垂直对齐"></a>vertical-align 垂直对齐</h2><p><img src="https://i.loli.net/2019/08/16/dr6YyzX5aJ9L2Ee.jpg" alt=""></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vertical-align : baseline |top |middle |bottom</span><br></pre></td></tr></table></figure>
-
-<p>设置或检索对象内容的垂直对其方式。 </p>
-<p>vertical-align 不影响块级元素中的内容对齐，它只针对于 行内元素或者行内块元素，特别是行内块元素， <strong>通常用来控制图片/表单与文字的对齐</strong>。</p>
-<h3 id="图片、表单和文字对齐"><a href="#图片、表单和文字对齐" class="headerlink" title="图片、表单和文字对齐"></a>图片、表单和文字对齐</h3><p>可以通过vertical-align 控制图片和文字的垂直关系了。 默认的图片会和文字基线对齐。</p>
-<h3 id="去除图片底侧空白缝隙"><a href="#去除图片底侧空白缝隙" class="headerlink" title="去除图片底侧空白缝隙"></a>去除图片底侧空白缝隙</h3><p>有个很重要特性： 图片或者表单等行内块元素，他的底线会和父级盒子的基线对齐。这样会造成一个问题，就是图片底侧会有一个空白缝隙(较低版本浏览器中常见)。</p>
-<p>解决的方法就是：  </p>
-<ol>
-<li>给img vertical-align:middle | top等等。  让图片不要和基线对齐。</li>
-<li>给img 添加 display：block; 转换为块级元素就不会存在问题了。</li>
-</ol>
-<h2 id="溢出的文字隐藏"><a href="#溢出的文字隐藏" class="headerlink" title="溢出的文字隐藏"></a>溢出的文字隐藏</h2><h3 id="word-break-自动换行"><a href="#word-break-自动换行" class="headerlink" title="word-break:自动换行"></a>word-break:自动换行</h3><p>normal   使用浏览器默认的换行规则。</p>
-<p>break-all   允许在单词内换行。</p>
-<p>keep-all    只能在半角空格或连字符处换行。</p>
-<p>主要处理英文单词</p>
-<h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h3><p>white-space设置或检索对象内文本显示方式。通常我们使用于强制一行显示内容 </p>
-<p>normal : 　默认处理方式<br>nowrap : 　强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。</p>
-<p>可以处理中文</p>
-<h3 id="text-overflow-文字溢出"><a href="#text-overflow-文字溢出" class="headerlink" title="text-overflow 文字溢出"></a>text-overflow 文字溢出</h3><p>text-overflow : clip | ellipsis</p>
-<p>设置或检索是否使用一个省略标记（…）标示对象内文本的溢出</p>
-<p>clip : 　不显示省略标记（…），而是简单的裁切 </p>
-<p>ellipsis : 　当对象内文本溢出时显示省略标记（…）</p>
-<p>注意一定要首先强制一行内显示，再次和overflow属性  搭配使用</p>
-<h1 id="CSS精灵技术（sprite）"><a href="#CSS精灵技术（sprite）" class="headerlink" title="CSS精灵技术（sprite）"></a>CSS精灵技术（sprite）</h1><h3 id="精灵技术产生的背景"><a href="#精灵技术产生的背景" class="headerlink" title="精灵技术产生的背景"></a>精灵技术产生的背景</h3><p><img src="https://i.loli.net/2019/08/16/4oGBlehRxiXnQLD.png" alt="网页请求原理"></p>
-<p>图所示为网页的请求原理图，当用户访问一个网站时，需要向服务器发送请求，网页上的每张图像都要经过一次请求才能展现给用户。</p>
-<p>然而，一个网页中往往会应用很多小的背景图像作为修饰，当网页中的图像过多时，服务器就会频繁地接受和发送请求，这将大大降低页面的加载速度。为了有效地减少服务器接受和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术（也称CSS Sprites、CSS雪碧）。</p>
-<h3 id="精灵技术本质"><a href="#精灵技术本质" class="headerlink" title="精灵技术本质"></a>精灵技术本质</h3><p>简单地说，CSS精灵是一种处理网页背景图像的方式。它将一个页面涉及到的所有零星背景图像都集中到一张大图中去，然后将大图应用于网页，这样，当用户访问该页面时，只需向服务发送一次请求，网页中的背景图像即可全部展示出来。通常情况下，这个由很多小的背景图像合成的大图被称为精灵图（雪碧图）。</p>
-<h3 id="精灵技术的使用"><a href="#精灵技术的使用" class="headerlink" title="精灵技术的使用"></a>精灵技术的使用</h3><p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），然而，各个网页元素通常只需要精灵图中不同位置的某个小图，要想精确定位到精灵图中的某个小图，就需要使用CSS的background-image、background-repeat和background-position属性进行背景定位，其中最关键的是使用background-position属性精确地定位。</p>
-<h3 id="制作精灵图"><a href="#制作精灵图" class="headerlink" title="制作精灵图"></a>制作精灵图</h3><p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），那我们要做的，就是把小图拼合成一张大图。</p>
-<p>大部分情况下，精灵图都是网页美工做。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我们精灵图上放的都是小的装饰性质的背景图片。 插入图片不能往上放。</span><br><span class="line">我们精灵图的宽度取决于最宽的那个背景。 </span><br><span class="line">我们可以横向摆放也可以纵向摆放，但是每个图片之间，间隔至少隔开偶数像素合适。</span><br><span class="line">在我们精灵图的最低端，留一片空隙，方便我们以后添加其他精灵图。</span><br></pre></td></tr></table></figure>
-
-<p>结束语：   小公司，背景图片很少的情况，没有必要使用精灵技术，维护成本太高。 如果是背景图片比较多，可以建议使用精灵技术。</p>
-<h1 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h1><p>图片是有诸多优点的，但是缺点很明显，比如图片不但增加了总文件的大小，还增加了很多额外的”http请求”，这都会大大降低网页的性能的。更重要的是图片不能很好的进行“缩放”，因为图片放大和缩小会失真。 我们后面会学习移动端响应式，很多情况下希望我们的图标是可以缩放的。此时就需要字体图标（iconfont)。</p>
-<h2 id="字体图标优点"><a href="#字体图标优点" class="headerlink" title="字体图标优点"></a>字体图标优点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">可以做出跟图片一样可以做的事情,改变透明度、旋转度，等..</span><br><span class="line">但是本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果等等...</span><br><span class="line">本身体积更小，但携带的信息并没有削减。</span><br><span class="line">几乎支持所有的浏览器</span><br><span class="line">移动端设备必备良药...</span><br></pre></td></tr></table></figure>
-
-<h2 id="字体图标使用流程"><a href="#字体图标使用流程" class="headerlink" title="字体图标使用流程"></a>字体图标使用流程</h2><p>总体来说，字体图标按照如下流程：</p>
-<p><img src="https://i.loli.net/2019/08/16/mSHQIoza7FkWXqj.png" alt=""></p>
-<hr>
-<h3 id="设计字体图标"><a href="#设计字体图标" class="headerlink" title="设计字体图标"></a>设计字体图标</h3><p>假如图标是我们公司单独设计，那就需要第一步了，这个属于UI设计人员的工作， 他们在 illustrator 或 Sketch 这类矢量图形软件里创建 icon图标，之后保存为svg格式，然后给我们前端人员就好了。 </p>
-<p>其实第一步，我们不需要关心，只需要给我们这些图标就可以了，如果图标是大众的，网上本来就有的，可以直接跳过第一步，进入第三步。</p>
-<h3 id="上传生成字体包"><a href="#上传生成字体包" class="headerlink" title="上传生成字体包"></a>上传生成字体包</h3><p>   当UI设计人员给我们svg文件的时候，我们需要转换成我们页面能使用的字体文件， 而且需要生成的是兼容性的适合各个浏览器的。</p>
-<p>​    推荐网站： <a href="http://icomoon.io" target="_blank" rel="noopener">http://icomoon.io</a></p>
-<p><strong>icomoon字库</strong></p>
-<p>IcoMoon成立于2011年，推出的第一个自定义图标字体生成器，它允许用户选择他们所需要的图标，使它们成一字型。 内容种类繁多，非常全面，唯一的遗憾是国外服务器，打开网速较慢。</p>
-<p>   推荐网站： <a href="http://www.iconfont.cn/" target="_blank" rel="noopener">http://www.iconfont.cn/</a></p>
-<p><strong>阿里icon font字库</strong></p>
-<p><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">http://www.iconfont.cn/</a></p>
-<p>这个是阿里妈妈M2UX的一个icon font字体图标字库，包含了淘宝图标库和阿里妈妈图标库。可以使用AI制作图标上传生成。 一个字，免费，免费！！</p>
-<p><strong>fontello</strong></p>
-<p><a href="http://fontello.com/" target="_blank" rel="noopener">http://fontello.com/</a></p>
-<p>在线定制你自己的icon font字体图标字库，也可以直接从GitHub下载整个图标集，该项目也是开源的。</p>
-<p><strong>Font-Awesome</strong></p>
-<p><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">http://fortawesome.github.io/Font-Awesome/</a></p>
-<p>这是我最喜欢的字库之一了，更新比较快。目前已经有369个图标了。</p>
-<p><strong>Glyphicon Halflings</strong></p>
-<p><a href="http://glyphicons.com/" target="_blank" rel="noopener">http://glyphicons.com/</a></p>
-<p>这个字体图标可以在Bootstrap下免费使用。自带了200多个图标。</p>
-<p><strong>Icons8</strong></p>
-<p><a href="https://icons8.com/" target="_blank" rel="noopener">https://icons8.com/</a></p>
-<p>提供PNG免费下载，像素大能到500PX</p>
-<h3 id="下载兼容字体包"><a href="#下载兼容字体包" class="headerlink" title="下载兼容字体包"></a>下载兼容字体包</h3><p>刚才上传完毕， 网站会给我们把UI做的svg图片转换为我们的字体格式， 然后下载下来就好了</p>
-<p>当然，我们不需要自己专门的图标，是想网上找几个图标使用，以上2步可以直接省略了， 直接到刚才的网站上找喜欢的下载使用吧。</p>
-<h2 id="以icomoon使用为例"><a href="#以icomoon使用为例" class="headerlink" title="以icomoon使用为例"></a>以icomoon使用为例</h2><h3 id="选择下载压缩包"><a href="#选择下载压缩包" class="headerlink" title="选择下载压缩包"></a>选择下载压缩包</h3><p><img src="https://i.loli.net/2019/08/16/nPy6cmKClGzjR2Z.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/08/16/uEHpce4mNfSL2dr.png" alt=""></p>
-<h3 id="字体引入到HTML"><a href="#字体引入到HTML" class="headerlink" title="字体引入到HTML"></a>字体引入到HTML</h3><p>得到压缩包之后，最后一步，是最重要的一步了， 就是字体文件已经有了，我们需要引入到我们页面中。</p>
-<p>首先把 以下4个文件放入到工程的 fonts文件夹里面。 </p>
-<p><img src="https://i.loli.net/2019/08/16/pfcHDkzsRumAGeB.png" alt=""></p>
-<p><strong>第一步：在样式里面声明字体： 告诉别人我们自己定义的字体</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'icomoon'</span>;</span><br><span class="line">  <span class="attribute">src</span>:  <span class="built_in">url</span>(<span class="string">'fonts/icomoon.eot?7kkyc2'</span>);</span><br><span class="line">  <span class="attribute">src</span>:  <span class="built_in">url</span>(<span class="string">'fonts/icomoon.eot?7kkyc2#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.ttf?7kkyc2'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.woff?7kkyc2'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.svg?7kkyc2#icomoon'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>第二步：给盒子使用字体</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">		<span class="attribute">font-family</span>: <span class="string">"icomoon"</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>第三步：盒子里面添加结构</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">		 <span class="attribute">content</span>: <span class="string">"\e900"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">或者  </span><br><span class="line">&lt;span&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="追加新图标到原来库里面"><a href="#追加新图标到原来库里面" class="headerlink" title="追加新图标到原来库里面"></a>追加新图标到原来库里面</h3><p>如果工作中，原来的字体图标不够用了，我们需要添加新的字体图标，但是原来的不能删除，继续使用，此时我们需要这样做</p>
-<p>把压缩包里面的selection.json 从新上传，然后，选中自己想要新的图标，从新下载压缩包，替换原来文件即可。</p>
-<p><img src="https://i.loli.net/2019/08/16/bTckN37JHQMzaol.png" alt=""></p>
-<h1 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h1><h3 id="滑动门出现的背景"><a href="#滑动门出现的背景" class="headerlink" title="滑动门出现的背景"></a>滑动门出现的背景</h3><p>制作网页时，为了美观，常常需要为网页元素设置特殊形状的背景，比如各种网站导航栏，最大的问题是里面的字数不一样多。</p>
-<p>为了使各种特殊形状的背景能够自适应元素中文本内容的多少，出现了CSS滑动门技术。它从新的角度构建页面，使各种特殊形状的背景能够自由拉伸滑动，以适应元素内部的文本内容，可用性更强。 最常见于各种导航栏的滑动门。</p>
-<h3 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h3><p>核心技术就是利用CSS精灵（主要是背景位置）和盒子padding撑开宽度, 以便能适应不同字数的导航栏。</p>
-<p>一般的经典布局都是这样的：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">		<span class="attribute">margin</span>: <span class="number">100px</span>;</span><br><span class="line">		<span class="attribute">display</span>: inline-block;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">		<span class="comment">/* 千万不能给宽度 写死宽度是不对滴，我们要推拉门 自由缩放*/</span></span><br><span class="line">		<span class="attribute">background</span>: <span class="built_in">url</span>(images/ao.png) no-repeat;</span><br><span class="line">		<span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">		<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">		<span class="attribute">text-decoration</span>: none;</span><br><span class="line">		<span class="attribute">line-height</span>: <span class="number">33px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-tag">a</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">		<span class="attribute">display</span>: inline-block;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">		<span class="attribute">background</span>: <span class="built_in">url</span>(images/ao.png) no-repeat right; </span><br><span class="line">		<span class="comment">/* span 不能给宽度 利用padding挤开  要我要span 右边的圆角  所以 背景位置 右对齐 */</span></span><br><span class="line">		<span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>导航栏内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>总结： </p>
-<ol>
-<li>a 设置 背景左侧，padding撑开合适宽度。    </li>
-<li>span 设置背景右侧， padding撑开合适宽度 剩下由文字继续撑开宽度。</li>
-<li>之所以a包含span就是因为 整个导航都是可以点击的。</li>
-</ol>
-<h1 id="before和after伪元素详解"><a href="#before和after伪元素详解" class="headerlink" title="before和after伪元素详解"></a>before和after伪元素详解</h1><p>之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素。是伪元素在html代码机构中的展现，可以看出无法伪元素的结构无法审查。</p>
-<p><strong>注意</strong></p>
-<p>伪元素:before和:after添加的内容默认是inline元素，设置宽高需要转换；这个两个伪元素的<code>content</code>属性，表示伪元素的内容,设置:before和:after时必须设置其<code>content</code>属性，否则伪元素就不起作用。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本书有意只说1953一1966年这一段，涉及中关村的前史很少，涉及“文革”以后的文字也不多。受访者们，从当年的老乡长到当年的小学生，都曾经是中关衬里的“村民”，是中关村历史变迁约见证人。看访问整理者的编排，书中大体上是循着历史变迁的顺序，讲述一座座科研大楼，一个个研究所，是何时和怎样在这块土地上出现的。其中也讲述了在这里工作和栖居过那些著名的科学家，还捎带着提及与人们日常生活息息相关的基础生活设施的建设，但重点不在系统叙述这里发生过的科研活动和作出的科学贡献。总起来说，是通过亲历者的回忆，让人们认识到科学城中建筑物的布局、研究所的兴革和社区的变迁，以此来展现这座“城“的发展轨迹。</p>
+<h1 id="第一篇-村与城"><a href="#第一篇-村与城" class="headerlink" title="第一篇 村与城"></a>第一篇 村与城</h1><h2 id="1-老乡长话中关"><a href="#1-老乡长话中关" class="headerlink" title="1.老乡长话中关"></a>1.老乡长话中关</h2><p>受访人：邓启祥，1954年担任保福寺乡乡长，1955年在中科院化学所工作。<br>主要回顾了保福寺附近区域当年的一些行政、地理情况。</p>
+<h2 id="2-蓝图中的科学宫和科学城"><a href="#2-蓝图中的科学宫和科学城" class="headerlink" title="2.蓝图中的科学宫和科学城"></a>2.蓝图中的科学宫和科学城</h2><p>受访人：姜虎文，1954年调入中科院。<br>主要阐述了中科院的选址规划。</p>
+<h1 id="第二篇-早期奠基"><a href="#第二篇-早期奠基" class="headerlink" title="第二篇 早期奠基"></a>第二篇 早期奠基</h1><h2 id="3-入住中关村的科学院第一人"><a href="#3-入住中关村的科学院第一人" class="headerlink" title="3.入住中关村的科学院第一人"></a>3.入住中关村的科学院第一人</h2><p>受访人：丘宝剑，中国科学院地理研究所研究员。<br>调入《中华地理志》编辑部，编辑部刚成立时没有地方办公，后来在西郊给社科四所（社会所，近代史所，考古所，语言所）造的房子建好，就搬过去。此地原本叫“中官屯”，编辑部调来一个老文书，负责对外联系，是上海人，听不太懂北京话，问周围老百姓，听成了“中关村”，打印了一批信封、信纸，当时搞“三反”，怕落下“反浪费”罪名，就没改，后来陆续搬来其他所也就都跟着叫了。<br>关于“中官”：有说指太监，有说指中小官员，皇帝在圆明园办公，大员不敢住太远，在附近造房子，剩下的中小官员就在此等着召见，搭个房子之类的。</p>
+<h2 id="4-原子能楼"><a href="#4-原子能楼" class="headerlink" title="4.原子能楼"></a>4.原子能楼</h2><p>受访人：叶铭汉，中国工程院院士。<br>清华毕业后在中国科学院近代物理所参加工作，53年改名为物理所，58年改称“原子能研究所”。在中关村建大楼52年开始，53年底54年陆续搬了进来。</p>
+<h2 id="5-地球物理研究所"><a href="#5-地球物理研究所" class="headerlink" title="5.地球物理研究所"></a>5.地球物理研究所</h2><p>受访人：朱岗崑，中国科学院地球物理研究所研究员。<br>原为中央研究院气象研究所，气象所在1950年改名为地球物理研究所，所长赵九章，1954年下半年大楼盖好，本部从南京搬来。<br>受访人：吴智诚，曾任中国科学院空间物理研究所党委书记。<br>赵九章先生从事气象、地震、海浪，58年之后主要负责了人造卫星，成立“581”领导小组。<br>空间中心的前身大部分是空间物理所，许多学科骨干都是赵九章带出来的。1997年，42位院士联名为赵九章树立铜像，目前在空间中心大厅内。</p>
+<h2 id="6-化学研究所"><a href="#6-化学研究所" class="headerlink" title="6.化学研究所"></a>6.化学研究所</h2><h2 id="7-生物楼：昆虫研究所与动物研究所"><a href="#7-生物楼：昆虫研究所与动物研究所" class="headerlink" title="7.生物楼：昆虫研究所与动物研究所"></a>7.生物楼：昆虫研究所与动物研究所</h2><h2 id="8-力学研究所"><a href="#8-力学研究所" class="headerlink" title="8.力学研究所"></a>8.力学研究所</h2><h1 id="第三篇-“火车头”时代"><a href="#第三篇-“火车头”时代" class="headerlink" title="第三篇 “火车头”时代"></a>第三篇 “火车头”时代</h1><h2 id="9-数学研究所与计算技术研究所"><a href="#9-数学研究所与计算技术研究所" class="headerlink" title="9.数学研究所与计算技术研究所"></a>9.数学研究所与计算技术研究所</h2><p>受访人：许孔时，曾任计算技术研究所副所长，软件研究所所长。<br>数学所筹备处是1950年6月成立的，1952年数学所正式成立，所址在清华园内。1953年数学所成立了一个计算组，1956年在这个组的基础上成立了计算技术研究所，计算所正式成立是1959年，1965年又成立了计算所二部，66年分了出去，成立了微电子学研究所，1985年又有一部分调出，成立了软件所。<br>科学院的头一台就是1958年的103机，苏联援助中国的第一台计算机的资料叫M3，电子管，每秒运算8次，中国人真是聪明，拿过图纸，稍微把电路改进、设计一下，每秒就200次了，这就是103机。</p>
+<h2 id="10-化工冶金研究所"><a href="#10-化工冶金研究所" class="headerlink" title="10.化工冶金研究所"></a>10.化工冶金研究所</h2><h2 id="11-电子学研究所"><a href="#11-电子学研究所" class="headerlink" title="11.电子学研究所"></a>11.电子学研究所</h2><h2 id="12-声学研究所"><a href="#12-声学研究所" class="headerlink" title="12.声学研究所"></a>12.声学研究所</h2><h2 id="13-生物物理研究所"><a href="#13-生物物理研究所" class="headerlink" title="13.生物物理研究所"></a>13.生物物理研究所</h2><h2 id="14-微生物研究所"><a href="#14-微生物研究所" class="headerlink" title="14.微生物研究所"></a>14.微生物研究所</h2><h2 id="15-生物物理研究所"><a href="#15-生物物理研究所" class="headerlink" title="15.生物物理研究所"></a>15.生物物理研究所</h2><h2 id="16-自动化研究所"><a href="#16-自动化研究所" class="headerlink" title="16.自动化研究所"></a>16.自动化研究所</h2><h2 id="17-物理研究所"><a href="#17-物理研究所" class="headerlink" title="17.物理研究所"></a>17.物理研究所</h2><h2 id="18-电工研究所"><a href="#18-电工研究所" class="headerlink" title="18.电工研究所"></a>18.电工研究所</h2><h1 id="第四篇-社区与“特楼”"><a href="#第四篇-社区与“特楼”" class="headerlink" title="第四篇 社区与“特楼”"></a>第四篇 社区与“特楼”</h1><h2 id="19-回忆早年的中关村"><a href="#19-回忆早年的中关村" class="headerlink" title="19.回忆早年的中关村"></a>19.回忆早年的中关村</h2><p>受访人：李佩，曾任中科院西郊办公室第一任副主任，中国科学院研究生院英语系主任。<br>当时西郊办公室，都是一些公共事务，管的时期很多。比如请派出所到中关村办公，建粮店，半合作社，建中关村医院等。<br>这一代人，已经走了不少了。活着的也都在八九十岁。我们人与人之间有深厚的感情，对这块地儿也有深厚的感情。住事历历在目，这块地儿住过这么一些人，那么多年发生了那么多的事，若能放到一起，可能够装一个博物馆的。</p>
+<h2 id="20-早年中关村的一些服务设施"><a href="#20-早年中关村的一些服务设施" class="headerlink" title="20.早年中关村的一些服务设施"></a>20.早年中关村的一些服务设施</h2><h2 id="21-“特楼”往事"><a href="#21-“特楼”往事" class="headerlink" title="21.“特楼”往事"></a>21.“特楼”往事</h2><p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -1111,6 +673,801 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/2019-04-23-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/23/2019-04-23-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_1/" itemprop="url">Python数据分析与展示_1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T00:00:00+08:00">
+                2019-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="单元1：NumPy库入门"><a href="#单元1：NumPy库入门" class="headerlink" title="单元1：NumPy库入门"></a>单元1：NumPy库入门</h1><p>数据维度的Python表示：</p>
+<ul>
+<li>一维数据：列表和集合(无序)类型</li>
+<li>多维数据：多维列表类型</li>
+<li>高维数据：字典类型或数据表示格式（json,xml.yaml）</li>
+</ul>
+<p>NumPy是一个开源的Python科学计算基础库。</p>
+<ul>
+<li>一个强大的N维数组对象 ndarray</li>
+<li>广播功能函数</li>
+<li>整合C/C++/Fortran代码的工具</li>
+<li>线性代数、傅里叶变换、随机生成树等功能</li>
+</ul>
+<p>NumPy是SciPy、Pandas等数据处理或科学计算库的基础。</p>
+<p><strong>引用：</strong> import numpy as np(建议使用上述约定的别名)</p>
+<p><strong>ndarray:</strong> 是一个多维数组类型，由两部分构成：1）实际的数据；2）描述这些数据的元数据，如数据维度、数据类型等。ndarray数组一般要求所有元素类型相同，数组下标从0开始。</p>
+<p>轴（axis）:保存数据的维度<br>秩（rank）:轴的数量</p>
+<ol>
+<li>创建</li>
+</ol>
+<ul>
+<li><p>从Python中的列表、元祖等类型创建ndarray数组；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 使用NumPy中函数创建ndarray数组；</span><br></pre></td></tr></table></figure>
+<p>np.arange(n)：类似range()函数；<br>np.ones(shape):根据shape生产一个全1数组；<br>np.zeros(shape):根据shape生产一个全0数组；<br>np.full(shape,val):根据shape生产一个数组，每个元素值都是val；<br>np.eye(n):创建一个n*n的单位矩阵，对角线为1，其余全为0；<br>np.linspace():根据起止数据等间距的填充数据，形成数组；<br>np.concatenate():将两个或多个数组合并成一个新的数组；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 从字节流中创建ndarray数组；</span><br><span class="line">- 从文件中读取特定格式，创建ndarray数组；</span><br><span class="line"></span><br><span class="line">2. 维度变换</span><br><span class="line">.reshape(shape):不改变数组元素，返回一个shape形状的数组，原数组不变；</span><br><span class="line">.resize(shape):同上，但修改原数组；</span><br><span class="line">.swapaxes(ax1,ax2):将数组n个维度中两个维度进行调换；</span><br><span class="line">.flatten():对数组进行降维，返回折叠后的一维数组，原数组不变；</span><br><span class="line">3. 类型转换</span><br><span class="line">.astype(new_type):数组的类型转换</span><br><span class="line">4. 数组转为列表</span><br><span class="line">.tolist（）</span><br><span class="line">5. 操作：索引、切片</span><br><span class="line">6. 运算</span><br><span class="line">数组与标量之间的运算作用于数组中每一个元素。</span><br><span class="line">一元函数运算，二元函数运算</span><br><span class="line"></span><br><span class="line"># 单元2：NumPy数据存取与函数 #</span><br><span class="line">## 数据的csv文件存取 ##</span><br><span class="line">csv文件：逗号分隔值文件。只能有效存储一维和二维数据。</span><br><span class="line">**将ndarray保存为csv：**</span><br><span class="line">np.savetxt(frame,array,fmt=&apos;%.18e&apos;,delimiter=None)</span><br><span class="line">frame:文件、字符串或产生器；</span><br><span class="line">array:存入文件的数组；</span><br><span class="line">fmt:写入文件的格式；</span><br><span class="line">delimiter：分割字符串，默认是空格；</span><br><span class="line">**将csv写入ndarray：**</span><br><span class="line">np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)</span><br><span class="line">unpack:默认False，如为True,读入属性将分别写入不同变量；</span><br><span class="line">## 多维数据的存取 ##</span><br><span class="line">**生成文件：**</span><br><span class="line">a.tofile(frame,sep=&apos;&apos;,format=&apos;%s&apos;)</span><br><span class="line">sep:数据分割字符串，如为空，则生成一个二进制文件，而不是文本文件；</span><br><span class="line">format:写入数据的格式；</span><br><span class="line">**还原数据：**</span><br><span class="line">np.fromfile(frame,dtype=float,count=-1,sep=&apos;&apos;)</span><br><span class="line">count:读入元素个数，-1表示读入整个文件;</span><br><span class="line">**NumPy的便捷文件存取：**</span><br><span class="line">np.save(fname,array)或np.savez(fname,array)</span><br><span class="line">frame:文件名，以.npy为扩展名，压缩扩展名为.npz；</span><br><span class="line">np.load(fname)</span><br><span class="line">## NumPy的随机数函数 ##</span><br><span class="line">random子库中的的随机数基本函数：rand/randn/randint/seed;</span><br><span class="line">random子库中的的随机数高级函数：shuffle/permutation/choice;</span><br><span class="line">带有分布的高级函数：uniform/normal/poisson;</span><br><span class="line">## NumPy的统计函数 ##</span><br><span class="line">常用统计函数：sum/mean/average/std/var;</span><br><span class="line">其他统计函数：min/max/argmin/argmax/unravel_index/ptp/median;</span><br><span class="line">## NumPy的梯度函数 ##</span><br><span class="line">np.gradient(f):计算数组f中元素的梯度，当f为多维时，返回每个维度梯度，梯度，即斜率；</span><br><span class="line"></span><br><span class="line"># 单元3：实例：图像的手绘效果 #</span><br><span class="line">## 图像的数组表示 ##</span><br><span class="line">RGB色彩模式，每个通道0-255。</span><br><span class="line">PIL,Python Image Library,一个具有强大图像处理能力的第三方库。</span><br><span class="line">from PIL import Image:Image是PIL库中代表一个图像的类（对象）</span><br><span class="line">图像是一个由像素组成的二维矩阵，每个元素是一个RGB值。</span><br><span class="line">## 图像的变换 ##</span><br><span class="line">读入图像，修改RGB值，修改后保存为新的图像。</span><br><span class="line">## 图像手绘效果实例 ##</span><br><span class="line">特征：黑白灰色；边界线条较重；相同或相近颜色趋于白色；略有光源效果；</span><br></pre></td></tr></table></figure>
+<p>  from PIL import Image<br>  import numpy as np</p>
+<p>  a = np.asarray(Image.open(‘./beijing.jpg’).convert(‘L’)).astype(‘float’)</p>
+<p>  depth = 10.                      # (0-100)<br>  grad = np.gradient(a)             #取图像灰度的梯度值<br>  grad_x, grad_y = grad               #分别取横纵图像梯度值<br>  grad_x = grad_x<em>depth/100.<br>  grad_y = grad_y</em>depth/100.<br>  A = np.sqrt(grad_x<strong>2 + grad_y</strong>2 + 1.)<br>  uni_x = grad_x/A<br>  uni_y = grad_y/A<br>  uni_z = 1./A</p>
+<p>  vec_el = np.pi/2.2                   # 光源的俯视角度，弧度值<br>  vec_az = np.pi/4.                    # 光源的方位角度，弧度值<br>  dx = np.cos(vec_el)<em>np.cos(vec_az)   #光源对x 轴的影响<br>  dy = np.cos(vec_el)</em>np.sin(vec_az)   #光源对y 轴的影响<br>  dz = np.sin(vec_el)              #光源对z 轴的影响</p>
+<p>  b = 255<em>(dx</em>uni_x + dy<em>uni_y + dz</em>uni_z)     #光源归一化<br>  b = b.clip(0,255)</p>
+<p>  im = Image.fromarray(b.astype(‘uint8’))  #重构图像<br>  im.save(‘./beijingHD.jpg’)</p>
+<pre><code></code></pre></li>
+</ul>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/2019-04-22-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/2019-04-22-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_7/" itemprop="url">数据结构_7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T00:00:00+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="最小生成树问题"><a href="#最小生成树问题" class="headerlink" title="最小生成树问题"></a>最小生成树问题</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>是一棵树</li>
+</ol>
+<ul>
+<li>无回路</li>
+<li>|v|个顶点一定有|v|-1条边</li>
+</ul>
+<ol start="2">
+<li>是生成树</li>
+</ol>
+<ul>
+<li>包含所有顶点</li>
+<li>|v|-1条边都在图里</li>
+<li>向生成树中任加一条边都一定构成回路</li>
+</ul>
+<ol start="3">
+<li>最小</li>
+</ol>
+<ul>
+<li>边的权重和最小</li>
+</ul>
+<h2 id="如何构建"><a href="#如何构建" class="headerlink" title="如何构建"></a>如何构建</h2><p>贪心算法：每次找权值最小的边，但有约束：</p>
+<ul>
+<li>只能用图里有的边</li>
+<li>只能正好用掉v-1条边</li>
+<li>不能有回路</li>
+</ul>
+<ol>
+<li>Prim算法–让一颗小树长大</li>
+</ol>
+<p>适合稠密图，时间复杂度O(|V|<sup>2</sup>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接矩阵存储 - Prim最小生成树算法 */</span><br><span class="line">  </span><br><span class="line"> Vertex FindMinDist( MGraph Graph, WeightType dist[] )</span><br><span class="line"> &#123; /* 返回未被收录顶点中dist最小者 */</span><br><span class="line">     Vertex MinV, V;</span><br><span class="line">     WeightType MinDist = INFINITY;</span><br><span class="line">  </span><br><span class="line">     for (V=0; V&lt;Graph-&gt;Nv; V++) &#123;</span><br><span class="line">         if ( dist[V]!=0 &amp;&amp; dist[V]&lt;MinDist) &#123;</span><br><span class="line">             /* 若V未被收录，且dist[V]更小 */</span><br><span class="line">             MinDist = dist[V]; /* 更新最小距离 */</span><br><span class="line">             MinV = V; /* 更新对应顶点 */</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     if (MinDist &lt; INFINITY) /* 若找到最小dist */</span><br><span class="line">         return MinV; /* 返回对应的顶点下标 */</span><br><span class="line">     else return ERROR;  /* 若这样的顶点不存在，返回-1作为标记 */</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> int Prim( MGraph Graph, LGraph MST )</span><br><span class="line"> &#123; /* 将最小生成树保存为邻接表存储的图MST，返回最小权重和 */</span><br><span class="line">     WeightType dist[MaxVertexNum], TotalWeight;</span><br><span class="line">     Vertex parent[MaxVertexNum], V, W;</span><br><span class="line">     int VCount;</span><br><span class="line">     Edge E;</span><br><span class="line">      </span><br><span class="line">     /* 初始化。默认初始点下标是0 */</span><br><span class="line">        for (V=0; V&lt;Graph-&gt;Nv; V++) &#123;</span><br><span class="line">         /* 这里假设若V到W没有直接的边，则Graph-&gt;G[V][W]定义为INFINITY */</span><br><span class="line">            dist[V] = Graph-&gt;G[0][V];</span><br><span class="line">            parent[V] = 0; /* 暂且定义所有顶点的父结点都是初始点0 */ </span><br><span class="line">     &#125;</span><br><span class="line">     TotalWeight = 0; /* 初始化权重和     */</span><br><span class="line">     VCount = 0;      /* 初始化收录的顶点数 */</span><br><span class="line">     /* 创建包含所有顶点但没有边的图。注意用邻接表版本 */</span><br><span class="line">     MST = CreateGraph(Graph-&gt;Nv);</span><br><span class="line">     E = (Edge)malloc( sizeof(struct ENode) ); /* 建立空的边结点 */</span><br><span class="line">             </span><br><span class="line">     /* 将初始点0收录进MST */</span><br><span class="line">     dist[0] = 0;</span><br><span class="line">     VCount ++;</span><br><span class="line">     parent[0] = -1; /* 当前树根是0 */</span><br><span class="line">  </span><br><span class="line">     while (1) &#123;</span><br><span class="line">         V = FindMinDist( Graph, dist );</span><br><span class="line">         /* V = 未被收录顶点中dist最小者 */</span><br><span class="line">         if ( V==ERROR ) /* 若这样的V不存在 */</span><br><span class="line">             break;   /* 算法结束 */</span><br><span class="line">              </span><br><span class="line">         /* 将V及相应的边&lt;parent[V], V&gt;收录进MST */</span><br><span class="line">         E-&gt;V1 = parent[V];</span><br><span class="line">         E-&gt;V2 = V;</span><br><span class="line">         E-&gt;Weight = dist[V];</span><br><span class="line">         InsertEdge( MST, E );</span><br><span class="line">         TotalWeight += dist[V];</span><br><span class="line">         dist[V] = 0;</span><br><span class="line">         VCount++;</span><br><span class="line">          </span><br><span class="line">         for( W=0; W&lt;Graph-&gt;Nv; W++ ) /* 对图中的每个顶点W */</span><br><span class="line">             if ( dist[W]!=0 &amp;&amp; Graph-&gt;G[V][W]&lt;INFINITY ) &#123;</span><br><span class="line">             /* 若W是V的邻接点并且未被收录 */</span><br><span class="line">                 if ( Graph-&gt;G[V][W] &lt; dist[W] ) &#123;</span><br><span class="line">                 /* 若收录V使得dist[W]变小 */</span><br><span class="line">                     dist[W] = Graph-&gt;G[V][W]; /* 更新dist[W] */</span><br><span class="line">                     parent[W] = V; /* 更新树 */</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">     &#125; /* while结束*/</span><br><span class="line">     if ( VCount &lt; Graph-&gt;Nv ) /* MST中收的顶点不到|V|个 */</span><br><span class="line">        TotalWeight = ERROR;</span><br><span class="line">     return TotalWeight;   /* 算法执行完毕，返回最小权重和或错误标记 */</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Kruskal算法–将森林合并成树</li>
+</ol>
+<p>适合稀疏图，时间复杂度最小可为O(|E|Log|E|)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接表存储 - Kruskal最小生成树算法 */</span><br><span class="line"> </span><br><span class="line">/*-------------------- 顶点并查集定义 --------------------*/</span><br><span class="line">typedef Vertex ElementType; /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef Vertex SetName;     /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MaxVertexNum]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void InitializeVSet( SetType S, int N )</span><br><span class="line">&#123; /* 初始化并查集 */</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    for ( X=0; X&lt;N; X++ ) S[X] = -1;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool CheckCycle( SetType VSet, Vertex V1, Vertex V2 )</span><br><span class="line">&#123; /* 检查连接V1和V2的边是否在现有的最小生成树子集中构成回路 */</span><br><span class="line">    Vertex Root1, Root2;</span><br><span class="line"> </span><br><span class="line">    Root1 = Find( VSet, V1 ); /* 得到V1所属的连通集名称 */</span><br><span class="line">    Root2 = Find( VSet, V2 ); /* 得到V2所属的连通集名称 */</span><br><span class="line"> </span><br><span class="line">    if( Root1==Root2 ) /* 若V1和V2已经连通，则该边不能要 */</span><br><span class="line">        return false;</span><br><span class="line">    else &#123; /* 否则该边可以被收集，同时将V1和V2并入同一连通集 */</span><br><span class="line">        Union( VSet, Root1, Root2 );</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/*-------------------- 并查集定义结束 --------------------*/</span><br><span class="line"> </span><br><span class="line">/*-------------------- 边的最小堆定义 --------------------*/</span><br><span class="line">void PercDown( Edge ESet, int p, int N )</span><br><span class="line">&#123; /* 改编代码4.24的PercDown( MaxHeap H, int p )    */</span><br><span class="line">  /* 将N个元素的边数组中以ESet[p]为根的子堆调整为关于Weight的最小堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    struct ENode X;</span><br><span class="line"> </span><br><span class="line">    X = ESet[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; (Parent*2+1)&lt;N; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2 + 1;</span><br><span class="line">        if( (Child!=N-1) &amp;&amp; (ESet[Child].Weight&gt;ESet[Child+1].Weight) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较小者 */</span><br><span class="line">        if( X.Weight &lt;= ESet[Child].Weight ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            ESet[Parent] = ESet[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    ESet[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void InitializeESet( LGraph Graph, Edge ESet )</span><br><span class="line">&#123; /* 将图的边存入数组ESet，并且初始化为最小堆 */</span><br><span class="line">    Vertex V;</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">    int ECount;</span><br><span class="line"> </span><br><span class="line">    /* 将图的边存入数组ESet */</span><br><span class="line">    ECount = 0;</span><br><span class="line">    for ( V=0; V&lt;Graph-&gt;Nv; V++ )</span><br><span class="line">        for ( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next )</span><br><span class="line">            if ( V &lt; W-&gt;AdjV ) &#123; /* 避免重复录入无向图的边，只收V1&lt;V2的边 */</span><br><span class="line">                ESet[ECount].V1 = V;</span><br><span class="line">                ESet[ECount].V2 = W-&gt;AdjV;</span><br><span class="line">                ESet[ECount++].Weight = W-&gt;Weight;</span><br><span class="line">            &#125;</span><br><span class="line">    /* 初始化为最小堆 */</span><br><span class="line">    for ( ECount=Graph-&gt;Ne/2; ECount&gt;=0; ECount-- )</span><br><span class="line">        PercDown( ESet, ECount, Graph-&gt;Ne );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int GetEdge( Edge ESet, int CurrentSize )</span><br><span class="line">&#123; /* 给定当前堆的大小CurrentSize，将当前最小边位置弹出并调整堆 */</span><br><span class="line"> </span><br><span class="line">    /* 将最小边与当前堆的最后一个位置的边交换 */</span><br><span class="line">    Swap( &amp;ESet[0], &amp;ESet[CurrentSize-1]);</span><br><span class="line">    /* 将剩下的边继续调整成最小堆 */</span><br><span class="line">    PercDown( ESet, 0, CurrentSize-1 );</span><br><span class="line"> </span><br><span class="line">    return CurrentSize-1; /* 返回最小边所在位置 */</span><br><span class="line">&#125;</span><br><span class="line">/*-------------------- 最小堆定义结束 --------------------*/</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">int Kruskal( LGraph Graph, LGraph MST )</span><br><span class="line">&#123; /* 将最小生成树保存为邻接表存储的图MST，返回最小权重和 */</span><br><span class="line">    WeightType TotalWeight;</span><br><span class="line">    int ECount, NextEdge;</span><br><span class="line">    SetType VSet; /* 顶点数组 */</span><br><span class="line">    Edge ESet;    /* 边数组 */</span><br><span class="line"> </span><br><span class="line">    InitializeVSet( VSet, Graph-&gt;Nv ); /* 初始化顶点并查集 */</span><br><span class="line">    ESet = (Edge)malloc( sizeof(struct ENode)*Graph-&gt;Ne );</span><br><span class="line">    InitializeESet( Graph, ESet ); /* 初始化边的最小堆 */</span><br><span class="line">    /* 创建包含所有顶点但没有边的图。注意用邻接表版本 */</span><br><span class="line">    MST = CreateGraph(Graph-&gt;Nv);</span><br><span class="line">    TotalWeight = 0; /* 初始化权重和     */</span><br><span class="line">    ECount = 0;      /* 初始化收录的边数 */</span><br><span class="line"> </span><br><span class="line">    NextEdge = Graph-&gt;Ne; /* 原始边集的规模 */</span><br><span class="line">    while ( ECount &lt; Graph-&gt;Nv-1 ) &#123;  /* 当收集的边不足以构成树时 */</span><br><span class="line">        NextEdge = GetEdge( ESet, NextEdge ); /* 从边集中得到最小边的位置 */</span><br><span class="line">        if (NextEdge &lt; 0) /* 边集已空 */</span><br><span class="line">            break;</span><br><span class="line">        /* 如果该边的加入不构成回路，即两端结点不属于同一连通集 */</span><br><span class="line">        if ( CheckCycle( VSet, ESet[NextEdge].V1, ESet[NextEdge].V2 )==true ) &#123;</span><br><span class="line">            /* 将该边插入MST */</span><br><span class="line">            InsertEdge( MST, ESet+NextEdge );</span><br><span class="line">            TotalWeight += ESet[NextEdge].Weight; /* 累计权重 */</span><br><span class="line">            ECount++; /* 生成树中边数加1 */</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if ( ECount &lt; Graph-&gt;Nv-1 )</span><br><span class="line">        TotalWeight = -1; /* 设置错误标记，表示生成树不存在 */</span><br><span class="line"> </span><br><span class="line">    return TotalWeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/" itemprop="url">Self-supervised Multi-level Face Model Learning for Monocular Reconstruction at over 250 Hz</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T00:00:00+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>原文链接：<a href="http://gvv.mpi-inf.mpg.de/projects/FML/" target="_blank" rel="noopener">http://gvv.mpi-inf.mpg.de/projects/FML/</a><br>本文由马克斯-普朗克研究所和斯坦福大学等机构合作完成，是 CVPR 2018 的 oral 文章。<br>为了提升单张图片重建 3D 脸部模型的效果，该论文采用了多层次的脸部结构重建方法，作者把传统的基于参数化 3D 可变形模型（3DMM）作为基础模型，在此之上引入纠正模型来增加模型的表达力。实验表明纠正模型使得 3D 脸部重建效果更接近原图，而且能重建出更多细节。<br>基础模型与纠正模型均为线性模型，其中基础模型的基向量通过对训练样本做 PCA 得到（即 3DMM 模型），而纠正模型的基向量由神经网络直接学习得到。脸部的形状与纹理通过基础模型加上纠正模型来拟合。算法使用编码器来学习基础模型和纠正模型的组合参数。随后整合两个模型的结果，通过解码器得到渲染的 3D 脸部模型。然后，算法把 3D 模型成像，对比成像结果与输入图片的差异，目标是使差异变小，因此该方法是自监督的方式进行训练。此外，算法还限制了成像结果与输入图的脸部特征点要对齐。注意该方法中只有编码器是可学习的，而解码器和渲染器都是手工设计的可导层，不是可学习的。为了让模型更加鲁棒和训练过程更加稳定，作者在损失函数上加入额外调节项，用于提升纠正模型的平滑性、纹理的稀疏性和整体一致性。</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://raw.githubusercontent.com/Gsynf/BlogImg/master/20190415173416703.png" alt="figure0"><br>我们的新型单目重建方法高质量地估计了面部几何形状，皮肤反射率(包括面部毛发)和超过250赫兹的入射光。利用前馈反渲染网络，学习了一种可训练的多层人脸表示方法。端到端训练基于自我监督的损失，不需要密集的地面实况。</p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p><em>从一张单一的图像中重建密集的人脸几何和外观三维模型是非常具有挑战性和不适定的。为了约束该问题，许多方法依赖于强先验，如从有限的三维扫描数据中学习的参数化人脸模型。然而，先验的模型限制了人脸几何、皮肤反射率和光照的真实多样性的泛化。为了解决这一问题，我们提出了一种联合学习方法1)人脸形状、表情、反射率和光照的回归器的方法。2)基于并行学习的参数化人脸模型。我们的多层人脸模型结合了3D 可变形模型（3DMM）的正则化优势和学习校正空间的空间外泛化。我们的多层人脸模型结合了三维形态模型的正则化优势和学习校正空间的空间外泛化。我们通过在多层细节级别上定义的专家设计的可微渲染器来融合卷积编码器，以及自监督训练损失，在没有密集注释的自然环境图像上进行端到端的训练。我们的方法在重建质量上优于目前的技术水平，可以更好地推广到真实世界的人脸，运行频率超过250赫兹。</em></p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1><p>在过去的几十年里，单目人脸重建在计算机视觉和图形学领域引起了极大的关注。我们的目标是从一张照片中估计出一个高质量的个性化人脸模型。这种模型理想地包括几个可解释的语义维度，例如，三维人脸形状和表情以及表面反射率特性。这一领域的研究是由不断增加的人脸图像可用性所推动的，例如，家用摄像头捕捉的人脸图像，以及跨多个领域的广泛重要应用，如面部运动捕捉、游戏和电影的内容创建、虚拟和增强现实以及通信。</p>
+<p>从一张照片中重建人脸是一个非常具有挑战性和不适定的逆问题，因为图像的形成过程将多个复杂的物理维度(几何、反射率和光照)卷积成每个像素的单一颜色测量。为了解决这种不适定性，研究人员已经做了额外的先验假设，比如将人脸限制在一个低维子空间中，例如，3D可变形模型(3DMM)从有限尺寸的扫描数据库中学习。许多最先进的基于优化的和基于学习的人脸重建方法严重依赖这些先验。虽然这些算法产生了令人印象深刻的结果，但它们不能很好地推广到除受限低维子空间之外的底层模型。因此，重建的三维人脸可能缺乏重要的面部细节，包含不正确的面部特征，并不能很好地与图像匹配。例如，纯合成数据训练的算法或使用3DMM进行正则化的算法的重构质量的对胡须显示效果会急剧下降。一些方法试图通过启发式来防止这些失败，例如，一个单独的分割方法来消除分离皮肤和头发区域带来的的歧义。最近的方法通过添加精细尺度的细节，或者基于阴影的形状，或者基于预先学习的回归量来细化拟合的先验。然而，这些方法依赖于缓慢的优化，或者需要高质量的带注释的训练语义库。此外，他们没有为中型形状、反射率和动画建立一个的改进子空间，这对泛化来说至关重要。最近，Sela等人的预测了一个单像素深度图，通过在训练中学习去变形和填补有一个有限几何子空间的洞。虽然结果令人印象深刻，但非刚性匹配是离线运行的。此外，他们的方法只捕捉人脸的几何形状，如果人脸与训练语义库有很大差异，就会失败，例如考虑皮肤反射率和面部毛发。理想情况下，人们希望构建更好的先验，用有意义的和可解释的参数解释各种各样的现实世界面孔。用传统方法学习这样的模型需要大量标记密集的真实世界数据，这实际上是不可行的。</p>
+<p>我们提出了一种全新的端到端可训练的方法，该方法联合学习1)一个有效的回归因子来估计高质量的身份几何、面部表情和有色皮肤反射率，以及2)一个改进的多级人脸模型的参数化，该模型能更好地概括和解释现实世界中的人脸多样性。我们的方法可以在稀疏标记的自然环境图像上进行端到端的训练，并在超过250赫兹的单目RGB输入中重建人脸和光照。我们的方法利用3DMM进行正则化，并利用学习的校正空间进行空间外泛化。为了使自然环境图像的端到端训练成为可能，我们提出了一种混合卷积自编码器，它将CNN编码器与专家设计的可微渲染层和自监督损失结合起来，两者都定义在多个细节级别。此外，我们加入了一个新的轮廓约束，生成更好的人脸匹配。与Tewari等人的不同，我们的自动编码器学习了一个改进的多级模型，超越了预先定义的低维参数脸部先验。实验结果表明，该方法具有较强的鲁棒性、较好的泛化性，并能较好地估计几何形状、反射率和光照质量。</p>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h1><p>我们主要讨论基于优化和学习的方法，这些方法使用参数模型。而高质量的多视图三维重建方法已经存在，我们感兴趣的是更难的单眼重建问题。</p>
+<p><strong>参数化人脸模型:</strong>应用最广泛的人脸模型是3D可变形模型(3DMM)，这是一种通过高质量扫描学习人脸几何和纹理的仿射参数化人脸模型。【5】中提出了一个相似的人脸动画模型。最近，Booth等人从大约10,000个面部扫描中创建了一个大规模的面部模型(LSFM)，这代表了一个更丰富的形状分布。Booth等人的【9】中，人脸模型被一个“in-the-wild”纹理模型增强。将这种模型拟合到图像上是一个非凸优化问题，类似于基于Active Shape (ASMs) 和<br>Appearance (AAMs) 模型的结构。虽然3DMMs是一种高效的先验，但它们将人脸重构限制在一个有限的低维子空间内，如胡须或特征鼻子无法重构。相反，我们通过共同学习一个修正模型来扩展有限的子空间，该模型可以更好地概括真实数据。</p>
+<p><strong>基于优化的方法：</strong>单目人脸重建、基于图像采集的重建以及高质量三维人脸平台的估计，很多方法都是基于能量优化的。从不同的数据源，如照片集、网络照片、视频，得到了令人印象深刻的人脸重建结果。此外，还提出了不依赖于训练过的形状或外观模型的方法，如使用模态分析得到的模型或利用视觉流与消息处理相结合。虽然实时人脸跟踪在一般情况下是可行的，但是基于优化的人脸重建在计算上是昂贵的。此外，基于优化的方法对初始化很敏感，需要2D特征点检测。一些方法允许3D人脸轮廓在预定义的路径上(例如等值线)滑动或迭代固定顶点集，以此来寻找三维轮廓对应。我们的方法既不需要昂贵的优化策略，也不需要参数初始化，但通过在训练过程中考虑轮廓，它可以精确地将3D人脸网格与图像匹配。</p>
+<p><strong>基于学习的方法：</strong>除了基于优化的重构方法外，还有许多基于学习的方法。其中，基于卷积神经网络或受限玻尔兹曼机的方法用来学习在图像中高精度地监测基准点。此外，我们还可以发现(弱)监督的深度网络，它集成生成模型来解决像面部表现捕捉这样的任务。<br>Ranja等人提出了一种多用途CNN，用于从人脸图像中恢复语义参数(如年龄、性别、姿势)。理查森等人提出了一种基于学习和优化的混合方法，可以从一张图像重建精细的面部几何形状。在【48】中提出了训练端到端回归器，以恢复粗糙和精细尺度的面部几何形状。在【61】中，对人脸形状和纹理进行回归，进行人脸识别。后一种人脸重建方法对真实世界人脸多样性的推广受到底层低维人脸模型的限制。</p>
+<p><strong>基校正和子空间学习：</strong>通过添加中等尺度的细节，可以提高人脸重建的质量。Li等人使用增量PCA对表情基实现实时个性化。Bouaziz等人【11】提出了基于流形谐波的中尺度形状校正方法。最近，Garrido等人提出了一种基于固定校正基础的单目视频学习中尺度形状的方法。Sela等人的【53】直接提出回归深度和单像素对应，从而超越了3DMM受限子空间。然而，它们不能恢复彩色表面反射率，并且需要离线非刚性配准步骤才能获得已知一致拓扑结构的重构。据我们所知，目前还没有一种算法能从自然环境图像中同时学习几何和反射率校正。</p>
+<p><strong>生成模型的深度集成：</strong>这是Jaderberg等人的开创性工作【31】，引入了空间转换网络，实现了一个神经网络中的位置不变性。透视转换网络【67】能够从单个二维图像中获得三维对象表示。gvvn库【27】实现了用于这种转换的低级计算机视觉层。最近，一种基于模型的人脸自动编码器(MoFA)【59】被提出用于单目人脸重建，它结合了专家设计的渲染层和可训练的CNN编码器。它们的结果是显著的，但仅限于人脸模型的固定低维子空间。外子空间的变异，如面部细节和个性化的鼻子，没有被重现，严重降低了重建的质量。我们的方法解决了所有这些挑战，在几何和反射率方面实现了更强的鲁棒性和更高的质量。</p>
+<h1 id="3-Method-Overview"><a href="#3-Method-Overview" class="headerlink" title="3.Method Overview"></a>3.Method Overview</h1><p>我们全新的人脸重建方法从一个单一的图像高质量地估计几何形状，皮肤反射率和入射光。我们在同时学习多级参数化人脸模型的基础上，联合训练各维度的回归器，如图1所示。<br><img src="https://i.loli.net/2019/04/17/5cb7363754822.jpg" alt="figure1"><br><em>图1所示。我们的方法在超过250赫兹时回归一个低维的潜在人脸表示。前馈CNN是与一个超越当前3DMMs低维子空间的多层次人脸模型共同学习的。可训练图层显示为蓝色，专家设计的图层显示为灰色。训练是基于可微的图像形成，结合自监督损失(橙色)。</em></p>
+<p><strong>参数回归：</strong>在测试时(图1，左)，使用一个前馈CNN计算一个低维的，但有表现力和鉴别力，潜在的空间人脸表示花费在4ms以下。如AlexNet【37】或VGG-Face【44】。我们的潜在空间是基于一个新的多层次的人脸模型(第4节)它结合了一个粗糙尺度的3DMM与可训练的单顶点几何和皮肤反射校正。这使我们的方法能够超越有限的低维几何和皮肤反射子空间，通常使用基于3DMM的方法进行人脸拟合。</p>
+<p><strong>自监督训练：</strong>我们训练(图1，右)前馈网络和校正空间，基于一种新的CNN架构，不依赖于密集标注的基础几何事实、皮肤反射率和光照训练语义库。为此，我们将多层模型与专家设计的图像形成层(第5节)相结合，得到一个可微计算机图形模块。为了实现多级人脸模型的联合估计，该模块提出了粗糙3DMM模型和中等规模的模型，其中均包括校正。在训练方面，我们使用自监督的损失函数(第6节)，使我们的架构能够在大量自然环境人脸图像上进行有效的端到端训练，而不需要密集地注释基础事实。我们定性和定量地评估我们的方法，并将其与最先进的优化和基于学习的面部重建技术进行比较(第7节)。</p>
+<h1 id="4-Trainable-Multi-level-Face-Model"><a href="#4-Trainable-Multi-level-Face-Model" class="headerlink" title="4.Trainable Multi-level Face Model"></a>4.Trainable Multi-level Face Model</h1><p>我们的方法的核心是一个新的多层次的面部模型，确定面部几何形状和皮肤反射率的参数。我们的模型是基于一个流形模板网格与N ~ 30k顶点和每个顶点的皮肤反射率。我们将所有顶点v<sub>i</sub>∈V的x-、y-和z-坐标叠加在一个几何向量v<sup>f</sup>∈R<sup>3n</sup>中，几何与反射率参数化表示如下:<br><img src="https://i.loli.net/2019/04/17/5cb740d84cec8.png" alt="公式1,2"></p>
+<p>在基本级别上是参数化面（粗糙）部几何vb和(粗糙)皮肤反射rb通过低维的一组参数(α;β)。<br>此外,我们使用校正加入中等规模的几何Fg和反射率Fr变形,参数化的(δg;Θg)将基准面模型与校正模型结合起来，就得到最终的水平模型，参数化vf和rf。下面，我们将描述多级人脸模型的不同级别。</p>
+<h2 id="4-1-Static-Parametric-Base-Model"><a href="#4-1-Static-Parametric-Base-Model" class="headerlink" title="4.1. Static Parametric Base Model"></a>4.1. Static Parametric Base Model</h2><p>底层采用的参数化人脸模型通过两个独立的仿射模型表达了似是而非的人脸几何和反射率空间:<br><img src="https://i.loli.net/2019/04/23/5cbe6c2b369e2.png" alt="公式3,4"><br>反射率变化的子空间由向量b张成，该向量由PCA从200个高质量人脸扫描数据集中创建。<br>几何子空间分为Ms和Me，表示形状和表达式的变化。<br>这些向量是用PCA从[2]和[17]的混合形状子集中生成的。注意，这些混合形状已经使用变形转移[56]转移到我们的拓扑结构中。基捕获了使用的混合形状的99%的方差。我们使用ms = mr = 80个形状和反射向量，me = 64个表达向量。相关的标准差σg和σr。</p>
+<h2 id="4-2-Trainable-Shape-and-Reflectance-Corrections"><a href="#4-2-Trainable-Shape-and-Reflectance-Corrections" class="headerlink" title="4.2. Trainable Shape and Reflectance Corrections"></a>4.2. Trainable Shape and Reflectance Corrections</h2><p>许多基于优化和学习的重建技术，如[7,5,60，59]。由于其低维性，4.1节所述的基本模型对面部形状和反射率的高精度建模表达能力有限。一个特殊的问题是皮肤反照率的变化，因为所使用的模型有种族偏见，缺乏面部毛发，例如胡须。<br>这项工作的目的是通过学习一个可训练的纠正模型来改进这一点，该模型可以表示这些空间外的变化。与其他使用固定的预定义校正基础[25]的方法不同，我们学习了校正器的生成模型和最佳校正参数。此外，我们不需要对几何形状、皮肤反射率和入射光照的地面真相注释。<br>与基准水平的关键区别在于，修正水平不使用固定的预训练基础，而是直接从训练数据中学习生成模型和系数。</p>
+<h1 id="5-Differentiable-Image-Formation-Model"><a href="#5-Differentiable-Image-Formation-Model" class="headerlink" title="5. Differentiable Image Formation Model"></a>5. Differentiable Image Formation Model</h1><p>为了训练我们新颖的端到端多层人脸重建方法，我们需要一个可微的图像形成模型。下面，我们将描述它的组件。<br><strong>全参相机:</strong>这一部分是求了相机的内参数，相机模型包含内部物理并执行透视划分。<br><strong>光照模型:</strong>利用球谐基函数，建立了远距离照明的假设，并对入射光进行了近似<img src="https://i.loli.net/2019/04/23/5cbe6ddb18d95.png" alt=""><br>我们假设入射光只依赖于表面法向量n:<br><img src="https://i.loli.net/2019/04/23/5cbe6dffa30a5.png" alt="公式5"><br>其中，圈点表示哈达玛乘积，r表示表面反射，B代表球谐基函数带，rb是控制照明的系数。<br>由于入射光足够平滑，平均误差低于1%，可以实现只有B = 3波段独立于照明。这导致了每个颜色通道的变量<img src="https://i.loli.net/2019/04/23/5cbe6e98b5929.png" alt=""><br><strong>图像合成：</strong>我们的可微图像生成层以模型空间的顶点形状和反射率作为输入。这可以是基本级别模型rb和vb，或者最终级别模型vf和rf，其中包括所学习的校正器。<img src="https://i.loli.net/2019/04/23/5cbe6f230022f.png" alt="">表示基面第i个顶点的位置和反射率(l = b)和最后一层(‘l= f)。<br>我们的渲染层接受这些信息，并形成一个基于点的场景渲染，如下所示。<br>首先，它将这些点映射到相机空间，即<img src="https://i.loli.net/2019/04/23/5cbe6f741286a.png" alt="">)然后计算所有顶点的投影像素位置为<img src="https://i.loli.net/2019/04/23/5cbe6f8977b2b.png" alt="">这些像素位置的阴影颜色c ‘ i是根据前面描述的光照模型计算的:<img src="https://i.loli.net/2019/04/23/5cbe6ffe4a354.png" alt="">其中，n是相关联的摄像机空间法线到v. 我们的图像形成模型是可微的，这使得端到端的训练使用反向传播。回归器学习预测的自由变量有: 模型参数<img src="https://i.loli.net/2019/04/23/5cbe701dae588.png" alt="">相机参数R, t和照明参数γ。此外,在训练期间,我们学习纠正形状和反射率基地,Θr。这导致了以下未知向量:<br><img src="https://i.loli.net/2019/04/23/5cbe7048cd56a.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/04/19/5cb92b2795684.png" alt="figure2"><br><em>图2所示。我们将固定和移动特征点区分开来。这将使得更好的轮廓对齐。注意外部轮廓如何依赖于刚性头部姿态(左)。在全局反射率恒常性约束中使用了皮肤掩模(右)。</em></p>
+<h1 id="6-Self-supervised-Learning"><a href="#6-Self-supervised-Learning" class="headerlink" title="6.Self-supervised Learning"></a>6.Self-supervised Learning</h1><p>我们的人脸回归网络使用一个全新的自监督损失来进行训练，这样使得它能够符合我们的基础模型并且端到端地学习每个像素的校正。我们的损失包括数据拟合以及正则项：<br><img src="https://i.loli.net/2019/04/18/5cb81c54f2c3b.png" alt="公式6"><br>这里E<sub>date</sub>惩罚了模型在输入图像上的偏差，E<sub>reg</sub>对人脸在粗尺度和中等尺度上的先验假设进行编码，ω<sub>reg</sub>是控制正则项的平衡因子。数据拟合项基于稀疏和稠密的一致性约束。<br><img src="https://i.loli.net/2019/04/18/5cb81ec0f13c8.png" alt="公式7"><br>正则化项表示在基础模型和修正模型上的先验假设:<br><img src="https://i.loli.net/2019/04/18/5cb81f54052d0.png" alt="公式8"><br>在下文中，将详细介绍各个部分。</p>
+<h2 id="6-1-数据项"><a href="#6-1-数据项" class="headerlink" title="6.1 数据项"></a>6.1 数据项</h2><p><strong>多维稠密光度损失：</strong>我们采用了一个稠密多维光度损失函数，用来衡量粗尺度上的偏差并且更好地拟合输入。V是所有可见顶点的集合，我们的光度项可以定义为：<br><img src="https://i.loli.net/2019/04/18/5cb8214fdef38.png" alt="公式9"><br>这里u<sup>l</sup><sub>i</sub>（x）是屏幕的空间位置，c<sup>l</sup><sub>i</sub>（x）是第i个顶点的阴影颜色，L是当前训练的图像。为了增强鲁棒性，我们使用了l<sub>2,1</sub>-norm，其中l<sub>2</sub>-norm来衡量颜色之间的差距，但是对每个像素的l<sub>2</sub>-norm进行求和促进了稀疏性，因为它对应于l<sub>1</sub>-norm。使用后脸剔除可以计算可见性，这是一个近似值，不过效果很好，因为脸部可以近似看作一个凸面体。</p>
+<p><strong>稀疏特征点：</strong>面部包含许多突出的特征点，我们通过一个弱监督自动地检测66个面部标记。面部标记点集可以分为两类：固定的和移动的特征点。固定的特征点，例如眼睛和鼻子，和模板模型上的固定顶点相关联；移动的特征点，例如面部轮廓，基于刚性位姿而改变在模板中的位置，见图2（右），模型可以显式地表达为：<br><img src="https://i.loli.net/2019/04/18/5cb82cffc7cd2.png" alt="公式10"><br>这里，k<sub>f</sub>是目标顶点的索引：对于固定的点，我们将对应网格顶点的索引进行硬编码（把一个本来应该写到配置信息中的信息直接在程序代码中写死），移动特征点的索引通过例如交替方案来计算。在每一步的随机梯度下降中，我们发现网格顶点是最靠近3D线的，通过相机中心和检测到的2D特征点的背投影来定义。我们计算欧式距离的平方并且将k<sub>r</sub>设为最近顶点的索引。</p>
+<h2 id="6-2-正则化项"><a href="#6-2-正则化项" class="headerlink" title="6.2 正则化项"></a>6.2 正则化项</h2><p><strong>统计正则化：</strong>我们对基础水平的3DMM模型参数进行统计正则化，以确保重构的合理性。基于模型参数服从零均值高斯分布的假设，我们采用Tikhonov正则化:<br><img src="https://i.loli.net/2019/04/18/5cb8655472c5e.png" alt="公式11"><br>这是在不适定的单目重建场景中防止人脸几何形状和反射率退化的常见约束条件。</p>
+<p><strong>平滑性校正：</strong>我们还通过对所有顶点集合V中的顶点位移添加拉普拉斯正则项来增加局部光滑性:<br><img src="https://i.loli.net/2019/04/18/5cb8670434ec8.png" alt="公式12"><br>其中（F<sub>g</sub>(x)）<sub>i</sub>=(F<sub>g</sub>(δ<sub>g</sub>|θ<sub>g</sub>))<sub>i</sub>表示第i个顶点给定参数x的的修正量，并且N<sub>i</sub>是第i个顶点的一环领域。</p>
+<p><strong>局部反射稀疏性：</strong>根据最近的内在分解方法，我们加强实施稀疏性，以进一步规范全重构的反射性：<br><img src="https://i.loli.net/2019/04/18/5cb86e96cfd60.png" alt="公式13"><br>其中，<img src="https://i.loli.net/2019/04/18/5cb86ebd7b546.png" alt="">是衡量输入中颜色之间色度相似性的恒权值，这里X<sup>old</sup>是在前一轮迭代中的估值参数。我们假设具有相同色度的像素更有可能具有相同的反射率。l<sub>2,p</sub>-norm对组合反射率估计值添加稀疏性。在所有实验中我们假定α=50，p=0.9。</p>
+<p><strong>全局反射恒常性：</strong>我们在一组只覆盖皮肤区域的固定顶点上设定皮肤反射率恒定，见图2（右）<br><img src="https://i.loli.net/2019/04/19/5cb924aa97869.png" alt="公式14"><br>这里，M是每个像素的皮肤掩模，G<sub>i</sub>存储着掩模区域顶点索引的六个随机采样。这样做是为了保证整个皮肤区域有相同的反射率。为了更高效，我们假设同一块皮肤区域中任意一对顶点之间的反射率都近似相同。需要注意的是，这些区域可能有面部的毛发，这是不包含在掩模中的。当组合在一起的时候，局部和全局的反射从反射通道中高效的移除了阴影。</p>
+<p><strong>稳定性：</strong>我们还通过强制执行小的顶点位移来确保修正后的几何形状接近于基础重构:<br><img src="https://i.loli.net/2019/04/19/5cb9297b56673.png" alt="公式15"></p>
+<h1 id="7-Results"><a href="#7-Results" class="headerlink" title="7.Results"></a>7.Results</h1><p>我们演示了前馈编码器的联合端到端自监督训练和基于野生图像的新型多层次人脸表示，而不需要密集注释。我们的方法是在250赫兹以上的高质量的位置、形状、表达式、反射和照明进行回归，见图3。<br><img src="https://i.loli.net/2019/04/23/5cbe712d1ccdf.png" alt="figure3"><br>对于前馈编码器，我们使用了Alexnet[37]的修改版本，该版本输出我们的人脸模型的参数。请注意，可以使用其他前馈架构。<br>我们使用caffe[32]实现了我们的方法。培训基于批量大小为5的adadelta。我们对我们的网络进行预培训，使其达到20万次迭代的基本水平，学习率为0:01。之后，我们对整个网络进行了190k次迭代的微调，基本级别的学习率为0:001，几何结构的学习率为0:005，反射校正的学习率为0:01。我们的网络的所有组件都在CUDA[43]中实现，以便进行有效的培训，这需要16个小时。我们在所有的实验中都使用常数w。在下面，我们将校正参数的大小c固定为500，用于几何和反射率。我们测试了不同的校正空间（线性和非线性），见图5。线性校正基础给出了最好的结果，因此我们将其用于所有后续实验。详情请参阅补充文件。<br><img src="https://i.loli.net/2019/04/23/5cbe716a8a397.png" alt="figure5"><br>我们的方法是在一个没有密集注释的原始的的面部图像的语料库上训练的。我们结合了四种不同的数据集：Celeba[41]、LFW[28]、Face-Warehouse[16]和300-VW[18、54、62]。稀疏地标注释自动获得[52]，我们使用HAAR级联人脸检测[13]裁剪到240240像素的紧面边界框。检测不良的图像会根据地标置信度自动删除。总的来说，我们使用144K图像，随机分为一组训练（142K图像）和验证（2K图像）。<br>我们将我们的最终输出（“最终”）与从预训练网络获得的基础低维3dmm重建（“基础”）进行比较，以说明我们的多级模型允许我们恢复更高质量的几何体和反射比（图4）。下面，我们将展示更多的结果，评估我们的方法，并与最新技术进行比较。<br><img src="https://i.loli.net/2019/04/23/5cbe719973ff2.png" alt="figure4"></p>
+<h2 id="7-1-与最新技术的比较"><a href="#7-1-与最新技术的比较" class="headerlink" title="7.1 与最新技术的比较"></a>7.1 与最新技术的比较</h2><p><strong>基于最优化的技术：</strong>我们将其与基于优化的高质量重建方法进行了比较。[25]，见图6。我们的方法获得了相似的几何质量，但由于我们学习了纠正空间，更好地捕捉了人的特征。由于我们的方法共同学习了一个校正反射空间，它可以离开底层3dmm的受限子空间，从而产生更真实的外观。注意，与Garrido等人不同，我们的方法在测试时不需要标志，运行速度更快（4ms对120s每幅图像）。我们还比较了布斯等人的方法。[9]见图7。我们的方法共同学习一个更好的形状和反射模型，而他们的方法只建立一个’原始图片模型，包含阴影。与我们的方法不同，布斯等人基于优化，需要初始化或标志。<br><strong>基于学习的技术：</strong>我们比较了Tewari等人基于学习的高质量重建方法。[59]（图8），Richardson等人[47，48]（图9）和Sela等人〔53〕（图9）。在使用的合成训练语料库或使用的3dmm模型范围内，这些方法获得了令人印象深刻的结果，但受到了子空间形状和反射变化的影响，例如有胡子的人。我们的方法不仅对面部毛发和化妆都很有效，而且可以根据共同学习的模型自动学习重建这些变化。重建需要4 ms，而[53]需要缓慢的离线非刚性配准，以从预测深度图获得无孔重建。此外，我们还共同获得了彩色反射和照明的重建。由于我们的模型学习，我们的方法能够离开三维空间的低维空间，这导致了一个更现实的面部外观和几何重建。</p>
+<h2 id="7-2-数量级上的结果"><a href="#7-2-数量级上的结果" class="headerlink" title="7.2 数量级上的结果"></a>7.2 数量级上的结果</h2><p>我们定量地评估了我们的方法。对于几何图形，我们使用FaceWarehouse[16]数据集并重建180个网格（9个标识，每个表达式20个）。我们比较了不同的方法，在对齐后（刚性变换加上各向同性缩放），以提供的地面真相使用豪斯多夫距离。我们的方法优于Tewari等人的基于学习的技术。[59]和Kim Etal.〔36〕见Tab。1。我们接近Garrido等人的高质量优化方法。[25]虽然速度快了几个数量级（4ms vs.120sec），但在测试时不需要进行特征检测，见图10（上图）。[16]主要包含“干净”的脸，没有化妆或胡须，因为这会导致问题，即使是高质量的离线3D重建方法。我们的兴趣是坚定地处理这种更困难的情况，在这种情况下，我们证明我们的方法明显优于以前的方法，见图。8, 6和9。我们还评估了我们的方法，在一个视频序列（300帧）具有挑战性的表达和特征面，这是在3dmm的跨度之外。Valgaerts等人获得了基本事实。〔63〕。我们的校正方法（平均值：1.77mm，标准差：0.29mm）显著优于基础结果（平均值：2.16mm，标准差：0.29mm），Garrido等人[25]在粗（平均：1.96mm，标准差：0.35mm）和中等（平均：1.97mm，标准差：0.41mm）水平，以及Tewari等人[59]（平均值：2.94mm，标准差：0.28mm），见图10（底部）。我们在验证集上评估我们方法的光度拟合误差，见图11。我们的最终结果（平均值：0.072，标准差：0.020）与基础水平（平均值：0.092，标准差：0.025）相比，误差（RGB空间中的距离，通道在[0；1]中）显著降低。</p>
+<h1 id="8-局限性"><a href="#8-局限性" class="headerlink" title="8.局限性"></a>8.局限性</h1><p>我们在250Hz以上的频率下进行了高质量的单目重建，即使是在有面部毛发的情况下，或是在有挑战性的脸上。不过，我们的方法有一些局限性，可以在将来的工作中加以解决：外部遮挡（例如，通过眼镜）被烘烤到我们的校正中，见图12。解决这一问题需要对训练语料库进行语义分割。不能保证封闭面区域的一致重建。对于鲁棒模型学习，我们强制纠正空间的低维性。因此，我们无法恢复细尺度的表面细节。我们认为这是一个正交的研究方向，已经产生了令人印象深刻的结果[47，48，53]。</p>
+<h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9.总结"></a>9.总结</h1><p>我们提出了第一种共同学习人脸模型和参数回归器的方法，用于人脸形状、表情、外观和照明。它结合了3dmm正则化的优点和已知校正空间的超空间泛化。这克服了目前依赖强先验的方法的缺点，提高了泛化性和鲁棒性，并导致250Hz以上的高质量重建。在这项工作中，我们将重点放在人脸重建上，我们的方法不局限于人脸，因为它可以推广到更多的对象类。因此，我们认为这是从原始图像构建三维模型的第一步。</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/" itemprop="url">数据结构_6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T00:00:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="什么是图"><a href="#什么是图" class="headerlink" title="什么是图"></a>什么是图</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>图：表示“多对多”的关系<br>包含：</p>
+<ul>
+<li>一组顶点：通常用V（Vertex）表示顶点集合；</li>
+<li>一组边：通常用E（Eege）表示边的集合；<br>边是顶点对：<br>无向边（v,w）∈E，其中v,w∈V<br>有向边&lt;v,w&gt;∈E，其中v,w∈V</li>
+</ul>
+<h2 id="程序中图的表示"><a href="#程序中图的表示" class="headerlink" title="程序中图的表示"></a>程序中图的表示</h2><ul>
+<li><strong>邻接矩阵</strong>:G[N][N]-N个顶点从0到N-1编号<br>G[N][N]=1（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;是G中的边）/0（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;不是G中的边）。<br>对于有N个顶点的无向图，用一个长度为N(N+1)/2的1维数组存储可以省一半空间。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接矩阵表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">#define INFINITY 65535        /* ∞设为双字节无符号整数的最大值65535*/</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line">        </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;</span><br><span class="line">    int Nv;  /* 顶点数 */</span><br><span class="line">    int Ne;  /* 边数   */</span><br><span class="line">    WeightType G[MaxVertexNum][MaxVertexNum]; /* 邻接矩阵 */</span><br><span class="line">    DataType Data[MaxVertexNum];      /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data[]可以不用出现 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode MGraph; /* 以邻接矩阵存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">MGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V, W;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (MGraph)malloc(sizeof(struct GNode)); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接矩阵 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        for (W=0; W&lt;Graph-&gt;Nv; W++)  </span><br><span class="line">            Graph-&gt;G[V][W] = INFINITY;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( MGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">     /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V1][E-&gt;V2] = E-&gt;Weight;    </span><br><span class="line">     /* 若是无向图，还要插入边&lt;V2, V1&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V2][E-&gt;V1] = E-&gt;Weight;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">MGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc(sizeof(struct ENode)); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;Data[V]));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>邻接表</strong>：G[N]为指针数组，对应矩阵每行一个链表，只存非0元素。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接表表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line"> </span><br><span class="line">/* 邻接点的定义 */</span><br><span class="line">typedef struct AdjVNode *PtrToAdjVNode; </span><br><span class="line">struct AdjVNode&#123;</span><br><span class="line">    Vertex AdjV;        /* 邻接点下标 */</span><br><span class="line">    WeightType Weight;  /* 边权重 */</span><br><span class="line">    PtrToAdjVNode Next;    /* 指向下一个邻接点的指针 */</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">/* 顶点表头结点的定义 */</span><br><span class="line">typedef struct Vnode&#123;</span><br><span class="line">    PtrToAdjVNode FirstEdge;/* 边表头指针 */</span><br><span class="line">    DataType Data;            /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data可以不用出现 */</span><br><span class="line">&#125; AdjList[MaxVertexNum];    /* AdjList是邻接表类型 */</span><br><span class="line"> </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;  </span><br><span class="line">    int Nv;     /* 顶点数 */</span><br><span class="line">    int Ne;     /* 边数   */</span><br><span class="line">    AdjList G;  /* 邻接表 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode LGraph; /* 以邻接表方式存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">LGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (LGraph)malloc( sizeof(struct GNode) ); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接表头指针 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">       for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        Graph-&gt;G[V].FirstEdge = NULL;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( LGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">    PtrToAdjVNode NewNode;</span><br><span class="line">     </span><br><span class="line">    /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">    /* 为V2建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V2;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V2插入V1的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V1].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V1].FirstEdge = NewNode;</span><br><span class="line">         </span><br><span class="line">    /* 若是无向图，还要插入边 &lt;V2, V1&gt; */</span><br><span class="line">    /* 为V1建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V1;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V1插入V2的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V2].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V2].FirstEdge = NewNode;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">LGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc( sizeof(struct ENode) ); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;G[V].Data));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>站在一个路口，看有几条路还没走，选择其中一条往下走，走到下一个路口，继续判断，如没有，则原路返回上一个路口，看上一个路口是否有没走的路，如没有则继续原路返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接表存储的图 - DFS */</span><br><span class="line"> </span><br><span class="line">void Visit( Vertex V )</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;正在访问顶点%d\n&quot;, V);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void DFS( LGraph Graph, Vertex V, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以V为出发点对邻接表存储的图Graph进行DFS搜索 */</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">     </span><br><span class="line">    Visit( V ); /* 访问第V个顶点 */</span><br><span class="line">    Visited[V] = true; /* 标记V已访问 */</span><br><span class="line"> </span><br><span class="line">    for( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next ) /* 对V的每个邻接点W-&gt;AdjV */</span><br><span class="line">        if ( !Visited[W-&gt;AdjV] )    /* 若W-&gt;AdjV未被访问 */</span><br><span class="line">            DFS( Graph, W-&gt;AdjV, Visit );    /* 则递归访问之 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>指定一个起点，把它压到队列里，在把它弹出队列时，将与它相连的点一一压到队列里，以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接矩阵存储的图 - BFS */</span><br><span class="line"> </span><br><span class="line">/* IsEdge(Graph, V, W)检查&lt;V, W&gt;是否图Graph中的一条边，即W是否V的邻接点。  */</span><br><span class="line">/* 此函数根据图的不同类型要做不同的实现，关键取决于对不存在的边的表示方法。*/</span><br><span class="line">/* 例如对有权图, 如果不存在的边被初始化为INFINITY, 则函数实现如下:         */</span><br><span class="line">bool IsEdge( MGraph Graph, Vertex V, Vertex W )</span><br><span class="line">&#123;</span><br><span class="line">    return Graph-&gt;G[V][W]&lt;INFINITY ? true : false;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void BFS ( MGraph Graph, Vertex S, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以S为出发点对邻接矩阵存储的图Graph进行BFS搜索 */</span><br><span class="line">    Queue Q;     </span><br><span class="line">    Vertex V, W;</span><br><span class="line"> </span><br><span class="line">    Q = CreateQueue( MaxSize ); /* 创建空队列, MaxSize为外部定义的常数 */</span><br><span class="line">    /* 访问顶点S：此处可根据具体访问需要改写 */</span><br><span class="line">    Visit( S );</span><br><span class="line">    Visited[S] = true; /* 标记S已访问 */</span><br><span class="line">    AddQ(Q, S); /* S入队列 */</span><br><span class="line">     </span><br><span class="line">    while ( !IsEmpty(Q) ) &#123;</span><br><span class="line">        V = DeleteQ(Q);  /* 弹出V */</span><br><span class="line">        for( W=0; W&lt;Graph-&gt;Nv; W++ ) /* 对图中的每个顶点W */</span><br><span class="line">            /* 若W是V的邻接点并且未访问过 */</span><br><span class="line">            if ( !Visited[W] &amp;&amp; IsEdge(Graph, V, W) ) &#123;</span><br><span class="line">                /* 访问顶点W */</span><br><span class="line">                Visit( W );</span><br><span class="line">                Visited[W] = true; /* 标记W已访问 */</span><br><span class="line">                AddQ(Q, W); /* W入队列 */</span><br><span class="line">            &#125;</span><br><span class="line">    &#125; /* while结束*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/" itemprop="url">Linux下Github使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T00:00:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>python主要用linux，所以在linux下使用Github特意来学习一下。</p>
+<h1 id="Linux下Git和GitHub环境的搭建"><a href="#Linux下Git和GitHub环境的搭建" class="headerlink" title="Linux下Git和GitHub环境的搭建"></a>Linux下Git和GitHub环境的搭建</h1><ol>
+<li>安装Git， 使用命令sudo apt-get install git；</li>
+<li>创建GitHub帐号；</li>
+<li>生成ssh key，使用命令 ssh-keygen -t rsa -C “<a href="mailto:your_email@youremail.com" target="_blank" rel="noopener">your_email@youremail.com</a>“，your_email是你的email；</li>
+<li>终端输入命令 cd ~/.ssh，之后ls命令，之后vi id_rsa.pub，复制内容；</li>
+<li>回到github，进入Account Settings，左边选择SSH Keys，Add SSH Key，粘贴key；</li>
+<li>测试ssh key是否成功，使用命令ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，如果出现You’ve successfully ；authenticated, but GitHub does not provide shell access ，这就表示已成功连上github；</li>
+<li>配置Git的配置文件：配置用户名：git config –global user.name “your name” ，配置email：git config –global user.email “your email”</li>
+</ol>
+<h1 id="从GitHub克隆项目到本地"><a href="#从GitHub克隆项目到本地" class="headerlink" title="从GitHub克隆项目到本地"></a>从GitHub克隆项目到本地</h1><ol>
+<li>到GitHub的某个仓库，然后复制右边的那个（HTTPS clone url）；</li>
+<li>回到要存放的目录下，使用命令 git clone <a href="https://github.com/your_name/yourRepo.git，" target="_blank" rel="noopener">https://github.com/your_name/yourRepo.git，</a> your_name是你的GitHub的用户名，yourRepo是你要clone的仓库；</li>
+<li>如果本地的版本不是最新的，可以使用命令 git fetch origin，origin是本地仓库；</li>
+<li>把更新的内容合并到本地分支，可以使用命令 git merge origin/master；</li>
+<li>如果你不想手动去合并，那么你可以使用： git pull &lt;本地仓库&gt; master 这个命令来拉去最新版本并自动合并；</li>
+</ol>
+<h1 id="利用Git从本地上传到GitHub"><a href="#利用Git从本地上传到GitHub" class="headerlink" title="利用Git从本地上传到GitHub"></a>利用Git从本地上传到GitHub</h1><ol>
+<li>进入要所要上传文件的目录, 输入命令 git init；</li>
+<li>创建一个本地仓库origin，使用命令 git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:your_name/yourRepo.git，your_name是你的GitHub的用户名，yourRepo是你要上传到GitHub的仓库；</li>
+<li>比如你要添加一个文件xxx到本地仓库，使用命令 git add xxx，可以使用 git add . 自动判断添加哪些文件；</li>
+<li>然后把这个添加提交到本地的仓库，使用命令 git commit -m “说明这次的提交”；</li>
+<li>最后把本地仓库origin提交到远程的GitHub仓库，使用命令 git push origin master；</li>
+</ol>
+<h3 id="说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为："><a href="#说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为：" class="headerlink" title="说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为："></a><em>说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为：</em></h3><blockquote>
+<p>git add . //注意.代表全部上传，也可以换为要上传更新的文件</p>
+</blockquote>
+<blockquote>
+<p>git commit -m ‘update’</p>
+</blockquote>
+<blockquote>
+<p>git push</p>
+</blockquote>
+<p><em>即相当于对要添加的文件所在的整个文件夹进行了更新。</em></p>
+<h1 id="GitHub的分支管理"><a href="#GitHub的分支管理" class="headerlink" title="GitHub的分支管理"></a>GitHub的分支管理</h1><p>创建分支</p>
+<ol>
+<li>创建一个本地分支： git branch &lt;新分支名字&gt;；</li>
+<li>将本地分支同步到GitHub上面： git push &lt;本地仓库名&gt; &lt;新分支名&gt;；</li>
+<li>切换到新建立的分支： git checkout &lt;新分支名&gt;；</li>
+<li>为你的分支加入一个新的远程端： git remote add &lt;远程端名字&gt; &lt;地址&gt;；</li>
+<li>查看当前仓库有几个分支: git branch；</li>
+</ol>
+<p>删除分支</p>
+<ol>
+<li>从本地删除一个分支： git branch -d &lt;分支名称&gt;；</li>
+<li>同步到GitHub上面删除这个分支： git push &lt;本地仓库名&gt; :&lt;GitHub端分支&gt;；</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1119,11 +1476,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/9/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -1143,6 +1500,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -1160,11 +1518,11 @@
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">89</span>
+              <a href="/archives/">
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1173,8 +1531,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1249,7 +1609,7 @@
         
       </div>
     
-    
+
   </div>
 
   
@@ -1269,6 +1629,14 @@
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1295,26 +1663,29 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
 
 
   
@@ -1340,21 +1711,22 @@
 
 
 
-  
-
-
-
-  
-  
 
   
 
-  
+
+
+
 
   
 
   
 
+  
+
+  
+
+  
 
   
 

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -68,7 +75,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +87,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -103,8 +110,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,11 +136,7 @@
 
 
 
-  <title> Hexo </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hexo</title>
   
 
 
@@ -147,13 +151,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -201,8 +209,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -212,7 +240,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -248,8 +276,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/2019-10-08-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/2019-08-31-Spring%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -267,16 +299,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/10/08/2019-10-08-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" itemprop="url">
-                  Vue系列笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/08/31/2019-08-31-Spring%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/" itemprop="url">Spring框架搭建</a></h1>
         
 
         <div class="post-meta">
@@ -288,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T00:00:00+08:00">
-                2019-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-31T00:00:00+08:00">
+                2019-08-31
               </time>
             
 
@@ -317,7 +341,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -327,244 +353,73 @@
         
           
             <blockquote>
-<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
+<p>包括JDK的下载安装、eclipse的安装、Spring插件的安装、Spring开发环境的搭建</p>
 </blockquote>
-<ol>
-<li>如果将一个页面中所有的处理逻辑全部放到一起，处理起来就会变得非常复杂，而且不利于后续管理和扩展；但如果将一个页面拆分成一个个小的功能块，每个功能块完成属于自己这部分独立的功能，之后整个页面的管理和维护就变得容易许多；</li>
+<h1 id="一、JDK的下载安装"><a href="#一、JDK的下载安装" class="headerlink" title="一、JDK的下载安装"></a>一、JDK的下载安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<p>我这里下载了Java SE 12.0.2，下载安装即可，可以装到其他盘符。但是在安装完成周，安装目录下会有jre(Java Runtime Environment )文件夹，但是并没有，解决方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以管理员身份进入powershell，进入安装目录</span><br><span class="line">输入 bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>这里有点坑，以后需要及时躲避。一般情况下配置环境变量比较简单，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">新建JAVA_HOME：jdk的绝对路径</span><br><span class="line">编辑Path： 增加%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="line">新建Classpath： %JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</span><br></pre></td></tr></table></figure>
+
+<p>但是我参照这种方法配置之后，cmd输入Java -version发现并没有配置成功，最后发现问题所在，这好像是win10的毛病，也就是添加环境变量的时候不能使用上述比较安全的方法，只能使用目前JDK安装的绝对路径直接添加到PATH中。也就是说JDK的安装路径以后不可以移动或者改变。</p>
+<h1 id="二、eclipse的安装"><a href="#二、eclipse的安装" class="headerlink" title="二、eclipse的安装"></a>二、eclipse的安装</h1><p>这一步就很简单了，直接去<a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">官网</a>下载即可。下载之后打开注意去Help-&gt;About Eclipes IDE查看一下自己安装的版本号，我这里安装的是4.12.0，版本号接下来会用到。</p>
+<h1 id="三、Spring插件的安装"><a href="#三、Spring插件的安装" class="headerlink" title="三、Spring插件的安装"></a>三、Spring插件的安装</h1><p>官网下载地址：<a href="https://spring.io/tools/sts/all" target="_blank" rel="noopener">https://spring.io/tools/sts/all</a></p>
+<p><img src="https://i.loli.net/2019/08/31/WhkmQiFHw9Mx7Sj.png" alt=""></p>
+<p>请看清楚刚才查看的的<strong>eclipse版本</strong>和对应的<strong>springsource-tool-suite版本</strong>，下载对应的版本。</p>
+<h1 id="四、Spring插件的安装"><a href="#四、Spring插件的安装" class="headerlink" title="四、Spring插件的安装"></a>四、Spring插件的安装</h1><p>打开eclipse，选择 “Help” –&gt; “Install New Software” –&gt; “add” –&gt;”Archive” –&gt; 选择刚才下载好的springsource-tool-suite “打开”–&gt; “OK”。</p>
+<p>选择要安装的组件：选定<strong>4个标有“IDE”的组件</strong>：</p>
+<p><img src="https://i.loli.net/2019/08/31/cIDCvxFgwBs71qA.png" alt=""></p>
+<p>接着一直点“Next”，最后“Finish”。等待其安装，右下角会提示进度。安装完之后会弹出对话框问是否<strong>重启eclipse</strong>，点“yes”重启。重启之后Window-&gt;Preferences，如在弹出的对话框出现如下内容，则安装成功。</p>
+<p><img src="https://i.loli.net/2019/08/31/IrKA8YfgEsvbCwp.png" alt=""></p>
+<h1 id="五、Spring开发环境的搭建"><a href="#五、Spring开发环境的搭建" class="headerlink" title="五、Spring开发环境的搭建"></a>五、Spring开发环境的搭建</h1><ol>
+<li>左边窗口空白处右键–&gt;”New”–&gt;”Java Project”–&gt; 输入项目名称 –&gt;”Finish”；</li>
+<li>右击刚才创建的项目，”New”–&gt;”Folder”新建文件夹，并命名为“lib”,”Finish”；</li>
 </ol>
-<p><img src="https://i.loli.net/2019/10/08/8rs7zERUAZK4eMk.png" alt=""></p>
-<ol start="2">
-<li>组件化提供了一种抽象，可以开发出一个个独立可复用的小组件来构造应用，任何的应用都会被抽象成一颗组件树；</li>
-</ol>
-<p><img src="https://i.loli.net/2019/10/08/YZB3fdb4Mcr79Jl.png" alt=""></p>
+<p>注意在工程目录下可以看到jre的版本，不同版本的软件和组件之间有不同的兼容性，如果安装或使用过程中出现错误，请考虑是否需要更换版本。</p>
 <ol start="3">
-<li>组件的使用可以分成三个步骤：创建组件构造器，注册组件，使用组件；</li>
+<li>获取以下五个jar包：</li>
 </ol>
-<p><img src="C:%5CUsers%5Cgsynf%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570496438265.png" alt="1570496438265"></p>
+<p>具体获取方法如下：</p>
+<ul>
+<li><p>第一个，commons-logging-1.2 官网下载地址：</p>
+<p><a href="https://commons.apache.org/proper/commons-logging/download_logging.cgi" target="_blank" rel="noopener">https://commons.apache.org/proper/commons-logging/download_logging.cgi</a></p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/08/31/oJ6zZqUWNH9OiCv.png" alt=""></p>
+<p>下载，解压，找到第一个jar包。</p>
+<ul>
+<li><p>下面四个jar包的 官网下载地址：</p>
+<p><a href="https://maven.springframework.org/release/org/springframework/spring/4.3.8.RELEASE/" target="_blank" rel="noopener">https://maven.springframework.org/release/org/springframework/spring/4.3.8.RELEASE/</a></p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/08/31/pXWdClHoxP82GSI.png" alt=""></p>
+<p>将<strong>第一个</strong>也下载下来，解压，在“lib”目录下找到另外四个jar包。</p>
 <ol start="4">
-<li><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;!-- 3.使用组件 --&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-    &lt;/div&gt;
-    &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        //1.创建组件构造器对象
-        const cpnContructor = Vue.extend({
-           template: `
-                &lt;div&gt;
-                    &lt;h2&gt;我是标题&lt;/h2&gt;
-                    &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-                    &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-                &lt;/div&gt;`
-        })
-        //2.注册组件
-        Vue.component(&apos;my-cpn&apos;, cpnContructor)
-
-        const app = new Vue({
-            el: &apos;#app&apos;,
-            data: {
-                message: &apos;Hello!&apos;,
-            },
-
-        })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   Vue.extend()创建的是一个组件构造器，通常在创建组件构造器时，传入template代表我们自定义组件的模板。该模板就是在使用到组件的地方，要显示的HTML代码，事实上，这种写法在Vue 2.x的文档中就几乎看不到了，它会直接使用下面的语法糖，但这种方式是基础。</span><br><span class="line"></span><br><span class="line">   Vue.component()是将刚才的组件构造器注册为一个组件，并且给它起一个组件的标签名称。</span><br><span class="line"></span><br><span class="line">   组件使用时必须挂载在某个Vue实例下，否则它不会生效。</span><br><span class="line"></span><br><span class="line">5. 全局组件和局部组件:上述方法构建的为全局组件。局部组件需要挂载到Vue实例下，只有该实例对应的app才可以使用。</span><br></pre></td></tr></table></figure>
- const app = new Vue({
-            el: &apos;#app&apos;,
-            //2.局部组件注册
-            components: {
-                cpn: cpnC
-            }
-        })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 父组件和子组件：要求子组件在父组件中进行注册：</span><br></pre></td></tr></table></figure>
-//1.创建第一个组件构造器(子组件)
-     const cpnC1 = Vue.extend({
-         template:`
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题1&lt;/h2&gt;
-                 &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-             &lt;/div&gt;`
-     })
-
-     //2.创建第二个组件构造器(父组件)
-     const cpnC2 = Vue.extend({
-         template:`
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题2&lt;/h2&gt;
-                 &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-                 &lt;cpn1&gt;&lt;/cpn1&gt;
-             &lt;/div&gt;`
-         ,
-         components: {
-             cpn1: cpnC1
-         }
-     })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">7. 组件注册的语法糖，将上述创建组件构造器和注册组件合并：</span><br></pre></td></tr></table></figure>
-     Vue.component(&apos;cpn1&apos;, {
-         template: `
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题1&lt;/h2&gt;
-                 &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-             &lt;/div&gt;`
-     })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. 组件模板的抽离写法，可以看出来，上边的js代码中嵌套HTML，看起来比较乱，所以需要抽离，有两种写法：</span><br></pre></td></tr></table></figure>
-&lt;body&gt;
- &lt;div id=&quot;app&quot;&gt;
-     &lt;cpn1&gt;&lt;/cpn1&gt;
-     &lt;cpn2&gt;&lt;/cpn2&gt;
- &lt;/div&gt;
- &lt;!-- 1.通过script标签，但是注意类型必须是text/x-template --&gt;
- &lt;script type=&quot;text/x-template&quot; id=&quot;cpn1&quot;&gt;
- &lt;div&gt;
-     &lt;h2&gt;我是标题1&lt;/h2&gt;
-     &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
- &lt;/div&gt;
- &lt;/script&gt;
-
-&lt;!-- 2.template标签 --&gt;
-&lt;template id=&quot;cpn2&quot;&gt;
-     &lt;div&gt;
-         &lt;h2&gt;我是标题2&lt;/h2&gt;
-         &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-     &lt;/div&gt;
-&lt;/template&gt;
-
- &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
- &lt;script&gt;
-     Vue.component(&apos;cpn1&apos;, {
-         template: &apos;#cpn1&apos;,
-     })
-     Vue.component(&apos;cpn2&apos;, {
-         template: &apos;#cpn2&apos;,
-     })
-     const app = new Vue({
-         el: &apos;#app&apos;,
-     })
- &lt;/script&gt;
-&lt;/body&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">9. 组件中的数据不应该也不能放在全局的data中，应该放在自己的data中，但是需要注意组件的data属性必须是一个函数，且要求返回一个实例对象，对象内部保存着数据。</span><br><span class="line"></span><br><span class="line">10. 在开发中，往往一些数据确实需要从上层传到下层，例如在一个页面中，从服务器请求了许多数据，其中一部分数据并非整个页面的大组件来展示，而是需要下面的小组件来展示，这时，并不会让小组件再发一次网络请求，而是让大组件将数据传给小组件，这是就涉及到父子组件之间的通信，有两种方式：通过props向子组件传递数据和通过事件向父组件发送消息。</span><br><span class="line"></span><br><span class="line">![](https://i.loli.net/2019/10/08/7NDfCeuZXOgqELG.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">11. 在组件中，使用选项props来声明需要从父级接受的数据。</span><br><span class="line"></span><br><span class="line">props的值有两种方式：</span><br><span class="line"></span><br><span class="line">1）字符串数组，数组中的字符串就是传递时的名称；</span><br><span class="line"></span><br><span class="line">2）对象，对象可以设置传递时的类型，也可以设置默认值等；</span><br><span class="line"></span><br><span class="line">![](https://i.loli.net/2019/10/08/kbKwUJmEgjFx9HI.png)</span><br><span class="line"></span><br><span class="line">12. 子组件向父组件发送数据：子组件内部先通过&amp;emit()定义发射事件，父组件中监听（类似于系统自带的click等监听），监听到后执行相应的响应函数即可。</span><br></pre></td></tr></table></figure>
-//子组件
-         methods: {
-             btnClick(item) {
-                 //发射事件(自定义事件)
-                 this.$emit(&apos;item-click&apos;, item)
-             }
-         }
-//监听
- &lt;div id=&quot;app&quot;&gt;
-     &lt;!-- 监听事件 --&gt;
-     &lt;cpn @item-click=&quot;cpnClick&quot;&gt;&lt;/cpn&gt;
- &lt;/div&gt;
-//父组件
-         methods: {
-             cpnClick(item) {
-                 console.log(item);                 
-             }
-         }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">13. 父子组件的访问：父组件访问子组件使用$children或者$refs；子组件访问父组件使用$parent；子组件访问根组件使用$root</span><br><span class="line"></span><br><span class="line">14. 在实际开发中，refs用的比较多一些，因为使用children需要使用下标，但是组件顺序可能会有更改，不利于维护</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;button @click=&quot;btnClick&quot;&gt;按钮&lt;/button&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;cpn ref=&quot;aaa&quot;&gt;&lt;/cpn&gt;
- &lt;/div&gt;
- ………………
-             methods: {
-             btnClick() {
-                 // 1.$children
-                 // console.log(this.$children);
-                 // this.$children[0].showMessage();
-                 // console.log(this.$children[1].name);
-
-                 //2.$refs
-                 this.$refs.aaa.showMessage();
-                 console.log(this.$refs.aaa.name);  
-             }
-  ………………
-           components: {
-             cpn: {
-                 template: &apos;#cpn&apos;,
-                 data() {
-                     return {
-                         name: &apos;我是子组件的name&apos;
-                     }
-                 },
-                 methods: {
-                     showMessage() {
-                         console.log(&apos;aaaaaaaa&apos;);
-
-                     }
-                 }
-             }
-         }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">15. $parent在实际开发中应用不多，因为组件强调的是复用性，在组件中使用$parent可能会导致其和父组件的耦合度太高。</span><br><span class="line"></span><br><span class="line">16. 组件的插槽slot是为了让组件有更强的扩展性，往往需要的一些组件之间有很多区别，但也有很多共性，每个都封装成一个单独的不太合理，将所有的都封装成一个也不合理，这里就需要用到slot，slot就是占位，具体占好位置放什么可以由调用者决定；</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;cpn&gt;&lt;button&gt;按钮&lt;/button&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;&lt;span&gt;哈哈哈&lt;/span&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;
-         &lt;p&gt;哦哦哦&lt;/p&gt;
-         &lt;i&gt;呵呵呵&lt;/i&gt;
-     &lt;/cpn&gt;
- &lt;/div&gt;
-
- &lt;template id=&quot;cpn&quot;&gt;
-     &lt;div&gt;
-         &lt;h2&gt;我是组件&lt;/h2&gt;
-         &lt;p&gt;我是组件，嘿嘿嘿&lt;/p&gt;
-         &lt;slot&gt;&lt;/slot&gt;
-     &lt;/div&gt;
- &lt;/template&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">17. 作用域插槽：举例：子组件中包含一组数据，pLanguages: [&apos;JavaScript&apos;,&apos;Python&apos;,&apos;Java&apos;,&apos;C++&apos;]，要求进行不同的展示效果，例如以列表形式展示，以水平方向展示等等</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;!-- 默认以列表进行展示 --&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;!-- 以水平方式进行展示 --&gt;
-     &lt;cpn&gt;
-         &lt;!-- 目的是获取子组件的pLanguages --&gt;
-         &lt;template slot-scope=&quot;slot&quot;&gt;
-             &lt;!-- &lt;span v-for=&quot;item in slot.data&quot;&gt;{{item}} ** &lt;/span&gt; --&gt;
-             &lt;span&gt;{{slot.data.join(' * ')}}&lt;/span&gt;
-         &lt;/template&gt;
-     &lt;/cpn&gt;
-
- &lt;/div&gt;
-
- &lt;template id=&quot;cpn&quot;&gt;
-     &lt;div&gt;
-         &lt;slot :data=&quot;pLanguages&quot;&gt;
-             &lt;ul&gt;
-                 &lt;li v-for=&quot;item in pLanguages&quot;&gt;{{item}}&lt;/li&gt;
-             &lt;/ul&gt;
-         &lt;/slot&gt;
-     &lt;/div&gt;
- &lt;/template&gt;</code></pre></li>
+<li><p>将这5个jar包复制到eclipse里你新建的spring项目下的“lib”里面：</p>
+<p>选中jar包，ctrl+c，到eclipse里点击”lib”，ctrl+v 即可。现在的eclipse左侧窗口是这样的：</p>
+</li>
 </ol>
+<p><img src="https://i.loli.net/2019/08/31/E3qVTI74zk5LKeQ.png" alt=""></p>
+<p>​        然后选中5个jar包，右键–&gt;”bulid path”–&gt;”add to build path”；</p>
+<p>​        现在的左侧窗口是这样的：</p>
+<p><img src="https://i.loli.net/2019/08/31/Of1zSG3bWVFHgIk.png" alt=""></p>
+<p>​        到这里Spring的开发环境就搭建完成了。</p>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -578,6 +433,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -590,8 +449,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/2019-09-26-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -609,16 +472,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/09/26/2019-09-26-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" itemprop="url">
-                  Vue系列笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/" itemprop="url">CentOS7下安装MySQL及连接</a></h1>
         
 
         <div class="post-meta">
@@ -630,8 +485,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T00:00:00+08:00">
-                2019-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">
+                2019-08-30
               </time>
             
 
@@ -659,7 +514,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -669,98 +526,138 @@
         
           
             <blockquote>
-<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
+<p>前段时间在闲置的电脑上装了centos7，打算先装个MySQL试试。在此记录一下。</p>
 </blockquote>
+<h1 id="一、添加yum源"><a href="#一、添加yum源" class="headerlink" title="一、添加yum源"></a>一、添加yum源</h1><p>MySQL官网：<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a></p>
+<p>进入官网去选择和是的rpm包，包的作用是添加MySQL yum源，我在这里下载的是 mysql80-community-release-el7-3.noarch.rpm。下载之后通过XFTP上传文件到服务器，然后在rpm文件目录下执行yum localinstall 命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql80-community-release-el7-3.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>如果权限不够请使用sudo执行，执行完毕过后我们可以使用 cd /etc/yum.repos.d进入到目录中查看文件，发现会有如下两个文件：</p>
+<ul>
+<li>mysql-community.repo</li>
+<li>mysql-community-source.repo</li>
+</ul>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>当我们添加好yum源之后就可以执行安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、启动"><a href="#三、启动" class="headerlink" title="三、启动"></a>三、启动</h1><p>安装完成之后使用 systemctl start 执行启动MySQL命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+
+<p>使用  systemctl status mysqld.service  可以查看MySQL的运行状态。</p>
+<p><img src="https://i.loli.net/2019/08/30/t37pmNBPezIiOXW.png" alt=""></p>
+<p>关闭命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop mysqld.service</span><br></pre></td></tr></table></figure>
+
+<p>重启命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、修改密码"><a href="#四、修改密码" class="headerlink" title="四、修改密码"></a>四、修改密码</h1><p>当MySQL服务启动之后我们就需要对密码进行更改：MySQL 默认创建了 root 用户的密码，这个密码打印在 MySQL 的日志文件<code>/var/log/mysqld.log</code>中，可以通过<code>temporary password</code>关键字来找出这个临时的密码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+
+<p>找到密码之后使用改密码连接数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>然后修改密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;NewPassword&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>执行上述命令密码将被修改为：NewPassword</p>
+<p>PS：新版本的MySQL对密码强度有限制，执行到上一步的时候，会提示密码强度不够，则应更改为更高强度的密码。</p>
+<p>密码更改完成之后重启MySQL服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五、开放远程连接"><a href="#五、开放远程连接" class="headerlink" title="五、开放远程连接"></a>五、开放远程连接</h1><p>MySQL默认只对本机开放连接，我们则需要对mysql表的host字段进行修改以支持其他主机连接,%表示所有。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 先连接数据库</span><br><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>更改完成之后刷新权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>然后在navicat新建连接：</p>
+<p><img src="https://i.loli.net/2019/08/30/XnKBdbcOxWtPizu.png" alt=""></p>
+<p>问题解决步骤：</p>
+<p>发现是防火墙未关闭，有两种方法去解决。</p>
 <ol>
-<li>语法糖：简写</li>
+<li>关闭防火墙</li>
+<li>设置防火墙开放端口</li>
 </ol>
-<p><img src="https://i.loli.net/2019/09/27/DnTr2avz4EOPiAC.png" alt=""></p>
-<ol start="2">
-<li>MVVM：model，view，viewmodel;</li>
-<li>回调函数举例：</li>
-</ol>
-<p><img src="https://i.loli.net/2019/09/27/b6P58HUcry7tIVR.png" alt=""></p>
-<ol start="4">
-<li>Vue生命周期</li>
-</ol>
-<img src="https://i.loli.net/2019/09/27/e7agZw2QWuEcdFn.png" alt="官方图" style="zoom: 50%;" />
+<p>第一种方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//停止</span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2019/09/27/OZzk7YPsFjd16Tb.png" alt="coderwhy的图"></p>
-<ol start="5">
-<li><p>代码规范：在前端代码中，一般缩进2个空格而非4个；</p>
-</li>
-<li><p>将data中的数据插入到HTML中，Mustache语法，也就是双大括号；</p>
-</li>
-<li><p>computed和methods对比：往往会发现，在computed中定义的方法在methods中同样可以定义，那么computed意义何在呢?其实计算属性会进行缓存，如果多次使用，计算属性只会调用一次，而methods每次都会调用；</p>
-</li>
-<li><p>ES5中，var没有块级作用域，if和for没有作用域，只有函数有作用域；ES6中let有块级作用域，if和for也有作用域；</p>
-</li>
-<li><p>在ES6开发中，优先使用const，只有在需要改变某一标识符的时候才用let；</p>
-</li>
-<li><p>什么是冒泡事件？如在一个按钮是绑定一个”click”事件，那么”click”事件会依次在它的父级元素中被触发 。</p>
-</li>
-<li><p>v-if：当条件为false，包含v-if指令的元素，根本就不会存在于dom中，所以推荐在切换频率不高时使用；</p>
-<p>v-show：当条件为false，包含v-show指令的元素，只是增加了一个行内元素，display = none，所以推荐在切换频率较高时使用；</p>
-</li>
-<li><p>官方推荐在使用v-for时，给对应的元素或组件添加一个key属性。</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;item in letters&quot; :key=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="13">
-<li>过滤器filters，举例将价格由整数变为带￥的两位小数：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">    showPrice(price) &#123;</span><br><span class="line">        return &apos;￥&apos; + price.toFixed(2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总价格：&#123;&#123;totalPrice | showPrice&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="14">
-<li><p>编程范式：命令式编程/声明式编程</p>
-<p>编程范式：面向对象编程（第一公民：对象）/函数式编程（第一公民：函数）</p>
-</li>
-<li><p>三个高阶函数：filter、map、reduce</p>
-</li>
-</ol>
-<p>1)）filter过滤函数用于过滤数组中的某部分，传的参数需是一个回调函数，回调函数有一个要求：必须返回一个boolean值，当返回true时，函数内部会自动将这次回调的n加入到新的数组中，当返回false时，函数内部会过滤掉这次的n。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//过滤小于100的数字</span><br><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let newNums = nums.filter(function (n) &#123;</span><br><span class="line">	return n &lt; 100</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>2）map映射函数用于对数组中所有元素进行统一操作，传的参数同样是一个回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//将newNums中的数字全部乘以2</span><br><span class="line">let new2Nums = newNums.map(function(n) &#123;</span><br><span class="line">	return n*2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>3）reduce函数用于对数组中所有的内容进行汇总，传的参数至少需要两个，第一个参数同样是一个回调函</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//将new2Nums中的数字全部相加</span><br><span class="line">//0就是perValue初始化的值，以后的preValue就是上一次return的值</span><br><span class="line">let total = new2Nums.reduce(function(preValue,n) &#123;</span><br><span class="line">	return preValue + n</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure>
-
-<p>以上三部分可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let total = nums.filter(function (n) &#123;</span><br><span class="line">	return n &lt; 100</span><br><span class="line">&#125;).map(function(n) &#123;</span><br><span class="line">	return n*2</span><br><span class="line">&#125;).reduce(function(preValue,n) &#123;</span><br><span class="line">	return preValue + n</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure>
-
-<p>甚至可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let total = nums.filter(n =&gt; n &lt; 100).map(n =&gt; n*2).reduce((preValue,n) =&gt; preValue + n)</span><br></pre></td></tr></table></figure>
+<p>第二种方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//这里发现防火墙是开启的，再来查看防火墙控制的端口</span><br><span class="line">systemctl status firewalld</span><br><span class="line">//查看防火墙控制的端口，发现我想要监听的8081端口没有开启</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line">//永久开启3306端口</span><br><span class="line">sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">//重载防火墙</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 
 
 
-<ol start="14">
-<li>vue中使用v-model指令来实现表单元素和数据的双向绑定。所谓双向绑定，就是原来利用 Mustache将内容进行响应式显示，手动更改显示数据无法改变原数据，双向绑定则可以实现。</li>
-<li>radio的name相同才会互斥，但是如果v-model绑定相同的，可以不加name。</li>
-<li>v-model三个修饰符：lazy、number、trim：</li>
-</ol>
-<p>1）lazy：默认情况下，v-model是在input事件中同步输入框的数据也就是一旦数据发生改变data中的数据就会自动发生改变，加入lazy修饰符可以让数据在失去焦点或者回车时才更新；</p>
-<p>2）number：默认情况下，在输入框无论输入字母还是数字，都会被当作字符串进行处理，number修饰符可以让输入框输入的内容自动转换为数字类型；</p>
-<p>3）trim：如果输入的内容首尾有很多空格，通常我们希望将其去除，trim修饰符可以过滤内容左右两边的空格；</p>
+<p>我使用了第一种</p>
+<p><img src="https://i.loli.net/2019/08/30/geVp1iWMNvorOXU.png" alt=""></p>
+<p>再次实验，成功</p>
+<p><img src="https://i.loli.net/2019/08/30/bFtJRPHxdwViOyz.png" alt=""></p>
+<p><strong>注：</strong>在用正版navicat连接MySQL8+时没问题，但使用破解版会出现2059错误，这是由于新版本的MySQL使用的是caching_sha2_password验证方式，但此时的navicat还没有支持这种验证方式。解决方法就是将验证方式改为以前版本(5.7及以下)使用的验证方式mysql_native_password。</p>
+<hr>
+<h1 id="后续："><a href="#后续：" class="headerlink" title="后续："></a>后续：</h1><p>2019.09.12</p>
+<p>后期在安装mysql5.7时遇到了不少大坑，在此记录一下。</p>
+<h2 id="1、安装mysql5-7"><a href="#1、安装mysql5-7" class="headerlink" title="1、安装mysql5.7"></a>1、安装mysql5.7</h2><p>CentOS 7之后的版本yum的默认源中使用MariaDB替代原先MySQL，因此安装方式较为以往有一些改变：</p>
+<p>下载mysql的源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>安装yum库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall -y mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>安装MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<p>启动MySQL服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、修改MySQL的root密码"><a href="#2、修改MySQL的root密码" class="headerlink" title="2、修改MySQL的root密码"></a>2、修改MySQL的root密码</h2><p>MySQL5.7加强了root用户的安全性，因此在第一次安装后会初始化一个随机密码，以下为查看初始随机密码的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+
+<p>进入mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`mysql ``-``uroot ``-``p`</span><br></pre></td></tr></table></figure>
+
+<p>完成之后进入，首先修改密码策略，然后修改密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password.policy=0;</span><br><span class="line">set global validate_password.length=1;</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456789&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>然后退出后即可用新密码登录。</p>
+<h2 id="3、远程连接授权"><a href="#3、远程连接授权" class="headerlink" title="3、远程连接授权"></a>3、远程连接授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;root&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+
+<p>授权之后，用nevicat检查一下是否可以连接，如果不可以，可能是防火墙限制了。需要在防火墙里面加开放数据库端口的规则。</p>
+<h2 id="4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）"><a href="#4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）" class="headerlink" title="4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）"></a>4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）</h2><p>【1】查看目前防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<p>【2】开放3306端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<p>【3】重启防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service firewalld restart</span><br></pre></td></tr></table></figure>
+
+<p>【4】查看3306端口是否开放</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<p>【5】再次查看现在防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<p>【6】再次测试是否可以远程连接，成功。</p>
+<h2 id="5、设置开机自启"><a href="#5、设置开机自启" class="headerlink" title="5、设置开机自启"></a>5、设置开机自启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -774,6 +671,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -786,8 +687,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/2019-09-24-JavaWeb5/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -805,16 +710,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/09/24/2019-09-24-JavaWeb5/" itemprop="url">
-                  JavaWeb5
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/" itemprop="url">前端开发(2)-JavaScript核心DOM BOM1</a></h1>
         
 
         <div class="post-meta">
@@ -826,8 +723,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-24T00:00:00+08:00">
-                2019-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T00:00:00+08:00">
+                2019-08-23
               </time>
             
 
@@ -855,7 +752,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -864,91 +763,101 @@
       
         
           
-            <h1 id="创建DrawImage-Servlet"><a href="#创建DrawImage-Servlet" class="headerlink" title="创建DrawImage Servlet"></a>创建DrawImage Servlet</h1><h1 id="一、创建DrawImage-Servlet"><a href="#一、创建DrawImage-Servlet" class="headerlink" title="一、创建DrawImage Servlet"></a>一、创建DrawImage Servlet</h1><p>用来生成验证码图片</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">  1 package gacl.response.study;</span><br><span class="line">  2 import java.awt.Color;</span><br><span class="line">  3 import java.awt.Font;</span><br><span class="line">  4 import java.awt.Graphics;</span><br><span class="line">  5 import java.awt.Graphics2D;</span><br><span class="line">  6 import java.awt.image.BufferedImage;</span><br><span class="line">  7 import java.io.IOException;</span><br><span class="line">  8 import java.util.Random;</span><br><span class="line">  9 import javax.imageio.ImageIO;</span><br><span class="line"> 10 import javax.servlet.ServletException;</span><br><span class="line"> 11 import javax.servlet.http.HttpServlet;</span><br><span class="line"> 12 import javax.servlet.http.HttpServletRequest;</span><br><span class="line"> 13 import javax.servlet.http.HttpServletResponse;</span><br><span class="line"> 14 /**</span><br><span class="line"> 15  * 生成随机图片，用来作为验证码</span><br><span class="line"> 16  */</span><br><span class="line"> 17 public class DrawImage extends HttpServlet &#123;</span><br><span class="line"> 18     private static final long serialVersionUID = 3038623696184546092L;</span><br><span class="line"> 19     </span><br><span class="line"> 20     public static final int WIDTH = 120;//生成的图片的宽度</span><br><span class="line"> 21     public static final int HEIGHT = 30;//生成的图片的高度</span><br><span class="line"> 22 </span><br><span class="line"> 23     public void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line"> 24             throws ServletException, IOException &#123;</span><br><span class="line"> 25         this.doPost(request, response);</span><br><span class="line"> 26     &#125;</span><br><span class="line"> 27 </span><br><span class="line"> 28     public void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line"> 29             throws ServletException, IOException &#123;</span><br><span class="line"> 30         String createTypeFlag = request.getParameter(&quot;createTypeFlag&quot;);//接收客户端传递的createTypeFlag标识</span><br><span class="line"> 31         //1.在内存中创建一张图片</span><br><span class="line"> 32         BufferedImage bi = new BufferedImage(WIDTH, HEIGHT,BufferedImage.TYPE_INT_RGB);</span><br><span class="line"> 33         //2.得到图片</span><br><span class="line"> 34         Graphics g = bi.getGraphics();</span><br><span class="line"> 35         //3.设置图片的背影色</span><br><span class="line"> 36         setBackGround(g);</span><br><span class="line"> 37         //4.设置图片的边框</span><br><span class="line"> 38         setBorder(g);</span><br><span class="line"> 39         //5.在图片上画干扰线</span><br><span class="line"> 40         drawRandomLine(g);</span><br><span class="line"> 41         //6.写在图片上随机数</span><br><span class="line"> 42         //String random = drawRandomNum((Graphics2D) g,&quot;ch&quot;);//生成中文验证码图片</span><br><span class="line"> 43         //String random = drawRandomNum((Graphics2D) g,&quot;nl&quot;);//生成数字和字母组合的验证码图片</span><br><span class="line"> 44         //String random = drawRandomNum((Graphics2D) g,&quot;n&quot;);//生成纯数字的验证码图片</span><br><span class="line"> 45         //String random = drawRandomNum((Graphics2D) g,&quot;l&quot;);//生成纯字母的验证码图片</span><br><span class="line"> 46         String random = drawRandomNum((Graphics2D) g,createTypeFlag);//根据客户端传递的createTypeFlag标识生成验证码图片</span><br><span class="line"> 47         //7.将随机数存在session中</span><br><span class="line"> 48         request.getSession().setAttribute(&quot;checkcode&quot;, random);</span><br><span class="line"> 49         //8.设置响应头通知浏览器以图片的形式打开</span><br><span class="line"> 50         response.setContentType(&quot;image/jpeg&quot;);//等同于response.setHeader(&quot;Content-Type&quot;, &quot;image/jpeg&quot;);</span><br><span class="line"> 51         //9.设置响应头控制浏览器不要缓存</span><br><span class="line"> 52         response.setDateHeader(&quot;expries&quot;, -1);</span><br><span class="line"> 53         response.setHeader(&quot;Cache-Control&quot;, &quot;no-cache&quot;);</span><br><span class="line"> 54         response.setHeader(&quot;Pragma&quot;, &quot;no-cache&quot;);</span><br><span class="line"> 55         //10.将图片写给浏览器</span><br><span class="line"> 56         ImageIO.write(bi, &quot;jpg&quot;, response.getOutputStream());</span><br><span class="line"> 57     &#125;</span><br><span class="line"> 58 </span><br><span class="line"> 59     /**</span><br><span class="line"> 60      * 设置图片的背景色</span><br><span class="line"> 61      * @param g</span><br><span class="line"> 62      */</span><br><span class="line"> 63     private void setBackGround(Graphics g) &#123;</span><br><span class="line"> 64         // 设置颜色</span><br><span class="line"> 65         g.setColor(Color.WHITE);</span><br><span class="line"> 66         // 填充区域</span><br><span class="line"> 67         g.fillRect(0, 0, WIDTH, HEIGHT);</span><br><span class="line"> 68     &#125;</span><br><span class="line"> 69 </span><br><span class="line"> 70     /**</span><br><span class="line"> 71      * 设置图片的边框</span><br><span class="line"> 72      * @param g</span><br><span class="line"> 73      */</span><br><span class="line"> 74     private void setBorder(Graphics g) &#123;</span><br><span class="line"> 75         // 设置边框颜色</span><br><span class="line"> 76         g.setColor(Color.BLUE);</span><br><span class="line"> 77         // 边框区域</span><br><span class="line"> 78         g.drawRect(1, 1, WIDTH - 2, HEIGHT - 2);</span><br><span class="line"> 79     &#125;</span><br><span class="line"> 80 </span><br><span class="line"> 81     /**</span><br><span class="line"> 82      * 在图片上画随机线条</span><br><span class="line"> 83      * @param g</span><br><span class="line"> 84      */</span><br><span class="line"> 85     private void drawRandomLine(Graphics g) &#123;</span><br><span class="line"> 86         // 设置颜色</span><br><span class="line"> 87         g.setColor(Color.GREEN);</span><br><span class="line"> 88         // 设置线条个数并画线</span><br><span class="line"> 89         for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line"> 90             int x1 = new Random().nextInt(WIDTH);</span><br><span class="line"> 91             int y1 = new Random().nextInt(HEIGHT);</span><br><span class="line"> 92             int x2 = new Random().nextInt(WIDTH);</span><br><span class="line"> 93             int y2 = new Random().nextInt(HEIGHT);</span><br><span class="line"> 94             g.drawLine(x1, y1, x2, y2);</span><br><span class="line"> 95         &#125;</span><br><span class="line"> 96     &#125;</span><br><span class="line"> 97 </span><br><span class="line"> 98     /**</span><br><span class="line"> 99      * 画随机字符</span><br><span class="line">100      * @param g</span><br><span class="line">101      * @param createTypeFlag</span><br><span class="line">102      * @return</span><br><span class="line">103      * String... createTypeFlag是可变参数，</span><br><span class="line">104      * Java1.5增加了新特性：可变参数：适用于参数个数不确定，类型确定的情况，java把可变参数当做数组处理。注意：可变参数必须位于最后一项</span><br><span class="line">105      */</span><br><span class="line">106     private String drawRandomNum(Graphics2D g,String... createTypeFlag) &#123;</span><br><span class="line">107         // 设置颜色</span><br><span class="line">108         g.setColor(Color.RED);</span><br><span class="line">109         // 设置字体</span><br><span class="line">110         g.setFont(new Font(&quot;宋体&quot;, Font.BOLD, 20));</span><br><span class="line">111         //常用的中国汉字</span><br><span class="line">112         String baseChineseChar = &quot;\u7684\u4e00\u4e86\u662f\u6211\u4e0d\u5728\u4eba\u4eec\u6709\u6765\u4ed6\u8fd9\u4e0a\u7740\u4e2a\u5730\u5230\u5927\u91cc\u8bf4\u5c31\u53bb\u5b50\u5f97\u4e5f\u548c\u90a3\u8981\u4e0b\u770b\u5929\u65f6\u8fc7\u51fa\u5c0f\u4e48\u8d77\u4f60\u90fd\u628a\u597d\u8fd8\u591a\u6ca1\u4e3a\u53c8\u53ef\u5bb6\u5b66\u53ea\u4ee5\u4e3b\u4f1a\u6837\u5e74\u60f3\u751f\u540c\u8001\u4e2d\u5341\u4ece\u81ea\u9762\u524d\u5934\u9053\u5b83\u540e\u7136\u8d70\u5f88\u50cf\u89c1\u4e24\u7528\u5979\u56fd\u52a8\u8fdb\u6210\u56de\u4ec0\u8fb9\u4f5c\u5bf9\u5f00\u800c\u5df1\u4e9b\u73b0\u5c71\u6c11\u5019\u7ecf\u53d1\u5de5\u5411\u4e8b\u547d\u7ed9\u957f\u6c34\u51e0\u4e49\u4e09\u58f0\u4e8e\u9ad8\u624b\u77e5\u7406\u773c\u5fd7\u70b9\u5fc3\u6218\u4e8c\u95ee\u4f46\u8eab\u65b9\u5b9e\u5403\u505a\u53eb\u5f53\u4f4f\u542c\u9769\u6253\u5462\u771f\u5168\u624d\u56db\u5df2\u6240\u654c\u4e4b\u6700\u5149\u4ea7\u60c5\u8def\u5206\u603b\u6761\u767d\u8bdd\u4e1c\u5e2d\u6b21\u4eb2\u5982\u88ab\u82b1\u53e3\u653e\u513f\u5e38\u6c14\u4e94\u7b2c\u4f7f\u5199\u519b\u5427\u6587\u8fd0\u518d\u679c\u600e\u5b9a\u8bb8\u5feb\u660e\u884c\u56e0\u522b\u98de\u5916\u6811\u7269\u6d3b\u90e8\u95e8\u65e0\u5f80\u8239\u671b\u65b0\u5e26\u961f\u5148\u529b\u5b8c\u5374\u7ad9\u4ee3\u5458\u673a\u66f4\u4e5d\u60a8\u6bcf\u98ce\u7ea7\u8ddf\u7b11\u554a\u5b69\u4e07\u5c11\u76f4\u610f\u591c\u6bd4\u9636\u8fde\u8f66\u91cd\u4fbf\u6597\u9a6c\u54ea\u5316\u592a\u6307\u53d8\u793e\u4f3c\u58eb\u8005\u5e72\u77f3\u6ee1\u65e5\u51b3\u767e\u539f\u62ff\u7fa4\u7a76\u5404\u516d\u672c\u601d\u89e3\u7acb\u6cb3\u6751\u516b\u96be\u65e9\u8bba\u5417\u6839\u5171\u8ba9\u76f8\u7814\u4eca\u5176\u4e66\u5750\u63a5\u5e94\u5173\u4fe1\u89c9\u6b65\u53cd\u5904\u8bb0\u5c06\u5343\u627e\u4e89\u9886\u6216\u5e08\u7ed3\u5757\u8dd1\u8c01\u8349\u8d8a\u5b57\u52a0\u811a\u7d27\u7231\u7b49\u4e60\u9635\u6015\u6708\u9752\u534a\u706b\u6cd5\u9898\u5efa\u8d76\u4f4d\u5531\u6d77\u4e03\u5973\u4efb\u4ef6\u611f\u51c6\u5f20\u56e2\u5c4b\u79bb\u8272\u8138\u7247\u79d1\u5012\u775b\u5229\u4e16\u521a\u4e14\u7531\u9001\u5207\u661f\u5bfc\u665a\u8868\u591f\u6574\u8ba4\u54cd\u96ea\u6d41\u672a\u573a\u8be5\u5e76\u5e95\u6df1\u523b\u5e73\u4f1f\u5fd9\u63d0\u786e\u8fd1\u4eae\u8f7b\u8bb2\u519c\u53e4\u9ed1\u544a\u754c\u62c9\u540d\u5440\u571f\u6e05\u9633\u7167\u529e\u53f2\u6539\u5386\u8f6c\u753b\u9020\u5634\u6b64\u6cbb\u5317\u5fc5\u670d\u96e8\u7a7f\u5185\u8bc6\u9a8c\u4f20\u4e1a\u83dc\u722c\u7761\u5174\u5f62\u91cf\u54b1\u89c2\u82e6\u4f53\u4f17\u901a\u51b2\u5408\u7834\u53cb\u5ea6\u672f\u996d\u516c\u65c1\u623f\u6781\u5357\u67aa\u8bfb\u6c99\u5c81\u7ebf\u91ce\u575a\u7a7a\u6536\u7b97\u81f3\u653f\u57ce\u52b3\u843d\u94b1\u7279\u56f4\u5f1f\u80dc\u6559\u70ed\u5c55\u5305\u6b4c\u7c7b\u6e10\u5f3a\u6570\u4e61\u547c\u6027\u97f3\u7b54\u54e5\u9645\u65e7\u795e\u5ea7\u7ae0\u5e2e\u5566\u53d7\u7cfb\u4ee4\u8df3\u975e\u4f55\u725b\u53d6\u5165\u5cb8\u6562\u6389\u5ffd\u79cd\u88c5\u9876\u6025\u6797\u505c\u606f\u53e5\u533a\u8863\u822c\u62a5\u53f6\u538b\u6162\u53d4\u80cc\u7ec6&quot;;</span><br><span class="line">113         //数字和字母的组合</span><br><span class="line">114         String baseNumLetter = &quot;0123456789ABCDEFGHJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line">115         //纯数字</span><br><span class="line">116         String baseNum = &quot;0123456789&quot;;</span><br><span class="line">117         //纯字母</span><br><span class="line">118         String baseLetter = &quot;ABCDEFGHJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line">119         //createTypeFlag[0]==null表示没有传递参数</span><br><span class="line">120         if (createTypeFlag.length &gt; 0 &amp;&amp; null != createTypeFlag[0]) &#123;</span><br><span class="line">121             if (createTypeFlag[0].equals(&quot;ch&quot;)) &#123;</span><br><span class="line">122                 // 截取汉字</span><br><span class="line">123                 return createRandomChar(g, baseChineseChar);</span><br><span class="line">124             &#125;else if (createTypeFlag[0].equals(&quot;nl&quot;)) &#123;</span><br><span class="line">125                 // 截取数字和字母的组合</span><br><span class="line">126                 return createRandomChar(g, baseNumLetter);</span><br><span class="line">127             &#125;else if (createTypeFlag[0].equals(&quot;n&quot;)) &#123;</span><br><span class="line">128                 // 截取数字</span><br><span class="line">129                 return createRandomChar(g, baseNum);</span><br><span class="line">130             &#125;else if (createTypeFlag[0].equals(&quot;l&quot;)) &#123;</span><br><span class="line">131                 // 截取字母</span><br><span class="line">132                 return createRandomChar(g, baseLetter);</span><br><span class="line">133             &#125;</span><br><span class="line">134         &#125;else &#123;</span><br><span class="line">135             // 默认截取数字和字母的组合</span><br><span class="line">136             return createRandomChar(g, baseNumLetter);</span><br><span class="line">137         &#125;</span><br><span class="line">138         </span><br><span class="line">139         return &quot;&quot;;</span><br><span class="line">140     &#125;</span><br><span class="line">141 </span><br><span class="line">142     /**</span><br><span class="line">143      * 创建随机字符</span><br><span class="line">144      * @param g</span><br><span class="line">145      * @param baseChar</span><br><span class="line">146      * @return 随机字符</span><br><span class="line">147      */</span><br><span class="line">148     private String createRandomChar(Graphics2D g,String baseChar) &#123;</span><br><span class="line">149         StringBuffer sb = new StringBuffer();</span><br><span class="line">150         int x = 5;</span><br><span class="line">151         String ch =&quot;&quot;;</span><br><span class="line">152         // 控制字数</span><br><span class="line">153         for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">154             // 设置字体旋转角度</span><br><span class="line">155             int degree = new Random().nextInt() % 30;</span><br><span class="line">156             ch = baseChar.charAt(new Random().nextInt(baseChar.length())) + &quot;&quot;;</span><br><span class="line">157             sb.append(ch);</span><br><span class="line">158             // 正向角度</span><br><span class="line">159             g.rotate(degree * Math.PI / 180, x, 20);</span><br><span class="line">160             g.drawString(ch, x, 20);</span><br><span class="line">161             // 反向角度</span><br><span class="line">162             g.rotate(-degree * Math.PI / 180, x, 20);</span><br><span class="line">163             x += 30;</span><br><span class="line">164         &#125;</span><br><span class="line">165         return sb.toString();</span><br><span class="line">166     &#125;</span><br><span class="line">167 &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、在Form表单中使用验证码图片"><a href="#二、在Form表单中使用验证码图片" class="headerlink" title="二、在Form表单中使用验证码图片"></a>二、在Form表单中使用验证码图片</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> 1 &lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"> 2 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line"> 3 &lt;html&gt;</span><br><span class="line"> 4   &lt;head&gt;</span><br><span class="line"> 5     &lt;title&gt;在Form表单中使用验证码&lt;/title&gt;</span><br><span class="line"> 6     &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> 7     //刷新验证码</span><br><span class="line"> 8     function changeImg()&#123;</span><br><span class="line"> 9         document.getElementById(&quot;validateCodeImg&quot;).src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?&quot;+Math.random();</span><br><span class="line">10     &#125;</span><br><span class="line">11     &lt;/script&gt;</span><br><span class="line">12   &lt;/head&gt;</span><br><span class="line">13   </span><br><span class="line">14   &lt;body&gt;</span><br><span class="line">15         &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/CheckServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">16             验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">17             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage&quot; id=&quot;validateCodeImg&quot; onclick=&quot;changeImg()&quot;&gt;</span><br><span class="line">18             &lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;changeImg()&quot;&gt;看不清，换一张&lt;/a&gt;</span><br><span class="line">19             &lt;br/&gt;</span><br><span class="line">20             &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">21         &lt;/form&gt;</span><br><span class="line">22   &lt;/body&gt;</span><br><span class="line">23 &lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>DrawImage Servlet除了可以生成的字母和数字的组合的验证码图片之外，还可以生成汉字，纯数字，纯字母的验证码图片，只需要向DrawImage Servlet传递约定好的生成标识符参数即可，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 1 &lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"> 2 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line"> 3 &lt;html&gt;</span><br><span class="line"> 4   &lt;head&gt;</span><br><span class="line"> 5     &lt;title&gt;在Form表单中使用验证码&lt;/title&gt;</span><br><span class="line"> 6     &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> 7     //刷新验证码</span><br><span class="line"> 8     function changeImg(obj,createTypeFlag)&#123;</span><br><span class="line"> 9         document.getElementById(obj.id).src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=&quot;+createTypeFlag+&quot;&amp;&quot;+Math.random();</span><br><span class="line">10     &#125;</span><br><span class="line">11     &lt;/script&gt;</span><br><span class="line">12   &lt;/head&gt;</span><br><span class="line">13   </span><br><span class="line">14   &lt;body&gt;</span><br><span class="line">15         &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/CheckServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">16             数字字母混合验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">17             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage&quot; id=&quot;validateCodeImg1&quot; onclick=&quot;changeImg(this,&apos;nl&apos;)&quot;&gt;</span><br><span class="line">18             &lt;br/&gt;</span><br><span class="line">19             中文验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">20             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=ch&quot; id=&quot;validateCodeImg2&quot; onclick=&quot;changeImg(this,&apos;ch&apos;)&quot;&gt;</span><br><span class="line">21             &lt;br/&gt;</span><br><span class="line">22             英文验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">23             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=l&quot; id=&quot;validateCodeImg3&quot; onclick=&quot;changeImg(this,&apos;l&apos;)&quot;&gt;</span><br><span class="line">24             &lt;br/&gt;</span><br><span class="line">25             数字验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">26             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=n&quot; id=&quot;validateCodeImg4&quot; onclick=&quot;changeImg(this,&apos;n&apos;)&quot;&gt;</span><br><span class="line">27             &lt;br/&gt;</span><br><span class="line">28             &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">29         &lt;/form&gt;</span><br><span class="line">30   &lt;/body&gt;</span><br><span class="line">31 &lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、服务器端对form表单提交上来的验证码处理"><a href="#三、服务器端对form表单提交上来的验证码处理" class="headerlink" title="三、服务器端对form表单提交上来的验证码处理"></a><strong>三、服务器端对form表单提交上来的验证码处理</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 1 package gacl.response.study;</span><br><span class="line"> 2 import java.io.IOException;</span><br><span class="line"> 3 import javax.servlet.ServletException;</span><br><span class="line"> 4 import javax.servlet.http.HttpServlet;</span><br><span class="line"> 5 import javax.servlet.http.HttpServletRequest;</span><br><span class="line"> 6 import javax.servlet.http.HttpServletResponse;</span><br><span class="line"> 7 /**</span><br><span class="line"> 8  * @author gacl</span><br><span class="line"> 9  * 服务器端接收到验证码后的处理</span><br><span class="line">10  */</span><br><span class="line">11 public class CheckServlet extends HttpServlet &#123;</span><br><span class="line">12     public void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">13             throws ServletException, IOException &#123;</span><br><span class="line">14         String clientCheckcode = request.getParameter(&quot;validateCode&quot;);//接收客户端浏览器提交上来的验证码</span><br><span class="line">15         String serverCheckcode = (String) request.getSession().getAttribute(&quot;checkcode&quot;);//从服务器端的session中取出验证码</span><br><span class="line">16         if (clientCheckcode != null &amp;&amp; serverCheckcode != null &amp;&amp; clientCheckcode.equals(serverCheckcode)) &#123;//将客户端验证码和服务器端验证比较，如果相等，则表示验证通过</span><br><span class="line">17             System.out.println(&quot;验证码验证通过！&quot;);</span><br><span class="line">18         &#125;else &#123;</span><br><span class="line">19             System.out.println(&quot;验证码验证失败！&quot;);</span><br><span class="line">20         &#125;</span><br><span class="line">21     &#125;</span><br><span class="line">22 </span><br><span class="line">23     public void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">24             throws ServletException, IOException &#123;</span><br><span class="line">25         doGet(request, response);</span><br><span class="line">26     &#125;</span><br><span class="line">27 </span><br><span class="line">28 &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+</blockquote>
+<h1 id="Web-API"><a href="#Web-API" class="headerlink" title="Web API"></a>Web API</h1><h2 id="Web-API介绍"><a href="#Web-API介绍" class="headerlink" title="Web API介绍"></a>Web API介绍</h2><h3 id="API的概念"><a href="#API的概念" class="headerlink" title="API的概念"></a>API的概念</h3><p>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</p>
+<ul>
+<li>任何开发语言都有自己的API</li>
+<li>API的特征输入和输出(I/O)</li>
+<li>API的使用方法(console.log())</li>
+</ul>
+<h3 id="Web-API的概念"><a href="#Web-API的概念" class="headerlink" title="Web API的概念"></a>Web API的概念</h3><p>浏览器提供的一套操作浏览器功能和页面元素的API(BOM和DOM)</p>
+<p>此处的Web API特指浏览器提供的API(一组方法)，Web API在后面的课程中有其它含义</p>
+<h3 id="掌握常见的浏览器提供的API的调用方式"><a href="#掌握常见的浏览器提供的API的调用方式" class="headerlink" title="掌握常见的浏览器提供的API的调用方式"></a>掌握常见的浏览器提供的API的调用方式</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="noopener">MDN-Web API</a></p>
+<h3 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h3><p>![1496912475691](D:/Study/02-JavaScript-WEB-API-第1天/01教学资料/02-Web API/media/1496912475691.png)</p>
+<h4 id="ECMAScript-JavaScript的核心"><a href="#ECMAScript-JavaScript的核心" class="headerlink" title="ECMAScript - JavaScript的核心"></a>ECMAScript - JavaScript的核心</h4><p>定义了javascript的语法规范</p>
+<p>JavaScript的核心，描述了语言的基本语法和数据类型，ECMAScript是一套标准，定义了一种语言的标准与具体实现无关</p>
+<h4 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM - 浏览器对象模型"></a>BOM - 浏览器对象模型</h4><p>一套操作浏览器功能的API</p>
+<p>通过BOM可以操作浏览器窗口，比如：弹出框、控制浏览器跳转、获取分辨率等</p>
+<h4 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM - 文档对象模型"></a>DOM - 文档对象模型</h4><p>一套操作页面元素的API</p>
+<p>DOM可以把HTML看做是文档树，通过DOM提供的API可以对树上的节点进行操作</p>
+<h1 id="Dom"><a href="#Dom" class="headerlink" title="Dom"></a>Dom</h1><p><img src="https://i.loli.net/2019/08/23/guHfc9jkz6JmOwM.png" alt=""></p>
+<ul>
+<li>文档：一个页面就是一个文档，DOM 中使用 document 表示</li>
+<li>元素：页面中的所有标签都是元素，DOM 中使用 element 表示</li>
+<li>节点：网页中的所有内容都是节点（标签、属性、文本、注释等），DOM 中使用 node 表示</li>
+</ul>
+<p><strong>DOM 把以上内容都看做是对象</strong></p>
+<h2 id="获取页面元素"><a href="#获取页面元素" class="headerlink" title="获取页面元素"></a>获取页面元素</h2><h3 id="根据ID获取"><a href="#根据ID获取" class="headerlink" title="根据ID获取"></a>根据ID获取</h3><p>使用 getElementById() 方法可以获取带有ID 的元素对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据标签名获取"><a href="#根据标签名获取" class="headerlink" title="根据标签名获取"></a>根据标签名获取</h3><p>使用 getElementsByTagName() 方法可以返回带有指定标签名的对象的集合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<p>1.因为得到的是一个对象的集合，所以我们想要操作里面的元素就需要遍历。</p>
+<p>2.得到元素对象是动态的</p>
+<p>3.如果获取不到元素,则返回为空的伪数组(因为获取不到对象)</p>
+<p>还可以获取某个元素(父元素)内部所有指定标签名的子元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：父元素必须是单个对象(必须指明是哪一个元素对象)，获取的时候不包括父元素自己。</p>
+<h3 id="Html5新增的获取方法"><a href="#Html5新增的获取方法" class="headerlink" title="Html5新增的获取方法"></a>Html5新增的获取方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="built_in">document</span>.getElementsByClassName(‘类名’)；<span class="comment">// 根据类名返回元素对象集合</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.querySelector(<span class="string">'选择器'</span>);        <span class="comment">// 根据指定选择器返回第一个元素对象</span></span><br><span class="line"><span class="number">3.</span> <span class="built_in">document</span>.querySelectorAll(<span class="string">'选择器'</span>);     <span class="comment">// 根据指定选择器返回</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：querySelector 和 querySelectorAll里面的选择器需要加符号,比如:document.querySelector(‘#nav’); </p>
+<h3 id="特殊元素（body-html获取）"><a href="#特殊元素（body-html获取）" class="headerlink" title="特殊元素（body/html获取）"></a>特殊元素（body/html获取）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> doucumnet.body  <span class="comment">// 返回body元素对象</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.documentElement  <span class="comment">// 返回html元素对象</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件基础"><a href="#事件基础" class="headerlink" title="事件基础"></a>事件基础</h2><h3 id="事件概述"><a href="#事件概述" class="headerlink" title="事件概述"></a>事件概述</h3><p>JavaScript 使我们有能力创建动态页面，而事件是可以被 JavaScript 侦测到的行为。</p>
+<p>简单理解： 触发— 响应机制。</p>
+<p>网页中的每个元素都可以产生某些可以触发 JavaScript 的事件，例如，我们可以在用户点击某按钮时产生一个 事件，然后去执行某些操作。</p>
+<h3 id="事件执行步骤"><a href="#事件执行步骤" class="headerlink" title="事件执行步骤"></a>事件执行步骤</h3><ol>
+<li><p>获取事件源</p>
+</li>
+<li><p>注册事件（绑定事件）</p>
+</li>
+<li><p>添加事件处理程序（采取函数赋值形式）</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/08/23/BYRD13zFGnq5dmw.png" alt=""></p>
+<h2 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h2><h3 id="改变元素内容"><a href="#改变元素内容" class="headerlink" title="改变元素内容"></a>改变元素内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerText</span><br></pre></td></tr></table></figure>
+
+<p>从起始位置到终止位置的内容, 但它去除 html 标签，同时空格和换行也会去掉。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerHTML</span><br></pre></td></tr></table></figure>
+
+<p>起始位置到终止位置的全部内容，包括 html 标签，同时保留空格和换行。</p>
+<h3 id="常用元素的属性操作"><a href="#常用元素的属性操作" class="headerlink" title="常用元素的属性操作"></a>常用元素的属性操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> src、href</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> id、alt、title</span><br></pre></td></tr></table></figure>
+
+<p>直接在事件中修改元素.属性即可。</p>
+<h3 id="表单元素属性修改"><a href="#表单元素属性修改" class="headerlink" title="表单元素属性修改"></a>表单元素属性修改</h3><p>利用 DOM 可以操作如下表单元素的属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  type、value、checked、selected、disabled</span><br><span class="line">- value 用于大部分表单元素的内容获取(option除外)</span><br><span class="line">- type 可以获取input标签的类型(输入框或复选框等)</span><br><span class="line">- disabled 禁用属性</span><br><span class="line">- checked 复选框选中属性</span><br><span class="line">- selected 下拉菜单选中属性</span><br></pre></td></tr></table></figure>
+
+<h3 id="样式属性操作"><a href="#样式属性操作" class="headerlink" title="样式属性操作"></a>样式属性操作</h3><p>我们可以通过 JS 修改元素的大小、颜色、位置等样式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> element.style     行内样式操作</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> element.className 类名样式操作</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<ol>
+<li>JS 里面的样式采取驼峰命名法 比如 fontSize、 backgroundColor</li>
+<li>JS 修改 style 样式操作，产生的是行内样式，权重比CSS 高</li>
+<li>如果样式修改较多，可以采取操作类名方式更改元素样式。 </li>
+<li>class因为是个保留字，因此使用className来操作元素类名属性</li>
+<li>className 会直接更改元素的类名，会覆盖原先的类名，如果想要保留原类名，使用多类名选择器，即this.className=’原类名 新类名’。</li>
+</ol>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -962,6 +871,1423 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/2019-08-22-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%982/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/22/2019-08-22-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%982/" itemprop="url">前端开发(2)-JavaScript入门与提高2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T00:00:00+08:00">
+                2019-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+</blockquote>
+<h1 id="对象定义"><a href="#对象定义" class="headerlink" title="对象定义"></a>对象定义</h1><p>对象是由属性和方法组成的。</p>
+<ul>
+<li>属性：事物的<strong>特征，</strong>在对象中用<strong>属性</strong>来表示（常用名词）</li>
+<li>方法：事物的<strong>行为，</strong>在对象中用<strong>方法</strong>来表示（常用动词）</li>
+</ul>
+<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="利用字面量创建对象"><a href="#利用字面量创建对象" class="headerlink" title="利用字面量创建对象"></a>利用字面量创建对象</h2><p>对象字面量：就是花括号 { } 里面包含了表达这个具体事物（对象）的属性和方法。</p>
+<p>{ } 里面采取<strong>键值对</strong>的形式表示 </p>
+<ul>
+<li>键：相当于属性名</li>
+<li>值：相当于属性值，可以是任意类型的值（数字类型、字符串类型、布尔类型，函数类型等）</li>
+</ul>
+<h3 id="对象的调用"><a href="#对象的调用" class="headerlink" title="对象的调用"></a>对象的调用</h3><ul>
+<li>对象里面的属性调用 : 对象.属性名 ，这个小点 . 就理解为“ 的 ”  </li>
+<li>对象里面属性的另一种调用方式 : 对象[‘属性名’]<strong>，</strong>注意方括号里面的属性必须加引号</li>
+<li>对象里面的方法调用：对象.方法名() <strong>，</strong>注意这个方法名字后面一定加括号 </li>
+</ul>
+<h2 id="利用new-Object创建对象"><a href="#利用new-Object创建对象" class="headerlink" title="利用new Object创建对象"></a>利用new Object创建对象</h2><ul>
+<li>Object() ：第一个字母大写   </li>
+<li>new Object() ：需要 new 关键字</li>
+<li>使用的格式：对象.属性 =  值;     </li>
+</ul>
+<h2 id="利用构造函数创建对象"><a href="#利用构造函数创建对象" class="headerlink" title="利用构造函数创建对象"></a>利用构造函数创建对象</h2><p><strong>构造函数 ：</strong>是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，它总与 new 运算符一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。</p>
+<p>在 js 中，使用构造函数要时要注意以下两点：</p>
+<ul>
+<li>构造函数用于创建某一类对象，其首字母要大写</li>
+<li>构造函数要和 new 一起使用才有意义</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    <span class="keyword">this</span>.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'我的名字叫：'</span> + <span class="keyword">this</span>.name + <span class="string">'，年龄：'</span> + <span class="keyword">this</span>.age + <span class="string">'，性别：'</span> + <span class="keyword">this</span>.sex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.sing = <span class="function"><span class="keyword">function</span>(<span class="params">song</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我会唱'</span> + song);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bigbai = <span class="keyword">new</span> Person(<span class="string">'大白'</span>, <span class="number">100</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">var</span> smallbai = <span class="keyword">new</span> Person(<span class="string">'小白'</span>, <span class="number">21</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bigbai.name);</span><br><span class="line"><span class="built_in">console</span>.log(smallbai.name);</span><br><span class="line">bigbai.sayHi();</span><br><span class="line">smallbai.sing(<span class="string">'爱你一万年'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ol>
+<li><p>构造函数约定首字母大写。</p>
+</li>
+<li><p>函数内的属性和方法前面需要添加 this ，表示当前对象的属性和方法。</p>
+</li>
+<li><p>构造函数中不需要 return 返回结果。</p>
+</li>
+<li><p>当我们创建对象的时候，必须用 new 来调用构造函数。</p>
+</li>
+</ol>
+<p><strong>new在执行时会做四件事情</strong>：</p>
+<ol>
+<li><p>在内存中创建一个新的空对象。</p>
+</li>
+<li><p>让 this 指向这个新的对象。</p>
+</li>
+<li><p>执行构造函数里面的代码，给这个新对象添加属性和方法。</p>
+</li>
+<li><p>返回这个新对象（所以构造函数里面不需要return）。</p>
+</li>
+</ol>
+<h1 id="遍历对象属性"><a href="#遍历对象属性" class="headerlink" title="遍历对象属性"></a>遍历对象属性</h1><p>for…in 语句用于对数组或者对象的属性进行循环操作。</p>
+<p>其语法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量 <span class="keyword">in</span> 对象名字) &#123;</span><br><span class="line">    <span class="comment">// 在此执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>语法中的变量是自定义的，它需要符合命名规范，通常我们会将这个变量写为 k 或者 key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(k);      <span class="comment">// 这里的 k 是属性名</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[k]); <span class="comment">// 这里的 obj[k] 是属性值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h1><h2 id="MDN"><a href="#MDN" class="headerlink" title="MDN"></a>MDN</h2><p>Mozilla 开发者网络（MDN）提供了有关开放网络技术（Open Web）的信息，包括 HTML、CSS 和万维网及 HTML5 应用的 API。</p>
+<p>MDN:   <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">https://developer.</a><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">mozilla.org/zh-CN/</a></p>
+<h2 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h2><p>Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用Math 中的成员。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.PI		 <span class="comment">// 圆周率</span></span><br><span class="line"><span class="built_in">Math</span>.floor() 	 <span class="comment">// 向下取整</span></span><br><span class="line"><span class="built_in">Math</span>.ceil()            <span class="comment">// 向上取整</span></span><br><span class="line"><span class="built_in">Math</span>.round()           <span class="comment">// 四舍五入版 就近取整   注意 -3.5   结果是  -3 </span></span><br><span class="line"><span class="built_in">Math</span>.abs()		 <span class="comment">// 绝对值</span></span><br><span class="line"><span class="built_in">Math</span>.max()/<span class="built_in">Math</span>.min()	 <span class="comment">// 求最大和最小值 </span></span><br><span class="line"><span class="built_in">Math</span>.random()		<span class="comment">//随机返回一个小数，其取值范围是 [0，1)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2><p>Date 对象和 Math 对象不一样，他是一个构造函数，所以我们需要实例化后才能使用。Date 实例用来处理日期和时间。</p>
+<p><strong>Date() 构造函数的参数</strong></p>
+<p>如果括号里面有时间，就返回参数里面的时间。例如日期格式字符串为‘2019-5-1’，可以写成new Date(‘2019-5-1’)  或者 new Date(‘2019/5/1’)</p>
+<ul>
+<li>如果Date()不写参数，就返回当前时间</li>
+<li>如果Date()里面写参数，就返回括号里面输入的时间 </li>
+</ul>
+<p><strong>日期格式化</strong></p>
+<p><img src="https://i.loli.net/2019/08/23/Okb9uAYSzGscI35.png" alt=""></p>
+<p>​        <strong>注意：</strong></p>
+<ul>
+<li>月份因为返回的是0到11，所以要+1才正确；</li>
+<li>星期一到六返回1-6，但是星期日返回的是0而不是7；</li>
+</ul>
+<p><strong>时间戳</strong></p>
+<p>Date 对象是基于1970年1月1日（世界标准时间）起的毫秒数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> date1 = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> date2 = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><p><strong>检测是否为数组</strong></p>
+<ul>
+<li>instanceof 运算符，可以判断一个对象是否属于某种类型</li>
+<li>Array.isArray判断一个对象是否为() 5 中提供的方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">23</span>];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arr));   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(obj));   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>数组增删元素</strong></p>
+<p><img src="https://i.loli.net/2019/08/23/b1F8oh9AxB6Yrp3.png" alt=""></p>
+<p><strong>数组排序</strong></p>
+<p><img src="https://i.loli.net/2019/08/23/lNJcaLtmfzDQv3R.png" alt=""></p>
+<p>​        <strong>注意</strong></p>
+<p>sort排序会有问题，如[1,4,13,56,43,5]sort排序后结果为[1,13,4,43,5,56]解决方案如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">64</span>, <span class="number">9</span>, <span class="number">6</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b - a;      <span class="comment">// 降a序</span></span><br><span class="line">    <span class="comment">// return a - b;   // 升序</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+
+<p><strong>数组转换为字符串</strong></p>
+<p><img src="https://i.loli.net/2019/08/23/oDsI1fW4baF5kxK.png" alt=""></p>
+<h2 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h2><p><strong>基本包装类型</strong></p>
+<p>为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
+<p>基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
+
+<p>按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为<br>js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>字符串的不可变</strong></p>
+<p>指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给 str 赋值的时候，常量'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">    str += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 这个结果需要花费大量时间来显示，因为需要不断的开辟新的空间</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>字符串转换为数组</strong></p>
+<p>split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'a,b,c,d'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">','</span>));   <span class="comment">// 返回的是一个数组 [a, b, c, d]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="简单对象与复杂对象"><a href="#简单对象与复杂对象" class="headerlink" title="简单对象与复杂对象"></a>简单对象与复杂对象</h1><p>简单类型又叫做基本数据类型或者值类型，复杂类型又叫做引用类型。</p>
+<ul>
+<li><p>值类型：简单数据类型/基本数据类型，在存储时变量中存储的是值本身，因此叫做值类型。</p>
+<p>string ，number，boolean，undefined，null</p>
+</li>
+<li><p>引用类型：复杂数据类型，在存储时变量中存储的仅仅是地址（引用），因此叫做引用数据类型。</p>
+<p>通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date等</p>
+</li>
+</ul>
+<p><strong>堆栈空间分配区别：</strong></p>
+<p>　　1、栈（操作系统）：由操作系统自动分配释放存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈；</p>
+<p><em>简单数据类型存放到栈里面</em></p>
+<p>　　2、堆（操作系统）：存储复杂类型(对象)，一般由程序员分配释放，若程序员不释放，由垃圾回收机制回收。</p>
+<p><em>复杂数据类型存放到堆里面</em></p>
+<p><strong>注意：</strong><code>JavaScript</code>中没有堆栈的概念，通过堆栈的方式，可以让大家更容易理解代码的一些执行方式，便于将来学习其他语言。</p>
+<p><strong>简单对象内存分配</strong></p>
+<ul>
+<li>值类型（简单数据类型）： string ，number，boolean，undefined，null</li>
+<li>值类型变量的数据直接存放在变量（栈空间）中</li>
+</ul>
+<p><img src="https://i.loli.net/2019/08/23/I7tC4Tk3pjO8VWr.png" alt=""></p>
+<p><strong>复杂对象内存分配</strong></p>
+<ul>
+<li>引用类型（复杂数据类型）：通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date等</li>
+<li>引用类型变量（栈空间）里存放的是地址，真正的对象实例存放在堆空间中</li>
+</ul>
+<p><img src="https://i.loli.net/2019/08/23/FZMg8OEDvKPioIr.png" alt=""></p>
+<p><strong>简单对象传参</strong></p>
+<p>函数的形参也可以看做是一个变量，当我们把一个值类型变量作为参数传给函数的形参时，其实是把变量在栈空间里的值复制了一份给形参，那么在方法内部对形参做任何修改，都不会影响到的外部变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    <span class="built_in">console</span>.log(a);  <span class="comment">//11</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">fn(x);</span><br><span class="line"><span class="built_in">console</span>.log(x)；  <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂对象传参</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x</span>) </span>&#123; <span class="comment">// x = p</span></span><br><span class="line">    <span class="built_in">console</span>.log(x.name); <span class="comment">// 2. 这个输出什么 ?   刘德华 </span></span><br><span class="line">    x.name = <span class="string">"张学友"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(x.name); <span class="comment">// 3. 这个输出什么 ?   张学友</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">"刘德华"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p.name);    <span class="comment">// 1. 这个输出什么 ?   刘德华</span></span><br><span class="line">f1(p);</span><br><span class="line"><span class="built_in">console</span>.log(p.name);    <span class="comment">// 4. 这个输出什么 ?   张学友</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/2019-08-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%981/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/2019-08-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E5%85%A5%E9%97%A8%E4%B8%8E%E6%8F%90%E9%AB%981/" itemprop="url">前端开发(2)-JavaScript入门与提高1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T00:00:00+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
+</blockquote>
+<h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><p>断点调试是指自己在程序的某一行设置一个断点，调试时，程序运行到这一行就会停住，然后你可以一步一步往下调试，调试过程中可以看各个变量当前的值，出错的话，调试到出错的代码行即显示错误，停下。</p>
+<p><strong>断点调试可以帮我们观察程序的运行过程</strong></p>
+<p>浏览器中按 F12–&gt; sources –&gt;找到需要调试的文件–&gt;在程序的某一行设置断点</p>
+<p>Watch: 监视，通过watch可以监视变量的值的变化。</p>
+<p>F11: 程序单步执行，让程序一行一行的执行，这个时候，观察watch中变量的值的变化。</p>
+<h1 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do while循环"></a>do while循环</h1><p>do… while 语句其实是 while 语句的一个变体。该循环会先执行一次代码块，然后对条件表达式进行判断，如果条件为真，就会重复执行循环体，否则退出循环。</p>
+<p>do… while 语句的语法结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    // 循环体代码 - 条件表达式为 true 时重复执行循环体代码</span><br><span class="line">&#125; while(条件表达式);</span><br></pre></td></tr></table></figure>
+
+<p>执行顺序：</p>
+<p>①先执行一次循环体代码 </p>
+<p>②再执行条件表达式，如果结果为 true，则继续执行循环体代码，如果为 false，则退出循环，继续执行后面代码</p>
+<p><strong>注意：</strong>先再执行循环体，再判断，我们会发现 do…while<br>循环语句<strong>至少</strong>会执行一次循环体代码。</p>
+<h1 id="continue和-break"><a href="#continue和-break" class="headerlink" title="continue和 break"></a>continue和 break</h1><p><strong>continue 关键字</strong></p>
+<p>continue 关键字用于立即跳出本次循环<strong>，</strong>继续下一次循环（本次循环体中 continue 之后的代码就会少执行一次）。</p>
+<p>例如，吃5个包子，第3个有虫子，就扔掉第3个，继续吃第4个第5个。</p>
+<p><strong>break关键字</strong></p>
+<p>break关键字用于立即跳出整个循环（循环结束）。</p>
+<p>例如，吃5个包子，吃到第3个发现里面有半个虫子，其余的不吃。</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h2><p><strong>利用数组字面量创建数组</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 使用数组字面量方式创建空的数组</span></span><br><span class="line"><span class="keyword">var</span>  数组名 = []；</span><br><span class="line"><span class="comment">//2. 使用数组字面量方式创建带初始值的数组</span></span><br><span class="line"><span class="keyword">var</span>  数组名 = [<span class="string">'小白'</span>,<span class="string">'小黑'</span>,<span class="string">'大黄'</span>,<span class="string">'瑞奇'</span>];</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组长度"><a href="#数组长度" class="headerlink" title="数组长度"></a>数组长度</h2><p>使用“数组名.length”可以访问数组元素的数量（数组长度）。  </p>
+<p>筛选数组案例</p>
+<p>要求：将数组 [2, 0,<br>6, 1, 77, 0, 52, 0, 25, 7] 中大于等于 10 的元素选出来，放入新数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">0</span>, <span class="number">52</span>, <span class="number">0</span>, <span class="number">25</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="comment">// 索引号直接用newArr.length</span></span><br><span class="line">        newArr[newArr.length] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数形参和实参个数匹配"><a href="#函数形参和实参个数匹配" class="headerlink" title="函数形参和实参个数匹配"></a>函数形参和实参个数匹配</h1><p><img src="https://i.loli.net/2019/08/22/tP4MwfpA2yhcxio.png" alt=""></p>
+<h1 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h1><ol>
+<li><p>return 语句之后的代码不被执行。、</p>
+</li>
+<li><p><strong>return</strong> <strong>只能返回一个值</strong>。如果用逗号隔开多个值，以最后一个为准。</p>
+</li>
+<li><p>return若要返回多个值，采取数组等方法。</p>
+</li>
+<li><p>函数都是有返回值的</p>
+<p>1）如果有return 则返回 return 后面的值；</p>
+<p>2）如果没有return 则返回 undefined ；</p>
+</li>
+<li><ul>
+<li><p>break ：结束当前的循环体（如 for、while）</p>
+</li>
+<li><p>continue ：跳出本次循环，继续执行下次循环（如 for、while）</p>
+</li>
+<li><p>return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="arguments的使用"><a href="#arguments的使用" class="headerlink" title="arguments的使用"></a>arguments的使用</h1><p>当我们不确定有多少个参数传递的时候，可以用 arguments 来获取。在 JavaScript 中，arguments实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。</p>
+<p>arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点：</p>
+<ul>
+<li>具有 length 属性</li>
+<li>按索引方式储存数据</li>
+<li>不具有数组的 push , pop 等方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxValue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> max = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (max &lt; <span class="built_in">arguments</span>[i]) &#123;</span><br><span class="line">                    max = <span class="built_in">arguments</span>[i];</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>));</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">12</span>, <span class="number">4</span>, <span class="number">9</span>));</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数两种声明方式"><a href="#函数两种声明方式" class="headerlink" title="函数两种声明方式"></a>函数两种声明方式</h1><ol>
+<li><p>自定义函数方式（命名函数）</p>
+<p>利用函数关键字 function 自定义函数方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明定义方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;...&#125;</span><br><span class="line"><span class="comment">// 调用  </span></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数表达式方式 （匿名函数）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是函数表达式写法，匿名函数后面跟分号结束</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;；</span><br><span class="line"><span class="comment">// 调用的方式，函数调用必须写到函数体下面</span></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="变量分类"><a href="#变量分类" class="headerlink" title="变量分类"></a>变量分类</h1><p>在JavaScript中，根据作用域的不同，变量可以分为两种：</p>
+<ol>
+<li><p>全局变量</p>
+<p>全局变量在代码的任何位置都可以使用。只有在浏览器关闭时才会被销毁，因此比较占内存。</p>
+<ul>
+<li>在全局作用域下 var 声明的变量，是全局变量</li>
+<li>特殊情况下，在函数内不使用 var 声明的变量也是全局变量（不建议使用）</li>
+</ul>
+</li>
+<li><p>局部变量</p>
+<p>局部变量只能在该函数内部使用。当代码块运行结束后，就会被销毁，因此更节省内存空间。</p>
+<ul>
+<li>在函数内部 var 声明的变量是局部变量</li>
+<li>函数的形参实际上就是局部变量</li>
+</ul>
+</li>
+</ol>
+<p>预解析</p>
+<p>JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步：预解析和代码执行。</p>
+<p><strong>预解析：</strong>在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。</p>
+<p><strong>代码执行：</strong> 从上到下执行JS语句。</p>
+<p>预解析只会发生在通过 var 定义的变量和 function 上。</p>
+<h2 id="变量预解析（变量提升）"><a href="#变量预解析（变量提升）" class="headerlink" title="变量预解析（变量提升）"></a>变量预解析（变量提升）</h2><p>变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。</p>
+<h2 id="函数预解析（函数提升）"><a href="#函数预解析（函数提升）" class="headerlink" title="函数预解析（函数提升）"></a>函数预解析（函数提升）</h2><p>函数的声明会被提升到当前作用域的最上面，但是不会调用函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经典案例，下面结果是什么？</span></span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = b = c = <span class="number">9</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="built_in">console</span>.log(b);</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按照预解析规则解析以及按照作用域规则执行后，相当于执行以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    a = b = c = <span class="number">9</span>;</span><br><span class="line">    <span class="comment">// 相当于 var  a  = 9; b = 9; c = 9; b 和 c 直接赋值 没有var声明 当全局变量看，只有a进行了声明，为局部变量。</span></span><br><span class="line">    <span class="comment">// 集体声明  var a = 9, b = 9, c = 9;</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先执行函数内的三个console.log，输出9，9，9，再执行函数外的三个console.log，输出9，9，报错（a为局部变量，全局未定义）。</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/2019-08-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9812/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/16/2019-08-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9812/" itemprop="url">前端开发(1)-CSS入门及提高12</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T00:00:00+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="过渡-CSS3"><a href="#过渡-CSS3" class="headerlink" title="过渡(CSS3)"></a>过渡(CSS3)</h1><p>过渡（transition)是CSS3中具有颠覆性的特征之一，我们可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。</p>
+<p>在CSS3里使用transition可以实现补间动画（过渡效果），并且当前元素只要有“属性”发生变化时即存在两种状态(我们用A和B代指），就可以实现平滑的过渡，为了方便演示采用hover切换两种状态，但是并不仅仅局限于hover状态来实现过渡。</p>
+<p>语法格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transition: 要过渡的属性  花费时间  运动曲线  何时开始;</span><br><span class="line">如果有多组属性变化，还是用逗号隔开。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition</td>
+<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>如果多个属性都要效果，用逗号隔开即可；如果想要所有的属性都变化过渡， 写一个all 就可以。</p>
+<p>运动曲线示意图：</p>
+<p><img src="https://i.loli.net/2019/08/16/nW2VBGMACaYmeSR.png" alt=""></p>
+<h1 id="2D变形-CSS3-transform"><a href="#2D变形-CSS3-transform" class="headerlink" title="2D变形(CSS3) transform"></a>2D变形(CSS3) transform</h1><p>transform是CSS3中具有颠覆性的特征之一，可以实现元素的位移、旋转、倾斜、缩放，甚至支持矩阵方式，配合过渡和即将学习的动画知识，可以取代大量之前只能靠Flash才可以实现的效果。</p>
+<h2 id="移动-translate-x-y"><a href="#移动-translate-x-y" class="headerlink" title="移动 translate(x, y)"></a>移动 translate(x, y)</h2><p><img src="https://i.loli.net/2019/08/18/M3Xa4CQWFiKwoOJ.png" alt=""></p>
+<p>可以改变元素的位置，x、y可为负值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">translate(x,y)水平方向和垂直方向同时移动（也就是X轴和Y轴同时移动）</span><br><span class="line">translateX(x)仅水平方向移动（X轴移动）</span><br><span class="line">translateY(Y)仅垂直方向移动（Y轴移动）</span><br></pre></td></tr></table></figure>
+
+<h2 id="缩放-scale-x-y"><a href="#缩放-scale-x-y" class="headerlink" title="缩放 scale(x, y)"></a>缩放 scale(x, y)</h2><p><img src="https://i.loli.net/2019/08/18/ZFJwyPhBe6a1WAG.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scale(X,Y)使元素水平方向和垂直方向同时缩放（也就是X轴和Y轴同时缩放）</span><br><span class="line">scaleX(x)元素仅水平方向缩放（X轴缩放）</span><br><span class="line">scaleY(y)元素仅垂直方向缩放（Y轴缩放）</span><br></pre></td></tr></table></figure>
+
+<p> scale()的取值默认的值为1，当值设置为0.01到0.99之间的任何值，作用使一个元素缩小；而任何大于或等于1.01的值，作用是让元素放大。</p>
+<h2 id="旋转-rotate-deg"><a href="#旋转-rotate-deg" class="headerlink" title="旋转 rotate(deg)"></a>旋转 rotate(deg)</h2><p><img src="https://i.loli.net/2019/08/18/3PV4dGBDxnF9Mk2.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(45deg)</span>;</span><br></pre></td></tr></table></figure>
+
+<p> 注意单位是 deg 度数      </p>
+<p>transform-origin可以调整元素转换变形的原点。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;<span class="attribute">transform-origin</span>: left top;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(45deg); &#125;  <span class="comment">/* 改变元素原点到左上角，然后进行顺时旋转45度 */</span></span><br></pre></td></tr></table></figure>
+
+<p> 如果是4个角，可以用 left top这些，如果想要精确的位置， 可以用  px 像素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;<span class="attribute">transform-origin</span>: <span class="number">10px</span> <span class="number">10px</span>;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(45deg); &#125;  <span class="comment">/* 改变元素原点到x 为10  y 为10，然后进行顺时旋转45度 */</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/18/5oLbuKF3Iq6TpXV.png" alt=""></p>
+<h2 id="倾斜-skew-deg-deg"><a href="#倾斜-skew-deg-deg" class="headerlink" title="倾斜 skew(deg, deg)"></a>倾斜 skew(deg, deg)</h2><p><img src="https://i.loli.net/2019/08/18/Y3yMilbtRao6BKs.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:skew(30deg</span>,0<span class="selector-tag">deg</span>);</span><br></pre></td></tr></table></figure>
+
+<p>该实例通过skew方法把元素水平方向上倾斜30度，处置方向保持不变。</p>
+<p>可以使元素按一定的角度进行倾斜，可为负值，第二个参数不写默认为0。</p>
+<h1 id="3D变形-CSS3-transform"><a href="#3D变形-CSS3-transform" class="headerlink" title="3D变形(CSS3) transform"></a>3D变形(CSS3) transform</h1><h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><h3 id="rotateX"><a href="#rotateX" class="headerlink" title="rotateX()"></a>rotateX()</h3><p> 沿着 x 立体旋转。</p>
+<h3 id="rotateY"><a href="#rotateY" class="headerlink" title="rotateY()"></a>rotateY()</h3><p>沿着y轴进行旋转。</p>
+<h3 id="rotateZ-"><a href="#rotateZ-" class="headerlink" title="rotateZ()"></a>rotateZ()</h3><p>沿着z轴进行旋转。</p>
+<h2 id="透视-perspective"><a href="#透视-perspective" class="headerlink" title="透视(perspective)"></a>透视(perspective)</h2><p>电脑显示屏是一个2D平面，图像之所以具有立体感（3D效果），其实只是一种视觉呈现，通过透视可以实现此目的。</p>
+<p>透视可以将一个2D平面，在转换的过程当中，呈现3D效果。</p>
+<ul>
+<li>透视原理： 近大远小 。</li>
+<li>浏览器透视：把近大远小的所有图像，透视在屏幕上。</li>
+<li>perspective：视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置</li>
+</ul>
+<p>注：并非任何情况下需要透视效果，根据开发需要进行设置。</p>
+<p>perspective 一般作为一个属性，设置给父元素，作用于所有3D转换的子元素</p>
+<p>理解透视距离原理：</p>
+<p><img src="https://i.loli.net/2019/08/18/OKtFYf8Az1xhJWw.png" alt=""></p>
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><h3 id="translateX-x"><a href="#translateX-x" class="headerlink" title="translateX(x)"></a>translateX(x)</h3><p>仅水平方向移动**（X轴移动）</p>
+<p><img src="https://i.loli.net/2019/08/18/45YPNsmgDZCR2WX.png" alt=""></p>
+<p>主要目的实现移动效果。</p>
+<h3 id="translateY-y"><a href="#translateY-y" class="headerlink" title="translateY(y)"></a>translateY(y)</h3><p>仅垂直方向移动（Y轴移动）</p>
+<p><img src="https://i.loli.net/2019/08/18/UcuZoiNAwq5nEhR.png" alt=""></p>
+<h3 id="translateZ-z"><a href="#translateZ-z" class="headerlink" title="translateZ(z)"></a>translateZ(z)</h3><p>transformZ的直观表现形式就是大小变化，实质是XY平面相对于视点的远近变化（说远近就一定会说到离什么参照物远或近，在这里参照物就是perspective属性）。比如设置了perspective为200px;那么transformZ的值越接近200，就是离的越近，看上去也就越大，超过200就看不到了，因为相当于跑到后脑勺去了，我相信你正常情况下，是看不到自己的后脑勺的。</p>
+<h3 id="translate3d-x-y-z"><a href="#translate3d-x-y-z" class="headerlink" title="translate3d(x,y,z)"></a>translate3d(x,y,z)</h3><p>[注意]其中，x和y可以是长度值，也可以是百分比，百分比是相对于其本身元素水平方向的宽度和垂直方向的高度和；z只能设置长度值</p>
+<h3 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a>backface-visibility</h3><p>backface-visibility 属性定义当元素不面向屏幕时是否可见。</p>
+<h1 id="动画-CSS3-animation"><a href="#动画-CSS3-animation" class="headerlink" title="动画(CSS3) animation"></a>动画(CSS3) animation</h1><p>动画是CSS3中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。</p>
+<p>动画调用语法格式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">animation</span>:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/18/jHQsoxCn5ulKfLh.png" alt=""></p>
+<p>关于几个值，除了名字，动画时间，延时有严格顺序要求其它随意。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation-iteration-count:infinite;  无限循环播放animation-play-state:paused;   暂停动画</span><br></pre></td></tr></table></figure>
+
+<p>动画定义语法格式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> 动画名称 &#123;</span><br><span class="line">  from&#123; 开始位置 &#125;  0%</span><br><span class="line">  to&#123;  结束  &#125;  100%</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="伸缩布局-CSS3"><a href="#伸缩布局-CSS3" class="headerlink" title="伸缩布局(CSS3)"></a>伸缩布局(CSS3)</h1><p>CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。</p>
+<p>主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向</p>
+<p>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的</p>
+<p>方向：默认主轴从左向右，侧轴默认从上到下</p>
+<p>主轴和侧轴并不是固定不变的，通过flex-direction可以互换。</p>
+<p><img src="https://i.loli.net/2019/08/18/CXqchO6JIu8sSwa.png" alt=""></p>
+<p>Flex布局的语法规范经过几年发生了很大的变化，也给Flexbox的使用带来一定的局限性，因为语法规范版本众多，浏览器支持不一致，致使Flexbox布局使用不多</p>
+<h2 id="各属性详解"><a href="#各属性详解" class="headerlink" title="各属性详解"></a>各属性详解</h2><p>1.flex子项目在主轴的缩放比例，不指定flex属性，则不参与伸缩分配</p>
+<p>min-width  最小值      min-width: 280px  最小宽度  不能小于 280</p>
+<p>max-width: 1280px  最大宽度  不能大于 1280</p>
+<p>2.flex-direction调整主轴方向（默认为水平方向）</p>
+<p>flex-direction: column 垂直排列</p>
+<p>flex-direction: row  水平排列</p>
+<p>3、justify-content调整主轴对齐（水平对齐）</p>
+<p>子盒子如何在父盒子里面水平对齐</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+<th>白话文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-start</td>
+<td>默认值。项目位于容器的开头。</td>
+<td>让子元素从父容器的开头开始排序但是盒子顺序不变</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>项目位于容器的结尾。</td>
+<td>让子元素从父容器的后面开始排序但是盒子顺序不变</td>
+</tr>
+<tr>
+<td>center</td>
+<td>项目位于容器的中心。</td>
+<td>让子元素在父容器中间显示</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>项目位于各行之间留有空白的容器内。</td>
+<td>左右的盒子贴近父盒子，中间的平均分布空白间距</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>项目位于各行之前、之间、之后都留有空白的容器内。</td>
+<td>相当于给每个盒子添加了左右margin外边距</td>
+</tr>
+</tbody></table>
+<p>4、align-items调整侧轴对齐（垂直对齐）</p>
+<p>子盒子如何在父盒子里面垂直对齐（单行）</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+<th>白话文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>默认值。项目被拉伸以适应容器。</td>
+<td>让子元素的高度拉伸适用父容器（子元素不给高度的前提下)</td>
+</tr>
+<tr>
+<td>center</td>
+<td>项目位于容器的中心。</td>
+<td>垂直居中</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>项目位于容器的开头。</td>
+<td>垂直对齐开始位置 上对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>项目位于容器的结尾。</td>
+<td>垂直对齐结束位置 底对齐</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>5、flex-wrap控制是否换行</p>
+<p>当我们子盒子内容宽度多于父盒子的时候如何处理</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nowrap</td>
+<td>默认值。规定灵活的项目不拆行或不拆列。  不换行，则 收缩（压缩） 显示  强制一行内显示</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>规定灵活的项目在必要的时候拆行或拆列。</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>6、flex-flow是flex-direction、flex-wrap的简写形式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">flex-direction</span>  <span class="selector-tag">flex-wrap</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>白话记：    flex-flow: 排列方向   换不换行; </p>
+<p>两个中间用空格</p>
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br><span class="line"><span class="comment">/* flex-direction: row;</span></span><br><span class="line"><span class="comment">flex-wrap: wrap;   这两句话等价于下面的这句话*/</span></span><br><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">column</span> <span class="selector-tag">wrap</span>;  <span class="comment">/* 两者的综合 */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>7、align-content堆栈（由flex-wrap产生的独立行）多行垂直对齐方式齐</p>
+<p>align-content是针对flex容器里面多轴(多行)的情况,align-items是针对一行的情况进行排列。</p>
+<p>必须对父元素设置自由盒属性display:flex;，并且设置排列方式为横向排列flex-direction:row;并且设置换行，flex-wrap:wrap;这样这个属性的设置才会起作用。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+<th>测试</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>默认值。项目被拉伸以适应容器。</td>
+<td></td>
+</tr>
+<tr>
+<td>center</td>
+<td>项目位于容器的中心。</td>
+<td></td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>项目位于容器的开头。</td>
+<td></td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>项目位于容器的结尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>项目位于各行之间留有空白的容器内。</td>
+<td></td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>项目位于各行之前、之间、之后都留有空白的容器内。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>8、order控制子项目的排列顺序，正序方式排序，从小到大</p>
+<p>用css 来控制盒子的前后顺序。  用order 就可以</p>
+<p>用整数值来定义排列顺序，数值小的排在前面。可以为负值。 默认值是 0</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">order</span>: 1;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/2019-08-15-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9811/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/15/2019-08-15-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9811/" itemprop="url">前端开发(1)-CSS入门及提高11</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T00:00:00+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="元素的显示与隐藏"><a href="#元素的显示与隐藏" class="headerlink" title="元素的显示与隐藏"></a>元素的显示与隐藏</h1><p>在CSS中有三个显示和隐藏的单词比较常见，我们要区分开，他们分别是 display visibility 和 overflow。</p>
+<p>他们的主要目的是让一个元素在页面中消失，但是不在文档源码中删除。 最常见的是网站广告，当我们点击类似关闭不见了，但是我们重新刷新页面，它们又会出现和你玩躲猫猫！！</p>
+<h2 id="display-显示"><a href="#display-显示" class="headerlink" title="display 显示"></a>display 显示</h2><p>display 设置或检索对象是否及如何显示。</p>
+<p>display : none 隐藏对象 与它相反的是 display:block 除了转换为块级元素之外，同时还有显示元素的意思。</p>
+<p>特点： 隐藏之后，不再保留位置。</p>
+<h2 id="visibility-可见性"><a href="#visibility-可见性" class="headerlink" title="visibility 可见性"></a>visibility 可见性</h2><p>设置或检索是否显示对象。</p>
+<p>visible : 　对象可视</p>
+<p>hidden : 　对象隐藏</p>
+<p>特点： 隐藏之后，继续保留原有位置。（停职留薪）</p>
+<h2 id="overflow-溢出"><a href="#overflow-溢出" class="headerlink" title="overflow 溢出"></a>overflow 溢出</h2><p>检索或设置当对象的内容超过其指定高度及宽度时如何管理内容。</p>
+<p>visible : 　不剪切内容也不添加滚动条。</p>
+<p>auto : 　 超出自动显示滚动条，不超出不显示滚动条</p>
+<p>hidden : 　不显示超过对象尺寸的内容，超出的部分隐藏掉</p>
+<p>scroll : 　不管超出内容否，总是显示滚动条</p>
+<h1 id="CSS用户界面样式"><a href="#CSS用户界面样式" class="headerlink" title="CSS用户界面样式"></a>CSS用户界面样式</h1><p> 所谓的界面样式， 就是更改一些用户操作样式， 比如 更改用户的鼠标样式， 表单轮廓等。但是比如滚动条的样式改动受到了很多浏览器的抵制，因此我们就放弃了。 防止表单域拖拽</p>
+<h2 id="鼠标样式cursor"><a href="#鼠标样式cursor" class="headerlink" title="鼠标样式cursor"></a>鼠标样式cursor</h2><p> 设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cursor :  default  小白 | pointer  小手  | move  移动  |  text  文本</span><br></pre></td></tr></table></figure>
+
+<p> 鼠标放我身上查看效果哦：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:default"</span>&gt;</span>我是小白<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span>&gt;</span>我是小手<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:move"</span>&gt;</span>我是移动<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"cursor:text"</span>&gt;</span>我是文本<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 尽量不要用hand  因为 火狐不支持     pointer ie6以上都支持的尽量用</p>
+<h2 id="轮廓-outline"><a href="#轮廓-outline" class="headerlink" title="轮廓 outline"></a>轮廓 outline</h2><p> 是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outline : outline-color ||outline-style || outline-width</span><br></pre></td></tr></table></figure>
+
+<p> 但是我们都不关心可以设置多少，我们平时都是去掉的。</p>
+<p>最直接的写法是 ：  outline: 0;   或者  outline: none;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">style</span>=<span class="string">"outline: 0;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="防止拖拽文本域resize"><a href="#防止拖拽文本域resize" class="headerlink" title="防止拖拽文本域resize"></a>防止拖拽文本域resize</h2><p>resize：none    这个单词可以防止 火狐 谷歌等浏览器随意的拖动 文本域。</p>
+<p>右下角可以拖拽： </p>
+<p><textarea></textarea></p>
+<p>右下角不可以拖拽：  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span>  <span class="attr">style</span>=<span class="string">"resize: none;"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="vertical-align-垂直对齐"><a href="#vertical-align-垂直对齐" class="headerlink" title="vertical-align 垂直对齐"></a>vertical-align 垂直对齐</h2><p><img src="https://i.loli.net/2019/08/16/dr6YyzX5aJ9L2Ee.jpg" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vertical-align : baseline |top |middle |bottom</span><br></pre></td></tr></table></figure>
+
+<p>设置或检索对象内容的垂直对其方式。 </p>
+<p>vertical-align 不影响块级元素中的内容对齐，它只针对于 行内元素或者行内块元素，特别是行内块元素， <strong>通常用来控制图片/表单与文字的对齐</strong>。</p>
+<h3 id="图片、表单和文字对齐"><a href="#图片、表单和文字对齐" class="headerlink" title="图片、表单和文字对齐"></a>图片、表单和文字对齐</h3><p>可以通过vertical-align 控制图片和文字的垂直关系了。 默认的图片会和文字基线对齐。</p>
+<h3 id="去除图片底侧空白缝隙"><a href="#去除图片底侧空白缝隙" class="headerlink" title="去除图片底侧空白缝隙"></a>去除图片底侧空白缝隙</h3><p>有个很重要特性： 图片或者表单等行内块元素，他的底线会和父级盒子的基线对齐。这样会造成一个问题，就是图片底侧会有一个空白缝隙(较低版本浏览器中常见)。</p>
+<p>解决的方法就是：  </p>
+<ol>
+<li>给img vertical-align:middle | top等等。  让图片不要和基线对齐。</li>
+<li>给img 添加 display：block; 转换为块级元素就不会存在问题了。</li>
+</ol>
+<h2 id="溢出的文字隐藏"><a href="#溢出的文字隐藏" class="headerlink" title="溢出的文字隐藏"></a>溢出的文字隐藏</h2><h3 id="word-break-自动换行"><a href="#word-break-自动换行" class="headerlink" title="word-break:自动换行"></a>word-break:自动换行</h3><p>normal   使用浏览器默认的换行规则。</p>
+<p>break-all   允许在单词内换行。</p>
+<p>keep-all    只能在半角空格或连字符处换行。</p>
+<p>主要处理英文单词</p>
+<h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h3><p>white-space设置或检索对象内文本显示方式。通常我们使用于强制一行显示内容 </p>
+<p>normal : 　默认处理方式<br>nowrap : 　强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。</p>
+<p>可以处理中文</p>
+<h3 id="text-overflow-文字溢出"><a href="#text-overflow-文字溢出" class="headerlink" title="text-overflow 文字溢出"></a>text-overflow 文字溢出</h3><p>text-overflow : clip | ellipsis</p>
+<p>设置或检索是否使用一个省略标记（…）标示对象内文本的溢出</p>
+<p>clip : 　不显示省略标记（…），而是简单的裁切 </p>
+<p>ellipsis : 　当对象内文本溢出时显示省略标记（…）</p>
+<p>注意一定要首先强制一行内显示，再次和overflow属性  搭配使用</p>
+<h1 id="CSS精灵技术（sprite）"><a href="#CSS精灵技术（sprite）" class="headerlink" title="CSS精灵技术（sprite）"></a>CSS精灵技术（sprite）</h1><h3 id="精灵技术产生的背景"><a href="#精灵技术产生的背景" class="headerlink" title="精灵技术产生的背景"></a>精灵技术产生的背景</h3><p><img src="https://i.loli.net/2019/08/16/4oGBlehRxiXnQLD.png" alt="网页请求原理"></p>
+<p>图所示为网页的请求原理图，当用户访问一个网站时，需要向服务器发送请求，网页上的每张图像都要经过一次请求才能展现给用户。</p>
+<p>然而，一个网页中往往会应用很多小的背景图像作为修饰，当网页中的图像过多时，服务器就会频繁地接受和发送请求，这将大大降低页面的加载速度。为了有效地减少服务器接受和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术（也称CSS Sprites、CSS雪碧）。</p>
+<h3 id="精灵技术本质"><a href="#精灵技术本质" class="headerlink" title="精灵技术本质"></a>精灵技术本质</h3><p>简单地说，CSS精灵是一种处理网页背景图像的方式。它将一个页面涉及到的所有零星背景图像都集中到一张大图中去，然后将大图应用于网页，这样，当用户访问该页面时，只需向服务发送一次请求，网页中的背景图像即可全部展示出来。通常情况下，这个由很多小的背景图像合成的大图被称为精灵图（雪碧图）。</p>
+<h3 id="精灵技术的使用"><a href="#精灵技术的使用" class="headerlink" title="精灵技术的使用"></a>精灵技术的使用</h3><p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），然而，各个网页元素通常只需要精灵图中不同位置的某个小图，要想精确定位到精灵图中的某个小图，就需要使用CSS的background-image、background-repeat和background-position属性进行背景定位，其中最关键的是使用background-position属性精确地定位。</p>
+<h3 id="制作精灵图"><a href="#制作精灵图" class="headerlink" title="制作精灵图"></a>制作精灵图</h3><p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），那我们要做的，就是把小图拼合成一张大图。</p>
+<p>大部分情况下，精灵图都是网页美工做。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我们精灵图上放的都是小的装饰性质的背景图片。 插入图片不能往上放。</span><br><span class="line">我们精灵图的宽度取决于最宽的那个背景。 </span><br><span class="line">我们可以横向摆放也可以纵向摆放，但是每个图片之间，间隔至少隔开偶数像素合适。</span><br><span class="line">在我们精灵图的最低端，留一片空隙，方便我们以后添加其他精灵图。</span><br></pre></td></tr></table></figure>
+
+<p>结束语：   小公司，背景图片很少的情况，没有必要使用精灵技术，维护成本太高。 如果是背景图片比较多，可以建议使用精灵技术。</p>
+<h1 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h1><p>图片是有诸多优点的，但是缺点很明显，比如图片不但增加了总文件的大小，还增加了很多额外的”http请求”，这都会大大降低网页的性能的。更重要的是图片不能很好的进行“缩放”，因为图片放大和缩小会失真。 我们后面会学习移动端响应式，很多情况下希望我们的图标是可以缩放的。此时就需要字体图标（iconfont)。</p>
+<h2 id="字体图标优点"><a href="#字体图标优点" class="headerlink" title="字体图标优点"></a>字体图标优点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">可以做出跟图片一样可以做的事情,改变透明度、旋转度，等..</span><br><span class="line">但是本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果等等...</span><br><span class="line">本身体积更小，但携带的信息并没有削减。</span><br><span class="line">几乎支持所有的浏览器</span><br><span class="line">移动端设备必备良药...</span><br></pre></td></tr></table></figure>
+
+<h2 id="字体图标使用流程"><a href="#字体图标使用流程" class="headerlink" title="字体图标使用流程"></a>字体图标使用流程</h2><p>总体来说，字体图标按照如下流程：</p>
+<p><img src="https://i.loli.net/2019/08/16/mSHQIoza7FkWXqj.png" alt=""></p>
+<hr>
+<h3 id="设计字体图标"><a href="#设计字体图标" class="headerlink" title="设计字体图标"></a>设计字体图标</h3><p>假如图标是我们公司单独设计，那就需要第一步了，这个属于UI设计人员的工作， 他们在 illustrator 或 Sketch 这类矢量图形软件里创建 icon图标，之后保存为svg格式，然后给我们前端人员就好了。 </p>
+<p>其实第一步，我们不需要关心，只需要给我们这些图标就可以了，如果图标是大众的，网上本来就有的，可以直接跳过第一步，进入第三步。</p>
+<h3 id="上传生成字体包"><a href="#上传生成字体包" class="headerlink" title="上传生成字体包"></a>上传生成字体包</h3><p>   当UI设计人员给我们svg文件的时候，我们需要转换成我们页面能使用的字体文件， 而且需要生成的是兼容性的适合各个浏览器的。</p>
+<p>​    推荐网站： <a href="http://icomoon.io" target="_blank" rel="noopener">http://icomoon.io</a></p>
+<p><strong>icomoon字库</strong></p>
+<p>IcoMoon成立于2011年，推出的第一个自定义图标字体生成器，它允许用户选择他们所需要的图标，使它们成一字型。 内容种类繁多，非常全面，唯一的遗憾是国外服务器，打开网速较慢。</p>
+<p>   推荐网站： <a href="http://www.iconfont.cn/" target="_blank" rel="noopener">http://www.iconfont.cn/</a></p>
+<p><strong>阿里icon font字库</strong></p>
+<p><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">http://www.iconfont.cn/</a></p>
+<p>这个是阿里妈妈M2UX的一个icon font字体图标字库，包含了淘宝图标库和阿里妈妈图标库。可以使用AI制作图标上传生成。 一个字，免费，免费！！</p>
+<p><strong>fontello</strong></p>
+<p><a href="http://fontello.com/" target="_blank" rel="noopener">http://fontello.com/</a></p>
+<p>在线定制你自己的icon font字体图标字库，也可以直接从GitHub下载整个图标集，该项目也是开源的。</p>
+<p><strong>Font-Awesome</strong></p>
+<p><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">http://fortawesome.github.io/Font-Awesome/</a></p>
+<p>这是我最喜欢的字库之一了，更新比较快。目前已经有369个图标了。</p>
+<p><strong>Glyphicon Halflings</strong></p>
+<p><a href="http://glyphicons.com/" target="_blank" rel="noopener">http://glyphicons.com/</a></p>
+<p>这个字体图标可以在Bootstrap下免费使用。自带了200多个图标。</p>
+<p><strong>Icons8</strong></p>
+<p><a href="https://icons8.com/" target="_blank" rel="noopener">https://icons8.com/</a></p>
+<p>提供PNG免费下载，像素大能到500PX</p>
+<h3 id="下载兼容字体包"><a href="#下载兼容字体包" class="headerlink" title="下载兼容字体包"></a>下载兼容字体包</h3><p>刚才上传完毕， 网站会给我们把UI做的svg图片转换为我们的字体格式， 然后下载下来就好了</p>
+<p>当然，我们不需要自己专门的图标，是想网上找几个图标使用，以上2步可以直接省略了， 直接到刚才的网站上找喜欢的下载使用吧。</p>
+<h2 id="以icomoon使用为例"><a href="#以icomoon使用为例" class="headerlink" title="以icomoon使用为例"></a>以icomoon使用为例</h2><h3 id="选择下载压缩包"><a href="#选择下载压缩包" class="headerlink" title="选择下载压缩包"></a>选择下载压缩包</h3><p><img src="https://i.loli.net/2019/08/16/nPy6cmKClGzjR2Z.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/08/16/uEHpce4mNfSL2dr.png" alt=""></p>
+<h3 id="字体引入到HTML"><a href="#字体引入到HTML" class="headerlink" title="字体引入到HTML"></a>字体引入到HTML</h3><p>得到压缩包之后，最后一步，是最重要的一步了， 就是字体文件已经有了，我们需要引入到我们页面中。</p>
+<p>首先把 以下4个文件放入到工程的 fonts文件夹里面。 </p>
+<p><img src="https://i.loli.net/2019/08/16/pfcHDkzsRumAGeB.png" alt=""></p>
+<p><strong>第一步：在样式里面声明字体： 告诉别人我们自己定义的字体</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'icomoon'</span>;</span><br><span class="line">  <span class="attribute">src</span>:  <span class="built_in">url</span>(<span class="string">'fonts/icomoon.eot?7kkyc2'</span>);</span><br><span class="line">  <span class="attribute">src</span>:  <span class="built_in">url</span>(<span class="string">'fonts/icomoon.eot?7kkyc2#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.ttf?7kkyc2'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.woff?7kkyc2'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">'fonts/icomoon.svg?7kkyc2#icomoon'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：给盒子使用字体</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">		<span class="attribute">font-family</span>: <span class="string">"icomoon"</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第三步：盒子里面添加结构</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">		 <span class="attribute">content</span>: <span class="string">"\e900"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">或者  </span><br><span class="line">&lt;span&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="追加新图标到原来库里面"><a href="#追加新图标到原来库里面" class="headerlink" title="追加新图标到原来库里面"></a>追加新图标到原来库里面</h3><p>如果工作中，原来的字体图标不够用了，我们需要添加新的字体图标，但是原来的不能删除，继续使用，此时我们需要这样做</p>
+<p>把压缩包里面的selection.json 从新上传，然后，选中自己想要新的图标，从新下载压缩包，替换原来文件即可。</p>
+<p><img src="https://i.loli.net/2019/08/16/bTckN37JHQMzaol.png" alt=""></p>
+<h1 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h1><h3 id="滑动门出现的背景"><a href="#滑动门出现的背景" class="headerlink" title="滑动门出现的背景"></a>滑动门出现的背景</h3><p>制作网页时，为了美观，常常需要为网页元素设置特殊形状的背景，比如各种网站导航栏，最大的问题是里面的字数不一样多。</p>
+<p>为了使各种特殊形状的背景能够自适应元素中文本内容的多少，出现了CSS滑动门技术。它从新的角度构建页面，使各种特殊形状的背景能够自由拉伸滑动，以适应元素内部的文本内容，可用性更强。 最常见于各种导航栏的滑动门。</p>
+<h3 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h3><p>核心技术就是利用CSS精灵（主要是背景位置）和盒子padding撑开宽度, 以便能适应不同字数的导航栏。</p>
+<p>一般的经典布局都是这样的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">		<span class="attribute">margin</span>: <span class="number">100px</span>;</span><br><span class="line">		<span class="attribute">display</span>: inline-block;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">		<span class="comment">/* 千万不能给宽度 写死宽度是不对滴，我们要推拉门 自由缩放*/</span></span><br><span class="line">		<span class="attribute">background</span>: <span class="built_in">url</span>(images/ao.png) no-repeat;</span><br><span class="line">		<span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">		<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">		<span class="attribute">text-decoration</span>: none;</span><br><span class="line">		<span class="attribute">line-height</span>: <span class="number">33px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-tag">a</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">		<span class="attribute">display</span>: inline-block;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">		<span class="attribute">background</span>: <span class="built_in">url</span>(images/ao.png) no-repeat right; </span><br><span class="line">		<span class="comment">/* span 不能给宽度 利用padding挤开  要我要span 右边的圆角  所以 背景位置 右对齐 */</span></span><br><span class="line">		<span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>导航栏内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结： </p>
+<ol>
+<li>a 设置 背景左侧，padding撑开合适宽度。    </li>
+<li>span 设置背景右侧， padding撑开合适宽度 剩下由文字继续撑开宽度。</li>
+<li>之所以a包含span就是因为 整个导航都是可以点击的。</li>
+</ol>
+<h1 id="before和after伪元素详解"><a href="#before和after伪元素详解" class="headerlink" title="before和after伪元素详解"></a>before和after伪元素详解</h1><p>之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素。是伪元素在html代码机构中的展现，可以看出无法伪元素的结构无法审查。</p>
+<p><strong>注意</strong></p>
+<p>伪元素:before和:after添加的内容默认是inline元素，设置宽高需要转换；这个两个伪元素的<code>content</code>属性，表示伪元素的内容,设置:before和:after时必须设置其<code>content</code>属性，否则伪元素就不起作用。</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/2019-08-14-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9810/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/14/2019-08-14-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9810/" itemprop="url">前端开发(1)-CSS入门及提高10</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T00:00:00+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="元素的定位属性"><a href="#元素的定位属性" class="headerlink" title="元素的定位属性"></a>元素的定位属性</h1><p>元素的定位属性主要包括定位模式和边偏移两部分。</p>
+<p>1、边偏移</p>
+<table>
+<thead>
+<tr>
+<th>边偏移属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>top</td>
+<td>顶端偏移量，定义元素相对于其父元素上边线的距离</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>底部偏移量，定义元素相对于其父元素下边线的距离</td>
+</tr>
+<tr>
+<td>left</td>
+<td>左侧偏移量，定义元素相对于其父元素左边线的距离</td>
+</tr>
+<tr>
+<td>right</td>
+<td>右侧偏移量，定义元素相对于其父元素右边线的距离</td>
+</tr>
+</tbody></table>
+<p>也就说，定位要和边偏移搭配使用， 比如 top: 100px;  left: 30px; 等等</p>
+<p>2、定位模式(定位的分类)</p>
+<p>在CSS中，position属性用于定义元素的定位模式，其基本语法格式如下：</p>
+<p>选择器{position:属性值;}</p>
+<p>position属性的常用值</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static</td>
+<td>自动定位（默认定位方式）</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>相对定位，相对于其原文档流的位置进行定位</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位，相对于其上一个已经定位的父元素进行定位</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>固定定位，相对于浏览器窗口进行定位</td>
+</tr>
+</tbody></table>
+<h1 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位(static)"></a>静态定位(static)</h1><p>静态定位是所有元素的默认定位方式，当position属性的取值为static时，可以将元素定位于静态位置。 所谓静态位置就是各个元素在HTML文档流中默认的位置。</p>
+<p>上面的话翻译成白话：  就是网页中所有元素都默认的是静态定位！ 其实就是标准流的特性。</p>
+<p>在静态定位状态下，无法通过边偏移属性（top、bottom、left或right）来改变元素的位置。</p>
+<h1 id="相对定位（relative）"><a href="#相对定位（relative）" class="headerlink" title="相对定位（relative）"></a>相对定位（relative）</h1><p>相对定位是将元素相对于它在标准流中的位置进行定位，当position属性的取值为relative时，可以将元素定位于相对位置。</p>
+<p>对元素设置相对定位后，可以通过边偏移属性改变元素的位置，但是它在文档流中的位置仍然保留。</p>
+<p>注意：   </p>
+<ol>
+<li>相对定位最重要的一点是，它可以通过边偏移移动位置，但是原来的所占的位置，继续占有。</li>
+<li>其次，每次移动的位置，是以自己的左上角为基点移动（相对于自己来移动位置）</li>
+</ol>
+<p>就是说，相对定位的盒子仍在标准流中，它后面的盒子仍以标准流方式对待它。（相对定位不脱标）</p>
+<h1 id="绝对定位（absolute）"><a href="#绝对定位（absolute）" class="headerlink" title="绝对定位（absolute）"></a>绝对定位（absolute）</h1><p>注意：绝对定位最重要的一点是，它可以通过边偏移移动位置，但是它完全脱标，完全不占位置。</p>
+<h2 id="父级没有定位"><a href="#父级没有定位" class="headerlink" title="父级没有定位"></a>父级没有定位</h2><p>若所有父元素都没有定位，以浏览器为准对齐(document文档)。</p>
+<p><img src="https://i.loli.net/2019/08/15/eWuCXg2hxtaBwoE.png" alt=""></p>
+<h2 id="父级有定位"><a href="#父级有定位" class="headerlink" title="父级有定位"></a>父级有定位</h2><p>绝对定位是将元素依据最近的已经定位（绝对、固定或相对定位）的父元素（祖先）进行定位。 </p>
+<p><img src="https://i.loli.net/2019/08/15/RSyV8PcbkQUaHmL.png" alt=""></p>
+<h2 id="子绝父相"><a href="#子绝父相" class="headerlink" title="子绝父相"></a>子绝父相</h2><p>这个“子绝父相”很重要，是我们学习定位的口诀，时时刻刻记住的。</p>
+<p>这句话的意思是 子级是绝对定位的话， 父级要用相对定位。</p>
+<p>首先， 我们说下， 绝对定位是将元素依据最近的已经定位绝对、固定或相对定位）的父元素（祖先）进行定位。</p>
+<p>就是说， 子级是绝对定位，父亲只要是定位即可（不管父亲是绝对定位还是相对定位，甚至是固定定位都可以），就是说， 子绝父绝，子绝父相都是正确的。但是因为子级是绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方。父盒子布局时，需要占有位置，因此父亲只能是相对定位. 所以子绝父相使用最多。</p>
+<h2 id="绝对定位的盒子水平-垂直居中"><a href="#绝对定位的盒子水平-垂直居中" class="headerlink" title="绝对定位的盒子水平/垂直居中"></a>绝对定位的盒子水平/垂直居中</h2><p>普通的盒子是左右margin 改为 auto就可， 但是对于绝对定位就无效了</p>
+<p>定位的盒子也可以水平或者垂直居中，有一个算法。</p>
+<ol>
+<li>首先left 50%   父盒子的一半大小</li>
+<li>然后走自己外边距负的一半值就可以了 margin-left。</li>
+</ol>
+<h1 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位(fixed)"></a>固定定位(fixed)</h1><p>固定定位是绝对定位的一种特殊形式。它以浏览器窗口作为参照物来定义网页元素。当position属性的取值为fixed时，即可将元素的定位模式设置为固定定位。</p>
+<p>当对元素设置固定定位后，它将脱离标准文档流的控制，始终依据浏览器窗口来定义自己的显示位置。不管浏览器滚动条如何滚动也不管浏览器窗口的大小如何变化，该元素都会始终显示在浏览器窗口的固定位置。</p>
+<p>固定定位有两点：</p>
+<ol>
+<li>固定定位的元素跟父亲没有任何关系，只认浏览器。</li>
+<li>固定定位完全脱标，不占有位置，不随着滚动条滚动。</li>
+</ol>
+<p>ie6等低版本浏览器不支持固定定位。</p>
+<h1 id="叠放次序（z-index）"><a href="#叠放次序（z-index）" class="headerlink" title="叠放次序（z-index）"></a>叠放次序（z-index）</h1><p>当对多个元素同时设置定位时，定位元素之间有可能会发生重叠。</p>
+<p><img src="https://i.loli.net/2019/08/15/zUBLnr9a34bFgC8.png" alt=""></p>
+<p>在CSS中，要想调整重叠定位元素的堆叠顺序，可以对定位元素应用z-index层叠等级属性，其取值可为正整数、负整数和0。</p>
+<p>比如：  z-index: 2;</p>
+<p>注意：</p>
+<ol>
+<li>z-index的默认属性值是0，取值越大，定位元素在层叠元素中越居上。</li>
+<li>如果取值相同，则根据书写顺序，后来居上。</li>
+<li>后面数字一定不能加单位。</li>
+<li>只有相对定位，绝对定位，固定定位有此属性，其余标准流，浮动，静态定位都无此属性，亦不可指定此属性。</li>
+</ol>
+<h1 id="四种定位总结"><a href="#四种定位总结" class="headerlink" title="四种定位总结"></a>四种定位总结</h1><table>
+<thead>
+<tr>
+<th>定位模式</th>
+<th>是否脱标占有位置</th>
+<th>是否可以使用边偏移</th>
+<th>移动位置基准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态static</td>
+<td>不脱标，正常模式</td>
+<td>不可以</td>
+<td>正常模式</td>
+</tr>
+<tr>
+<td>相对定位relative</td>
+<td>不脱标，占有位置</td>
+<td>可以</td>
+<td>相对自身位置移动（自恋型）</td>
+</tr>
+<tr>
+<td>绝对定位absolute</td>
+<td>完全脱标，不占有位置</td>
+<td>可以</td>
+<td>相对于定位父级移动位置（拼爹型）</td>
+</tr>
+<tr>
+<td>固定定位fixed</td>
+<td>完全脱标，不占有位置</td>
+<td>可以</td>
+<td>相对于浏览器移动位置（认死理型）</td>
+</tr>
+</tbody></table>
+<h1 id="定位模式转换"><a href="#定位模式转换" class="headerlink" title="定位模式转换"></a>定位模式转换</h1><p>跟 浮动一样， 元素添加了 绝对定位和固定定位之后， 元素模式也会发生转换， 都转换为 行内块模式，</p>
+<p>** 因此 比如 行内元素 如果添加了 绝对定位或者 固定定位后 浮动后，可以不用转换模式，直接给高度和宽度就可以了。 **</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -970,11 +2296,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/4/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -994,6 +2320,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -1011,11 +2338,11 @@
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">89</span>
+              <a href="/archives/">
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1024,8 +2351,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1100,7 +2429,7 @@
         
       </div>
     
-    
+
   </div>
 
   
@@ -1120,6 +2449,14 @@
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1146,26 +2483,29 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
 
 
   
@@ -1191,21 +2531,22 @@
 
 
 
-  
-
-
-
-  
-  
 
   
 
-  
+
+
+
 
   
 
   
 
+  
+
+  
+
+  
 
   
 

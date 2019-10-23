@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -68,7 +75,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +87,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -103,8 +110,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,11 +136,7 @@
 
 
 
-  <title> Hexo </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hexo</title>
   
 
 
@@ -147,13 +151,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -201,8 +209,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -212,7 +240,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -248,8 +276,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/23/2019-09-23-JavaWeb4/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/2019-08-10-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%989/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -267,16 +299,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2019/09/23/2019-09-23-JavaWeb4/" itemprop="url">
-                  JavaWeb4
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/08/10/2019-08-10-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%989/" itemprop="url">前端开发(1)-CSS入门及提高9</a></h1>
         
 
         <div class="post-meta">
@@ -288,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-23T00:00:00+08:00">
-                2019-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T00:00:00+08:00">
+                2019-08-10
               </time>
             
 
@@ -317,431 +341,9 @@
       </header>
     
 
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h1><p>会话可以简单理解为：用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话。</p>
-<p>每个用户与服务器进行交互的过程中，各自会有一些数据，程序要想办法保存每个用户的数据。可以通过两种方式：Cookie/Session。</p>
-<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>Cookie是客户端技术，程序把每个用户的数据以cookie的形式写给用户各自的浏览器，当用户使用浏览器再去访问服务器中的web资源时，就会带着各自的数据去，这样，web资源处理的就是用户各自的数据了。</p>
-<p>javax.servlet.http.Cookie类用于创建以一个Cookie，response接口中也定义了一个addCookie方法，它用于在其响应头中增加一个相应的Set-Cookie头字段，同样，request接口中也定义了一个getCookie方法，它用于获取客户端提交的Cookie。</p>
-<h2 id="显示上次访问时间并可清除"><a href="#显示上次访问时间并可清除" class="headerlink" title="显示上次访问时间并可清除"></a>显示上次访问时间并可清除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">PrintWrite out = response.getWrite();</span><br><span class="line">out.print(&quot;&lt;a href=&apos;/ProjectName/servlet/DeleteCookieServlet&apos;&gt;清除上次访问时间&lt;/a&gt;&lt;br/&gt;&quot;);</span><br><span class="line">out.print(&quot;您上次访问时间是：&quot;);</span><br><span class="line">//获得用户的时间cookie</span><br><span class="line">Cookie cookies[] = request.getCookie();</span><br><span class="line">for(int i=0;cookies != null &amp;&amp; i &lt; cookies.length;i++)&#123;</span><br><span class="line">	if(cookies[i].getName().equals(&quot;lastAccessTime&quot;))&#123;</span><br><span class="line">		long cookieValue = Long.parseLong(cookies.getValue());		//得到用户上次访问时间</span><br><span class="line">		Date date = new Date(cookieValue);</span><br><span class="line">		out.print(date.toLocalString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//给用户回送最新的访问时间</span><br><span class="line">Cookie cookie = new Cookie(&quot;lastAccessTime&quot;,System.currentTimeMillis()+&quot;&quot;);</span><br><span class="line">cookie.setMaxAge(1*30*24*3600);		//一个月期限</span><br><span class="line">cookie.setPath(&quot;/ProjectName&quot;);		//访问网站下所以资源都带cookie来</span><br><span class="line"></span><br><span class="line">response.addCookie(cookie);</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">//DeleteCookieServlet</span><br><span class="line">Cookie cookie = new Cookie(&quot;lastAccessTime&quot;,System.currentTimeMillis()+&quot;&quot;);</span><br><span class="line">cookie.setMaxAge(0);		</span><br><span class="line">cookie.setPath(&quot;/ProjectName&quot;);</span><br><span class="line">response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line">response.sendRedirect(&quot;/ProjectName/servlet/CookieDemoServlet&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>tip：如果创建了一个cookie，并将它发送到浏览器，默认情况下它是一个会话级别的cookie（即存储在浏览器内存 中），用户退出浏览器之后即被删除，若希望浏览器将该cookie存储在硬盘上，需使用setMaxAge，并给出一个以秒为单位的时间，将最大失效设为0则是命令浏览器删除该cookie，注意删除cookie时，path必须一致，否则不会删除。</p>
-<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>Session是服务器端技术，利这个技术，服务器在运行时可以为每一个用户的浏览器创建一个独享的session对象，由于session为用户浏览器独享，所以用户在访问服务器的web资源时，可以把各自的数据放在各自的session中，当用户再去访问服务器中的其他资源时，其他web资源再从用户各自的session中取出数据为用户服务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//buySession</span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">session.setAttribute(&quot;name&quot;,&quot;洗衣机&quot;);</span><br><span class="line">------------------------------------------------------</span><br><span class="line">//paySession</span><br><span class="line">PrintWrite out = response.getWrite();</span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">String product = session.getAttribute(&quot;name&quot;);</span><br><span class="line">out.write(&quot;您购买的商品为：&quot; + product);</span><br></pre></td></tr></table></figure>
-
-<p>session对象在调用getSession方法时创建，在30分钟内没有再次使用，浏览器会自动销毁，手动摧毁使用invalidate()方法即可。</p>
-<h2 id="session工作原理"><a href="#session工作原理" class="headerlink" title="session工作原理"></a>session工作原理</h2><p>session工作是基于cookie的。服务器创建session出来后，会把session的id号，以cookie的形式回写给客户机，这样，只要客户机的浏览器不关，再去访问服务器时，都会带着session的id号去，服务器发现客户机浏览器带session id过来了，就会使用内存中与之对应的session为之服务。</p>
-<p><img src="https://i.loli.net/2019/09/23/7JlrZYh8SNizCe5.png" alt=""></p>
-<p>现在有个问题，Sun公司在设计getSession方法时，默认使用cookie没有使用期限，也就是随着浏览器关闭，cookie也就销毁，也就意味着标识每一个session的唯一ID被销毁，这样就无法使session存留30分钟。</p>
-<p>解决办法：</p>
-<p>在获得session之后获取到ID号，重写对应的cookie，覆盖掉本来的即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line">String sessionid = session.getId();</span><br><span class="line">Cookie cookie = new Cookie(&quot;JSESSIONID&quot;,sessionid);</span><br><span class="line">cookie.setPath(&quot;/ProjectName&quot;);</span><br><span class="line">cookie.setMaxAge(30*60);		</span><br><span class="line"></span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
-
-<h2 id="防止表单重复提交"><a href="#防止表单重复提交" class="headerlink" title="防止表单重复提交"></a>防止表单重复提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//form.jsp</span><br><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Form表单&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;body&gt;</span><br><span class="line">      &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DoFormServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; id=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//DoFormServlet</span><br><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Form表单&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;body&gt;</span><br><span class="line">      &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DoFormServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; id=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>但是会有如下三种情况的表单重复提交：</p>
-<ol>
-<li>在网络延迟的情况下让用户有时间点击多次submit按钮导致表单重复提交；</li>
-<li>表单提交后用户点击【刷新】按钮导致表单重复提交；</li>
-<li>用户提交表单后，点击浏览器的【后退】按钮回退到表单页面后进行再次提交；</li>
-</ol>
-<p>解决方案：</p>
-<ol>
-<li>利用JavaScript防止表单重复提交</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Form表单&lt;/title&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var isCommitted = false;//表单是否已经提交标识，默认为false</span><br><span class="line">        function dosubmit()&#123;</span><br><span class="line">            if(isCommitted==false)&#123;</span><br><span class="line">                isCommitted = true;//提交表单后，将表单是否已经提交标识设置为true</span><br><span class="line">                return true;//返回true让表单正常提交</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return false;//返回false那么表单将不提交</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;body&gt;</span><br><span class="line">      &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DoFormServlet&quot; onsubmit=&quot;return dosubmit()&quot; method=&quot;post&quot;&gt;</span><br><span class="line">        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; id=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>或者，表单提交之后，将提交按钮设置为不可用，让用户没有机会点击第二次提交按钮：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function dosubmit()&#123;</span><br><span class="line">    //获取表单提交按钮</span><br><span class="line">    var btnSubmit = document.getElementById(&quot;submit&quot;);</span><br><span class="line">    //将表单提交按钮设置为不可用，这样就可以避免用户再次点击提交按钮</span><br><span class="line">    btnSubmit.disabled= &quot;disabled&quot;;</span><br><span class="line">    //返回true让表单可以正常提交</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用JavaScript防止表单重复提交的做法只对上述提交到导致表单重复提交的三种场景中的【场景一】有效，而对于【场景二】和【场景三】是没有用，依然无法解决表单重复提交问题。</p>
-<ol start="2">
-<li>利用Session防止表单重复提交</li>
-</ol>
-<p>具体的做法：<strong>在服务器端生成一个唯一的随机标识号，专业术语称为Token(令牌)，同时在当前用户的Session域中保存这个Token。然后将Token发送到客户端的Form表单中，在Form表单中使用隐藏域来存储这个Token，表单提交的时候连同这个Token一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致，如果不一致，那就是重复提交了，此时服务器端就可以不处理重复提交的表单。如果相同则处理表单提交，处理完后清除当前用户的Session域中存储的标识号。</strong><br>　　在下列情况下，服务器程序将拒绝处理用户提交的表单请求：</p>
-<ol>
-<li><strong>存储Session域中的Token(令牌)与表单提交的Token(令牌)不同。</strong></li>
-<li><strong>当前用户的Session中不存在Token(令牌)。</strong></li>
-<li><strong>用户提交的表单数据中没有Token(令牌)。</strong></li>
-</ol>
-<p>首先，创建FormServlet，用于生成<strong>Token(令牌)</strong>和跳转到form.jsp页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package xdp.gacl.session;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">public class FormServlet extends HttpServlet &#123;</span><br><span class="line">    private static final long serialVersionUID = -884689940866074733L;</span><br><span class="line"></span><br><span class="line">    public void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">            throws ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line">        String token = TokenProccessor.getInstance().makeToken();//创建令牌</span><br><span class="line">        System.out.println(&quot;在FormServlet中生成的token：&quot;+token);</span><br><span class="line">        request.getSession().setAttribute(&quot;token&quot;, token);  //在服务器使用session保存token(令牌)</span><br><span class="line">        request.getRequestDispatcher(&quot;/form.jsp&quot;).forward(request, response);//跳转到form.jsp页面</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">            throws ServletException, IOException &#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在form.jsp中使用隐藏域来存储<strong>Token(令牌)</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;form表单&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DoFormServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">        &lt;%--使用隐藏域存储生成的token--%&gt;</span><br><span class="line">        &lt;%--</span><br><span class="line">            &lt;input type=&quot;hidden&quot; name=&quot;token&quot; value=&quot;&lt;%=session.getAttribute(&quot;token&quot;) %&gt;&quot;&gt;</span><br><span class="line">        --%&gt;</span><br><span class="line">        &lt;%--使用EL表达式取出存储在session中的token--%&gt;</span><br><span class="line">        &lt;input type=&quot;hidden&quot; name=&quot;token&quot; value=&quot;$&#123;token&#125;&quot;/&gt; </span><br><span class="line">        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt; </span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>DoFormServlet处理表单提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package xdp.gacl.session;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">public class DoFormServlet extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line">    public void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">                throws ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line">            boolean b = isRepeatSubmit(request);//判断用户是否是重复提交</span><br><span class="line">            if(b==true)&#123;</span><br><span class="line">                System.out.println(&quot;请不要重复提交&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            request.getSession().removeAttribute(&quot;token&quot;);//移除session中的token</span><br><span class="line">            System.out.println(&quot;处理用户提交请求！！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        /**</span><br><span class="line">         * 判断客户端提交上来的令牌和服务器端生成的令牌是否一致</span><br><span class="line">         * @param request</span><br><span class="line">         * @return </span><br><span class="line">         *         true 用户重复提交了表单 </span><br><span class="line">         *         false 用户没有重复提交表单</span><br><span class="line">         */</span><br><span class="line">        private boolean isRepeatSubmit(HttpServletRequest request) &#123;</span><br><span class="line">            String client_token = request.getParameter(&quot;token&quot;);</span><br><span class="line">            //1、如果用户提交的表单数据中没有token，则用户是重复提交了表单</span><br><span class="line">            if(client_token==null)&#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            //取出存储在Session中的token</span><br><span class="line">            String server_token = (String) request.getSession().getAttribute(&quot;token&quot;);</span><br><span class="line">            //2、如果当前用户的Session中不存在Token(令牌)，则用户是重复提交了表单</span><br><span class="line">            if(server_token==null)&#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            //3、存储在Session中的Token(令牌)与表单提交的Token(令牌)不同，则用户是重复提交了表单</span><br><span class="line">            if(!client_token.equals(server_token))&#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    public void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">            throws ServletException, IOException &#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>生成Token的工具类TokenProccessor</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">package xdp.gacl.session;</span><br><span class="line"></span><br><span class="line">import java.security.MessageDigest;</span><br><span class="line">import java.security.NoSuchAlgorithmException;</span><br><span class="line">import java.util.Random;</span><br><span class="line">import sun.misc.BASE64Encoder;</span><br><span class="line"></span><br><span class="line">public class TokenProccessor &#123;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     *单例设计模式（保证类的对象在内存中只有一个）</span><br><span class="line">     *1、把类的构造函数私有</span><br><span class="line">     *2、自己创建一个类的对象</span><br><span class="line">     *3、对外提供一个公共的方法，返回类的对象</span><br><span class="line">     */</span><br><span class="line">    private TokenProccessor()&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    private static final TokenProccessor instance = new TokenProccessor();</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 返回类的对象</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static TokenProccessor getInstance()&#123;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 生成Token</span><br><span class="line">     * Token：Nv6RRuGEVvmGjB+jimI/gw==</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String makeToken()&#123;  //checkException</span><br><span class="line">        //  7346734837483  834u938493493849384  43434384</span><br><span class="line">        String token = (System.currentTimeMillis() + new Random().nextInt(999999999)) + &quot;&quot;;</span><br><span class="line">        //数据指纹   128位长   16个字节  md5</span><br><span class="line">        try &#123;</span><br><span class="line">            MessageDigest md = MessageDigest.getInstance(&quot;md5&quot;);</span><br><span class="line">            byte md5[] =  md.digest(token.getBytes());</span><br><span class="line">            //base64编码--任意二进制编码明文字符   adfsdfsdfsf</span><br><span class="line">            BASE64Encoder encoder = new BASE64Encoder();</span><br><span class="line">            return encoder.encode(md5);</span><br><span class="line">        &#125; catch (NoSuchAlgorithmException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过这种方式处理表单重复提交，可以解决上述的场景二和场景三中出现的表单重复提交问题。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/2019-09-20-JavaWeb3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/09/20/2019-09-20-JavaWeb3/" itemprop="url">
-                  JavaWeb3
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-20T00:00:00+08:00">
-                2019-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="response"><a href="#response" class="headerlink" title="response"></a>response</h1><h2 id="response的OutputStream输出数据"><a href="#response的OutputStream输出数据" class="headerlink" title="response的OutputStream输出数据"></a>response的OutputStream输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">OutputStream out = response.getOutputStream();		//字节流</span><br><span class="line">out.write(data.getByte());		//这样在浏览器显示是正确的</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">out.write(data.getBytes(“UTF-8&quot;);	//这样浏览器反而显示乱码</span><br><span class="line">//原因：浏览器拿到response解析时默认用的码表时GB2312，并不是UTF-8，所以可以修改浏览器的码表，但实际开发显然不会这样做，需要在响应头指定码表。(新版谷歌浏览器默认UTF-8且无法更换)</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
-
-<p>或者利用html的meta标签模拟一个HTTP响应头，来控制浏览器行为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out.write(&quot;&lt;meta http-equiv=&apos;Content-type&apos; content=&apos;text/html;charset=UTF-8&apos;&gt;&quot;.getBytes());</span><br></pre></td></tr></table></figure>
-
-<h2 id="response的Writer输出数据"><a href="#response的Writer输出数据" class="headerlink" title="response的Writer输出数据"></a>response的Writer输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">PrintWriter out = response.getWriter();		//字符流</span><br><span class="line">out.write(data);		//这样在浏览器显示??</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">//原因：servlet将“中国”写入response，response默认使用ISO8859码表，在码表中找“中国”，无法找到，所以返回两个“？”对应的数字，浏览器拿到response返回的数字解析显示“？”，所以修改response码表即可。</span><br><span class="line">response.setCharacterEncoding(“UTF-8&quot;);</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
-
-<h2 id="response下载文件"><a href="#response下载文件" class="headerlink" title="response下载文件"></a>response下载文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">String path = this.getServletContext().getRealPath(&quot;/download/1.jpg&quot;);	//得到资源文件1.jpg在硬盘中的地址</span><br><span class="line">String filename = path.substring(path.lastIndexOf(&quot;\\&quot;)+1);		//截取文件名</span><br><span class="line">response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + filename);	//告诉浏览器下载文件</span><br><span class="line">//如果下载文件中是中文文件，需要经过URL编码</span><br><span class="line">//response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + URLEncoder.encode(filename, &quot;UTF-8&quot;);</span><br><span class="line">//读资源文件</span><br><span class="line">InputStream in = null;</span><br><span class="line">OutputStream out = null;</span><br><span class="line">try&#123;</span><br><span class="line">	in =  new FileInputStream(path);</span><br><span class="line">	int len = 0;</span><br><span class="line">	byte buffer[] = new byte[1024];</span><br><span class="line">	out = response.getOutputStream();</span><br><span class="line">	while((len = in.read(buffer)) &gt; 0) (</span><br><span class="line">		out.write(buffer, 0, len);</span><br><span class="line">	)</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	if (in != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			in.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (out != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			out.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="response控制浏览器定时刷新"><a href="#response控制浏览器定时刷新" class="headerlink" title="response控制浏览器定时刷新"></a>response控制浏览器定时刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&quot;refersh&quot;,3);	//每隔3s刷新一次</span><br></pre></td></tr></table></figure>
-
-<p>实际开发中，一般这么写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;&lt;meta http-squiv=&apos;refresh&apos; content=&apos;3;url=/ProjectName/index.jsp&apos;&gt;恭喜你，登陆成功，本浏览器将在3s后跳转到主页面&quot;;</span><br><span class="line">this.getServletContext().setAttribute(&quot;message&quot;,message);</span><br><span class="line">this.getServletContext().getRequestDispatcher(&quot;/message.jsp&quot;).forward(request,response);</span><br></pre></td></tr></table></figure>
-
-<h2 id="response控制浏览器缓存"><a href="#response控制浏览器缓存" class="headerlink" title="response控制浏览器缓存"></a>response控制浏览器缓存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setDateHeader(&quot;expires&quot;, System.currentTimeMillis()+1000*3600);	//缓存1h</span><br></pre></td></tr></table></figure>
-
-<h2 id="response实现请求重定向"><a href="#response实现请求重定向" class="headerlink" title="response实现请求重定向"></a>response实现请求重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(302);	</span><br><span class="line">response.setHeader(&quot;location&quot;, &quot;/ProjectName/index.jsp&quot;);	//重定向到首页</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">response.setRedirect(&quot;/ProjectName/index.jsp&quot;);	//相当于上边两句</span><br></pre></td></tr></table></figure>
-
-<p>重定向向服务器发送两次请求，通过浏览器地址栏自动改变就可以看出来，这样对服务器压力较大，所以除了登录跳转和购物下单跳转购物车一般不介意采用。</p>
-<h2 id="response一些细节"><a href="#response一些细节" class="headerlink" title="response一些细节"></a>response一些细节</h2><ol>
-<li><p>getOutputStream()和getWriter()方法分别用于得到输出二进制数据、输出文本数据的ServletOutputStream、Printwriter对象，这两个方法互斥，调用了其中一个就不能调用另一个；</p>
-</li>
-<li><p>Servlet程序向ServletOutputStream或Printwriter对象写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当作响应消息的正文，然后再与响应状态行和各响应头组合后输出到客户端；</p>
-</li>
-<li><p>Servlet的service方法结束后，Servlet引擎将检查getWriter()或getOutputStream()方法返回的输出流对象是否已经调用过close方法，如果没有，Servlet引擎将调用close方法关于该输出流对象；</p>
-</li>
-</ol>
-<h1 id="request"><a href="#request" class="headerlink" title="request"></a>request</h1><p>HttpServletRequest对象代表客户端的请求，当客户端通过HTTP协议访问服务器时，HTTP请求投中的所有信息都封装在这个对象中，开发人员通过这个对象的方法，可以获得客户端的信息。</p>
-<h2 id="RUL和URI"><a href="#RUL和URI" class="headerlink" title="RUL和URI"></a>RUL和URI</h2><p>URL：用于标识某个互联网资源，如<a href="http://www.sina.com/news/1.html；" target="_blank" rel="noopener">http://www.sina.com/news/1.html；</a></p>
-<p>URI：用于标识某个资源，如/news/1.html；C:\abc\d.txt；</p>
-<p>判断这两个区别的用处：权限拦截、访问次数统计等</p>
-<h2 id="request获取请求头和请求数据"><a href="#request获取请求头和请求数据" class="headerlink" title="request获取请求头和请求数据"></a>request获取请求头和请求数据</h2><p>获取请求头：request.getHeader()/request.getHeaders()/request.getHeaderNames()；</p>
-<p>获取客户端带来的数据：</p>
-<p>首先，客户端一般有两种方式带数据</p>
-<ol>
-<li><pre><code>//通过超链接
-&lt;a href=&quot;RequestDemo?username=xxx&quot;&gt;点我&lt;/a&gt;    
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
-//通过表单
-&lt;form action=&quot;RequestDemo&quot; method=&quot;post&quot;&gt;
-    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;br&gt;
-&lt;/form&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request获取：</span><br></pre></td></tr></table></figure>
-String value = request.getParameter(&quot;username&quot;);
-//tip:获取请求数据要先检查再使用，如先判断输入是否为空或者是否为空格
-if(value != null &amp;&amp; !value,trim().equals(&quot;&quot;)){
- System.out.println(values);
-}</code></pre></li>
-</ol>
-<hr>
-<p>//所有name和对应的value<br>Enumeration e = request.getParameterNames();<br>while(e.hasMoreElements()) {<br>    String name = (String)e.nextElement();<br>    value = request.getParameter(name);<br>    System.out.println(name+”=”+value);<br>}</p>
-<hr>
-<p>//一个name的所有value<br>String[] values = request.getParameterValues(“username”)；<br>for(int i = 0;values != null &amp;&amp; i &lt; values.length;i++){<br>    System.out.println(values[i]);<br>}</p>
-<hr>
-<p>//存到Map中<br>//需要首先先建好一个User.java的对象<br>Map map = request.getParameterMap();<br>User user = new User();<br>//需要导入commons-beanutils.jar和commons-logging,jar<br>BeanUtils.populate(user,map);<br>//有异常try……catch……<br>System.out.println(user);</p>
-<hr>
-<p>//流的方式，但即使获取到也需要解析，因为获取到的格式为“uername=xxx&amp;password=yyy”<br>InputStream in = request.getInputStream();<br>int len = 0;<br>byte buffer[] = new byte[1024];<br>while((len=in.read(buffer))&gt;0){<br>    System.out.println(new String(buffer,0,len));<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request中文乱码</span><br></pre></td></tr></table></figure>
-<p>request.setCharacterEncoding(“UTF-8”);        //只对post提交有效<br>username = new String(username.getBytes(“iso8859-1”),”UTF-8”);    //解决get提交乱码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request实现请求转发</span><br><span class="line"></span><br><span class="line">请求转发指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</span><br><span class="line"></span><br><span class="line">request对象提供了一个getRequestDispatcher方法，该方法返回一个 RequestDispatcher对象，调用这个对象的forward方法可以实现请求转发。</span><br></pre></td></tr></table></figure>
-<p>String data = “aaaaa”;<br>request.setAttribute(“data”,data);<br>request.getRequestDispatcher(“/1.jsp”).forward(request，response);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request对象同时也是一个域对象，开发人员通过request对象在实现转发时，把数据通过request对象带给其他web资源处理。</span><br><span class="line"></span><br><span class="line">MVC：model-javabean;view-jsp;controller-servlet，流程：jsp收到请求产生数据，数据通过JavaBean封装，JavaBean不适合做输出，会存在request域，jsp再从request中取出进行输出。</span><br><span class="line"></span><br><span class="line">细节一：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前，在servlet程序中写入的部分内容已经被真正的传送到了客户端，forward方法将抛出IIIegalStateException异常，例如。</span><br></pre></td></tr></table></figure>
-<p>if(true){<br>    request.getRequestDispatcher(“/1.jsp”).forward(request，response);<br>}<br>request.getRequestDispatcher(“/2.jsp”).forward(request，response);<br>//解决方案：在第一个forward后加入return;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">细节二：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前向servlet引擎的缓冲区，即response中写入了客户端，只要写入到缓冲区中的内容还没有被真正输出到客户端，forward方法就可以被正常执行，原来写入response的内容将被清空，但是，已写入到HttpServletResponse对象中的响应头字段信息保持有效。</span><br><span class="line"></span><br><span class="line">细节三：</span><br><span class="line"></span><br><span class="line">RequestDispatcher对象除了forward方法之外还有一个方法，include方法，例如。</span><br></pre></td></tr></table></figure>
-<p>//例如，每个界面的头脚都一样，单独写一个head.jsp和foot.jsp，在需要的界面引用即可<br>request.getRequestDispatcher(“/head.jsp”).include(request，response);<br>response.getWriter().write(“aaaaa”);<br>request.getRequestDispatcher(“/foot.jsp”).include(request，response);<br>//注意被包含的页面，也就是head.jsp和foot.jsp不要包含全局架构标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># web工程各类地址写法</span><br></pre></td></tr></table></figure>
-<p>//1.<br>request.getRequestDispatcher(“/index.jsp”).forward(request，response);</p>
-<p>//2.<br>response.sendRedirect(“/ProjectName/index.jsp”);</p>
-<p>//3.<br>this.getServletContext().getRealPath(“/index.jsp”);</p>
-<p>//4.<br>this.getServletContext().getResourceAsStream(“/index.jsp”);</p>
-<p>//5.<br>/*<br><a href="/ProjectName/index.jsp">点击</a></p>
-<form action="/ProjectName/index.jsp">
-</form>
-*/
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line"></span><br><span class="line">写地址先写一个斜杠(/)，如果地址是写给服务器用的，这个斜杠就代表web应用；如果地址是写给浏览器的，这个斜杠就代表网站；</span><br><span class="line"></span><br><span class="line"># 利用referer防盗链</span><br></pre></td></tr></table></figure>
-String referer = request.getHeader("referer");        //获得访问链接
-//判断如果是盗链者跳转到首页
-if(referer==null || referer.startsWith("https://localhost")){
-    response.sendRedirect("/ProjectName/index.jsp");
-    return;
-}
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/2019-09-17-Centos%E5%AE%89%E8%A3%85JDK%E4%BB%A5%E5%8F%8A%E5%A4%9A%E4%B8%AATomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/09/17/2019-09-17-Centos%E5%AE%89%E8%A3%85JDK%E4%BB%A5%E5%8F%8A%E5%A4%9A%E4%B8%AATomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-                  Centos安装JDK以及多个Tomcat服务器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T00:00:00+08:00">
-                2019-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -751,66 +353,123 @@ if(referer==null || referer.startsWith("https://localhost")){
         
           
             <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
 </blockquote>
-<p>JDK</p>
-<h1 id="一、JDK"><a href="#一、JDK" class="headerlink" title="一、JDK"></a>一、JDK</h1><p>下载地址:<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<p> 注意下载版本   　　  linux环境下    jdkxxxxxx_bin.tar.gz</p>
-<p>通过Xftp登陆时注意新建一个root用户的会话，否则一会儿文件无法传输。</p>
-<p>配置环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//进入root</span><br><span class="line">su root </span><br><span class="line">password:</span><br><span class="line">mkdir     /usr/local/java</span><br><span class="line">//通过Xftp将下载好的tar.gz压缩包传到新建的这个文件夹下</span><br><span class="line">//进入文件夹</span><br><span class="line">cd /usr/local/java</span><br><span class="line">//解压</span><br><span class="line">tar -zxvf jdk..._bin.tar.gz</span><br><span class="line">//可删可不删   随意</span><br><span class="line">rm -rf jdk..._bin.tar.gz </span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line">//在最下面加上如下配置，注意JAVA_HOME路径即解压好的jdk路径</span><br><span class="line">//键盘 按i 输入或复制以下内容</span><br><span class="line">#java config</span><br><span class="line">JAVA_HOME=/usr/local/java/jdk-11.0.4</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME</span><br><span class="line">export PATH</span><br><span class="line">//最后    esc +   :wq    保存退出</span><br><span class="line"></span><br><span class="line">//让配置立即生效  或者重启服务器也行</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h1 id="普通流-normal-flow"><a href="#普通流-normal-flow" class="headerlink" title="普通流(normal flow)"></a>普通流(normal flow)</h1><p>这个单词很多人翻译为 文档流 ， 字面翻译  普通流 或者标准流都可以。</p>
+<p>前面我们说过，网页布局的核心，就是用CSS来摆放盒子位置。如何把盒子摆放到合适的位置？  </p>
+<p>CSS的定位机制有3种：普通流（标准流）、浮动和定位。</p>
+<p>html语言当中另外一个相当重要的概念———-标准流！或者普通流。普通流实际上就是一个网页内标签元素正常从上到下，从左到右排列顺序的意思，比如块级元素会独占一行，行内元素会按顺序依次前后排列；按照这种大前提的布局排列之下绝对不会出现例外的情况叫做普通流布局。</p>
+<h1 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h1><p>浮动最早是用来控制图片，以便达到其他元素（特别是文字）实现“环绕”图片的效果。后来，我们发现浮动有个很有意思的事情：就是让任何盒子可以一行排列,因此我们就慢慢的偏离主题，用浮动的特性来布局了。</p>
+<h2 id="什么是浮动？"><a href="#什么是浮动？" class="headerlink" title="什么是浮动？"></a>什么是浮动？</h2><p>元素的浮动是指设置了浮动属性的元素会脱离标准普通流的控制，移动到其父元素中指定位置的过程。</p>
+<p>在CSS中，通过float属性来定义浮动，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;float:属性值;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>验证JDK是否安装成功，在命令行，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>元素向左浮动</td>
+</tr>
+<tr>
+<td>right</td>
+<td>元素向右浮动</td>
+</tr>
+<tr>
+<td>none</td>
+<td>元素不浮动（默认值）</td>
+</tr>
+</tbody></table>
+<h2 id="浮动详细内幕特性"><a href="#浮动详细内幕特性" class="headerlink" title="浮动详细内幕特性"></a>浮动详细内幕特性</h2><p>浮动脱离标准流，不占位置，会影响标准流。浮动只有左右浮动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浮动首先创建包含块的概念（包裹）。就是说， 浮动的元素总是找离它最近的父级元素对齐。但是不会超出内边距的范围。</span><br></pre></td></tr></table></figure>
 
-<p>回车，若打印出JDK版本，则成功。</p>
-<h1 id="二、安装多个Tomcat服务器"><a href="#二、安装多个Tomcat服务器" class="headerlink" title="二、安装多个Tomcat服务器"></a>二、安装多个Tomcat服务器</h1><p>下载地址：<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
-<p>上传、解压和刚才基本相同，这里放在了/usr/local/tomcat/tomcat1和/usr/local/tomcat/tomcat2。</p>
-<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>同样是操作/etc/profile 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#vi  /etc/profile</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/08/11/pechtG5ruKLln8g.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浮动的元素排列位置，跟上一个元素（块级）有关系。如果上一个元素有浮动，则A元素顶部会和上一个元素的顶部对齐；如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。</span><br></pre></td></tr></table></figure>
 
-<p>然后在文件最后一行，即刚刚添加JDK环境变量的后边添加如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#tomcat1</span><br><span class="line">export CATALINA_HOME1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line">export CATALINA_BASE1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line">export TOMCAT_HOME1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line"></span><br><span class="line">#tomcat2</span><br><span class="line">export CATALINA_HOME2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br><span class="line">export CATALINA_BASE2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br><span class="line">export TOMCAT_HOME2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/08/11/eSr5vFVp8h4ltxn.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由2可以推断出，一个父盒子里面的子盒子，如果其中一个子级有浮动的，则其他子级都需要浮动。这样才能一行对齐显示。</span><br></pre></td></tr></table></figure>
 
-<p>最后    esc +   :wq    保存退出，source /etc/profile  配置立即生效。</p>
-<h2 id="修改tomcat1-2中的server-xml文件"><a href="#修改tomcat1-2中的server-xml文件" class="headerlink" title="修改tomcat1/2中的server.xml文件"></a>修改tomcat1/2中的server.xml文件</h2><p>tomcat1：修改tomcat1的server.xml文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1、修改Server prot 默认为8005－－》修改为8001</span><br><span class="line"></span><br><span class="line">&lt;Server port=&quot;8001&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</span><br><span class="line">  &lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&gt;</span><br><span class="line">  &lt;!-- Security listener. Documentation at /docs/config/listeners.html</span><br><span class="line">  --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、修改Connector port HTTP/1.1  默认为8080－－》修改为8081</span><br><span class="line"></span><br><span class="line">&lt;Connector port=&quot;8081&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">connectionTimeout=&quot;20000&quot;</span><br><span class="line">redirectPort=&quot;8443&quot; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3、修改Connector port AJP/1.3 默认为8009－－》修改为8011</span><br><span class="line"></span><br><span class="line">&lt;!-- Define an AJP 1.3 Connector on port 8009 --&gt;</span><br><span class="line">    &lt;Connector port=&quot;8011&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素添加浮动后，元素会具有行内块元素的特性。元素的大小完全取决于定义的大小或者默认的内容多少浮动根据元素书写的位置来显示相应的浮动。</span><br></pre></td></tr></table></figure>
 
-<p>同样，修改tomcat2的server.xml文件，3个端口号分别修改为8002，8082，8012。</p>
-<h2 id="修改tomcat1-2中的startup-sh-和-shutdown-sh文件"><a href="#修改tomcat1-2中的startup-sh-和-shutdown-sh文件" class="headerlink" title="修改tomcat1/2中的startup.sh 和 shutdown.sh文件"></a>修改tomcat1/2中的startup.sh 和 shutdown.sh文件</h2><p>tomcat1：修改tomcat1中bin下startup.sh 和 shutdown.sh 两个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、tomcat1中bin下startup.sh</span><br><span class="line">命令： vi startup.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE1</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME1</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME1</span><br><span class="line"></span><br><span class="line">2、tomcat1中bin下shutdown.sh</span><br><span class="line">命令： vi shutdown.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE1</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME1</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME1</span><br></pre></td></tr></table></figure>
+<p>总结：  浮动 —&gt;    </p>
+<p>浮动的目的就是为了让多个块级元素同一行上显示。</p>
+<p>float      浮 漏 特   </p>
+<p>浮：    加了浮动的元素盒子是浮起来的，漂浮在其他的标准流盒子上面。<br>漏：    加了浮动的盒子，不占位置的，它浮起来了，它原来的位置漏 给了标准流的盒子。<br>特：    特别注意，首先浮动的盒子需要和标准流的父级搭配使用， 其次 特别的注意浮动可以使元素显示模式体现为行内块特性。</p>
+<h1 id="版心和布局流程"><a href="#版心和布局流程" class="headerlink" title="版心和布局流程"></a>版心和布局流程</h1><p>“版心”(可视区) 是指网页中主体内容所在的区域。一般在浏览器窗口中水平居中显示，常见的宽度值为960px、980px、1000px、1200px等。</p>
+<h2 id="布局流程"><a href="#布局流程" class="headerlink" title="布局流程"></a>布局流程</h2><p>为了提高网页制作的效率，布局时通常需要遵守一定的布局流程，具体如下：</p>
+<p>1、确定页面的版心（可视区）。</p>
+<p>2、分析页面中的行模块，以及每个行模块中的列模块。</p>
+<p>3、制作HTML结构 。</p>
+<p>4、CSS初始化，然后开始运用盒子模型的原理，通过DIV+CSS布局来控制网页的各个模块。</p>
+<h2 id="一列固定宽度且居中"><a href="#一列固定宽度且居中" class="headerlink" title="一列固定宽度且居中"></a>一列固定宽度且居中</h2><p><img src="https://i.loli.net/2019/08/12/oqdWEUfi62Z7Dlx.jpg" alt=""></p>
+<p>最普通的，最为常用的结构。</p>
+<h2 id="两列左窄右宽型"><a href="#两列左窄右宽型" class="headerlink" title="两列左窄右宽型"></a>两列左窄右宽型</h2><p><img src="https://i.loli.net/2019/08/12/NKBJgVjr72OEdtU.jpg" alt=""></p>
+<h2 id="通栏平均分布型"><a href="#通栏平均分布型" class="headerlink" title="通栏平均分布型"></a>通栏平均分布型</h2><p><img src="https://i.loli.net/2019/08/12/8S4KYVewypaZzd2.jpg" alt=""></p>
+<h1 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h1><h2 id="清除浮动本质"><a href="#清除浮动本质" class="headerlink" title="清除浮动本质"></a>清除浮动本质</h2><p>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。<br><img src="https://i.loli.net/2019/08/12/jpB6Kd4xltQL1YO.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/08/12/rSNzU9H4KushGxo.jpg" alt=""></p>
+<h2 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h2><p>其实本质叫做闭合浮动更好一些, 记住，清除浮动就是把浮动的盒子圈到里面，让父盒子闭合出口和入口不让他们出来影响其他元素。</p>
+<p>在CSS中，clear属性用于清除浮动，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;clear:属性值;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>tomcat2：修改tomcat3中bin下startup.sh 和 shutdown.sh 两个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、tomcat2中bin下startup.sh</span><br><span class="line">命令： vi startup.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE2</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME2</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME2</span><br><span class="line"></span><br><span class="line">2、tomcat2中bin下shutdown.sh</span><br><span class="line">命令： vi shutdown.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE2</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME2</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME2</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>不允许左侧有浮动元素（清除左侧浮动的影响）</td>
+</tr>
+<tr>
+<td>right</td>
+<td>不允许右侧有浮动元素（清除右侧浮动的影响）</td>
+</tr>
+<tr>
+<td>both</td>
+<td>同时清除左右两侧浮动的影响</td>
+</tr>
+</tbody></table>
+<h3 id="额外标签法"><a href="#额外标签法" class="headerlink" title="额外标签法"></a>额外标签法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是W3C推荐的做法是通过在浮动元素末尾添加一个空的标签例如 <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">”clear:both”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>，或则其他标签br等亦可。</span><br></pre></td></tr></table></figure>
 
-<h2 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h2><p>和之前MySQL开放防火墙3306端口操作一样。</p>
-<p>【1】查看目前防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+<p>优点： 通俗易懂，书写方便</p>
+<p>缺点： 添加许多无意义的标签，结构化较差。  不推荐。</p>
+<h3 id="父级添加overflow属性方法"><a href="#父级添加overflow属性方法" class="headerlink" title="父级添加overflow属性方法"></a>父级添加overflow属性方法</h3><p>可以通过触发BFC的方式，可以实现清除浮动效果。（BFC后面讲解）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以给父级添加： overflow为 hidden|auto|scroll  都可以实现。</span><br></pre></td></tr></table></figure>
+<p>优点：  代码简洁</p>
+<p>缺点：  内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素。</p>
+<h3 id="使用after伪元素清除浮动"><a href="#使用after伪元素清除浮动" class="headerlink" title="使用after伪元素清除浮动"></a>使用after伪元素清除浮动</h3><p><strong>:after 方式为空元素的升级版，好处是不用单独加标签了</strong> </p>
+<p>使用方法：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;  <span class="attribute">content</span>: <span class="string">"."</span>; <span class="attribute">display</span>: block; <span class="attribute">height</span>: <span class="number">0</span>; <span class="attribute">clear</span>: both; <span class="attribute">visibility</span>: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line">.clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专有 */</span><br></pre></td></tr></table></figure>
 
-<p>【2】开放3306端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8081/tcp	//8082同理</span><br></pre></td></tr></table></figure>
+<p>优点： 符合闭合浮动思想  结构语义化正确</p>
+<p>缺点： 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</p>
+<p>注意： content:”.”  里面尽量跟一个小点，或者其他，尽量不要为空，否则再firefox 7.0前的版本会有生成空格。</p>
+<h3 id="使用before和after双伪元素清除浮动"><a href="#使用before和after双伪元素清除浮动" class="headerlink" title="使用before和after双伪元素清除浮动"></a>使用before和after双伪元素清除浮动</h3><p>使用方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123; </span><br><span class="line">  <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>:table;  <span class="comment">/* 这句话可以出发BFC BFC可以清除浮动,BFC我们后面讲 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line"> <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>【3】重启防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service firewalld restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="开启并测试"><a href="#开启并测试" class="headerlink" title="开启并测试"></a>开启并测试</h2><p>在相应bin目录下分别运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh startup.sh	//关闭为shutdown.sh</span><br></pre></td></tr></table></figure>
-
-<p>然后在远程浏览器地址栏输入:　ip:port，比如192.168.1.152:8081或192.168.1.152:8082弹出Tomcat页面即说明成功，测试成功记得关闭服务器。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<p>优点：  代码更简洁</p>
+<p>缺点：  由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -824,6 +483,1463 @@ if(referer==null || referer.startsWith("https://localhost")){
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/" itemprop="url">前端开发(1)-CSS入门及提高7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h1><p>所谓层叠性是指多种CSS样式的叠加。</p>
+<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉。</p>
+<p>比如先给某个标签指定了内部文字颜色为红色，接着又指定了颜色为蓝色，此时出现一个标签指定了相同样式不同值的情况，这就是样式冲突。</p>
+<p>一般情况下，如果出现样式冲突，则会按照CSS书写的顺序，以最后的样式为准。</p>
+<ol>
+<li>样式冲突，遵循的原则是就近原则。 那个样式离着结构近，就执行那个样式。</li>
+<li>样式不冲突，不会层叠</li>
+</ol>
+<h1 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h1><p>所谓继承性是指书写CSS样式表时，子标签会继承父标签的某些样式，如文本颜色和字号。想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰当地使用继承可以简化代码，降低CSS样式的复杂性。子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性）</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h1><p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，这时就会出现优先级的问题。</p>
+<h2 id="CSS特殊性"><a href="#CSS特殊性" class="headerlink" title="CSS特殊性"></a>CSS特殊性</h2><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity，我们称为CSS 特性或称非凡性，它是一个衡量CSS值优先级的一个标准 具体规范入如下：</p>
+<p>specificity用一个四位的数 字串(CSS2是三位)来表示，更像四个级别，值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </p>
+<table>
+<thead>
+<tr>
+<th>继承或者* 的贡献值</th>
+<th>0,0,0,0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>每个元素（标签）贡献值为</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类贡献值为</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID贡献值为</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式贡献值</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important贡献值</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<p>权重是可以叠加的</p>
+<p> 比如的例子：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">div ul  li   ------&gt;      0,0,0,3</span><br><span class="line"></span><br><span class="line">.nav ul li   ------&gt;      0,0,1,2</span><br><span class="line"></span><br><span class="line">a:hover      -----—&gt;      0,0,1,1</span><br><span class="line"></span><br><span class="line">.nav a       ------&gt;      0,0,1,1   </span><br><span class="line"></span><br><span class="line">#nav p       -----&gt;       0,1,0,1</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<p>1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</p>
+<ol start="2">
+<li>继承的 权重是 0</li>
+</ol>
+<p>总结优先级：</p>
+<ol>
+<li>使用了 !important声明的规则。</li>
+<li>内嵌在 HTML 元素的 style属性里面的声明。</li>
+<li>使用了 ID 选择器的规则。</li>
+<li>使用了类选择器、属性选择器、伪元素和伪类选择器的规则。</li>
+<li>使用了元素选择器的规则。</li>
+<li>只包含一个通用选择器的规则。</li>
+<li>同一类选择器则遵循就近原则。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结：权重是优先级的算法，层叠是优先级的表现</span><br></pre></td></tr></table></figure>
+<p>​ </p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%988/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%988/" itemprop="url">前端开发(1)-CSS入门及提高8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h1><p>​<br><img src="https://i.loli.net/2019/08/05/7ofCclWuArpPJ6t.png" alt="盒子模型示意图"></p>
+<h1 id="盒子边框（border）"><a href="#盒子边框（border）" class="headerlink" title="盒子边框（border）"></a>盒子边框（border）</h1><p>语法： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border : border-width || border-style || border-color</span><br></pre></td></tr></table></figure>
+
+<p>边框属性—设置边框样式（border-style）</p>
+<p>边框样式用于定义页面中边框的风格，常用属性值如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">none：没有边框即忽略所有边框的宽度（默认值）</span><br><span class="line"></span><br><span class="line">solid：边框为单实线(最为常用的)</span><br><span class="line"></span><br><span class="line">dashed：边框为虚线  </span><br><span class="line"></span><br><span class="line">dotted：边框为点线</span><br><span class="line"></span><br><span class="line">double：边框为双实线</span><br></pre></td></tr></table></figure>
+
+<h2 id="盒子边框写法总结表"><a href="#盒子边框写法总结表" class="headerlink" title="盒子边框写法总结表"></a>盒子边框写法总结表</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设置内容</td>
+<td>样式属性</td>
+<td>常用属性值</td>
+</tr>
+<tr>
+<td>上边框</td>
+<td>border-top-style:样式; border-top-width:宽度;border-top-color:颜色;border-top:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>下边框</td>
+<td>border-bottom-style:样式;border- bottom-width:宽度;border- bottom-color:颜色;border-bottom:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>左边框</td>
+<td>border-left-style:样式; border-left-width:宽度;border-left-color:颜色;border-left:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>右边框</td>
+<td>border-right-style:样式;border-right-width:宽度;border-right-color:颜色;border-right:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>样式综合设置</td>
+<td>border-style:上边 [右边 下边 左边];</td>
+<td>none无（默认）、solid单实线、dashed虚线、dotted点线、double双实线</td>
+</tr>
+<tr>
+<td>宽度综合设置</td>
+<td>border-width:上边 [右边 下边 左边];</td>
+<td>像素值</td>
+</tr>
+<tr>
+<td>颜色综合设置</td>
+<td>border-color:上边 [右边 下边 左边];</td>
+<td>颜色值、#十六进制、rgb(r,g,b)、rgb(r%,g%,b%)</td>
+</tr>
+<tr>
+<td>边框综合设置</td>
+<td>border:四边宽度 四边样式 四边颜色;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="表格的细线边框"><a href="#表格的细线边框" class="headerlink" title="表格的细线边框"></a>表格的细线边框</h2><p>table{ border-collapse:collapse; }  collapse 单词是合并的意思</p>
+<p>border-collapse:collapse; 表示边框合并在一起。 </p>
+<h2 id="圆角边框-CSS3"><a href="#圆角边框-CSS3" class="headerlink" title="圆角边框(CSS3)"></a>圆角边框(CSS3)</h2><p>radius 半径（距离）</p>
+<p>语法格式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span>: 左上角  右上角  右下角  左下角;</span><br></pre></td></tr></table></figure>
+
+<h1 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h1><p>padding属性用于设置内边距。  是指 边框与内容之间的距离。</p>
+<p>padding-top:上内边距</p>
+<p>padding-right:右内边距</p>
+<p>padding-bottom:下内边距</p>
+<p>padding-left:左内边距</p>
+<p>注意：  后面跟几个数值表示的意思是不一样的。</p>
+<table>
+<thead>
+<tr>
+<th>值的个数</th>
+<th>表达意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1个值</td>
+<td>padding：上下左右边距 比如padding: 3px; 表示上下左右都是3像素</td>
+</tr>
+<tr>
+<td>2个值</td>
+<td>padding: 上下边距 左右边距 比如 padding: 3px 5px; 表示 上下3像素 左右 5像素</td>
+</tr>
+<tr>
+<td>3个值</td>
+<td>padding：上边距 左右边距 下边距 比如 padding: 3px 5px 10px; 表示 上是3像素 左右是5像素 下是10像素</td>
+</tr>
+<tr>
+<td>4个值</td>
+<td>padding:上内边距 右内边距 下内边距 左内边距 比如: padding: 3px 5px 10px 15px; 表示 上3px 右是5px 下 10px 左15px 顺时针</td>
+</tr>
+</tbody></table>
+<h1 id="外边距（margin）"><a href="#外边距（margin）" class="headerlink" title="外边距（margin）"></a>外边距（margin）</h1><p>margin属性用于设置外边距。  设置外边距会在元素之间创建“空白”， 这段空白通常不能放置其他内容。</p>
+<p>margin-top:上外边距</p>
+<p>margin-right:右外边距</p>
+<p>margin-bottom:下外边距</p>
+<p>margin-left:左外边距</p>
+<p>margin:上外边距 右外边距  下外边距  左外边</p>
+<p>取值顺序跟内边距相同。</p>
+<h2 id="外边距实现盒子居中"><a href="#外边距实现盒子居中" class="headerlink" title="外边距实现盒子居中"></a>外边距实现盒子居中</h2><p>可以让一个盒子实现水平居中，需要满足一下两个条件：</p>
+<ol>
+<li>必须是块级元素。     </li>
+<li>盒子必须指定了宽度（width）</li>
+</ol>
+<p>然后就给<strong>左右的外边距都设置为auto</strong>，就可使块级元素水平居中。</p>
+<p>实际工作中常用这种方式进行网页布局，示例代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span>&#123; <span class="attribute">width</span>:<span class="number">960px</span>; <span class="attribute">margin</span>:<span class="number">0</span> auto;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="文字盒子居中图片和背景区别"><a href="#文字盒子居中图片和背景区别" class="headerlink" title="文字盒子居中图片和背景区别"></a>文字盒子居中图片和背景区别</h2><ol>
+<li>文字水平居中是  text-align: center</li>
+<li>盒子水平居中  左右margin 改为 auto </li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>; <span class="comment">/*  文字居中水平 */</span></span><br><span class="line"><span class="selector-tag">margin</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">auto</span>;  <span class="comment">/* 盒子水平居中  左右margin 改为 auto 就阔以了 */</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>插入图片 我们用的最多 比如产品展示类</li>
+<li>背景图片我们一般用于小图标背景 或者 超大背景图片</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">img</span> &#123;  </span><br><span class="line">		<span class="attribute">width</span>: <span class="number">200px</span>;<span class="comment">/* 插入图片更改大小 width 和 height */</span></span><br><span class="line">		<span class="attribute">height</span>: <span class="number">210px</span>;</span><br><span class="line">		<span class="attribute">margin-top</span>: <span class="number">30px</span>;  <span class="comment">/* 插入图片更改位置 可以用margin 或padding  盒模型 */</span></span><br><span class="line">		<span class="attribute">margin-left</span>: <span class="number">50px</span>; <span class="comment">/* 插入当图片也是一个盒子 */</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">		<span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">		<span class="attribute">border</span>: <span class="number">1px</span> solid purple;</span><br><span class="line">		<span class="attribute">background</span>: <span class="number">#fff</span> <span class="built_in">url</span>(images/sun.jpg) no-repeat;</span><br><span class="line">	</span><br><span class="line">		<span class="attribute">background-size</span>: <span class="number">200px</span> <span class="number">210px</span>; <span class="comment">/*  背景图片更改大小只能用 background-size */</span></span><br><span class="line">		<span class="attribute">background-position</span>: <span class="number">30px</span> <span class="number">50px</span>; <span class="comment">/* 背景图片更该位置 我用 background-position */</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="清除元素的默认内外边距"><a href="#清除元素的默认内外边距" class="headerlink" title="清除元素的默认内外边距"></a>清除元素的默认内外边距</h1><p>为了更方便地控制网页中的元素，制作网页时，可使用如下代码清除元素的默认内外边距： </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   <span class="attribute">padding</span>:<span class="number">0</span>;         <span class="comment">/* 清除内边距 */</span></span><br><span class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;          <span class="comment">/* 清除外边距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：  行内元素是只有左右外边距的，是没有上下外边距的。 内边距，在ie6等低版本浏览器也会有问题。</p>
+<p>我们尽量不要给行内元素指定上下的内外边距就好了。</p>
+<h1 id="外边距合并"><a href="#外边距合并" class="headerlink" title="外边距合并"></a>外边距合并</h1><p>使用margin定义块元素的垂直外边距时，可能会出现外边距的合并。</p>
+<h2 id="相邻块元素垂直外边距的合并"><a href="#相邻块元素垂直外边距的合并" class="headerlink" title="相邻块元素垂直外边距的合并"></a>相邻块元素垂直外边距的合并</h2><p>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和，而是两者中的较大者。这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</p>
+<p><img src="https://i.loli.net/2019/08/07/2CKvWhbYl5nMJyU.png" alt=""></p>
+<p>解决方案：  避免就好了。</p>
+<h2 id="嵌套块元素垂直外边距的合并"><a href="#嵌套块元素垂直外边距的合并" class="headerlink" title="嵌套块元素垂直外边距的合并"></a>嵌套块元素垂直外边距的合并</h2><p>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，则父元素的上外边距会与子元素的上外边距发生合并，合并后的外边距为两者中的较大者，即使父元素的上外边距为0，也会发生合并。</p>
+<p><img src="https://i.loli.net/2019/08/07/EgDNQFL9w6l5zy4.png" alt=""></p>
+<p>解决方案：</p>
+<ol>
+<li>可以为父元素定义1像素的上边框或上内边距。</li>
+<li>可以为父元素添加overflow:hidden。</li>
+</ol>
+<h1 id="content宽度和高度"><a href="#content宽度和高度" class="headerlink" title="content宽度和高度"></a>content宽度和高度</h1><p>使用宽度属性width和高度属性height可以对盒子的大小进行控制。</p>
+<p>width和height的属性值可以为不同单位的数值或相对于父元素的百分比%，实际工作中最常用的是像素值。</p>
+<p>大多数浏览器，如Firefox、IE6及以上版本都采用了W3C规范，符合CSS规范的盒子模型的总宽度和总高度的计算原则是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*外盒尺寸计算（元素空间尺寸）*/</span><br><span class="line">Element空间高度 = content height + padding + border + margin</span><br><span class="line">Element 空间宽度 = content width + padding + border + margin</span><br><span class="line">/*内盒尺寸计算（元素实际大小）*/</span><br><span class="line">Element Height = content height + padding + border （Height为内容高度）</span><br><span class="line">Element Width = content width + padding + border （Width为内容宽度）</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>1、宽度属性width和高度属性height仅适用于块级元素，对行内元素无效（ img 标签和 input除外）。</p>
+<p>2、计算盒子模型的总高度时，还应考虑上下两个盒子垂直外边距合并的情况。</p>
+<p>3、<strong>如果一个盒子没有给定宽度/高度或者继承父亲的宽度/高度，则padding 不会影响本盒子大小</strong>。</p>
+<h1 id="盒子模型布局稳定性"><a href="#盒子模型布局稳定性" class="headerlink" title="盒子模型布局稳定性"></a>盒子模型布局稳定性</h1><p>开始学习盒子模型，同学们最大的困惑就是， 分不清内外边距的使用，什么情况下使用内边距，什么情况下使用外边距？</p>
+<p>答案是：  其实他们大部分情况下是可以混用的。  就是说，你用内边距也可以，用外边距也可以。 你觉得哪个方便，就用哪个。</p>
+<p>但是，总有一个最好用的吧，我们根据稳定性来分，建议如下：</p>
+<p>按照 优先使用  宽度 （width）  其次 使用内边距（padding）    再次  外边距（margin）。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width &gt;  padding  &gt;   margin</span><br></pre></td></tr></table></figure>
+
+<p>原因：</p>
+<ol>
+<li><p>margin 会有外边距合并 还有 ie6下面margin 加倍的bug（讨厌）所以最后使用。</p>
+</li>
+<li><p>padding  会影响盒子大小， 需要进行加减计算（麻烦） 其次使用。</p>
+</li>
+<li><p>width   没有问题（嗨皮）我们经常使用宽度剩余法 高度剩余法来做。</p>
+</li>
+</ol>
+<h1 id="CSS3盒模型"><a href="#CSS3盒模型" class="headerlink" title="CSS3盒模型"></a>CSS3盒模型</h1><p>CSS3中可以通过box-sizing 来指定盒模型，即可指定为content-box、border-box，这样我们计算盒子大小的方式就发生了改变。</p>
+<p>可以分成两种情况：</p>
+<p>1、box-sizing: content-box  盒子大小为 width + padding + border   content-box:此值为其默认值，其让元素维持W3C的标准Box Mode</p>
+<p>2、box-sizing: border-box  盒子大小为 width    就是说  padding 和 border 是包含到width里面的</p>
+<p>注：上面的标注的width指的是CSS属性里设置的width: length，content的值是会自动调整的。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: skyblue;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid gray;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* </span></span><br><span class="line"><span class="comment">  默认的设置 如果我们添加了 border属性 该容器的大小会发生改变</span></span><br><span class="line"><span class="comment">  因为他要优先保证内部的内容所占区域 不变</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*  </span></span><br><span class="line"><span class="comment">  box-sizing  如果不设置 默认的值 就是 </span></span><br><span class="line"><span class="comment">  content-box: 优先保证内容的大小 对盒子进行缩放;</span></span><br><span class="line"><span class="comment">  border-box: 让 盒子 优先保证自己所占区域的大小,对内容进行压缩;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><p>语法格式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:水平阴影 垂直阴影 模糊距离 阴影尺寸 阴影颜色  内/外阴影；</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/07/FlXYd7mz6NVstyU.png" alt=""></p>
+<ol>
+<li>前两个属性是必须写的。其余的可以省略。</li>
+<li>外阴影 (outset) 但是不能写    默认      想要内阴影  inset </li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">10px</span> solid orange;</span><br><span class="line">  <span class="attribute">box-shadow</span>:<span class="number">3px</span> <span class="number">3px</span> <span class="number">5px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(0,0,0,1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/2019-08-01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%986/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/01/2019-08-01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%986/" itemprop="url">前端开发(1)-CSS入门及提高6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">
+                2019-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="CSS书写规范"><a href="#CSS书写规范" class="headerlink" title="CSS书写规范"></a>CSS书写规范</h1><p>开始就形成良好的书写规范，是你专业化的开始。</p>
+<h2 id="空格规范"><a href="#空格规范" class="headerlink" title="空格规范"></a>空格规范</h2><p>【强制】 选择器 与 { 之间必须包含空格。</p>
+<p>示例： .selector { }</p>
+<p>【强制】 属性名 与之后的 : 之间不允许包含空格， : 与 属性值 之间必须包含空格。</p>
+<p>示例：</p>
+<p>font-size: 12px;</p>
+<h2 id="选择器规范"><a href="#选择器规范" class="headerlink" title="选择器规范"></a>选择器规范</h2><p>【强制】 当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/* good */</span><br><span class="line">.post,</span><br><span class="line">.page,</span><br><span class="line">.comment &#123;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* bad */</span><br><span class="line">.post, .page, .comment &#123;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>【建议】 选择器的嵌套层级应不大于 3 级，位置靠后的限定条件应尽可能精确。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/* good */</span><br><span class="line">#username input &#123;&#125;</span><br><span class="line">.comment .avatar &#123;&#125;</span><br><span class="line"></span><br><span class="line">/* bad */</span><br><span class="line">.page .header .login #username input &#123;&#125;</span><br><span class="line">.comment div * &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性规范"><a href="#属性规范" class="headerlink" title="属性规范"></a>属性规范</h2><p>【强制】 属性定义必须另起一行。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* good */</span><br><span class="line">.selector &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* bad */</span><br><span class="line">.selector &#123; margin: 0; padding: 0; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>【强制】 属性定义后必须以分号结尾。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* good */</span><br><span class="line">.selector &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* bad */</span><br><span class="line">.selector &#123;</span><br><span class="line">    margin: 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="CSS-背景-background"><a href="#CSS-背景-background" class="headerlink" title="CSS 背景(background)"></a>CSS 背景(background)</h1><p>CSS 可以添加背景颜色和背景图片，以及来进行图片设置。</p>
+<table>
+<thead>
+<tr>
+<th>background-color</th>
+<th>背景颜色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background-image</td>
+<td>背景图片地址</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>是否平铺</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>背景位置</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>背景固定还是滚动</td>
+</tr>
+<tr>
+<td>背景的合写（复合属性）</td>
+<td></td>
+</tr>
+<tr>
+<td>background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="背景图片-image"><a href="#背景图片-image" class="headerlink" title="背景图片(image)"></a>背景图片(image)</h2><p>语法： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image : none | url (url)</span><br></pre></td></tr></table></figure>
+
+<p>参数： </p>
+<p>none : 　无背景图（默认的）<br>url : 　使用绝对或相对地址指定背景图像 </p>
+<p>background-image 属性允许指定一个图片展示在背景中（只有CSS3才可以多背景）可以和 background-color 连用。 如果图片不重复地话，图片覆盖不到地地方都会被背景色填充。 如果有背景图片平铺，则会覆盖背景颜色。</p>
+<p>小技巧：  我们提倡 背景图片后面的地址，url不要加引号。</p>
+<h2 id="背景平铺（repeat）"><a href="#背景平铺（repeat）" class="headerlink" title="背景平铺（repeat）"></a>背景平铺（repeat）</h2><p>语法： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-repeat : repeat | no-repeat | repeat-x | repeat-y</span><br></pre></td></tr></table></figure>
+
+<p>参数： </p>
+<p>repeat : 　背景图像在纵向和横向上平铺（默认的）</p>
+<p>no-repeat : 　背景图像不平铺</p>
+<p>repeat-x : 　背景图像在横向上平铺</p>
+<p>repeat-y : 　背景图像在纵向平铺 </p>
+<p>设置背景图片时，默认把图片在水平和垂直方向平铺以铺满整个元素。</p>
+<h2 id="背景位置-position"><a href="#背景位置-position" class="headerlink" title="背景位置(position)"></a>背景位置(position)</h2><p>语法： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background-position : length || length</span><br><span class="line"></span><br><span class="line">background-position : position || position</span><br></pre></td></tr></table></figure>
+
+<p>参数： </p>
+<p>length : 　百分数 | 由浮点数字和单位标识符组成的长度值。请参阅长度单位<br>position : 　top | center | bottom | left | center | right </p>
+<p>说明： </p>
+<p>设置或检索对象的背景图像位置。必须先指定background-image属性。默认值为：(0% 0%)。<br>如果只指定了一个值，该值将用于横坐标。纵坐标将默认为50%。第二个值将用于纵坐标。</p>
+<p>注意：</p>
+<ol>
+<li>position 后面是x坐标和y坐标。 可以使用方位名词或者 精确单位。</li>
+<li>如果和精确单位和方位名字混合使用，则必须是x坐标在前，y坐标后面。比如 background-position: 15px top;   则 15px 一定是  x坐标   top是 y坐标。</li>
+</ol>
+<p>实际工作用的最多的，就是背景图片居中对齐了。</p>
+<h2 id="背景附着"><a href="#背景附着" class="headerlink" title="背景附着"></a>背景附着</h2><p>语法： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-attachment : scroll | fixed</span><br></pre></td></tr></table></figure>
+
+<p>参数： </p>
+<p>scroll : 　背景图像是随对象内容滚动<br>fixed : 　背景图像固定 </p>
+<p>说明： </p>
+<p>设置或检索背景图像是随对象内容滚动还是固定的。</p>
+<h2 id="背景简写"><a href="#背景简写" class="headerlink" title="背景简写"></a>背景简写</h2><p>background属性的值的书写顺序官方并没有强制标准的。为了可读性，建议大家如下写：</p>
+<p>background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">transparent</span> <span class="selector-tag">url</span>(<span class="selector-tag">image</span><span class="selector-class">.jpg</span>) <span class="selector-tag">repeat-y</span>  <span class="selector-tag">scroll</span> 50% 0 ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="背景透明-CSS3"><a href="#背景透明-CSS3" class="headerlink" title="背景透明(CSS3)"></a>背景透明(CSS3)</h2><p>CSS3支持背景半透明的写法语法格式是:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>最后一个参数是alpha 透明度  取值范围 0~1之间</p>
+<p>注意：  背景半透明是指盒子背景半透明， 盒子里面的内容不收影响。</p>
+<h2 id="背景缩放-CSS3"><a href="#背景缩放-CSS3" class="headerlink" title="背景缩放(CSS3)"></a>背景缩放(CSS3)</h2><p>通过background-size设置背景图片的尺寸，就像我们设置img的尺寸一样，在移动Web开发中做屏幕适配应用非常广泛。</p>
+<p>其参数设置如下：</p>
+<p>a) 可以设置长度单位(px)或百分比（设置百分比时，参照盒子的宽高）</p>
+<p>b) 设置为cover时，会自动调整缩放比例，保证图片始终填充满背景区域，如有溢出部分则会被隐藏。我们平时用的cover 最多</p>
+<p>c) 设置为contain会自动调整缩放比例，保证图片始终完整显示在背景区域。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url('images/gyt.jpg');</span><br><span class="line">			<span class="selector-tag">background-size</span>: 300<span class="selector-tag">px</span> 100<span class="selector-tag">px</span>;</span><br><span class="line">			<span class="comment">/* background-size: contain; */</span></span><br><span class="line">			<span class="comment">/* background-size: cover; */</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="多背景-CSS3"><a href="#多背景-CSS3" class="headerlink" title="多背景(CSS3)"></a>多背景(CSS3)</h2><p>以逗号分隔可以设置多背景，可用于自适应布局  做法就是 用逗号隔开就好了。</p>
+<ul>
+<li>一个元素可以设置多重背景图像。 </li>
+<li>每组属性间使用逗号分隔。 </li>
+<li>如果设置的多重背景图之间存在着交集（即存在着重叠关系），前面的背景图会覆盖在后面的背景图之上。</li>
+<li>为了避免背景色将图像盖住，背景色通常都定义在最后一组上，</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background:url(test1.jpg) no-repeat scroll 10px 20px/50px 60px  ,</span><br><span class="line">	   url(test1.jpg) no-repeat scroll 10px 20px/70px 90px ,</span><br><span class="line">	   url(test1.jpg) no-repeat scroll 10px 20px/110px 130px c #aaa;</span><br></pre></td></tr></table></figure>
+
+<h2 id="凹凸文字案例"><a href="#凹凸文字案例" class="headerlink" title="凹凸文字案例"></a>凹凸文字案例</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">head</span>&gt;</span><br><span class="line">        &lt;meta charset="utf-8"&gt;</span><br><span class="line">        &lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">        <span class="selector-tag">body</span> &#123;</span><br><span class="line">        	<span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="selector-tag">div</span> &#123;</span><br><span class="line">			<span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">			<span class="attribute">font</span>: <span class="number">700</span> <span class="number">80px</span> <span class="string">"微软雅黑"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">			<span class="comment">/* text-shadow: 水平位置  垂直位置  模糊距离 阴影颜色; */</span></span><br><span class="line">			<span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">1px</span> <span class="number">#000</span>, -<span class="number">1px</span> -<span class="number">1px</span> <span class="number">1px</span> <span class="number">#fff</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">			<span class="comment">/* text-shadow: 水平位置  垂直位置  模糊距离 阴影颜色; */</span></span><br><span class="line">			<span class="attribute">text-shadow</span>: -<span class="number">1px</span> -<span class="number">1px</span> <span class="number">1px</span> <span class="number">#000</span>, <span class="number">1px</span> <span class="number">1px</span> <span class="number">1px</span> <span class="number">#fff</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line">    &lt;div&gt;我是凸起的文字&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;我是凹下的文字&lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="导航栏案例"><a href="#导航栏案例" class="headerlink" title="导航栏案例"></a>导航栏案例</h2><h3 id="文本的装饰"><a href="#文本的装饰" class="headerlink" title="文本的装饰"></a>文本的装饰</h3><p>text-decoration   通常我们用于给链接修改装饰效果</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认。定义标准的文本。</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>定义文本下的一条线。下划线 也是我们链接自带的</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>定义文本上的一条线。</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>定义穿过文本下的一条线。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>使用技巧</strong>：在一行内的盒子内，我们设定行高等于盒子的高度，就可以使文字垂直居中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">		body &#123;</span><br><span class="line"><span class="css">			<span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span></span><br><span class="line">		&#125;</span><br><span class="line">		a &#123;</span><br><span class="line">			width: 200px;</span><br><span class="line">			height: 50px;</span><br><span class="line"><span class="css">			<span class="comment">/* background-color: orange; */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;  <span class="comment">/* 把a 行内元素转换为行内块元素 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>;  <span class="comment">/* 文字水平居中 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">line-height</span>: 50<span class="selector-tag">px</span>;  <span class="comment">/* 我们设定行高等于盒子的高度，就可以使文字垂直居中 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">			font-size: 22px;</span><br><span class="line"><span class="css">			<span class="selector-tag">text-decoration</span>: <span class="selector-tag">none</span>;  <span class="comment">/* 取消下划线 文本装饰 */</span></span></span><br><span class="line">		&#125;</span><br><span class="line"><span class="css">		<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;  <span class="comment">/* 鼠标经过 给我们的链接添加背景图片*/</span></span></span><br><span class="line">			background: url(images/h.png) no-repeat; </span><br><span class="line">		&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>专区说明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>申请资格<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>兑换奖励<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>下载游戏<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/2019-07-27-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%985/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/27/2019-07-27-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%985/" itemprop="url">前端开发(1)-CSS入门及提高5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T00:00:00+08:00">
+                2019-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<hr />
+>复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的,目的是为了可以选择更准确更精细的目标元素标签。
+
+<h1 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h1><p>交集选择器由两个选择器构成，其中第一个为标签选择器，第二个为class选择器，两个选择器之间不能有空格。</p>
+<p><img src="https://i.loli.net/2019/07/29/5d3e59fa6a64082735.png" alt="交集选择器"></p>
+<h1 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h1><p>并集选择器（CSS选择器分组）是各个选择器通过<strong style="color:#f00">逗号</strong>连接而成的，任何形式的选择器（包括标签选择器、class类选择器id选择器等），都可以作为并集选择器的一部分。如果某些选择器定义的样式完全相同，或部分相同，就可以利用并集选择器为它们定义相同的CSS样式。</p>
+<p><img src="https://i.loli.net/2019/07/29/5d3e66318a79e75196.png" alt="并集选择器"></p>
+<h1 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h1><p>后代选择器又称为包含选择器，用来选择元素或元素组的后代，其写法就是把外层标签写在前面，内层标签写在后面，中间用空格分隔。当标签发生嵌套时，内层标签就成为外层标签的后代。</p>
+<p><img src="https://i.loli.net/2019/07/29/5d3e6ccf64f3135737.png" alt="后代选择器"></p>
+<h1 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h1><p>子元素选择器只能选择作为某元素子元素的元素。其写法就是把父级标签写在前面，子级标签写在后面，中间跟一个 &gt; 进行连接，注意，符号左右两侧各保留一个空格。</p>
+<p><img src="https://i.loli.net/2019/08/01/5d424f8c23e0c54263.png" alt="子元素选择器"></p>
+<h1 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h1><p>选取标签带有某些特殊属性的选择器 我们成为属性选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取到 拥有 该属性的元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class^=font]</span> &#123; <span class="comment">/*  class^=font 表示 font 开始位置就行了 */</span></span><br><span class="line">			<span class="attribute">color</span>: pink;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class$=footer]</span> &#123; <span class="comment">/*  class$=footer 表示 footer 结束位置就行了 */</span></span><br><span class="line">			<span class="attribute">color</span>: skyblue;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class*=tao]</span> &#123; <span class="comment">/* class*=tao 表示tao 在任意位置都可以 */</span></span><br><span class="line">			<span class="attribute">color</span>: green;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font12"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font12"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font24"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font24"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font24"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"24font"</span>&gt;</span>属性选择器123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sub-footer"</span>&gt;</span>属性选择器footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jd-footer"</span>&gt;</span>属性选择器footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"news-tao-nav"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"news-tao-header"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tao-header"</span>&gt;</span>属性选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="伪元素选择器（CSS3"><a href="#伪元素选择器（CSS3" class="headerlink" title="伪元素选择器（CSS3)"></a>伪元素选择器（CSS3)</h1><ol>
+<li>E::first-letter文本的第一个单词或字（如中文、日文、韩文等）</li>
+<li>E::first-line 文本第一行；</li>
+<li>E::selection 可改变选中文本的样式；</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-letter</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">color</span>: hotpink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 首行特殊样式 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-line</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="comment">/* font-size: 50px; */</span></span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4、E::before和E::after</p>
+<p>在E元素内部的开始位置和结束位创建一个元素，该元素为行内元素，且必须要结合content属性使用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::befor</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>:<span class="string">"开始"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>:<span class="string">"结束"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>E:after、E:before 在旧版本里是伪元素，CSS3的规范里“:”用来表示伪类，“::”用来表示伪元素，但是在高版本浏览器下E:after、E:before会被自动识别为E::after、E::before，这样做的目的是用来做兼容处理。</p>
+<p>E:after、E:before后面的练习中会反复用到，目前只需要有个大致了解</p>
+<p>“:” 与 “::” 区别在于区分伪类和伪元素</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/2019-07-21-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%984/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/21/2019-07-21-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%984/" itemprop="url">前端开发(1)-CSS入门及提高4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T00:00:00+08:00">
+                2019-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="引入CSS样式表（书写位置）"><a href="#引入CSS样式表（书写位置）" class="headerlink" title="引入CSS样式表（书写位置）"></a>引入CSS样式表（书写位置）</h1><p>CSS可以写到那个位置？ 是不是一定写到html文件里面呢？</p>
+<h2 id="内部样式表（内嵌式）"><a href="#内部样式表（内嵌式）" class="headerlink" title="内部样式表（内嵌式）"></a>内部样式表（内嵌式）</h2><p>内嵌式是将CSS代码集中写在HTML文档的head头部标签中，并且用style标签定义，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/CSS"</span>&gt;</span></span><br><span class="line">    选择器 &#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>语法中，style标签一般位于head标签中title标签之后，也可以把他放在HTML文档的任何地方。</p>
+<h2 id="行内式（内联样式）"><a href="#行内式（内联样式）" class="headerlink" title="行内式（内联样式）"></a>行内式（内联样式）</h2><p>是通过标签的style属性来设置元素的样式，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;标签名 style=&quot;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&quot;&gt; 内容 &lt;/标签名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法中style是标签的属性，实际上任何HTML标签都拥有style属性，用来设置行内式。其中属性和值的书写规范与CSS样式规则相同，行内式只对其所在的标签及嵌套在其中的子标签起作用。</p>
+<h2 id="外部样式表（外链式）"><a href="#外部样式表（外链式）" class="headerlink" title="外部样式表（外链式）"></a>外部样式表（外链式）</h2><p>链入式是将所有的样式放在一个或多个以.CSS为扩展名的外部样式表文件中，通过link标签将外部样式表文件链接到HTML文档中，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"CSS文件的路径"</span> <span class="attr">type</span>=<span class="string">"text/CSS"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：  link 是个单标签哦!!!</p>
+<p>该语法中，link标签需要放在head头部标签中，并且必须指定link标签的三个属性，具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">href：定义所链接外部样式表文件的URL，可以是相对路径，也可以是绝对路径。</span><br><span class="line">type：定义所链接文档的类型，在这里需要指定为“text/CSS”，表示链接的外部文件为CSS样式表。</span><br><span class="line">rel：定义当前文档与被链接文档之间的关系，在这里需要指定为“stylesheet”，表示被链接的文档是一个样式表文件。</span><br></pre></td></tr></table></figure>
+
+<h2 id="三种样式表总结"><a href="#三种样式表总结" class="headerlink" title="三种样式表总结"></a>三种样式表总结</h2><table>
+<thead>
+<tr>
+<th>样式表</th>
+<th>优点</th>
+<th>缺点</th>
+<th>使用情况</th>
+<th>控制范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>行内样式表</td>
+<td>书写方便，权重高</td>
+<td>没有实现样式和结构相分离</td>
+<td>较少</td>
+<td>控制一个标签（少）</td>
+</tr>
+<tr>
+<td>内嵌样式表</td>
+<td>部分结构和样式相分离</td>
+<td>没有彻底分离</td>
+<td>较多</td>
+<td>控制一个页面（中）</td>
+</tr>
+<tr>
+<td>外部样式表</td>
+<td>完全实现结构和样式相分离</td>
+<td>需要引入</td>
+<td>最多，强烈推荐</td>
+<td>控制整个站点（多）</td>
+</tr>
+</tbody></table>
+<h1 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h1><p>HTML标签一般分为块标签和行内标签两种类型，它们也称块元素和行内元素。具体如下：</p>
+<h2 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h2><p>每个块元素通常都会独自占据一整行或多整行，可以对其设置宽度、高度、对齐等属性，常用于网页布局和网页结构的搭建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见的块元素有&lt;h1&gt;~&lt;h6&gt;、&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;等，其中&lt;div&gt;标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点：</p>
+<p>（1）总是从新行开始</p>
+<p>（2）高度，行高、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器的100%</p>
+<p>（4）可以容纳内联元素和其他块元素。</p>
+<h2 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h2><p>行内元素（内联元素）不占有独立的区域，仅仅靠自身的字体大小和图像尺寸来支撑结构，一般不可以设置宽度、高度、对齐等属性，常用于控制页面中文本的样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见的行内元素有&lt;a&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;等，其中&lt;span&gt;标签最典型的行内元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）和相邻行内元素在一行上。</p>
+<p>（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）行内元素只能容纳文本或则其他行内元素。（a特殊）</p>
+<p>注意：</p>
+<ol>
+<li>只有文字才能组成段落，因此p里面不能放块级元素，同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</li>
+<li>链接里面不能再放链接。</li>
+</ol>
+<h2 id="块级元素和行内元素区别"><a href="#块级元素和行内元素区别" class="headerlink" title="块级元素和行内元素区别"></a>块级元素和行内元素区别</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块级元素的特点：</span><br><span class="line">（1）总是从新行开始</span><br><span class="line">（2）高度，行高、外边距以及内边距都可以控制。</span><br><span class="line">（3）宽度默认是容器的100%</span><br><span class="line">（4）可以容纳内联元素和其他块元素。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">行内元素的特点：</span><br><span class="line">（1）和相邻行内元素在一行上。</span><br><span class="line">（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。</span><br><span class="line">（3）默认宽度就是它本身内容的宽度。</span><br><span class="line">（4）行内元素只能容纳文本或则其他行内元素。</span><br></pre></td></tr></table></figure>
+
+<h2 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——&lt;img /&gt;、&lt;input /&gt;、&lt;td&gt;，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br><span class="line"></span><br><span class="line">行内块元素的特点：</span><br><span class="line">（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。</span><br><span class="line">（2）默认宽度就是它本身内容的宽度。</span><br><span class="line">（3）高度，行高、外边距以及内边距都可以控制。</span><br></pre></td></tr></table></figure>
+
+<h2 id="相互转换"><a href="#相互转换" class="headerlink" title="相互转换"></a>相互转换</h2><p>块转行内：display：inline；</p>
+<p>行内转块：display:block；</p>
+<p>块、行内转行内块：display:inline-block；</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/2019-07-20-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%983/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/20/2019-07-20-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%983/" itemprop="url">前端开发(1)-CSS入门及提高3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-20T00:00:00+08:00">
+                2019-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="color-文本颜色"><a href="#color-文本颜色" class="headerlink" title="color:文本颜色"></a>color:文本颜色</h1><p>color属性用于定义文本的颜色，其取值方式有如下3种：</p>
+<p>1.预定义的颜色值，如red，green，blue等。</p>
+<p>2.十六进制，如#FF0000，#FF6600，#29D794等。实际工作中，十六进制是最常用的定义颜色的方式。</p>
+<p>3.RGB代码，如红色可以表示为rgb(255,0,0)或rgb(100%,0%,0%)。</p>
+<p>需要注意的是，如果使用RGB代码的百分比颜色值，取值为0时也不能省略百分号，必须写为0%。</p>
+<h1 id="line-height-行间距"><a href="#line-height-行间距" class="headerlink" title="line-height:行间距"></a>line-height:行间距</h1><p>ine-height属性用于设置行间距，就是行与行之间的距离，即字符的垂直间距，一般称为行高。line-height常用的属性值单位有三种，分别为像素px，相对值em和百分比%，实际工作中使用最多的是像素px</p>
+<p>一般情况下，行距比字号大7.8像素左右就可以了。</p>
+<h1 id="text-align-水平对齐方式"><a href="#text-align-水平对齐方式" class="headerlink" title="text-align:水平对齐方式"></a>text-align:水平对齐方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-align属性用于设置文本内容的水平对齐，相当于html中的align对齐属性。其可用属性值如下：</span><br></pre></td></tr></table></figure>
+
+<p>left：左对齐（默认值）</p>
+<p>right：右对齐</p>
+<p>center：居中对齐</p>
+<h1 id="text-indent-首行缩进"><a href="#text-indent-首行缩进" class="headerlink" title="text-indent:首行缩进"></a>text-indent:首行缩进</h1><p>text-indent属性用于设置首行文本的缩进，其属性值可为不同单位的数值、em字符宽度的倍数、或相对于浏览器窗口宽度的百分比%，允许使用负值, 建议使用em作为设置单位。</p>
+<p>1em 就是一个字的宽度   如果是汉字的段落， 1em 就是一个汉字的宽度</p>
+<h1 id="letter-spacing-字间距"><a href="#letter-spacing-字间距" class="headerlink" title="letter-spacing:字间距"></a>letter-spacing:字间距</h1><p>letter-spacing属性用于定义字间距，所谓字间距就是字符与字符之间的空白。其属性值可为不同单位的数值，允许使用负值，默认为normal。</p>
+<h1 id="word-spacing-单词间距"><a href="#word-spacing-单词间距" class="headerlink" title="word-spacing:单词间距"></a>word-spacing:单词间距</h1><p>word-spacing属性用于定义英文单词之间的间距，对中文字符无效。和letter-spacing一样，其属性值可为不同单位的数值，允许使用负值，默认为normal。</p>
+<p>word-spacing和letter-spacing均可对英文进行设置。不同的是letter-spacing定义的为字母之间的间距，而word-spacing定义的为英文单词之间的间距。</p>
+<h1 id="颜色半透明-css3"><a href="#颜色半透明-css3" class="headerlink" title="颜色半透明(css3)"></a>颜色半透明(css3)</h1><p>文字颜色到了CSS3我们可以采取半透明的格式了语法格式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">color</span>: <span class="selector-tag">rgba</span>(<span class="selector-tag">r</span>,<span class="selector-tag">g</span>,<span class="selector-tag">b</span>,<span class="selector-tag">a</span>)  <span class="selector-tag">a</span> 是<span class="selector-tag">alpha</span>  透明的意思  取值范围 0~1之间    <span class="selector-tag">color</span>: <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.3</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="文字阴影-CSS3"><a href="#文字阴影-CSS3" class="headerlink" title="文字阴影(CSS3)"></a>文字阴影(CSS3)</h1><p>以后我们可以给我们的文字添加阴影效果了  Shadow  影子  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-shadow</span>:水平位置 垂直位置 模糊距离 阴影颜色;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/07/20/5d32fe6890f2d89601.png" alt="文字阴影参数"></p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/" itemprop="url">前端开发(1)-CSS入门及提高2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T00:00:00+08:00">
+                2019-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
+<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
+
+<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
+
+<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+<p>用法基本和类选择器相同。</p>
+<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
+<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
+<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
+<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
+<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
+<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
+<li>:link      /* 未访问的链接 */</li>
+<li>:visited   /* 已访问的链接 */</li>
+<li>:hover     /* 鼠标移动到链接上 */</li>
+<li>:active    /* 选定的链接 */</li>
+</ul>
+<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
+<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
+<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
+<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
+</ul>
+<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -832,11 +1948,11 @@ if(referer==null || referer.startsWith("https://localhost")){
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/5/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -856,6 +1972,7 @@ if(referer==null || referer.startsWith("https://localhost")){
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -873,11 +1990,11 @@ if(referer==null || referer.startsWith("https://localhost")){
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">89</span>
+              <a href="/archives/">
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -886,8 +2003,10 @@ if(referer==null || referer.startsWith("https://localhost")){
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -962,7 +2081,7 @@ if(referer==null || referer.startsWith("https://localhost")){
         
       </div>
     
-    
+
   </div>
 
   
@@ -982,6 +2101,14 @@ if(referer==null || referer.startsWith("https://localhost")){
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1008,26 +2135,29 @@ if(referer==null || referer.startsWith("https://localhost")){
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
 
 
   
@@ -1053,21 +2183,22 @@ if(referer==null || referer.startsWith("https://localhost")){
 
 
 
-  
-
-
-
-  
-  
 
   
 
-  
+
+
+
 
   
 
   
 
+  
+
+  
+
+  
 
   
 
