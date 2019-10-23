@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaWeb3 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="responseresponse的OutputStream输出数据123456789String data = &amp;quot;中国&amp;quot;;OutputStream out = response.getOutputStream();		&#x2F;&#x2F;字节流out.write(data.getByte());		&#x2F;&#x2F;这样在浏览器显示是正确的----------------------------------">
+<meta name="keywords" content="JavaWeb,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb3">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;20&#x2F;2019-09-20-JavaWeb3&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="responseresponse的OutputStream输出数据123456789String data = &amp;quot;中国&amp;quot;;OutputStream out = response.getOutputStream();		&#x2F;&#x2F;字节流out.write(data.getByte());		&#x2F;&#x2F;这样在浏览器显示是正确的----------------------------------">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-23T01:06:27.747Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-09-20-JavaWeb3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/20/2019-09-20-JavaWeb3/" class="article-date">
+  <time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished">2019-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaWeb3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="response"><a href="#response" class="headerlink" title="response"></a>response</h1><h2 id="response的OutputStream输出数据"><a href="#response的OutputStream输出数据" class="headerlink" title="response的OutputStream输出数据"></a>response的OutputStream输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">OutputStream out = response.getOutputStream();		//字节流</span><br><span class="line">out.write(data.getByte());		//这样在浏览器显示是正确的</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">out.write(data.getBytes(“UTF-8&quot;);	//这样浏览器反而显示乱码</span><br><span class="line">//原因：浏览器拿到response解析时默认用的码表时GB2312，并不是UTF-8，所以可以修改浏览器的码表，但实际开发显然不会这样做，需要在响应头指定码表。(新版谷歌浏览器默认UTF-8且无法更换)</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
+
+<p>或者利用html的meta标签模拟一个HTTP响应头，来控制浏览器行为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out.write(&quot;&lt;meta http-equiv=&apos;Content-type&apos; content=&apos;text/html;charset=UTF-8&apos;&gt;&quot;.getBytes());</span><br></pre></td></tr></table></figure>
+
+<h2 id="response的Writer输出数据"><a href="#response的Writer输出数据" class="headerlink" title="response的Writer输出数据"></a>response的Writer输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">PrintWriter out = response.getWriter();		//字符流</span><br><span class="line">out.write(data);		//这样在浏览器显示??</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">//原因：servlet将“中国”写入response，response默认使用ISO8859码表，在码表中找“中国”，无法找到，所以返回两个“？”对应的数字，浏览器拿到response返回的数字解析显示“？”，所以修改response码表即可。</span><br><span class="line">response.setCharacterEncoding(“UTF-8&quot;);</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
+
+<h2 id="response下载文件"><a href="#response下载文件" class="headerlink" title="response下载文件"></a>response下载文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">String path = this.getServletContext().getRealPath(&quot;/download/1.jpg&quot;);	//得到资源文件1.jpg在硬盘中的地址</span><br><span class="line">String filename = path.substring(path.lastIndexOf(&quot;\\&quot;)+1);		//截取文件名</span><br><span class="line">response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + filename);	//告诉浏览器下载文件</span><br><span class="line">//如果下载文件中是中文文件，需要经过URL编码</span><br><span class="line">//response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + URLEncoder.encode(filename, &quot;UTF-8&quot;);</span><br><span class="line">//读资源文件</span><br><span class="line">InputStream in = null;</span><br><span class="line">OutputStream out = null;</span><br><span class="line">try&#123;</span><br><span class="line">	in =  new FileInputStream(path);</span><br><span class="line">	int len = 0;</span><br><span class="line">	byte buffer[] = new byte[1024];</span><br><span class="line">	out = response.getOutputStream();</span><br><span class="line">	while((len = in.read(buffer)) &gt; 0) (</span><br><span class="line">		out.write(buffer, 0, len);</span><br><span class="line">	)</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	if (in != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			in.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (out != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			out.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="response控制浏览器定时刷新"><a href="#response控制浏览器定时刷新" class="headerlink" title="response控制浏览器定时刷新"></a>response控制浏览器定时刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&quot;refersh&quot;,3);	//每隔3s刷新一次</span><br></pre></td></tr></table></figure>
+
+<p>实际开发中，一般这么写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;&lt;meta http-squiv=&apos;refresh&apos; content=&apos;3;url=/ProjectName/index.jsp&apos;&gt;恭喜你，登陆成功，本浏览器将在3s后跳转到主页面&quot;;</span><br><span class="line">this.getServletContext().setAttribute(&quot;message&quot;,message);</span><br><span class="line">this.getServletContext().getRequestDispatcher(&quot;/message.jsp&quot;).forward(request,response);</span><br></pre></td></tr></table></figure>
+
+<h2 id="response控制浏览器缓存"><a href="#response控制浏览器缓存" class="headerlink" title="response控制浏览器缓存"></a>response控制浏览器缓存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setDateHeader(&quot;expires&quot;, System.currentTimeMillis()+1000*3600);	//缓存1h</span><br></pre></td></tr></table></figure>
+
+<h2 id="response实现请求重定向"><a href="#response实现请求重定向" class="headerlink" title="response实现请求重定向"></a>response实现请求重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(302);	</span><br><span class="line">response.setHeader(&quot;location&quot;, &quot;/ProjectName/index.jsp&quot;);	//重定向到首页</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">response.setRedirect(&quot;/ProjectName/index.jsp&quot;);	//相当于上边两句</span><br></pre></td></tr></table></figure>
+
+<p>重定向向服务器发送两次请求，通过浏览器地址栏自动改变就可以看出来，这样对服务器压力较大，所以除了登录跳转和购物下单跳转购物车一般不介意采用。</p>
+<h2 id="response一些细节"><a href="#response一些细节" class="headerlink" title="response一些细节"></a>response一些细节</h2><ol>
+<li><p>getOutputStream()和getWriter()方法分别用于得到输出二进制数据、输出文本数据的ServletOutputStream、Printwriter对象，这两个方法互斥，调用了其中一个就不能调用另一个；</p>
+</li>
+<li><p>Servlet程序向ServletOutputStream或Printwriter对象写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当作响应消息的正文，然后再与响应状态行和各响应头组合后输出到客户端；</p>
+</li>
+<li><p>Servlet的service方法结束后，Servlet引擎将检查getWriter()或getOutputStream()方法返回的输出流对象是否已经调用过close方法，如果没有，Servlet引擎将调用close方法关于该输出流对象；</p>
+</li>
+</ol>
+<h1 id="request"><a href="#request" class="headerlink" title="request"></a>request</h1><p>HttpServletRequest对象代表客户端的请求，当客户端通过HTTP协议访问服务器时，HTTP请求投中的所有信息都封装在这个对象中，开发人员通过这个对象的方法，可以获得客户端的信息。</p>
+<h2 id="RUL和URI"><a href="#RUL和URI" class="headerlink" title="RUL和URI"></a>RUL和URI</h2><p>URL：用于标识某个互联网资源，如<a href="http://www.sina.com/news/1.html；" target="_blank" rel="noopener">http://www.sina.com/news/1.html；</a></p>
+<p>URI：用于标识某个资源，如/news/1.html；C:\abc\d.txt；</p>
+<p>判断这两个区别的用处：权限拦截、访问次数统计等</p>
+<h2 id="request获取请求头和请求数据"><a href="#request获取请求头和请求数据" class="headerlink" title="request获取请求头和请求数据"></a>request获取请求头和请求数据</h2><p>获取请求头：request.getHeader()/request.getHeaders()/request.getHeaderNames()；</p>
+<p>获取客户端带来的数据：</p>
+<p>首先，客户端一般有两种方式带数据</p>
+<ol>
+<li><pre><code>//通过超链接
+&lt;a href=&quot;RequestDemo?username=xxx&quot;&gt;点我&lt;/a&gt;    
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
+//通过表单
+&lt;form action=&quot;RequestDemo&quot; method=&quot;post&quot;&gt;
+    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;br&gt;
+&lt;/form&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request获取：</span><br></pre></td></tr></table></figure>
+String value = request.getParameter(&quot;username&quot;);
+//tip:获取请求数据要先检查再使用，如先判断输入是否为空或者是否为空格
+if(value != null &amp;&amp; !value,trim().equals(&quot;&quot;)){
+ System.out.println(values);
+}</code></pre></li>
+</ol>
+<hr>
+<p>//所有name和对应的value<br>Enumeration e = request.getParameterNames();<br>while(e.hasMoreElements()) {<br>    String name = (String)e.nextElement();<br>    value = request.getParameter(name);<br>    System.out.println(name+”=”+value);<br>}</p>
+<hr>
+<p>//一个name的所有value<br>String[] values = request.getParameterValues(“username”)；<br>for(int i = 0;values != null &amp;&amp; i &lt; values.length;i++){<br>    System.out.println(values[i]);<br>}</p>
+<hr>
+<p>//存到Map中<br>//需要首先先建好一个User.java的对象<br>Map map = request.getParameterMap();<br>User user = new User();<br>//需要导入commons-beanutils.jar和commons-logging,jar<br>BeanUtils.populate(user,map);<br>//有异常try……catch……<br>System.out.println(user);</p>
+<hr>
+<p>//流的方式，但即使获取到也需要解析，因为获取到的格式为“uername=xxx&amp;password=yyy”<br>InputStream in = request.getInputStream();<br>int len = 0;<br>byte buffer[] = new byte[1024];<br>while((len=in.read(buffer))&gt;0){<br>    System.out.println(new String(buffer,0,len));<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request中文乱码</span><br></pre></td></tr></table></figure>
+<p>request.setCharacterEncoding(“UTF-8”);        //只对post提交有效<br>username = new String(username.getBytes(“iso8859-1”),”UTF-8”);    //解决get提交乱码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request实现请求转发</span><br><span class="line"></span><br><span class="line">请求转发指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</span><br><span class="line"></span><br><span class="line">request对象提供了一个getRequestDispatcher方法，该方法返回一个 RequestDispatcher对象，调用这个对象的forward方法可以实现请求转发。</span><br></pre></td></tr></table></figure>
+<p>String data = “aaaaa”;<br>request.setAttribute(“data”,data);<br>request.getRequestDispatcher(“/1.jsp”).forward(request，response);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request对象同时也是一个域对象，开发人员通过request对象在实现转发时，把数据通过request对象带给其他web资源处理。</span><br><span class="line"></span><br><span class="line">MVC：model-javabean;view-jsp;controller-servlet，流程：jsp收到请求产生数据，数据通过JavaBean封装，JavaBean不适合做输出，会存在request域，jsp再从request中取出进行输出。</span><br><span class="line"></span><br><span class="line">细节一：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前，在servlet程序中写入的部分内容已经被真正的传送到了客户端，forward方法将抛出IIIegalStateException异常，例如。</span><br></pre></td></tr></table></figure>
+<p>if(true){<br>    request.getRequestDispatcher(“/1.jsp”).forward(request，response);<br>}<br>request.getRequestDispatcher(“/2.jsp”).forward(request，response);<br>//解决方案：在第一个forward后加入return;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">细节二：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前向servlet引擎的缓冲区，即response中写入了客户端，只要写入到缓冲区中的内容还没有被真正输出到客户端，forward方法就可以被正常执行，原来写入response的内容将被清空，但是，已写入到HttpServletResponse对象中的响应头字段信息保持有效。</span><br><span class="line"></span><br><span class="line">细节三：</span><br><span class="line"></span><br><span class="line">RequestDispatcher对象除了forward方法之外还有一个方法，include方法，例如。</span><br></pre></td></tr></table></figure>
+<p>//例如，每个界面的头脚都一样，单独写一个head.jsp和foot.jsp，在需要的界面引用即可<br>request.getRequestDispatcher(“/head.jsp”).include(request，response);<br>response.getWriter().write(“aaaaa”);<br>request.getRequestDispatcher(“/foot.jsp”).include(request，response);<br>//注意被包含的页面，也就是head.jsp和foot.jsp不要包含全局架构标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># web工程各类地址写法</span><br></pre></td></tr></table></figure>
+<p>//1.<br>request.getRequestDispatcher(“/index.jsp”).forward(request，response);</p>
+<p>//2.<br>response.sendRedirect(“/ProjectName/index.jsp”);</p>
+<p>//3.<br>this.getServletContext().getRealPath(“/index.jsp”);</p>
+<p>//4.<br>this.getServletContext().getResourceAsStream(“/index.jsp”);</p>
+<p>//5.<br>/*<br><a href="/ProjectName/index.jsp">点击</a></p>
+<form action="/ProjectName/index.jsp">
+</form>
+*/
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line"></span><br><span class="line">写地址先写一个斜杠(/)，如果地址是写给服务器用的，这个斜杠就代表web应用；如果地址是写给浏览器的，这个斜杠就代表网站；</span><br><span class="line"></span><br><span class="line"># 利用referer防盗链</span><br></pre></td></tr></table></figure>
+String referer = request.getHeader("referer");        //获得访问链接
+//判断如果是盗链者跳转到首页
+if(referer==null || referer.startsWith("https://localhost")){
+    response.sendRedirect("/ProjectName/index.jsp");
+    return;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/20/2019-09-20-JavaWeb3/" data-id="ck22z510e008etoulbt9c5k2f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/23/2019-09-23-JavaWeb4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaWeb4
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/17/2019-09-17-Centos%E5%AE%89%E8%A3%85JDK%E4%BB%A5%E5%8F%8A%E5%A4%9A%E4%B8%AATomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Centos安装JDK以及多个Tomcat服务器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

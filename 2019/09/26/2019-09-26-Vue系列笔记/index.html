@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue系列笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。   语法糖：简写    MVVM：model，view，viewmodel; 回调函数举例：    Vue生命周期      代码规范：在前端代码中，一般缩进2个空格而非4个；  将data中的数据插入到HTML中，Mustache语法，也就是双大括号；  computed和">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue系列笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;26&#x2F;2019-09-26-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。   语法糖：简写    MVVM：model，view，viewmodel; 回调函数举例：    Vue生命周期      代码规范：在前端代码中，一般缩进2个空格而非4个；  将data中的数据插入到HTML中，Mustache语法，也就是双大括号；  computed和">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;27&#x2F;DnTr2avz4EOPiAC.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;27&#x2F;b6P58HUcry7tIVR.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;27&#x2F;e7agZw2QWuEcdFn.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;27&#x2F;OZzk7YPsFjd16Tb.png">
+<meta property="og:updated_time" content="2019-10-10T07:33:13.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;27&#x2F;DnTr2avz4EOPiAC.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-09-26-Vue系列笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/26/2019-09-26-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-09-25T16:00:00.000Z" itemprop="datePublished">2019-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue系列笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
+</blockquote>
+<ol>
+<li>语法糖：简写</li>
+</ol>
+<p><img src="https://i.loli.net/2019/09/27/DnTr2avz4EOPiAC.png" alt=""></p>
+<ol start="2">
+<li>MVVM：model，view，viewmodel;</li>
+<li>回调函数举例：</li>
+</ol>
+<p><img src="https://i.loli.net/2019/09/27/b6P58HUcry7tIVR.png" alt=""></p>
+<ol start="4">
+<li>Vue生命周期</li>
+</ol>
+<img src="https://i.loli.net/2019/09/27/e7agZw2QWuEcdFn.png" alt="官方图" style="zoom: 50%;" />
+
+<p><img src="https://i.loli.net/2019/09/27/OZzk7YPsFjd16Tb.png" alt="coderwhy的图"></p>
+<ol start="5">
+<li><p>代码规范：在前端代码中，一般缩进2个空格而非4个；</p>
+</li>
+<li><p>将data中的数据插入到HTML中，Mustache语法，也就是双大括号；</p>
+</li>
+<li><p>computed和methods对比：往往会发现，在computed中定义的方法在methods中同样可以定义，那么computed意义何在呢?其实计算属性会进行缓存，如果多次使用，计算属性只会调用一次，而methods每次都会调用；</p>
+</li>
+<li><p>ES5中，var没有块级作用域，if和for没有作用域，只有函数有作用域；ES6中let有块级作用域，if和for也有作用域；</p>
+</li>
+<li><p>在ES6开发中，优先使用const，只有在需要改变某一标识符的时候才用let；</p>
+</li>
+<li><p>什么是冒泡事件？如在一个按钮是绑定一个”click”事件，那么”click”事件会依次在它的父级元素中被触发 。</p>
+</li>
+<li><p>v-if：当条件为false，包含v-if指令的元素，根本就不会存在于dom中，所以推荐在切换频率不高时使用；</p>
+<p>v-show：当条件为false，包含v-show指令的元素，只是增加了一个行内元素，display = none，所以推荐在切换频率较高时使用；</p>
+</li>
+<li><p>官方推荐在使用v-for时，给对应的元素或组件添加一个key属性。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;item in letters&quot; :key=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>过滤器filters，举例将价格由整数变为带￥的两位小数：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">    showPrice(price) &#123;</span><br><span class="line">        return &apos;￥&apos; + price.toFixed(2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总价格：&#123;&#123;totalPrice | showPrice&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="14">
+<li><p>编程范式：命令式编程/声明式编程</p>
+<p>编程范式：面向对象编程（第一公民：对象）/函数式编程（第一公民：函数）</p>
+</li>
+<li><p>三个高阶函数：filter、map、reduce</p>
+</li>
+</ol>
+<p>1)）filter过滤函数用于过滤数组中的某部分，传的参数需是一个回调函数，回调函数有一个要求：必须返回一个boolean值，当返回true时，函数内部会自动将这次回调的n加入到新的数组中，当返回false时，函数内部会过滤掉这次的n。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//过滤小于100的数字</span><br><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let newNums = nums.filter(function (n) &#123;</span><br><span class="line">	return n &lt; 100</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>2）map映射函数用于对数组中所有元素进行统一操作，传的参数同样是一个回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//将newNums中的数字全部乘以2</span><br><span class="line">let new2Nums = newNums.map(function(n) &#123;</span><br><span class="line">	return n*2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>3）reduce函数用于对数组中所有的内容进行汇总，传的参数至少需要两个，第一个参数同样是一个回调函</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//将new2Nums中的数字全部相加</span><br><span class="line">//0就是perValue初始化的值，以后的preValue就是上一次return的值</span><br><span class="line">let total = new2Nums.reduce(function(preValue,n) &#123;</span><br><span class="line">	return preValue + n</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure>
+
+<p>以上三部分可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let total = nums.filter(function (n) &#123;</span><br><span class="line">	return n &lt; 100</span><br><span class="line">&#125;).map(function(n) &#123;</span><br><span class="line">	return n*2</span><br><span class="line">&#125;).reduce(function(preValue,n) &#123;</span><br><span class="line">	return preValue + n</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure>
+
+<p>甚至可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const nums = [10,234,50,678,90]</span><br><span class="line">let total = nums.filter(n =&gt; n &lt; 100).map(n =&gt; n*2).reduce((preValue,n) =&gt; preValue + n)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="14">
+<li>vue中使用v-model指令来实现表单元素和数据的双向绑定。所谓双向绑定，就是原来利用 Mustache将内容进行响应式显示，手动更改显示数据无法改变原数据，双向绑定则可以实现。</li>
+<li>radio的name相同才会互斥，但是如果v-model绑定相同的，可以不加name。</li>
+<li>v-model三个修饰符：lazy、number、trim：</li>
+</ol>
+<p>1）lazy：默认情况下，v-model是在input事件中同步输入框的数据也就是一旦数据发生改变data中的数据就会自动发生改变，加入lazy修饰符可以让数据在失去焦点或者回车时才更新；</p>
+<p>2）number：默认情况下，在输入框无论输入字母还是数字，都会被当作字符串进行处理，number修饰符可以让输入框输入的内容自动转换为数字类型；</p>
+<p>3）trim：如果输入的内容首尾有很多空格，通常我们希望将其去除，trim修饰符可以过滤内容左右两边的空格；</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/26/2019-09-26-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" data-id="ck22z50yw0030toul64rqdm1f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/08/2019-10-08-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue系列笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/24/2019-09-24-JavaWeb5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaWeb5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

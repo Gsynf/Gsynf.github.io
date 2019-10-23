@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>《跟老齐学python》学习笔记1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="哈哈哈，前言太有趣，不得不说正是前言才让我选择继续跟着他学。   Ubuntu18.04.1版本默认是安装了Python3，没有装2，那我也不装喽，貌似2已经不怎么维护了。（PS：查看版本号命令  lsb_release  -a） Python2中print不是一个函数；Python3中print是一个函数，同样输出“Hello World”，2是print   “Hello, World”；3">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《跟老齐学python》学习笔记1">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;09&#x2F;03&#x2F;2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="哈哈哈，前言太有趣，不得不说正是前言才让我选择继续跟着他学。   Ubuntu18.04.1版本默认是安装了Python3，没有装2，那我也不装喽，貌似2已经不怎么维护了。（PS：查看版本号命令  lsb_release  -a） Python2中print不是一个函数；Python3中print是一个函数，同样输出“Hello World”，2是print   “Hello, World”；3">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-22T14:37:49.980Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-09-03-《跟老齐学python》学习笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/03/2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="article-date">
+  <time datetime="2018-09-02T16:00:00.000Z" itemprop="datePublished">2018-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《跟老齐学python》学习笔记1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>哈哈哈，前言太有趣，不得不说正是前言才让我选择继续跟着他学。</p>
+</blockquote>
+<ul>
+<li>Ubuntu18.04.1版本默认是安装了Python3，没有装2，那我也不装喽，貌似2已经不怎么维护了。<br>（PS：查看版本号命令  lsb_release  -a）</li>
+<li>Python2中print不是一个函数；Python3中print是一个函数，同样输出“Hello World”，2是print   “Hello, World”；3是print   （”Hello, World”）</li>
+<li>Python中一个对象的特征：身份，类型，值。所谓“身份”，其实就是对象的内存地址，可以通过内建函数id()查看；所谓“类型”，也就是整形、浮点型这些，可以通过内建函数type()查看；所谓“值”，就是对象本身喽。</li>
+<li>Python2中非浮点数准备的有int和long类型，长整型后边会有L；Python3中只有一种整数类型int。</li>
+<li>在Python2里面有一个规定,像2/5这样的除法要取整(就是去掉小数,但不是四舍五入)。2除以5,商是0(整数),余数是2(整数)。如果用这种形式:2/5,那么计算结果就是商那个整数。或者可以理解为:整数除以整数,结果是整数(商)。2计算2/5，结果为0；3计算2/5，结果为0.4.</li>
+<li>字符串，用单引号或者双引号。但是如果字符串中有单引号或双引号，这时再用相同的符号就会报错，所以有单用双，有双用单；另外还可以在字符串的引号前加一个转义符，使本来计算机不认为是字符串一部分的引号变为字符串一部分，转义符为\，例如&gt;&gt;&gt; ‘What&#39;s your name?’。</li>
+<li>由r开头引起的字符串就是声明了后面引号里的东西是原始字符串,在里面放任何字符都表示该字符的原始含义。例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dos = r&quot;c:\news&quot;</span><br><span class="line">&gt;&gt;&gt; print dos</span><br><span class="line">c:\news   #这里\n没有表示转义字符换行，而是按照原始格式打印</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发现一个比较有趣的东东</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=input(&quot;input your old:&quot;)</span><br><span class="line">input your old:12</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;str&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; b=print(12)</span><br><span class="line">12</span><br><span class="line">&gt;&gt;&gt; type(b)</span><br><span class="line">&lt;class &apos;NoneType&apos;&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p> 貌似input的值都是str类型，于是想试一下print，后来发现没法这么试，input函数是把键盘输入的值赋给了a，但print函数很显然并不是把要打印的值赋给b，但 b=print(12)没有报错，所以这句话表示什么呢？有些疑问</p>
+<ul>
+<li>有一个编写小对话的示例，才发现IDLE一直没用，一直在终端里进python3输命令，在终端输idle，显示未安装，按照提示安装即可。安装完成回到终端，输入idle即可打开，在shell里新建窗口就可以写代码啦。</li>
+<li>在leetcode上第一题两数之和看到了index，查了也没完全弄明白，今天看到了，恍然大悟</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&quot;study&quot;</span><br><span class="line">&gt;&gt;&gt; a[0]</span><br><span class="line">&apos;s&apos;</span><br><span class="line">&gt;&gt;&gt; a.index(&quot;y&quot;)</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>不用解释了，一看就明白了</p>
+<ul>
+<li>有时候字符串的拼接使用join函数更加便捷</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b=&quot;I.love.lqh&quot;</span><br><span class="line">&gt;&gt;&gt; c=b.split(&quot;.&quot;)</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">[&apos;I&apos;, &apos;love&apos;, &apos;lqh&apos;]</span><br><span class="line">&gt;&gt;&gt; &quot;.&quot;.join(c)</span><br><span class="line">&apos;I.love.lqh&apos;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>python中占位符与后边实际输出的内容通过%连接</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;  print(&quot;i like %s&quot;,&quot;python&quot;)</span><br><span class="line">SyntaxError: unexpected indent</span><br><span class="line">&gt;&gt;&gt; print(&quot;i like %s&quot;%&quot;python&quot;)</span><br><span class="line">i like python</span><br></pre></td></tr></table></figure>
+<p>另外还有一种python推荐的格式化方法string.format()，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&quot;I love &#123;0&#125; since &#123;1&#125; years ago.&quot;.format(&quot;lqh&quot;,7))</span><br><span class="line">I love lqh since 7 years ago.</span><br></pre></td></tr></table></figure>
+<p>按0，1，2……的顺序（PS：{}里面甚至可以不是标号，写什么都可以）用{}标好占位符，字符串后边.format()写入要输出的内容即可，嘿嘿嘿，美滋滋。</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/03/2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ck22z50xq0005toul8dxi0jgu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/05/2018-09-05-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《跟老齐学python》学习笔记2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/02/2018-09-02-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">双系统安装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端开发(1)-CSS入门及提高4 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="系列课程地址：戳这里。此部分视频网页没有。具体查看这里：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；  引入C">
+<meta name="keywords" content="前端开发,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发(1)-CSS入门及提高4">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;07&#x2F;21&#x2F;2019-07-21-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%984&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="系列课程地址：戳这里。此部分视频网页没有。具体查看这里：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；  引入C">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-22T14:37:49.989Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-07-21-前端开发(1)-CSS入门及提高4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/21/2019-07-21-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%984/" class="article-date">
+  <time datetime="2019-07-20T16:00:00.000Z" itemprop="datePublished">2019-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端开发(1)-CSS入门及提高4
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="引入CSS样式表（书写位置）"><a href="#引入CSS样式表（书写位置）" class="headerlink" title="引入CSS样式表（书写位置）"></a>引入CSS样式表（书写位置）</h1><p>CSS可以写到那个位置？ 是不是一定写到html文件里面呢？</p>
+<h2 id="内部样式表（内嵌式）"><a href="#内部样式表（内嵌式）" class="headerlink" title="内部样式表（内嵌式）"></a>内部样式表（内嵌式）</h2><p>内嵌式是将CSS代码集中写在HTML文档的head头部标签中，并且用style标签定义，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/CSS"</span>&gt;</span></span><br><span class="line">    选择器 &#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>语法中，style标签一般位于head标签中title标签之后，也可以把他放在HTML文档的任何地方。</p>
+<h2 id="行内式（内联样式）"><a href="#行内式（内联样式）" class="headerlink" title="行内式（内联样式）"></a>行内式（内联样式）</h2><p>是通过标签的style属性来设置元素的样式，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;标签名 style=&quot;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&quot;&gt; 内容 &lt;/标签名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法中style是标签的属性，实际上任何HTML标签都拥有style属性，用来设置行内式。其中属性和值的书写规范与CSS样式规则相同，行内式只对其所在的标签及嵌套在其中的子标签起作用。</p>
+<h2 id="外部样式表（外链式）"><a href="#外部样式表（外链式）" class="headerlink" title="外部样式表（外链式）"></a>外部样式表（外链式）</h2><p>链入式是将所有的样式放在一个或多个以.CSS为扩展名的外部样式表文件中，通过link标签将外部样式表文件链接到HTML文档中，其基本语法格式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"CSS文件的路径"</span> <span class="attr">type</span>=<span class="string">"text/CSS"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：  link 是个单标签哦!!!</p>
+<p>该语法中，link标签需要放在head头部标签中，并且必须指定link标签的三个属性，具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">href：定义所链接外部样式表文件的URL，可以是相对路径，也可以是绝对路径。</span><br><span class="line">type：定义所链接文档的类型，在这里需要指定为“text/CSS”，表示链接的外部文件为CSS样式表。</span><br><span class="line">rel：定义当前文档与被链接文档之间的关系，在这里需要指定为“stylesheet”，表示被链接的文档是一个样式表文件。</span><br></pre></td></tr></table></figure>
+
+<h2 id="三种样式表总结"><a href="#三种样式表总结" class="headerlink" title="三种样式表总结"></a>三种样式表总结</h2><table>
+<thead>
+<tr>
+<th>样式表</th>
+<th>优点</th>
+<th>缺点</th>
+<th>使用情况</th>
+<th>控制范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>行内样式表</td>
+<td>书写方便，权重高</td>
+<td>没有实现样式和结构相分离</td>
+<td>较少</td>
+<td>控制一个标签（少）</td>
+</tr>
+<tr>
+<td>内嵌样式表</td>
+<td>部分结构和样式相分离</td>
+<td>没有彻底分离</td>
+<td>较多</td>
+<td>控制一个页面（中）</td>
+</tr>
+<tr>
+<td>外部样式表</td>
+<td>完全实现结构和样式相分离</td>
+<td>需要引入</td>
+<td>最多，强烈推荐</td>
+<td>控制整个站点（多）</td>
+</tr>
+</tbody></table>
+<h1 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h1><p>HTML标签一般分为块标签和行内标签两种类型，它们也称块元素和行内元素。具体如下：</p>
+<h2 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h2><p>每个块元素通常都会独自占据一整行或多整行，可以对其设置宽度、高度、对齐等属性，常用于网页布局和网页结构的搭建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见的块元素有&lt;h1&gt;~&lt;h6&gt;、&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;等，其中&lt;div&gt;标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点：</p>
+<p>（1）总是从新行开始</p>
+<p>（2）高度，行高、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器的100%</p>
+<p>（4）可以容纳内联元素和其他块元素。</p>
+<h2 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h2><p>行内元素（内联元素）不占有独立的区域，仅仅靠自身的字体大小和图像尺寸来支撑结构，一般不可以设置宽度、高度、对齐等属性，常用于控制页面中文本的样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见的行内元素有&lt;a&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;等，其中&lt;span&gt;标签最典型的行内元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）和相邻行内元素在一行上。</p>
+<p>（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）行内元素只能容纳文本或则其他行内元素。（a特殊）</p>
+<p>注意：</p>
+<ol>
+<li>只有文字才能组成段落，因此p里面不能放块级元素，同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</li>
+<li>链接里面不能再放链接。</li>
+</ol>
+<h2 id="块级元素和行内元素区别"><a href="#块级元素和行内元素区别" class="headerlink" title="块级元素和行内元素区别"></a>块级元素和行内元素区别</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块级元素的特点：</span><br><span class="line">（1）总是从新行开始</span><br><span class="line">（2）高度，行高、外边距以及内边距都可以控制。</span><br><span class="line">（3）宽度默认是容器的100%</span><br><span class="line">（4）可以容纳内联元素和其他块元素。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">行内元素的特点：</span><br><span class="line">（1）和相邻行内元素在一行上。</span><br><span class="line">（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。</span><br><span class="line">（3）默认宽度就是它本身内容的宽度。</span><br><span class="line">（4）行内元素只能容纳文本或则其他行内元素。</span><br></pre></td></tr></table></figure>
+
+<h2 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——&lt;img /&gt;、&lt;input /&gt;、&lt;td&gt;，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br><span class="line"></span><br><span class="line">行内块元素的特点：</span><br><span class="line">（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。</span><br><span class="line">（2）默认宽度就是它本身内容的宽度。</span><br><span class="line">（3）高度，行高、外边距以及内边距都可以控制。</span><br></pre></td></tr></table></figure>
+
+<h2 id="相互转换"><a href="#相互转换" class="headerlink" title="相互转换"></a>相互转换</h2><p>块转行内：display：inline；</p>
+<p>行内转块：display:block；</p>
+<p>块、行内转行内块：display:inline-block；</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/21/2019-07-21-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%984/" data-id="ck22z50yo002etoulhswi1r8l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/27/2019-07-27-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%985/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端开发(1)-CSS入门及提高5
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/20/2019-07-20-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%983/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">前端开发(1)-CSS入门及提高3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端开发(1)-CSS入门及提高9 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="系列课程地址：戳这里。此部分视频网页没有。具体查看这里：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；  普通流">
+<meta name="keywords" content="前端开发,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发(1)-CSS入门及提高9">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;10&#x2F;2019-08-10-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%989&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="系列课程地址：戳这里。此部分视频网页没有。具体查看这里：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；  普通流">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;11&#x2F;pechtG5ruKLln8g.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;11&#x2F;eSr5vFVp8h4ltxn.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;12&#x2F;oqdWEUfi62Z7Dlx.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;12&#x2F;NKBJgVjr72OEdtU.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;12&#x2F;8S4KYVewypaZzd2.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;12&#x2F;jpB6Kd4xltQL1YO.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;12&#x2F;rSNzU9H4KushGxo.jpg">
+<meta property="og:updated_time" content="2019-10-22T14:37:49.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;08&#x2F;11&#x2F;pechtG5ruKLln8g.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-08-10-前端开发(1)-CSS入门及提高9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/10/2019-08-10-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%989/" class="article-date">
+  <time datetime="2019-08-09T16:00:00.000Z" itemprop="datePublished">2019-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端开发(1)-CSS入门及提高9
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="普通流-normal-flow"><a href="#普通流-normal-flow" class="headerlink" title="普通流(normal flow)"></a>普通流(normal flow)</h1><p>这个单词很多人翻译为 文档流 ， 字面翻译  普通流 或者标准流都可以。</p>
+<p>前面我们说过，网页布局的核心，就是用CSS来摆放盒子位置。如何把盒子摆放到合适的位置？  </p>
+<p>CSS的定位机制有3种：普通流（标准流）、浮动和定位。</p>
+<p>html语言当中另外一个相当重要的概念———-标准流！或者普通流。普通流实际上就是一个网页内标签元素正常从上到下，从左到右排列顺序的意思，比如块级元素会独占一行，行内元素会按顺序依次前后排列；按照这种大前提的布局排列之下绝对不会出现例外的情况叫做普通流布局。</p>
+<h1 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h1><p>浮动最早是用来控制图片，以便达到其他元素（特别是文字）实现“环绕”图片的效果。后来，我们发现浮动有个很有意思的事情：就是让任何盒子可以一行排列,因此我们就慢慢的偏离主题，用浮动的特性来布局了。</p>
+<h2 id="什么是浮动？"><a href="#什么是浮动？" class="headerlink" title="什么是浮动？"></a>什么是浮动？</h2><p>元素的浮动是指设置了浮动属性的元素会脱离标准普通流的控制，移动到其父元素中指定位置的过程。</p>
+<p>在CSS中，通过float属性来定义浮动，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;float:属性值;&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>元素向左浮动</td>
+</tr>
+<tr>
+<td>right</td>
+<td>元素向右浮动</td>
+</tr>
+<tr>
+<td>none</td>
+<td>元素不浮动（默认值）</td>
+</tr>
+</tbody></table>
+<h2 id="浮动详细内幕特性"><a href="#浮动详细内幕特性" class="headerlink" title="浮动详细内幕特性"></a>浮动详细内幕特性</h2><p>浮动脱离标准流，不占位置，会影响标准流。浮动只有左右浮动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浮动首先创建包含块的概念（包裹）。就是说， 浮动的元素总是找离它最近的父级元素对齐。但是不会超出内边距的范围。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/11/pechtG5ruKLln8g.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浮动的元素排列位置，跟上一个元素（块级）有关系。如果上一个元素有浮动，则A元素顶部会和上一个元素的顶部对齐；如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/11/eSr5vFVp8h4ltxn.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由2可以推断出，一个父盒子里面的子盒子，如果其中一个子级有浮动的，则其他子级都需要浮动。这样才能一行对齐显示。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素添加浮动后，元素会具有行内块元素的特性。元素的大小完全取决于定义的大小或者默认的内容多少浮动根据元素书写的位置来显示相应的浮动。</span><br></pre></td></tr></table></figure>
+
+<p>总结：  浮动 —&gt;    </p>
+<p>浮动的目的就是为了让多个块级元素同一行上显示。</p>
+<p>float      浮 漏 特   </p>
+<p>浮：    加了浮动的元素盒子是浮起来的，漂浮在其他的标准流盒子上面。<br>漏：    加了浮动的盒子，不占位置的，它浮起来了，它原来的位置漏 给了标准流的盒子。<br>特：    特别注意，首先浮动的盒子需要和标准流的父级搭配使用， 其次 特别的注意浮动可以使元素显示模式体现为行内块特性。</p>
+<h1 id="版心和布局流程"><a href="#版心和布局流程" class="headerlink" title="版心和布局流程"></a>版心和布局流程</h1><p>“版心”(可视区) 是指网页中主体内容所在的区域。一般在浏览器窗口中水平居中显示，常见的宽度值为960px、980px、1000px、1200px等。</p>
+<h2 id="布局流程"><a href="#布局流程" class="headerlink" title="布局流程"></a>布局流程</h2><p>为了提高网页制作的效率，布局时通常需要遵守一定的布局流程，具体如下：</p>
+<p>1、确定页面的版心（可视区）。</p>
+<p>2、分析页面中的行模块，以及每个行模块中的列模块。</p>
+<p>3、制作HTML结构 。</p>
+<p>4、CSS初始化，然后开始运用盒子模型的原理，通过DIV+CSS布局来控制网页的各个模块。</p>
+<h2 id="一列固定宽度且居中"><a href="#一列固定宽度且居中" class="headerlink" title="一列固定宽度且居中"></a>一列固定宽度且居中</h2><p><img src="https://i.loli.net/2019/08/12/oqdWEUfi62Z7Dlx.jpg" alt=""></p>
+<p>最普通的，最为常用的结构。</p>
+<h2 id="两列左窄右宽型"><a href="#两列左窄右宽型" class="headerlink" title="两列左窄右宽型"></a>两列左窄右宽型</h2><p><img src="https://i.loli.net/2019/08/12/NKBJgVjr72OEdtU.jpg" alt=""></p>
+<h2 id="通栏平均分布型"><a href="#通栏平均分布型" class="headerlink" title="通栏平均分布型"></a>通栏平均分布型</h2><p><img src="https://i.loli.net/2019/08/12/8S4KYVewypaZzd2.jpg" alt=""></p>
+<h1 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h1><h2 id="清除浮动本质"><a href="#清除浮动本质" class="headerlink" title="清除浮动本质"></a>清除浮动本质</h2><p>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。<br><img src="https://i.loli.net/2019/08/12/jpB6Kd4xltQL1YO.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/08/12/rSNzU9H4KushGxo.jpg" alt=""></p>
+<h2 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h2><p>其实本质叫做闭合浮动更好一些, 记住，清除浮动就是把浮动的盒子圈到里面，让父盒子闭合出口和入口不让他们出来影响其他元素。</p>
+<p>在CSS中，clear属性用于清除浮动，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;clear:属性值;&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>不允许左侧有浮动元素（清除左侧浮动的影响）</td>
+</tr>
+<tr>
+<td>right</td>
+<td>不允许右侧有浮动元素（清除右侧浮动的影响）</td>
+</tr>
+<tr>
+<td>both</td>
+<td>同时清除左右两侧浮动的影响</td>
+</tr>
+</tbody></table>
+<h3 id="额外标签法"><a href="#额外标签法" class="headerlink" title="额外标签法"></a>额外标签法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是W3C推荐的做法是通过在浮动元素末尾添加一个空的标签例如 <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">”clear:both”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>，或则其他标签br等亦可。</span><br></pre></td></tr></table></figure>
+
+<p>优点： 通俗易懂，书写方便</p>
+<p>缺点： 添加许多无意义的标签，结构化较差。  不推荐。</p>
+<h3 id="父级添加overflow属性方法"><a href="#父级添加overflow属性方法" class="headerlink" title="父级添加overflow属性方法"></a>父级添加overflow属性方法</h3><p>可以通过触发BFC的方式，可以实现清除浮动效果。（BFC后面讲解）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以给父级添加： overflow为 hidden|auto|scroll  都可以实现。</span><br></pre></td></tr></table></figure>
+<p>优点：  代码简洁</p>
+<p>缺点：  内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素。</p>
+<h3 id="使用after伪元素清除浮动"><a href="#使用after伪元素清除浮动" class="headerlink" title="使用after伪元素清除浮动"></a>使用after伪元素清除浮动</h3><p><strong>:after 方式为空元素的升级版，好处是不用单独加标签了</strong> </p>
+<p>使用方法：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;  <span class="attribute">content</span>: <span class="string">"."</span>; <span class="attribute">display</span>: block; <span class="attribute">height</span>: <span class="number">0</span>; <span class="attribute">clear</span>: both; <span class="attribute">visibility</span>: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line">.clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专有 */</span><br></pre></td></tr></table></figure>
+
+<p>优点： 符合闭合浮动思想  结构语义化正确</p>
+<p>缺点： 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</p>
+<p>注意： content:”.”  里面尽量跟一个小点，或者其他，尽量不要为空，否则再firefox 7.0前的版本会有生成空格。</p>
+<h3 id="使用before和after双伪元素清除浮动"><a href="#使用before和after双伪元素清除浮动" class="headerlink" title="使用before和after双伪元素清除浮动"></a>使用before和after双伪元素清除浮动</h3><p>使用方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123; </span><br><span class="line">  <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>:table;  <span class="comment">/* 这句话可以出发BFC BFC可以清除浮动,BFC我们后面讲 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line"> <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点：  代码更简洁</p>
+<p>缺点：  由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/10/2019-08-10-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%989/" data-id="ck22z50yq002ktoulg1k4czno" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/14/2019-08-14-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%9810/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端开发(1)-CSS入门及提高10
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%988/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">前端开发(1)-CSS入门及提高8</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java零散笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java学习内容较多，在此零散记录一些需要注意的地方，尤其是其他语言没有的东西，不作为系统学习Java的教程。   A obj = new A();，obj可以看作是内存对象中的一个对象（包括若干个数据）的句柄，在C&#x2F;C++中，obj称为指针，在Java中成为Reference,需要注意的是对象比较庞大，所以对象赋值是Refenence赋值，也就是两个Reference会指向同一个东西，而如in">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java零散笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;05&#x2F;2019-09-05-Java%E9%9B%B6%E6%95%A3%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java学习内容较多，在此零散记录一些需要注意的地方，尤其是其他语言没有的东西，不作为系统学习Java的教程。   A obj = new A();，obj可以看作是内存对象中的一个对象（包括若干个数据）的句柄，在C&#x2F;C++中，obj称为指针，在Java中成为Reference,需要注意的是对象比较庞大，所以对象赋值是Refenence赋值，也就是两个Reference会指向同一个东西，而如in">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;jKMZB34fEyl1F27.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;rKuGX5E1kBDwxml.png">
+<meta property="og:updated_time" content="2019-10-22T14:37:49.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;jKMZB34fEyl1F27.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-09-05-Java零散笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/05/2019-09-05-Java%E9%9B%B6%E6%95%A3%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-09-04T16:00:00.000Z" itemprop="datePublished">2019-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java零散笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Java学习内容较多，在此零散记录一些需要注意的地方，尤其是其他语言没有的东西，不作为系统学习Java的教程。</p>
+</blockquote>
+<ol>
+<li><p>A obj = new A();，obj可以看作是内存对象中的一个对象（包括若干个数据）的句柄，在C/C++中，obj称为指针，在Java中成为Reference,需要注意的是对象比较庞大，所以对象赋值是Refenence赋值，也就是两个Reference会指向同一个东西，而如int等基本对象比较简单，他们的赋值是直接拷贝。</p>
+</li>
+<li><p>String是不可变对象，而StringBuffer和StringBuilder是可变对象。也就是使用StringBuilder append(任意类型)方法可以实现添加数据并返回对象本身。StringBuilder reverse（）同理，但是String没有这两个常用的方法，所以涉及到相互转换：通过toString()就可以实现把StringBuilder转换为String；反之，通过构造方法StringBuilder(String s)。</p>
+</li>
+<li><p>短路逻辑运算符<br>逻辑与&amp;，无论左边真假，右边都要执行；短路与&amp;&amp;，如果左边为真，右边执行，如果左边为假，右边短路不执行。<br>逻辑或与短路或同理。</p>
+</li>
+<li><p>成员变量在类中方法外，存放于堆内存，有默认的初始化值；而局部变量存在于方法内或方法声明上，存放于栈内存，没有默认初始化值，必须先定义，赋值，才能使用。</p>
+</li>
+<li><p>Java构造函数的名称必须和类名一样，且没有返回值，定义时不能有void，写了就成为了普通函数；Java有构造函数但是没有析构函数，也就是每个变量都有生命周期，它只能存储在离它最近的一对{}中，当变量被创建时，变量将占据内存；当变量消亡时，系统将回收内存。每个Java类必须有构造函数，如果没有显式的定义构造函数，Java编译器自动为该类产生一个空的无形参的构造函数。一个类可以有多个构造函数，只要形参列表不相同即可，和重载函数一样。</p>
+</li>
+<li><p>面向对象有一个法则：信息隐藏，也就是类的成员属性是私有的private，类的方法是共有的public，通过方法修改成员属性的值。外界对类成员的操作只能通过get和set方法，可以用Java IDE快速生成，如Eclipse中Source-Generate Getters and Setters可以自动快速地对类中的成员生产get和set方法，且遵循驼峰命名法。</p>
+</li>
+<li><p>this不仅可以负责指向本类中的成员变量和成员方法，还可以代替本类的构造方法。</p>
+</li>
+<li><p>在Java语言设计中，针对C++中方法指代不清的问题进行改进，特意强调了单根继承的原则，也就是每个类只能继承一个类。继承如果不写extends，Java都默认继承java.lang.Object类，也就是Java所有类都从java.lang.Object开始，构建出一个类型继承树，Object类里面默认就有clone、equals、hashCode、toString等方法。另外，每个子类的构造函数第一句话都默认调用父类的<strong>无参数构造函数</strong>super()，除非子类的构造函数第一句话是super，而且super语句必须放在第一条。</p>
+</li>
+<li><p>多态的作用：<br>(1)以统一的接口来操纵某一类中不同的对象的动态行为，每一个对象的行为由自己来决定；<br>(2)对象之间的解耦，基于接口，利用转型和多态，不影响真正方法的调用，可以将调用类和被调用类解耦。<br>多态中成员访问特点：<br>成员变量：编译看左边，执行看左边；成员方法：编译看左边，执行看右边。解释一下，以Animal a = new Cat()为例，假设Animal类中有变量age=20和方法“动物吃东西”，Cat类继承于Animal类，变量有age=40和name，方法有“猫吃鱼”和“猫捉老鼠”。此时a.age可以，输出的是20，a.name报错；a.eat()可以，输出“猫吃鱼”，a.play()报错。原因是因为成员方法有重写，但是成员变量没有。如果想使用a.play()。需要用到转型，上述Animal a = new Cat()是父类引用指向子类对象，称为向上转型，反之，父类引用转为子类对象称为向下转型，即Cat c = (Cat)a。</p>
+</li>
+<li><p>在Java中，一个没有方法体的方法应该被定义为抽象方法，使用abstract关键字，而类中如果有抽象方法，该类必须定义为抽象类。抽象类不能直接创建对象，创建对象参照多态的方法即可，但是抽象类的子类要不重写抽象类的方法，要不同样将自己定义为抽象类。</p>
+</li>
+<li><p>接口：新建Inferface，定义接口使用关键字interface，例如public interface Eating{…抽象方法…}再定义类实现方法需要用到关键字implement，例如public class Cat implement Eating{…重写方法…}，注意接口中定义的常量默认是被public static final修饰的，也就是默认静态常量；另外接口中没有构造方法，也没有非抽象方法。</p>
+</li>
+<li><p>权限修饰符：private/默认/protecte/public<br>状态修饰符：final/static</p>
+<p><img src="https://i.loli.net/2019/09/10/jKMZB34fEyl1F27.png" alt=""></p>
+</li>
+<li><p>final关键字：final的类，不能被继承；父类中如果有final的方法，子类中不能改写此方法；final的变量，不能再次赋值（如果是基本类型的变量，不能修改其值；如果是对象实例，不能修改其指针，但是可以改值）<br>static变量只依赖于类存在，不依赖于实例对象存在，也就是如果有一个静态变量，那么一个类的所有对象实例都共享存储在一个共同的空间；static方法无需通过对象来引用，直接通过类名即可，在静态方法中，只能引用静态变量，且静态方法不能引用非静态方法。 </p>
+</li>
+<li><p>单例模式：保证一个类有且只有一个对象<br>-采用static来共享对象实例<br>-采用private构造函数，防止外界new操作</p>
+</li>
+<li><p>内部类：就是在一个类的内部再定义一个类。<br>格式：<br>public class 类名{</p>
+<pre><code>修饰符 class 类名{
+}</code></pre><p>}<br>内部类可以直接访问外部类的成员，包括私有；外部类想要访问内部类的成员，必须创建对象。<br>特殊：匿名内部类，也是局部内部类的一种，所以要写在外部类的方法中<br>new 类名或接口名() {</p>
+<pre><code>重写方法；</code></pre><p>}；<br>可见匿名内部类的本质就是一个继承了该类或者实现了该接口的子类匿名对象。所以可以采取以下例子<br>Inter i = new Inter() {</p>
+<pre><code>public void 方法名(){
+…方法体…
+}</code></pre><p>}；<br>i.方法名();</p>
+</li>
+<li><p>package<br>在Java类文件的第一句话给出包的名称，类似com.edu.nssc.PackageExample，在这里引用类的时候，必须采用全称引用，程序正文可以采用PackageExample短名称，而且必须严格放置在com/edu/nssc目录下。package name尽量唯一，因此常用域名逆序。</p>
+</li>
+<li><p>import<br>import必须全部放在package之后，定义类之前。</p>
+</li>
+</ol>
+<ol start="18">
+<li><p><img src="https://i.loli.net/2019/09/10/rKuGX5E1kBDwxml.png" alt=""></p>
+<p>异常处理<br>(1)try{</p>
+<pre><code>可能存在异常的代码；</code></pre><p>}catch(异常类名 变量名) {</p>
+<pre><code>异常的处理代码；
+如e.printStackTrace();System.out.println(e.getMessage());System.out.println(e.toString());等</code></pre><p>} finally {</p>
+<pre><code>最终执行的模块；</code></pre><p>}<br>执行流程：程序从try里面的代码开始执行，出现异常会自动生成一个异常类对象提交给JVM，当JVM接收到提交时，会到catch中找匹配的异常，找到后进行异常的处理，因此catch块可以有多个，每个有不同的入口形参，当已发生的异常和某一个catch块中的形参类型一致，那么将执行该catch块中的代码，如果没有一个匹配，catch也不会被触发，最后都进入finally块。<br>(2)并不是所有的情况都有权限对异常进行处理，因此方法存在可能异常的语句，但不处理，需要使用throws来声明异常：throws 异常类名；这个格式放在方法的括号后面。</p>
+<pre><code>(2.1)一个方法被覆盖，覆盖他的方法必须抛出相同的异常或者异常的子类；
+(2.2)如果父类的方法抛出多个异常，那么重写的子类方法必须抛出那么异常的子类，也就是不能抛出新的异常；
+(2.3)throws只是抛出或者说延后这个异常，并没有处理，处理还得用try…catch…</code></pre><p>(3)自定义异常：需要继承Exception类及其子类<br>-继承自Exception，就变成Checked Exception<br>-继承自RuntimeException，就变成Unchecked Exception<br>自定义异常重点在于构造函数：<br>-可以调用父类Exception的message构造函数<br>public 自定义Exception(){}<br>public 自定义Exception(String message){</p>
+<pre><code>super(message);</code></pre><p>}<br>其他方法调用<br>public void 方法名() <strong>throws</strong> 自定义Exception {</p>
+<pre><code>//throw new 自定义Exception();
+**throw** new 自定义Exception(&quot;xxxxxxx&quot;);</code></pre><p>}<br>-可以自定义自己的成员变量</p>
+</li>
+<li><p>泛型：<br>它提供了编译时类型安全检测机制，该机制允许再编译时检测到非法的类型，它的本质是<strong>参数化类型</strong>，也就是说所操作的数据类型被指定为一个参数。换个说法，其实就是将类型由原来的类型参数化，然后再使用/调用时传入具体的类型。<br>泛型定义格式：<br>&lt;类型1，类型2，……&gt;：指定多种类型的格式，多种类型之间用逗号隔开，这里的类型可以看作是形参。<br>泛型类定义：public class Generic&lt; T &gt;{</p>
+<pre><code>public void show(T t){
+方法体
+}</code></pre><p>}<br>泛型方法定义：<br>public class Generic{</p>
+<pre><code>public &lt; T &gt; void show&lt; T t &gt;{
+方法体    </code></pre><p>}<br>}<br>泛型接口定义：<br>修饰符 interface 接口名&lt;类型&gt;{}</p>
+</li>
+<li><p>类型通配符<br>为了标识各种类型List的父类，可以使用类型通配符&lt;?&gt;；<br>List&lt; ? &gt;表示元素类型未知的List，它的元素可以匹配任何的元素；如果不希望List&lt; ? &gt;是任何类型List的父类，只希望它代表某一类泛型List的父类，可以使用类型通配符的上限，如List&lt; ?extends Number &gt;：它表示的类型是Number或其子类型；也可以指定类型通配符的下限，如List&lt;?super Number&gt;：它表示的类型是Number或者其父类型。</p>
+</li>
+<li><p>个数可变参数<br>格式：修饰符 返回值类型 方法名(数据类型…变量名){ }，如public static int sum(int b, int… a){ } 注意：如果一个方法有多个参数，包含可变参数，可变参数要放在最后。</p>
+</li>
+<li><p>反射<br>若通过反射去使用一个类，首先要获取该类的字节码文件对象，也就是类型为Class类型的对象，三种方法获取Class类的对象。（此部分内容帮助文档搜索Class即可）<br>(1)使用类的class属性来获取该类对应的Class对象。举例，Class<Student> c1 = Student.class;<br>(2)调用对象的getClass()方法，返回该对象所属类对应的Class对象，举例，Student s = new Student()；Class<? extends Student> c2 = s.getClass();
+(3)使用Class类中的静态方法forName(String className)，该方法需要传入字符串参数，该字符串参数的值是某个类的全路径。举例，Class<?> c4 = Class.forName(“com.xxxx.Student”);<br>获取Class类的对象之后，使用c.getConstructors();c.getDeclaredConstructors();等方法获取构造方法；使用c.getFields();c.getDeclaredFields();等方法获取成员变量；使用c.getMethods();c.getDeclaredMethods();等方法获取成员变量；</p>
+</li>
+<li><p>内省introspector：<br>(1)内省主要是用来操作Javabean属性的，那么什么是Javabean呢？这里举例说明比较好：<br>定义了一个类Person，里面有age,name,sex等，其实这个Person就是一个Javabean，里面的age,name,sex等是字段还不是属性，如何成为属性呢？只有对age,name,sex这些定义了set,get方法才能成为Javabean属性，也就是说是不是Javabean属性取决于set或get方法。<br>(2)使用内省操作：首先，获得操作Javabean，BeanInfo info = introspector.getBeanInfo(Person.class);然后，获得属性描述器，PropertyDescriptor[] pds = info.getPropertyDescriptors();接下来可以对增强for循环对pds中的每一个进行pd.getName()可以看到属性名；若针对某一个属性进行操作，PropertyDescriptor pd = new PropertyDescriptor(“age”, Person.class);  然后使用Method method = pd.getWriteMethod();得到属性的写方法，相当于set，method.invoke(p,45)即可完成设置属性，读取属性pd.getReadMethod();同理。</p>
+</li>
+<li><p>beanUtils操作bean属性：<br>相比于内省，beanUtils在开发中更常用，beanUtils是一个第三方jar包，需要导入。<br>使用起来比内省简单许多，BeanUtils.setProperty(bean,name,value)即可。</p>
+</li>
+<li><p>模块化<br>Java9正式推出了模块化，模块基本使用步骤：<br>(1)创建模块，按照之前的方式创建模块，创建包，创建类，定义方法即可；<br>(2)在模块的src目录下新建一个module-info.java的描述文件，（Eclipse在工程名右键-Configure）该文件专门定义模块名，访问权限，模块依赖等信息；<br>(3)模块中所有未导出的包都是模块私有的，他们是不能在模块外被访问的，模块导出格式：experts 包名；<br>(4)一个模块要访问其他模块，必须明确指定依赖哪些模块，未明确指定依赖的模块不能访问，模块依赖格式：requires 模块名；</p>
+</li>
+<li><p>JCF(这部分内容学习的不是很详细，需要时再来认真学)<br>JCF主要的数据结构实现类：<br>-列表:List,ArrayList,LinkedList<br>-集合:Set,HashSet,TreeSet,LinkedHashSet<br>-映射:Map,HashMap,TreeMap,LinkedHashMap<br>JCF主要的算法类（工具类）：<br>-Arrays:对数组进行查找和排序等操作<br>-Collections：对Collection及其子类进行排序和查找等操作</p>
+</li>
+<li><p>ArrayList：<br>ArrayList&lt; E &gt;：<br>(1)可调整大小的数组实现；<br>(2)&lt; E &gt;是一种特殊的数据类型，泛型，也就是在出现E的地方使用引用的数据类型替换即可；</p>
+</li>
+<li><p>快速修复，ctrl+1<br>Eclipse自动生成返回值对象的快捷键：ctrl+1<br>快速生成main函数，输入main，alt+/<br>快速生成System.out.println()，输入syso，alt+/<br>内容提示，alt+/<br>自动import ，Ctrl + Shift + O<br>格式化代码，Ctrl + Shift + F<br>查看源码，ctrl+鼠标左键<br>向前向后，alt+左右<br>查看类的继承关系，ctrl+T<br>查看Eclipse所有快捷键，Ctrl + Shift + L</p>
+</li>
+<li><p>Junit测试工具<br>(1)方法前加注解@Test，导入Juit包，右侧Outline工具框，选中要测试的方法，右键，Run As–&gt;JUit Test；<br>(2)测试类中最前和最后可以写两个方法，分别加注解@Before和@After或者@BeforeClass和@AfterClass，用于初始化和销毁；<br>(3)断言Assert，判断期望的实际的是否相同，相同则通过测试，否则不通过；</p>
+</li>
+</ol>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/05/2019-09-05-Java%E9%9B%B6%E6%95%A3%E7%AC%94%E8%AE%B0/" data-id="ck22z510b0084toul7ikva2vb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/09/2019-09-09-XML/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          XML
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/01/2019-09-01-Qt%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">QT学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

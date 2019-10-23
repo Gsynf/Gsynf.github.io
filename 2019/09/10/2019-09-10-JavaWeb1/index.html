@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaWeb1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Web开发相关概念 静态Web资源开发技术：Html 动态Web资源开发技术：JSP&#x2F;Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。  常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；  一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及">
+<meta name="keywords" content="JavaWeb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb1">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;10&#x2F;2019-09-10-JavaWeb1&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web开发相关概念 静态Web资源开发技术：Html 动态Web资源开发技术：JSP&#x2F;Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。  常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；  一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;T5ry6kOdICmjUXs.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;15&#x2F;gyEoDF23zGwltV9.png">
+<meta property="og:updated_time" content="2019-10-23T01:02:58.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;T5ry6kOdICmjUXs.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-09-10-JavaWeb1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/10/2019-09-10-JavaWeb1/" class="article-date">
+  <time datetime="2019-09-09T16:00:00.000Z" itemprop="datePublished">2019-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaWeb1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Web开发相关概念"><a href="#Web开发相关概念" class="headerlink" title="Web开发相关概念"></a>Web开发相关概念</h1><ol>
+<li><p>静态Web资源开发技术：Html</p>
+<p>动态Web资源开发技术：JSP/Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。</p>
+</li>
+<li><p>常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；</p>
+</li>
+<li><p>一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及Jsp文件、java程序、支持jar包和配置文件等；</p>
+</li>
+<li><p>Web应用开发好之后，若想供外界访问，需要把web应用所在目录交给web服务器管理，这个过程称之为虚拟目录的映射，<a href="https://tomcat.apache.org/tomcat-8.5-doc/config/context.html#Defining_a_context" target="_blank" rel="noopener">详情</a>，目前已经不推荐直接在server.xml中直接修改 &lt; Context &gt;，例如直接写入&lt; Context path=“/login” docBase=”C:\login” /&gt;，这样直接浏览器输入<a href="http://localhost:8080/login/1.html" target="_blank" rel="noopener">http://localhost:8080/login/1.html</a> 就可以直接访问C盘login文件夹下的1.html资源了，但是这样一旦修改server.xml，服务器就必须重启；</p>
+</li>
+<li><p>补充小知识：互联网上一些协议及常用的端口：http-80;smtp-25;pop3-110;ftp-23;https-443;mysql-3306;oracle-1521;</p>
+</li>
+</ol>
+<h1 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h1><h2 id="服务器目录结构"><a href="#服务器目录结构" class="headerlink" title="服务器目录结构"></a>服务器目录结构</h2><p>bin：存放启动和关闭Tomcat的脚本文件；</p>
+<p>conf：存放Tomcat服务器的各种配置文件，最重要的是server.xml；</p>
+<p>lib：存放Tomcat服务器支持的jar包；</p>
+<p>logs：存放Tomcat服务器的日志文件，若启动不成功无法通过控制台查看问题的话可查看日志文件；</p>
+<p>temp：存放Tomcat服务器产生的临时文件；</p>
+<p>webapps：web应用所在目录，即供外界访问的web资源的存放目录，对于开发人员最重要的目录；</p>
+<p>work：存放Tomcat服务器的工作目录，JSP需要用到；</p>
+<h2 id="web应用的组成结构"><a href="#web应用的组成结构" class="headerlink" title="web应用的组成结构"></a>web应用的组成结构</h2><p>webapps下的web应用需要严格按照以下存放规则</p>
+<p><img src="https://i.loli.net/2019/09/10/T5ry6kOdICmjUXs.png" alt=""></p>
+<p>web.xml文件是整个web应用中最重要的配置文件，必须放在WEB-INF目录中，在开发web应用时，但凡涉及到对web应用中某个web资源的配置，往往都在web.xml中进行设置。例如把某个资源配置成网站首页，直接参考Tomcat中自带的Web.xml文件，取头取尾即可。</p>
+<p>应用发布到服务器上时需要打包成war包，这样服务器会自动解析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//进入应用目录</span><br><span class="line">jar -cvf xxx.war xxx</span><br></pre></td></tr></table></figure>
+
+<p>打包后的war文件直接放到服务器的webapps目录，会看到自动解析出xxx文件。</p>
+<h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>所谓配置虚拟主机，就是在tomcat服务器中配置一个网站，一个tomcat服务器中可以放置多个文档，在Web服务器中配置一个网站，需使用Host元素在server.xml进行配置，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host name=&quot;www.google.com&quot; appBase=&quot;C:\login&quot;&gt;&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是配置的主机要想被外界访问，必须在DNS进行注册IP，很显然，<a href="http://www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。" target="_blank" rel="noopener">www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。</a></p>
+<h2 id="配置https连接器"><a href="#配置https连接器" class="headerlink" title="配置https连接器"></a>配置https连接器</h2><p>主要用于表单等提交时的加密，设计密码学尤其是非对称加密，这部分略过。</p>
+<p>首先需要为网站生产一份数字证书（公钥），cmd命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure>
+
+<p>系统将产生的数字证书保存到密钥库。然后将这份密钥库文件拷贝到Tomcat安装目录下的conf文件夹下，之后在server.xml中进行配置，也就是使网站自动提取密钥库中的密钥给网站使用用户。具体配置可以打开server.xml文件中关于8443端口的部分，这部分视频使用的方法在Tomcat官方文档中显示deprecated，故不记录，另外，这里配置的只是单向加密连接器，实际开发中应配置https双向加密连接器。</p>
+<h2 id="Tomcat管理器"><a href="#Tomcat管理器" class="headerlink" title="Tomcat管理器"></a>Tomcat管理器</h2><p>在官方文档首先有Manger APP，点击需要用户名密码。这个在复制文件中可以进行配置，打开tomcat-users.xml可以看到几个注释的用户名密码，可以用这几个或者自己再配置。注意默认正好无权限，需要加一个manager的角色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;both&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;role1&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;role1&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p>客户端连上web服务器之后，若想要获得web服务器中某个web资源，需遵守一定的通讯格式，HTTP协议用于定义客户端与web服务器通讯的格式，时TCP/IP协议的一个应用层协议。</p>
+<p>可以使用windows自带的telnet程序连上web服务器并使用HTTP协议获取某个页面或者浏览器的一些插件也可以实现查看HTTP的请求和响应。</p>
+<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>客户端连上服务器后，向服务器请求某个web资源，称之为客户端向服务器发送了一个HTTP请求，一个完整的HTTP请求包括：一个请求行、若干请求头、以及实体内容。请求行用于描述客户端的请求方式、请求的资源名称以及使用的HTTP协议版本号；请求头用于描述客户端请求哪台主机以及客户端的一些环境信息等；实体内容为表单请求的数据等。</p>
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行中常用的请求方式有GET和POST，如果用户没有设置，默认都是GET，用户想把请求方式改为POST，可通过更改表单的提交方式实现。GET在请求的URL地址后以?的形式带上交给服务器的数据，多个数据之间以&amp;进行分隔，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mail/1.html?name=abc&amp;password=123456 HTTP/1.1</span><br></pre></td></tr></table></figure>
+
+<p>其数据容量通常不能超过1K，POST传送的数据量无限制。</p>
+<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>Accept：用于告诉服务器，客户机支持的数据类型；</p>
+<p>Accept-Charset：用于告诉服务器，客户机采用的编码；</p>
+<p>Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；</p>
+<p>Accept-Language：用于告诉服务器，客户机的语言环境；</p>
+<p>Host：客户机通过这个头告诉服务器，想访问的主机名；</p>
+<p>If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；</p>
+<p>Referer：客户机通过这个头告诉服务器，它是从哪个资源来访问服务器的（主要用于防盗链）；</p>
+<p>User-Agent：客户机通过这个头告诉服务器，客户机的软件环境；</p>
+<p>Cookie：客户机通过这个头可以向服务器带一点数据；</p>
+<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><p>一个HTTP响应代表服务器向客户端回送的数据。HTTP响应包括：一个状态行、若干响应头、以及实体内容。状态行用于描述服务器对于请求的处理结果；响应头用于描述服务器的基本信息，以及数据的描述，服务器通过这些数据的描述信息，可以通知客户端如何处理等一会儿它回送的数据；实体内容为服务器向客户端回送的数据。</p>
+<h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><p>状态码用于表示服务器对请求的处理结果，它是一个三位的十进制数，响应状态码分为三类：</p>
+<p><img src="https://i.loli.net/2019/09/15/gyEoDF23zGwltV9.png" alt=""></p>
+<p>例如302：服务器告诉客户端去其他地址找；304/307：服务器告诉客户端去找缓存；404：服务器告诉客户端资源找不到；403：服务器告诉客户端没有权限访问该资源；</p>
+<p>响应头</p>
+<p>Location：这个头配合302状态码使用，用于告诉客户端找谁，实现请求重定向；</p>
+<p>Server：通过这个头，告诉浏览器服务器的类型；</p>
+<p>Context-Type：通过这个头，告诉浏览器回送数据的类型，不同的文件类型对应的具体书写格式可在Tomcat/conf/web.xml中查看；</p>
+<p>Refresh：通过这个头，服务器告诉浏览器多久刷新一次；</p>
+<p>Content-Disposition：通过这个头，服务器告诉浏览器以下载方式打开数据；</p>
+<p>ETag：缓存相头的头；</p>
+<p>Expirse：通过这个头，服务器告诉浏览器把回送的资源缓存多长时间，-1或0代表不缓存；</p>
+<p>Set-Cookie、Cache-Control、Pragma等其他一些头和缓存相关；</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/10/2019-09-10-JavaWeb1/" data-id="ck22z510d008btoulg5vl4aya" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/15/2019-09-15-JavaWeb2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaWeb2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/09/2019-09-09-XML/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">XML</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据结构_6 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习过程主要依照中国MOOC课程，感谢MOOC，感谢浙大授课大佬。  什么是图概念图：表示“多对多”的关系包含：  一组顶点：通常用V（Vertex）表示顶点集合； 一组边：通常用E（Eege）表示边的集合；边是顶点对：无向边（v,w）∈E，其中v,w∈V有向边&amp;lt;v,w&amp;gt;∈E，其中v,w∈V  程序中图的表示 邻接矩阵:G[N][N]-N个顶点从0到N-1编号G[N][N]=1（&amp;l">
+<meta name="keywords" content="数据结构,MOOC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构_6">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;04&#x2F;10&#x2F;2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习过程主要依照中国MOOC课程，感谢MOOC，感谢浙大授课大佬。  什么是图概念图：表示“多对多”的关系包含：  一组顶点：通常用V（Vertex）表示顶点集合； 一组边：通常用E（Eege）表示边的集合；边是顶点对：无向边（v,w）∈E，其中v,w∈V有向边&amp;lt;v,w&amp;gt;∈E，其中v,w∈V  程序中图的表示 邻接矩阵:G[N][N]-N个顶点从0到N-1编号G[N][N]=1（&amp;l">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-22T14:37:49.985Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-04-10-数据结构_6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/" class="article-date">
+  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构_6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="什么是图"><a href="#什么是图" class="headerlink" title="什么是图"></a>什么是图</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>图：表示“多对多”的关系<br>包含：</p>
+<ul>
+<li>一组顶点：通常用V（Vertex）表示顶点集合；</li>
+<li>一组边：通常用E（Eege）表示边的集合；<br>边是顶点对：<br>无向边（v,w）∈E，其中v,w∈V<br>有向边&lt;v,w&gt;∈E，其中v,w∈V</li>
+</ul>
+<h2 id="程序中图的表示"><a href="#程序中图的表示" class="headerlink" title="程序中图的表示"></a>程序中图的表示</h2><ul>
+<li><strong>邻接矩阵</strong>:G[N][N]-N个顶点从0到N-1编号<br>G[N][N]=1（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;是G中的边）/0（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;不是G中的边）。<br>对于有N个顶点的无向图，用一个长度为N(N+1)/2的1维数组存储可以省一半空间。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接矩阵表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">#define INFINITY 65535        /* ∞设为双字节无符号整数的最大值65535*/</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line">        </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;</span><br><span class="line">    int Nv;  /* 顶点数 */</span><br><span class="line">    int Ne;  /* 边数   */</span><br><span class="line">    WeightType G[MaxVertexNum][MaxVertexNum]; /* 邻接矩阵 */</span><br><span class="line">    DataType Data[MaxVertexNum];      /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data[]可以不用出现 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode MGraph; /* 以邻接矩阵存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">MGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V, W;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (MGraph)malloc(sizeof(struct GNode)); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接矩阵 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        for (W=0; W&lt;Graph-&gt;Nv; W++)  </span><br><span class="line">            Graph-&gt;G[V][W] = INFINITY;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( MGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">     /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V1][E-&gt;V2] = E-&gt;Weight;    </span><br><span class="line">     /* 若是无向图，还要插入边&lt;V2, V1&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V2][E-&gt;V1] = E-&gt;Weight;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">MGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc(sizeof(struct ENode)); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;Data[V]));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>邻接表</strong>：G[N]为指针数组，对应矩阵每行一个链表，只存非0元素。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接表表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line"> </span><br><span class="line">/* 邻接点的定义 */</span><br><span class="line">typedef struct AdjVNode *PtrToAdjVNode; </span><br><span class="line">struct AdjVNode&#123;</span><br><span class="line">    Vertex AdjV;        /* 邻接点下标 */</span><br><span class="line">    WeightType Weight;  /* 边权重 */</span><br><span class="line">    PtrToAdjVNode Next;    /* 指向下一个邻接点的指针 */</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">/* 顶点表头结点的定义 */</span><br><span class="line">typedef struct Vnode&#123;</span><br><span class="line">    PtrToAdjVNode FirstEdge;/* 边表头指针 */</span><br><span class="line">    DataType Data;            /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data可以不用出现 */</span><br><span class="line">&#125; AdjList[MaxVertexNum];    /* AdjList是邻接表类型 */</span><br><span class="line"> </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;  </span><br><span class="line">    int Nv;     /* 顶点数 */</span><br><span class="line">    int Ne;     /* 边数   */</span><br><span class="line">    AdjList G;  /* 邻接表 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode LGraph; /* 以邻接表方式存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">LGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (LGraph)malloc( sizeof(struct GNode) ); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接表头指针 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">       for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        Graph-&gt;G[V].FirstEdge = NULL;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( LGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">    PtrToAdjVNode NewNode;</span><br><span class="line">     </span><br><span class="line">    /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">    /* 为V2建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V2;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V2插入V1的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V1].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V1].FirstEdge = NewNode;</span><br><span class="line">         </span><br><span class="line">    /* 若是无向图，还要插入边 &lt;V2, V1&gt; */</span><br><span class="line">    /* 为V1建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V1;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V1插入V2的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V2].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V2].FirstEdge = NewNode;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">LGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc( sizeof(struct ENode) ); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;G[V].Data));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>站在一个路口，看有几条路还没走，选择其中一条往下走，走到下一个路口，继续判断，如没有，则原路返回上一个路口，看上一个路口是否有没走的路，如没有则继续原路返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接表存储的图 - DFS */</span><br><span class="line"> </span><br><span class="line">void Visit( Vertex V )</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;正在访问顶点%d\n&quot;, V);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void DFS( LGraph Graph, Vertex V, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以V为出发点对邻接表存储的图Graph进行DFS搜索 */</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">     </span><br><span class="line">    Visit( V ); /* 访问第V个顶点 */</span><br><span class="line">    Visited[V] = true; /* 标记V已访问 */</span><br><span class="line"> </span><br><span class="line">    for( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next ) /* 对V的每个邻接点W-&gt;AdjV */</span><br><span class="line">        if ( !Visited[W-&gt;AdjV] )    /* 若W-&gt;AdjV未被访问 */</span><br><span class="line">            DFS( Graph, W-&gt;AdjV, Visit );    /* 则递归访问之 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>指定一个起点，把它压到队列里，在把它弹出队列时，将与它相连的点一一压到队列里，以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接矩阵存储的图 - BFS */</span><br><span class="line"> </span><br><span class="line">/* IsEdge(Graph, V, W)检查&lt;V, W&gt;是否图Graph中的一条边，即W是否V的邻接点。  */</span><br><span class="line">/* 此函数根据图的不同类型要做不同的实现，关键取决于对不存在的边的表示方法。*/</span><br><span class="line">/* 例如对有权图, 如果不存在的边被初始化为INFINITY, 则函数实现如下:         */</span><br><span class="line">bool IsEdge( MGraph Graph, Vertex V, Vertex W )</span><br><span class="line">&#123;</span><br><span class="line">    return Graph-&gt;G[V][W]&lt;INFINITY ? true : false;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void BFS ( MGraph Graph, Vertex S, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以S为出发点对邻接矩阵存储的图Graph进行BFS搜索 */</span><br><span class="line">    Queue Q;     </span><br><span class="line">    Vertex V, W;</span><br><span class="line"> </span><br><span class="line">    Q = CreateQueue( MaxSize ); /* 创建空队列, MaxSize为外部定义的常数 */</span><br><span class="line">    /* 访问顶点S：此处可根据具体访问需要改写 */</span><br><span class="line">    Visit( S );</span><br><span class="line">    Visited[S] = true; /* 标记S已访问 */</span><br><span class="line">    AddQ(Q, S); /* S入队列 */</span><br><span class="line">     </span><br><span class="line">    while ( !IsEmpty(Q) ) &#123;</span><br><span class="line">        V = DeleteQ(Q);  /* 弹出V */</span><br><span class="line">        for( W=0; W&lt;Graph-&gt;Nv; W++ ) /* 对图中的每个顶点W */</span><br><span class="line">            /* 若W是V的邻接点并且未访问过 */</span><br><span class="line">            if ( !Visited[W] &amp;&amp; IsEdge(Graph, V, W) ) &#123;</span><br><span class="line">                /* 访问顶点W */</span><br><span class="line">                Visit( W );</span><br><span class="line">                Visited[W] = true; /* 标记W已访问 */</span><br><span class="line">                AddQ(Q, W); /* W入队列 */</span><br><span class="line">            &#125;</span><br><span class="line">    &#125; /* while结束*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/" data-id="ck22z5103007gtoul2b1mdsyj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Self-supervised Multi-level Face Model Learning for Monocular Reconstruction at over 250 Hz
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux下Github使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">Vue系列笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
