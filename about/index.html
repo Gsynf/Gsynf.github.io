@@ -94,14 +94,14 @@
 
 
 
-<meta name="description" content="没有个性，不签名！">
+<meta name="description" content="我想打起精神来，却不小心把它打死了">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;about&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="没有个性，不签名！">
+<meta property="og:description" content="我想打起精神来，却不小心把它打死了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-23T11:05:46.263Z">
+<meta property="og:updated_time" content="2019-10-23T13:02:46.812Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -267,6 +267,10 @@
 	<h1 class="post-title" itemprop="name headline">about</h1>
 
 
+	<div class="post-meta">
+		<div class="post-description">我想打起精神来，却不小心把它打死了</div>
+	</div>
+
 
 </header>
 
@@ -276,7 +280,95 @@
       <div class="post-body">
         
         
-          
+          <div class="zh post-container">
+
+<pre><code>&lt;!--copied from markdown --&gt;
+&lt;blockquote&gt;&lt;p&gt;冰冻三尺 非一日之寒&lt;br&gt;
+积土成山 非斯须之作&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Hey，我是&lt;strong&gt;Gsynf&lt;/strong&gt;，一名研究僧，现在就读于国科大。&lt;/p&gt;
+
+&lt;p&gt;本人擅长Ai、Fw、Fl、Br、Ae、Pr、Id、Ps等软件的安装与卸载，精通CSS、Javascript、PHP、ASP、C、C＋＋、C#、Java、Ruby、Perl、Lisp、python、Objective-C、Actionscript、Pascal等单词的拼写，熟悉Windows、Linux、Mac、Android、IOS、WP8等系统的开关机。&lt;/p&gt;
+
+
+&lt;p&gt;这是我的利用 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 与 &lt;a href=&quot;http://jekyll.com.cn/&quot;&gt;Jekyll&lt;/a&gt; 搭建的 个人博客。我在GitHub主页&lt;a href=&quot;https://github.com/Gsynf&quot;&gt;👉GitHub·Gsynf&lt;/a&gt; 。如果有什么问题，欢迎提出探讨~&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h5&gt;Talks&lt;/h5&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://jekyll.com.cn/&quot;&gt;jekyll&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://huangxuan.me/&quot;&gt;Hux&lt;/a&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href=&quot;https://analytics.google.com/analytics&quot;&gt;Google Analytics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+
+<!-- English Version -->
+<!-- <div class="en post-container">
+    <blockquote><p>Yet another Life-long Student.</p></blockquote>
+
+    <p>Hi, I am <strong>Gsynf</strong>. I am a student in UCAS now.</p>
+
+    <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="https://github.com/Gsynf" target="_blank" rel="noopener">Github·Gsynf</a>.</p>
+
+
+    <h5>Talks</h5>
+
+    <ul>
+    <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="http://jekyll.com.cn/" target="_blank" rel="noopener">jekyll</a></li>
+    <li><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></li>
+    </ul>
+</div> -->
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+<!-- Gitalk 评论 start  -->
+
+<!-- Gitalk end -->
+
+ <!-- disqus 评论框 start  -->
+
         
       </div>
       
