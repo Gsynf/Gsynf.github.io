@@ -228,6 +228,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/" itemprop="url">Python数据分析与展示_3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
+                2019-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="单元7：Pandas库入门"><a href="#单元7：Pandas库入门" class="headerlink" title="单元7：Pandas库入门"></a>单元7：Pandas库入门</h1><p>Pandas是提供高性能易用数据类型和分析工具的第三方python库，可以说是基于Numpy库。<br>import pandas as pd<br>Pandas提供两个数据类型：Series(一维)、DataFrame(二维及多维)，基于这两种数据类型，可以进行基本操作、运算操作、特征类操作、关联类操作等。</p>
+<h2 id="Series数据类型"><a href="#Series数据类型" class="headerlink" title="Series数据类型"></a>Series数据类型</h2><p>Series类型由一组数据及与之相关的数据索引组成，索引与数据一一对应，索引可以自定义。</p>
+<h3 id="Series类型的创建"><a href="#Series类型的创建" class="headerlink" title="Series类型的创建"></a>Series类型的创建</h3><ol>
+<li>从Python列表创建，index与列表元素个数一致；</li>
+<li>从标量值创建，此时不能省略index；</li>
+<li>从字典类型创建，将字典直接赋给series；</li>
+<li>从adarray类型创建；</li>
+</ol>
+<h3 id="Series类型的基本操作"><a href="#Series类型的基本操作" class="headerlink" title="Series类型的基本操作"></a>Series类型的基本操作</h3><p>由index和values两部分构成，操作类似于ndarray类型，也类似于Python字典类型。需要注意的是，numpy是基于维度的运算，而series是基于索引的运算。</p>
+<h2 id="DataFrame数据类型"><a href="#DataFrame数据类型" class="headerlink" title="DataFrame数据类型"></a>DataFrame数据类型</h2><p>DataFrame类型是由共同相同索引的一组列组成。其实是一个表格型的数据类型，每列值类型可以不同。其中既有行索引（index,axis=0），也有列索引(column,axis=1)。常用来表达二维数据。</p>
+<h3 id="DataFrame类型的创建"><a href="#DataFrame类型的创建" class="headerlink" title="DataFrame类型的创建"></a>DataFrame类型的创建</h3><ol>
+<li>从二维ndarray创建；</li>
+<li>从一维ndarray对象字典创建；</li>
+<li>从列表类型的字典创建；</li>
+</ol>
+<h2 id="Pandas库数据类型操作"><a href="#Pandas库数据类型操作" class="headerlink" title="Pandas库数据类型操作"></a>Pandas库数据类型操作</h2><h3 id="改变Series和DataFrame对象"><a href="#改变Series和DataFrame对象" class="headerlink" title="改变Series和DataFrame对象"></a>改变Series和DataFrame对象</h3><p>增加或者重排：重新索引，通过.reindex()函数实现<br>删除：.drop()</p>
+<h2 id="Pandas库数据类型运算"><a href="#Pandas库数据类型运算" class="headerlink" title="Pandas库数据类型运算"></a>Pandas库数据类型运算</h2><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>算术运算根据行列索引，补齐后运算，补齐时缺项填充NaN(空值)，运算默认产生浮点数，采用+-*/符号进行运算的二元运算将会产生新的对象，还可以使用方法形式进行运算，如.add()、.sub()、.mul()、.div()，这些均可以选择参数。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h3 id="比较运算"><a href="#比较运算" class="headerlink" title="比较运算"></a>比较运算</h3><p>比较运算只能比较相同索引的元素，不进行补齐，采用&gt;&lt;&gt;=&lt;=!=等符号进行运算的二元运算将会产生布尔对象。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h1 id="单元8：Pandas数据特征分析"><a href="#单元8：Pandas数据特征分析" class="headerlink" title="单元8：Pandas数据特征分析"></a>单元8：Pandas数据特征分析</h1><h2 id="数据的排序"><a href="#数据的排序" class="headerlink" title="数据的排序"></a>数据的排序</h2><p>.sort_index(axis=0,ascending=True)方法在指定轴上根据<strong>索引</strong>进行排序，默认升序。<br>.sort_values(axis=0,ascending=True)方法在指定轴上根据<strong>数值</strong>进行排序，默认升序。</p>
+<h2 id="数据的基本统计分析"><a href="#数据的基本统计分析" class="headerlink" title="数据的基本统计分析"></a>数据的基本统计分析</h2><p>基本同numpy相同。<br>.describe()方法可以针对0轴（各列）做统计汇总，包括非空计数、均值、方差等。</p>
+<h2 id="数据的累计统计分析"><a href="#数据的累计统计分析" class="headerlink" title="数据的累计统计分析"></a>数据的累计统计分析</h2><p>.cumsum()、.cumprod()、.cummax()、.cummin()，分别为依次给出前1、2、……、n个数的和、积、最大值、最小值。</p>
+<p>滚动计算（窗口计算）：<br>.rolling(w).sum()、.rolling(w).mean()、.rolling(w).var()、.rolling(w).std()、.rolling(w).min()、.rolling(w).max(),分别为依次给出x相邻w个元素的和、平均值、方差、标准差、最大值、最小值。</p>
+<h2 id="数据的相关分析"><a href="#数据的相关分析" class="headerlink" title="数据的相关分析"></a>数据的相关分析</h2><p>.cov()，计算协方差矩阵；<br>.corr()，计算相关系数矩阵，Pearson、Spearman、Kendall等系数；</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -322,136 +469,6 @@ from &lt;库名&gt; import *
 </ol>
 <pre><code>import &lt;库名&gt; as &lt;库别名&gt;
 &lt;库别名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/" itemprop="url">Python语言程序设计_1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
-                2019-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="编译与解释"><a href="#编译与解释" class="headerlink" title="编译与解释"></a>编译与解释</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>将源代码一次性转换为目标代码的过程。类似英文翻译。<br><img src="https://i.loli.net/2019/05/17/5cde554bd813521498.png" alt="编译"></p>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>将源代码逐条转换为目标代码同时逐条运行的过程。类似实时同声传译。<br><img src="https://i.loli.net/2019/05/17/5cde55678fc4c61789.png" alt="解释"></p>
-<h1 id="静态语言和脚本语言"><a href="#静态语言和脚本语言" class="headerlink" title="静态语言和脚本语言"></a>静态语言和脚本语言</h1><h2 id="静态语言"><a href="#静态语言" class="headerlink" title="静态语言"></a>静态语言</h2><p>使用编译执行的编程语言，运行速度更快。C/C++/Java等。</p>
-<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><p>使用解释执行的编程语言，维护更方便。Python/JavaScript/Php等。</p>
-<h1 id="温度转换实例"><a href="#温度转换实例" class="headerlink" title="温度转换实例"></a>温度转换实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#TempConvert.py</span><br><span class="line">TempStr = input(&quot;请输入带有符号的温度值: &quot;)</span><br><span class="line">if TempStr[-1] in [&apos;F&apos;, &apos;f&apos;]:</span><br><span class="line">    C = (eval(TempStr[0:-1]) - 32)/1.8</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;C&quot;.format(C))</span><br><span class="line">elif TempStr[-1] in [&apos;C&apos;, &apos;c&apos;]:</span><br><span class="line">    F = 1.8*eval(TempStr[0:-1]) + 32</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;F&quot;.format(F))</span><br><span class="line">else:</span><br><span class="line">    print(&quot;输入格式错误&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
           

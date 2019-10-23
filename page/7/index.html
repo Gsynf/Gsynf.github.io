@@ -1019,6 +1019,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/" itemprop="url">数据结构_5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T00:00:00+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="堆heap"><a href="#堆heap" class="headerlink" title="堆heap"></a>堆heap</h1><h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><p>堆的两个特性：</p>
+<ul>
+<li>结构性：用数组表示的<strong>完全二叉树</strong></li>
+<li>有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</li>
+</ul>
+<h2 id="堆进行的操作"><a href="#堆进行的操作" class="headerlink" title="堆进行的操作"></a>堆进行的操作</h2><p>创建、插入、删除、判断是否已满是否为空，返回最大值最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">typedef struct HNode *Heap; /* 堆的类型定义 */</span><br><span class="line">struct HNode &#123;</span><br><span class="line">    ElementType *Data; /* 存储元素的数组 */</span><br><span class="line">    int Size;          /* 堆中当前元素个数 */</span><br><span class="line">    int Capacity;      /* 堆的最大容量 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef Heap MaxHeap; /* 最大堆 */</span><br><span class="line">typedef Heap MinHeap; /* 最小堆 */</span><br><span class="line"> </span><br><span class="line">#define MAXDATA 1000  /* 该值应根据具体情况定义为大于堆中所有可能元素的值 */</span><br><span class="line"> </span><br><span class="line">MaxHeap CreateHeap( int MaxSize )</span><br><span class="line">&#123; /* 创建容量为MaxSize的空的最大堆 */</span><br><span class="line"> </span><br><span class="line">    MaxHeap H = (MaxHeap)malloc(sizeof(struct HNode));</span><br><span class="line">    H-&gt;Data = (ElementType *)malloc((MaxSize+1)*sizeof(ElementType));</span><br><span class="line">    H-&gt;Size = 0;</span><br><span class="line">    H-&gt;Capacity = MaxSize;</span><br><span class="line">    H-&gt;Data[0] = MAXDATA; /* 定义&quot;哨兵&quot;为大于堆中所有可能元素的值*/</span><br><span class="line"> </span><br><span class="line">    return H;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool IsFull( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool Insert( MaxHeap H, ElementType X )</span><br><span class="line">&#123; /* 将元素X插入最大堆H，其中H-&gt;Data[0]已经定义为哨兵 */</span><br><span class="line">    int i;</span><br><span class="line">  </span><br><span class="line">    if ( IsFull(H) ) &#123; </span><br><span class="line">        printf(&quot;最大堆已满&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size; /* i指向插入后堆中的最后一个元素的位置 */</span><br><span class="line">    for ( ; H-&gt;Data[i/2] &lt; X; i/=2 )</span><br><span class="line">        H-&gt;Data[i] = H-&gt;Data[i/2]; /* 上滤X */</span><br><span class="line">    H-&gt;Data[i] = X; /* 将X插入 */</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">#define ERROR -1 /* 错误标识应根据具体情况定义为堆中不可能出现的元素值 */</span><br><span class="line"> </span><br><span class="line">bool IsEmpty( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == 0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ElementType DeleteMax( MaxHeap H )</span><br><span class="line">&#123; /* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType MaxItem, X;</span><br><span class="line"> </span><br><span class="line">    if ( IsEmpty(H) ) &#123;</span><br><span class="line">        printf(&quot;最大堆已为空&quot;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    MaxItem = H-&gt;Data[1]; /* 取出根结点存放的最大值 */</span><br><span class="line">    /* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span><br><span class="line">    X = H-&gt;Data[H-&gt;Size--]; /* 注意当前堆的规模要减小 */</span><br><span class="line">    for( Parent=1; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line"> </span><br><span class="line">    return MaxItem;</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">/*----------- 建造最大堆 -----------*/</span><br><span class="line">void PercDown( MaxHeap H, int p )</span><br><span class="line">&#123; /* 下滤：将H中以H-&gt;Data[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = H-&gt;Data[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void BuildHeap( MaxHeap H )</span><br><span class="line">&#123; /* 调整H-&gt;Data[]中的元素，使满足最大堆的有序性  */</span><br><span class="line">  /* 这里假设所有H-&gt;Size个元素已经存在H-&gt;Data[]中 */</span><br><span class="line"> </span><br><span class="line">    int i;</span><br><span class="line"> </span><br><span class="line">    /* 从最后一个结点的父节点开始，到根结点1 */</span><br><span class="line">    for( i = H-&gt;Size/2; i&gt;0; i-- )</span><br><span class="line">        PercDown( H, i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="哈夫曼树与哈夫曼编码"><a href="#哈夫曼树与哈夫曼编码" class="headerlink" title="哈夫曼树与哈夫曼编码"></a>哈夫曼树与哈夫曼编码</h1><h2 id="什么是哈夫曼树"><a href="#什么是哈夫曼树" class="headerlink" title="什么是哈夫曼树"></a>什么是哈夫曼树</h2><p>根据结点不同的查找频率来构造更有效的搜索树。</p>
+<p><strong>带权路径长度（WPL）</strong>:设二叉树有n个叶子结点，每个叶子结点带有权值w<sub>K</sub>，从根结点到每个叶子结点的长度为l<sub>K</sub>，则每个叶子结点的带权路径长度之和就是:WPL= w<sub>K</sub>*l<sub>K</sub>从i到k的求和。</p>
+<p><strong>哈夫曼树（最优二叉树）</strong>：WPL最小的二叉树。</p>
+<h2 id="哈夫曼树的构造"><a href="#哈夫曼树的构造" class="headerlink" title="哈夫曼树的构造"></a>哈夫曼树的构造</h2><p>把权值从小到大进行排序，把权值最小的两个并在一起，形成一棵二叉树，每次把权值最小的两棵二叉树合并。</p>
+<h2 id="哈夫曼树的特点"><a href="#哈夫曼树的特点" class="headerlink" title="哈夫曼树的特点"></a>哈夫曼树的特点</h2><ul>
+<li>没有度为1的结点；</li>
+<li>n个叶子结点的哈夫曼树共有2n-1个结点；</li>
+<li>哈夫曼树的任意非叶子结点的左右子树交换后仍是哈夫曼树；</li>
+<li>对于同一组权值，存在不同构的两棵哈夫曼树；</li>
+</ul>
+<h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><p>用二叉树进行编码时如何避免二义性：</p>
+<ol>
+<li>左右分支：0，1</li>
+<li>字符只在叶结点上</li>
+</ol>
+<p>利用哈夫曼树进行编码就是哈夫曼编码。</p>
+<h1 id="集合及运算"><a href="#集合及运算" class="headerlink" title="集合及运算"></a>集合及运算</h1><p>集合运算：交、并、补、差<br>并查集：集合并、查某元素属于什么集合</p>
+<h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><p>可以用树结构表示集合，树的每个结点代表一个集合元素</p>
+<h2 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h2><ol>
+<li>查找某个元素所在的集合；</li>
+<li>集合的并运算<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#define MAXN 1000                  /* 集合最大元素个数 */</span><br><span class="line">typedef int ElementType;           /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef int SetName;               /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MAXN]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/2019-04-03-%E9%9D%99%E7%94%9F%E7%94%9F%E7%89%A9%E8%B0%83%E6%9F%A5%E6%89%80%E5%8F%B2%E7%A8%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1188,161 +1343,6 @@
 <li>胡先骕留在大陆的原因<br>对于自己热爱的植物学研究，对于自己终身的事业静生所，对于复员时对旧政府的失望，他把希望寄托在了新政府，期望静生所不仅可以恢复，还可以光大，但没有预料到，他的一系列时政论文已经产生了不可挽回的影响。<br>胡先骕一直希望政府接办静生所，多次致函军管文化接管会。6月，华北人民政府批准接管静生所得决议，将该所纳入华北大学农学院领导。</li>
 <li>关于静生生物调查所所址<br>1949年11月1日，中国科学院成立。对于植物学，国内已有诸多研究机构，有组织一统一研究所得设想。静生所由于其骄人的业绩，科学院乐于接管，但须予以改组。（中科院想接收静生所，更想占其房屋作为科学院院址，但胡先骕只同意被纳入科学院，但不同意房屋被占用，中科院郭沫若、严济慈等人成立整理委员会，整理静生所是名，迁走静生所是实，此时的胡先骕面对强大的压力，只好任之，实属无奈，在整理委员会会议上的发言感人至深。）</li>
 <li>合组中国科学院植物分类研究所<br>中科院决定将静生所与北平研究院植物研究所合并，重新组建中科院植物分类研究所。静生生物调查所就这样终结了，中科院植物分类研究所成立后，胡先骕曾担任研究员，后改名中国科学院植物研究所。在静生所的动物标本基础上扩建成立了中科院动物研究所。</li>
-</ol>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/" itemprop="url">数据结构_5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T00:00:00+08:00">
-                2019-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
-</blockquote>
-<h1 id="堆heap"><a href="#堆heap" class="headerlink" title="堆heap"></a>堆heap</h1><h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><p>堆的两个特性：</p>
-<ul>
-<li>结构性：用数组表示的<strong>完全二叉树</strong></li>
-<li>有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</li>
-</ul>
-<h2 id="堆进行的操作"><a href="#堆进行的操作" class="headerlink" title="堆进行的操作"></a>堆进行的操作</h2><p>创建、插入、删除、判断是否已满是否为空，返回最大值最小值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">typedef struct HNode *Heap; /* 堆的类型定义 */</span><br><span class="line">struct HNode &#123;</span><br><span class="line">    ElementType *Data; /* 存储元素的数组 */</span><br><span class="line">    int Size;          /* 堆中当前元素个数 */</span><br><span class="line">    int Capacity;      /* 堆的最大容量 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef Heap MaxHeap; /* 最大堆 */</span><br><span class="line">typedef Heap MinHeap; /* 最小堆 */</span><br><span class="line"> </span><br><span class="line">#define MAXDATA 1000  /* 该值应根据具体情况定义为大于堆中所有可能元素的值 */</span><br><span class="line"> </span><br><span class="line">MaxHeap CreateHeap( int MaxSize )</span><br><span class="line">&#123; /* 创建容量为MaxSize的空的最大堆 */</span><br><span class="line"> </span><br><span class="line">    MaxHeap H = (MaxHeap)malloc(sizeof(struct HNode));</span><br><span class="line">    H-&gt;Data = (ElementType *)malloc((MaxSize+1)*sizeof(ElementType));</span><br><span class="line">    H-&gt;Size = 0;</span><br><span class="line">    H-&gt;Capacity = MaxSize;</span><br><span class="line">    H-&gt;Data[0] = MAXDATA; /* 定义&quot;哨兵&quot;为大于堆中所有可能元素的值*/</span><br><span class="line"> </span><br><span class="line">    return H;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool IsFull( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool Insert( MaxHeap H, ElementType X )</span><br><span class="line">&#123; /* 将元素X插入最大堆H，其中H-&gt;Data[0]已经定义为哨兵 */</span><br><span class="line">    int i;</span><br><span class="line">  </span><br><span class="line">    if ( IsFull(H) ) &#123; </span><br><span class="line">        printf(&quot;最大堆已满&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size; /* i指向插入后堆中的最后一个元素的位置 */</span><br><span class="line">    for ( ; H-&gt;Data[i/2] &lt; X; i/=2 )</span><br><span class="line">        H-&gt;Data[i] = H-&gt;Data[i/2]; /* 上滤X */</span><br><span class="line">    H-&gt;Data[i] = X; /* 将X插入 */</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">#define ERROR -1 /* 错误标识应根据具体情况定义为堆中不可能出现的元素值 */</span><br><span class="line"> </span><br><span class="line">bool IsEmpty( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == 0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ElementType DeleteMax( MaxHeap H )</span><br><span class="line">&#123; /* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType MaxItem, X;</span><br><span class="line"> </span><br><span class="line">    if ( IsEmpty(H) ) &#123;</span><br><span class="line">        printf(&quot;最大堆已为空&quot;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    MaxItem = H-&gt;Data[1]; /* 取出根结点存放的最大值 */</span><br><span class="line">    /* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span><br><span class="line">    X = H-&gt;Data[H-&gt;Size--]; /* 注意当前堆的规模要减小 */</span><br><span class="line">    for( Parent=1; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line"> </span><br><span class="line">    return MaxItem;</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">/*----------- 建造最大堆 -----------*/</span><br><span class="line">void PercDown( MaxHeap H, int p )</span><br><span class="line">&#123; /* 下滤：将H中以H-&gt;Data[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = H-&gt;Data[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void BuildHeap( MaxHeap H )</span><br><span class="line">&#123; /* 调整H-&gt;Data[]中的元素，使满足最大堆的有序性  */</span><br><span class="line">  /* 这里假设所有H-&gt;Size个元素已经存在H-&gt;Data[]中 */</span><br><span class="line"> </span><br><span class="line">    int i;</span><br><span class="line"> </span><br><span class="line">    /* 从最后一个结点的父节点开始，到根结点1 */</span><br><span class="line">    for( i = H-&gt;Size/2; i&gt;0; i-- )</span><br><span class="line">        PercDown( H, i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="哈夫曼树与哈夫曼编码"><a href="#哈夫曼树与哈夫曼编码" class="headerlink" title="哈夫曼树与哈夫曼编码"></a>哈夫曼树与哈夫曼编码</h1><h2 id="什么是哈夫曼树"><a href="#什么是哈夫曼树" class="headerlink" title="什么是哈夫曼树"></a>什么是哈夫曼树</h2><p>根据结点不同的查找频率来构造更有效的搜索树。</p>
-<p><strong>带权路径长度（WPL）</strong>:设二叉树有n个叶子结点，每个叶子结点带有权值w<sub>K</sub>，从根结点到每个叶子结点的长度为l<sub>K</sub>，则每个叶子结点的带权路径长度之和就是:WPL= w<sub>K</sub>*l<sub>K</sub>从i到k的求和。</p>
-<p><strong>哈夫曼树（最优二叉树）</strong>：WPL最小的二叉树。</p>
-<h2 id="哈夫曼树的构造"><a href="#哈夫曼树的构造" class="headerlink" title="哈夫曼树的构造"></a>哈夫曼树的构造</h2><p>把权值从小到大进行排序，把权值最小的两个并在一起，形成一棵二叉树，每次把权值最小的两棵二叉树合并。</p>
-<h2 id="哈夫曼树的特点"><a href="#哈夫曼树的特点" class="headerlink" title="哈夫曼树的特点"></a>哈夫曼树的特点</h2><ul>
-<li>没有度为1的结点；</li>
-<li>n个叶子结点的哈夫曼树共有2n-1个结点；</li>
-<li>哈夫曼树的任意非叶子结点的左右子树交换后仍是哈夫曼树；</li>
-<li>对于同一组权值，存在不同构的两棵哈夫曼树；</li>
-</ul>
-<h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><p>用二叉树进行编码时如何避免二义性：</p>
-<ol>
-<li>左右分支：0，1</li>
-<li>字符只在叶结点上</li>
-</ol>
-<p>利用哈夫曼树进行编码就是哈夫曼编码。</p>
-<h1 id="集合及运算"><a href="#集合及运算" class="headerlink" title="集合及运算"></a>集合及运算</h1><p>集合运算：交、并、补、差<br>并查集：集合并、查某元素属于什么集合</p>
-<h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><p>可以用树结构表示集合，树的每个结点代表一个集合元素</p>
-<h2 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h2><ol>
-<li>查找某个元素所在的集合；</li>
-<li>集合的并运算<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#define MAXN 1000                  /* 集合最大元素个数 */</span><br><span class="line">typedef int ElementType;           /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef int SetName;               /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MAXN]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
 </ol>
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
