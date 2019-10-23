@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/2019-09-20-JavaWeb3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -269,7 +269,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/20/2019-09-20-JavaWeb3/" itemprop="url">JavaWeb3</a></h1>
+                <a class="post-title-link" href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" itemprop="url">Vue系列笔记</a></h1>
         
 
         <div class="post-meta">
@@ -281,256 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-20T00:00:00+08:00">
-                2019-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="response"><a href="#response" class="headerlink" title="response"></a>response</h1><h2 id="response的OutputStream输出数据"><a href="#response的OutputStream输出数据" class="headerlink" title="response的OutputStream输出数据"></a>response的OutputStream输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">OutputStream out = response.getOutputStream();		//字节流</span><br><span class="line">out.write(data.getByte());		//这样在浏览器显示是正确的</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">out.write(data.getBytes(“UTF-8&quot;);	//这样浏览器反而显示乱码</span><br><span class="line">//原因：浏览器拿到response解析时默认用的码表时GB2312，并不是UTF-8，所以可以修改浏览器的码表，但实际开发显然不会这样做，需要在响应头指定码表。(新版谷歌浏览器默认UTF-8且无法更换)</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
-
-<p>或者利用html的meta标签模拟一个HTTP响应头，来控制浏览器行为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out.write(&quot;&lt;meta http-equiv=&apos;Content-type&apos; content=&apos;text/html;charset=UTF-8&apos;&gt;&quot;.getBytes());</span><br></pre></td></tr></table></figure>
-
-<h2 id="response的Writer输出数据"><a href="#response的Writer输出数据" class="headerlink" title="response的Writer输出数据"></a>response的Writer输出数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;中国&quot;;</span><br><span class="line">PrintWriter out = response.getWriter();		//字符流</span><br><span class="line">out.write(data);		//这样在浏览器显示??</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">//原因：servlet将“中国”写入response，response默认使用ISO8859码表，在码表中找“中国”，无法找到，所以返回两个“？”对应的数字，浏览器拿到response返回的数字解析显示“？”，所以修改response码表即可。</span><br><span class="line">response.setCharacterEncoding(“UTF-8&quot;);</span><br><span class="line">response.setHeader(&quot;Content-type&quot;,&quot;text/html;charset=UTF-8&quot;);</span><br><span class="line">String data =……</span><br><span class="line">…………</span><br></pre></td></tr></table></figure>
-
-<h2 id="response下载文件"><a href="#response下载文件" class="headerlink" title="response下载文件"></a>response下载文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">String path = this.getServletContext().getRealPath(&quot;/download/1.jpg&quot;);	//得到资源文件1.jpg在硬盘中的地址</span><br><span class="line">String filename = path.substring(path.lastIndexOf(&quot;\\&quot;)+1);		//截取文件名</span><br><span class="line">response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + filename);	//告诉浏览器下载文件</span><br><span class="line">//如果下载文件中是中文文件，需要经过URL编码</span><br><span class="line">//response.setHeader(&quot;content-disposition&quot;,&quot;attachment;filename=&quot; + URLEncoder.encode(filename, &quot;UTF-8&quot;);</span><br><span class="line">//读资源文件</span><br><span class="line">InputStream in = null;</span><br><span class="line">OutputStream out = null;</span><br><span class="line">try&#123;</span><br><span class="line">	in =  new FileInputStream(path);</span><br><span class="line">	int len = 0;</span><br><span class="line">	byte buffer[] = new byte[1024];</span><br><span class="line">	out = response.getOutputStream();</span><br><span class="line">	while((len = in.read(buffer)) &gt; 0) (</span><br><span class="line">		out.write(buffer, 0, len);</span><br><span class="line">	)</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	if (in != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			in.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (out != null) &#123;</span><br><span class="line">		try(</span><br><span class="line">			out.close();</span><br><span class="line">		)catch(Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="response控制浏览器定时刷新"><a href="#response控制浏览器定时刷新" class="headerlink" title="response控制浏览器定时刷新"></a>response控制浏览器定时刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&quot;refersh&quot;,3);	//每隔3s刷新一次</span><br></pre></td></tr></table></figure>
-
-<p>实际开发中，一般这么写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;&lt;meta http-squiv=&apos;refresh&apos; content=&apos;3;url=/ProjectName/index.jsp&apos;&gt;恭喜你，登陆成功，本浏览器将在3s后跳转到主页面&quot;;</span><br><span class="line">this.getServletContext().setAttribute(&quot;message&quot;,message);</span><br><span class="line">this.getServletContext().getRequestDispatcher(&quot;/message.jsp&quot;).forward(request,response);</span><br></pre></td></tr></table></figure>
-
-<h2 id="response控制浏览器缓存"><a href="#response控制浏览器缓存" class="headerlink" title="response控制浏览器缓存"></a>response控制浏览器缓存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setDateHeader(&quot;expires&quot;, System.currentTimeMillis()+1000*3600);	//缓存1h</span><br></pre></td></tr></table></figure>
-
-<h2 id="response实现请求重定向"><a href="#response实现请求重定向" class="headerlink" title="response实现请求重定向"></a>response实现请求重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(302);	</span><br><span class="line">response.setHeader(&quot;location&quot;, &quot;/ProjectName/index.jsp&quot;);	//重定向到首页</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">response.setRedirect(&quot;/ProjectName/index.jsp&quot;);	//相当于上边两句</span><br></pre></td></tr></table></figure>
-
-<p>重定向向服务器发送两次请求，通过浏览器地址栏自动改变就可以看出来，这样对服务器压力较大，所以除了登录跳转和购物下单跳转购物车一般不介意采用。</p>
-<h2 id="response一些细节"><a href="#response一些细节" class="headerlink" title="response一些细节"></a>response一些细节</h2><ol>
-<li><p>getOutputStream()和getWriter()方法分别用于得到输出二进制数据、输出文本数据的ServletOutputStream、Printwriter对象，这两个方法互斥，调用了其中一个就不能调用另一个；</p>
-</li>
-<li><p>Servlet程序向ServletOutputStream或Printwriter对象写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当作响应消息的正文，然后再与响应状态行和各响应头组合后输出到客户端；</p>
-</li>
-<li><p>Servlet的service方法结束后，Servlet引擎将检查getWriter()或getOutputStream()方法返回的输出流对象是否已经调用过close方法，如果没有，Servlet引擎将调用close方法关于该输出流对象；</p>
-</li>
-</ol>
-<h1 id="request"><a href="#request" class="headerlink" title="request"></a>request</h1><p>HttpServletRequest对象代表客户端的请求，当客户端通过HTTP协议访问服务器时，HTTP请求投中的所有信息都封装在这个对象中，开发人员通过这个对象的方法，可以获得客户端的信息。</p>
-<h2 id="RUL和URI"><a href="#RUL和URI" class="headerlink" title="RUL和URI"></a>RUL和URI</h2><p>URL：用于标识某个互联网资源，如<a href="http://www.sina.com/news/1.html；" target="_blank" rel="noopener">http://www.sina.com/news/1.html；</a></p>
-<p>URI：用于标识某个资源，如/news/1.html；C:\abc\d.txt；</p>
-<p>判断这两个区别的用处：权限拦截、访问次数统计等</p>
-<h2 id="request获取请求头和请求数据"><a href="#request获取请求头和请求数据" class="headerlink" title="request获取请求头和请求数据"></a>request获取请求头和请求数据</h2><p>获取请求头：request.getHeader()/request.getHeaders()/request.getHeaderNames()；</p>
-<p>获取客户端带来的数据：</p>
-<p>首先，客户端一般有两种方式带数据</p>
-<ol>
-<li><pre><code>//通过超链接
-&lt;a href=&quot;RequestDemo?username=xxx&quot;&gt;点我&lt;/a&gt;    
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
-//通过表单
-&lt;form action=&quot;RequestDemo&quot; method=&quot;post&quot;&gt;
-    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;br&gt;
-&lt;/form&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request获取：</span><br></pre></td></tr></table></figure>
-String value = request.getParameter(&quot;username&quot;);
-//tip:获取请求数据要先检查再使用，如先判断输入是否为空或者是否为空格
-if(value != null &amp;&amp; !value,trim().equals(&quot;&quot;)){
- System.out.println(values);
-}</code></pre></li>
-</ol>
-<hr>
-<p>//所有name和对应的value<br>Enumeration e = request.getParameterNames();<br>while(e.hasMoreElements()) {<br>    String name = (String)e.nextElement();<br>    value = request.getParameter(name);<br>    System.out.println(name+”=”+value);<br>}</p>
-<hr>
-<p>//一个name的所有value<br>String[] values = request.getParameterValues(“username”)；<br>for(int i = 0;values != null &amp;&amp; i &lt; values.length;i++){<br>    System.out.println(values[i]);<br>}</p>
-<hr>
-<p>//存到Map中<br>//需要首先先建好一个User.java的对象<br>Map map = request.getParameterMap();<br>User user = new User();<br>//需要导入commons-beanutils.jar和commons-logging,jar<br>BeanUtils.populate(user,map);<br>//有异常try……catch……<br>System.out.println(user);</p>
-<hr>
-<p>//流的方式，但即使获取到也需要解析，因为获取到的格式为“uername=xxx&amp;password=yyy”<br>InputStream in = request.getInputStream();<br>int len = 0;<br>byte buffer[] = new byte[1024];<br>while((len=in.read(buffer))&gt;0){<br>    System.out.println(new String(buffer,0,len));<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request中文乱码</span><br></pre></td></tr></table></figure>
-<p>request.setCharacterEncoding(“UTF-8”);        //只对post提交有效<br>username = new String(username.getBytes(“iso8859-1”),”UTF-8”);    //解决get提交乱码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request实现请求转发</span><br><span class="line"></span><br><span class="line">请求转发指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</span><br><span class="line"></span><br><span class="line">request对象提供了一个getRequestDispatcher方法，该方法返回一个 RequestDispatcher对象，调用这个对象的forward方法可以实现请求转发。</span><br></pre></td></tr></table></figure>
-<p>String data = “aaaaa”;<br>request.setAttribute(“data”,data);<br>request.getRequestDispatcher(“/1.jsp”).forward(request，response);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request对象同时也是一个域对象，开发人员通过request对象在实现转发时，把数据通过request对象带给其他web资源处理。</span><br><span class="line"></span><br><span class="line">MVC：model-javabean;view-jsp;controller-servlet，流程：jsp收到请求产生数据，数据通过JavaBean封装，JavaBean不适合做输出，会存在request域，jsp再从request中取出进行输出。</span><br><span class="line"></span><br><span class="line">细节一：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前，在servlet程序中写入的部分内容已经被真正的传送到了客户端，forward方法将抛出IIIegalStateException异常，例如。</span><br></pre></td></tr></table></figure>
-<p>if(true){<br>    request.getRequestDispatcher(“/1.jsp”).forward(request，response);<br>}<br>request.getRequestDispatcher(“/2.jsp”).forward(request，response);<br>//解决方案：在第一个forward后加入return;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">细节二：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前向servlet引擎的缓冲区，即response中写入了客户端，只要写入到缓冲区中的内容还没有被真正输出到客户端，forward方法就可以被正常执行，原来写入response的内容将被清空，但是，已写入到HttpServletResponse对象中的响应头字段信息保持有效。</span><br><span class="line"></span><br><span class="line">细节三：</span><br><span class="line"></span><br><span class="line">RequestDispatcher对象除了forward方法之外还有一个方法，include方法，例如。</span><br></pre></td></tr></table></figure>
-<p>//例如，每个界面的头脚都一样，单独写一个head.jsp和foot.jsp，在需要的界面引用即可<br>request.getRequestDispatcher(“/head.jsp”).include(request，response);<br>response.getWriter().write(“aaaaa”);<br>request.getRequestDispatcher(“/foot.jsp”).include(request，response);<br>//注意被包含的页面，也就是head.jsp和foot.jsp不要包含全局架构标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># web工程各类地址写法</span><br></pre></td></tr></table></figure>
-<p>//1.<br>request.getRequestDispatcher(“/index.jsp”).forward(request，response);</p>
-<p>//2.<br>response.sendRedirect(“/ProjectName/index.jsp”);</p>
-<p>//3.<br>this.getServletContext().getRealPath(“/index.jsp”);</p>
-<p>//4.<br>this.getServletContext().getResourceAsStream(“/index.jsp”);</p>
-<p>//5.<br>/*<br><a href="/ProjectName/index.jsp">点击</a></p>
-<form action="/ProjectName/index.jsp">
-</form>
-*/
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line"></span><br><span class="line">写地址先写一个斜杠(/)，如果地址是写给服务器用的，这个斜杠就代表web应用；如果地址是写给浏览器的，这个斜杠就代表网站；</span><br><span class="line"></span><br><span class="line"># 利用referer防盗链</span><br></pre></td></tr></table></figure>
-String referer = request.getHeader("referer");        //获得访问链接
-//判断如果是盗链者跳转到首页
-if(referer==null || referer.startsWith("https://localhost")){
-    response.sendRedirect("/ProjectName/index.jsp");
-    return;
-}
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/2019-09-17-Centos%E5%AE%89%E8%A3%85JDK%E4%BB%A5%E5%8F%8A%E5%A4%9A%E4%B8%AATomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/17/2019-09-17-Centos%E5%AE%89%E8%A3%85JDK%E4%BB%A5%E5%8F%8A%E5%A4%9A%E4%B8%AATomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">Centos安装JDK以及多个Tomcat服务器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T00:00:00+08:00">
-                2019-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T00:00:00+08:00">
+                2019-10-16
               </time>
             
 
@@ -570,298 +322,68 @@ if(referer==null || referer.startsWith("https://localhost")){
         
           
             <blockquote>
+<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
 </blockquote>
-<p>JDK</p>
-<h1 id="一、JDK"><a href="#一、JDK" class="headerlink" title="一、JDK"></a>一、JDK</h1><p>下载地址:<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<p> 注意下载版本   　　  linux环境下    jdkxxxxxx_bin.tar.gz</p>
-<p>通过Xftp登陆时注意新建一个root用户的会话，否则一会儿文件无法传输。</p>
-<p>配置环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//进入root</span><br><span class="line">su root </span><br><span class="line">password:</span><br><span class="line">mkdir     /usr/local/java</span><br><span class="line">//通过Xftp将下载好的tar.gz压缩包传到新建的这个文件夹下</span><br><span class="line">//进入文件夹</span><br><span class="line">cd /usr/local/java</span><br><span class="line">//解压</span><br><span class="line">tar -zxvf jdk..._bin.tar.gz</span><br><span class="line">//可删可不删   随意</span><br><span class="line">rm -rf jdk..._bin.tar.gz </span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line">//在最下面加上如下配置，注意JAVA_HOME路径即解压好的jdk路径</span><br><span class="line">//键盘 按i 输入或复制以下内容</span><br><span class="line">#java config</span><br><span class="line">JAVA_HOME=/usr/local/java/jdk-11.0.4</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME</span><br><span class="line">export PATH</span><br><span class="line">//最后    esc +   :wq    保存退出</span><br><span class="line"></span><br><span class="line">//让配置立即生效  或者重启服务器也行</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>验证JDK是否安装成功，在命令行，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p>回车，若打印出JDK版本，则成功。</p>
-<h1 id="二、安装多个Tomcat服务器"><a href="#二、安装多个Tomcat服务器" class="headerlink" title="二、安装多个Tomcat服务器"></a>二、安装多个Tomcat服务器</h1><p>下载地址：<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
-<p>上传、解压和刚才基本相同，这里放在了/usr/local/tomcat/tomcat1和/usr/local/tomcat/tomcat2。</p>
-<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>同样是操作/etc/profile 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#vi  /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>然后在文件最后一行，即刚刚添加JDK环境变量的后边添加如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#tomcat1</span><br><span class="line">export CATALINA_HOME1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line">export CATALINA_BASE1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line">export TOMCAT_HOME1=/usr/local/tomcat/tomcat1/apache-tomcat-8.5.45</span><br><span class="line"></span><br><span class="line">#tomcat2</span><br><span class="line">export CATALINA_HOME2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br><span class="line">export CATALINA_BASE2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br><span class="line">export TOMCAT_HOME2=/usr/local/tomcat/tomcat2/apache-tomcat-8.5.45</span><br></pre></td></tr></table></figure>
-
-<p>最后    esc +   :wq    保存退出，source /etc/profile  配置立即生效。</p>
-<h2 id="修改tomcat1-2中的server-xml文件"><a href="#修改tomcat1-2中的server-xml文件" class="headerlink" title="修改tomcat1/2中的server.xml文件"></a>修改tomcat1/2中的server.xml文件</h2><p>tomcat1：修改tomcat1的server.xml文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1、修改Server prot 默认为8005－－》修改为8001</span><br><span class="line"></span><br><span class="line">&lt;Server port=&quot;8001&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</span><br><span class="line">  &lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&gt;</span><br><span class="line">  &lt;!-- Security listener. Documentation at /docs/config/listeners.html</span><br><span class="line">  --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、修改Connector port HTTP/1.1  默认为8080－－》修改为8081</span><br><span class="line"></span><br><span class="line">&lt;Connector port=&quot;8081&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">connectionTimeout=&quot;20000&quot;</span><br><span class="line">redirectPort=&quot;8443&quot; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3、修改Connector port AJP/1.3 默认为8009－－》修改为8011</span><br><span class="line"></span><br><span class="line">&lt;!-- Define an AJP 1.3 Connector on port 8009 --&gt;</span><br><span class="line">    &lt;Connector port=&quot;8011&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
-
-<p>同样，修改tomcat2的server.xml文件，3个端口号分别修改为8002，8082，8012。</p>
-<h2 id="修改tomcat1-2中的startup-sh-和-shutdown-sh文件"><a href="#修改tomcat1-2中的startup-sh-和-shutdown-sh文件" class="headerlink" title="修改tomcat1/2中的startup.sh 和 shutdown.sh文件"></a>修改tomcat1/2中的startup.sh 和 shutdown.sh文件</h2><p>tomcat1：修改tomcat1中bin下startup.sh 和 shutdown.sh 两个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、tomcat1中bin下startup.sh</span><br><span class="line">命令： vi startup.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE1</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME1</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME1</span><br><span class="line"></span><br><span class="line">2、tomcat1中bin下shutdown.sh</span><br><span class="line">命令： vi shutdown.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE1</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME1</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME1</span><br></pre></td></tr></table></figure>
-
-<p>tomcat2：修改tomcat3中bin下startup.sh 和 shutdown.sh 两个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、tomcat2中bin下startup.sh</span><br><span class="line">命令： vi startup.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE2</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME2</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME2</span><br><span class="line"></span><br><span class="line">2、tomcat2中bin下shutdown.sh</span><br><span class="line">命令： vi shutdown.sh</span><br><span class="line">加入：</span><br><span class="line">export CATALINA_BASE=$CATALINA_BASE2</span><br><span class="line">export CATALINA_HOME=$CATALINA_HOME2</span><br><span class="line">export TOMCAT_HOME=TOMCAT_HOME2</span><br></pre></td></tr></table></figure>
-
-<h2 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h2><p>和之前MySQL开放防火墙3306端口操作一样。</p>
-<p>【1】查看目前防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>【2】开放3306端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8081/tcp	//8082同理</span><br></pre></td></tr></table></figure>
-
-<p>【3】重启防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service firewalld restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="开启并测试"><a href="#开启并测试" class="headerlink" title="开启并测试"></a>开启并测试</h2><p>在相应bin目录下分别运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh startup.sh	//关闭为shutdown.sh</span><br></pre></td></tr></table></figure>
-
-<p>然后在远程浏览器地址栏输入:　ip:port，比如192.168.1.152:8081或192.168.1.152:8082弹出Tomcat页面即说明成功，测试成功记得关闭服务器。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/2019-09-15-JavaWeb2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/15/2019-09-15-JavaWeb2/" itemprop="url">JavaWeb2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T00:00:00+08:00">
-                2019-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>动态资源分为Servlet和JSP，前者是基础。</p>
-</blockquote>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Sun公司在其API中提供了一个Servlet接口，用户若想开发一个动态web资源（即开发一个java程序向浏览器输出数据），需要完成以下两个步骤：</p>
-<ul>
-<li>编写一个Java类，实现Servlet接口；</li>
-<li>把开发好的Java类部署到web服务器；</li>
-</ul>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>如同人一样，六岁上学，十八岁上大学，三十岁结婚，六十岁退休……这些事件是和人这个对象的生命周期相关的，到了某个特定时间就会做。同样，Servlet中有些方法和Servlet的生命周期也是相关的，文档中原文</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This interface defines methods to initialize a servlet, to service requests, and to remove a servlet from the server. These are known as life-cycle methods and are called in the following sequence: </span><br><span class="line"></span><br><span class="line">1. The servlet is constructed, then initialized with the init method. </span><br><span class="line">2. Any calls from clients to the service method are handled. </span><br><span class="line">3. The servlet is taken out of service, then destroyed with the destroy method, then garbage collected and finalized.</span><br></pre></td></tr></table></figure>
-
-<p>也就是初始化init()、响应请求service()、移除destory()这些方法在某个特定时刻必定会执行。具体来说，客户端第一次访问web资源时会创建一个servlet对象，随后init方法会完成对象的初始化，servlet对象不会随着此次访问结束而摧毁，而是留于内存中，客户端访问调用service方法，调用service方法时先创建request对象和response对象，直至关闭服务器或者web应用从服务器删除才会调用servlet的destory()方法。</p>
-<p><img src="https://i.loli.net/2019/09/18/J7SmpFgCARqaV4s.png" alt=""></p>
-<h2 id="初试"><a href="#初试" class="headerlink" title="初试"></a>初试</h2><ol>
-<li>在tomcat中新建一个servlettest应用，在应用中新建一个WEB-INF/classes目录；</li>
-<li>在classes目录中新建一个FirstServlet.java</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package cn.itcast;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line"></span><br><span class="line">public class FirstServlet extends GenericServlet &#123;</span><br><span class="line">	public void service(ServletRequest req,ServletResponse res) throws ServletException,java.io.IOException</span><br><span class="line">	&#123;</span><br><span class="line">		OutputStream out = res.getOutputStream();</span><br><span class="line">		out.write(&quot;hello world&quot;.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>进入classes文件夹，进行编译，但需先导入jar包</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set classpath=%classpath%;E:\apache-tomcat-8.5.45\lib\servlet-api.jar</span><br></pre></td></tr></table></figure>
-
-<p>再进行编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -d . FirstServlet.java</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>编写配置文件，在WEB-INF目录下新建web.xml，配置servlet对外访问路径</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee</span><br><span class="line">                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span><br><span class="line">    version=&quot;3.1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;cn.itcast.FirstServlet&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/FirstServlet&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>启动服务器，浏览器地址栏输入<a href="http://localhost:8080/servlettest/FirstServlet即可。" target="_blank" rel="noopener">http://localhost:8080/servlettest/FirstServlet即可。</a></li>
-</ol>
-<h2 id="在Eclipse中初始"><a href="#在Eclipse中初始" class="headerlink" title="在Eclipse中初始"></a>在Eclipse中初始</h2><p>参考这几个博客：</p>
 <ol>
-<li><a href="https://blog.csdn.net/ldw4033/article/details/18313281" target="_blank" rel="noopener">https://blog.csdn.net/ldw4033/article/details/18313281</a></li>
+<li>Vuex是一个专为Vue.js专用程序开发的状态管理模式。其实，可以简单的将其看作把需要多个组件共享的变量全部存储到一个对象里面，然后，将这个对象放在顶层的Vue实例中，让其他组件可以使用。而且最重要的是，这个对象是响应式的；</li>
 </ol>
-<p>这篇介绍的最基本的，截至2.3都是没问题的，但是按照他的方法启动有些问题，浏览器一直404，也可能是自己启动方法不对；</p>
+<p><img src="https://i.loli.net/2019/10/16/s5lRSpZxtOwaGLy.png" alt=""></p>
 <ol start="2">
-<li><a href="https://blog.csdn.net/u014079773/article/details/51397850" target="_blank" rel="noopener">https://blog.csdn.net/u014079773/article/details/51397850</a></li>
+<li>一般什么状态需要多个组件之间共享呢？例如用户的登录状态、用户名称、头像，例如商品的收藏、购物车中商品等；</li>
+<li>简单使用</li>
 </ol>
-<p>这篇主要参考设置服务器，也就是第10项；</p>
-<ol start="3">
-<li><a href="https://www.cnblogs.com/SamWeb/p/7627044.html" target="_blank" rel="noopener">https://www.cnblogs.com/SamWeb/p/7627044.html</a></li>
-</ol>
-<p>这篇主要参考最后总结修改class文件生成路径部分；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/store/index.js</span></span><br><span class="line"><span class="comment">// 1.安装插件</span></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建对象</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        counter: <span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        <span class="comment">// 方法</span></span><br><span class="line">        increament(state) &#123;</span><br><span class="line">            <span class="keyword">return</span> state.counter++</span><br><span class="line">          &#125;,</span><br><span class="line">          decreament(state) &#123;</span><br><span class="line">            <span class="keyword">return</span> state.counter--</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    modules: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.导出store对象</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// APP.js</span></span><br><span class="line">……</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addition() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.commit(<span class="string">'increament'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    subtraction() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.commit(<span class="string">'decreament'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+
+<p>Vuex的store状态的更新唯一方式：提交mutation，mutation中回调函数的第一个参数就是state，传递的参数可以在state后边，被称作载荷(Payload)。</p>
 <ol start="4">
-<li><p>参考以上，最后右击项目，Run As=&gt;Run on Server，成功。</p>
-</li>
-<li><p>但是有一个问题，在工程的web.xml下也没有对servlet进行配置，如何成功的呢？这里存疑。</p>
-<p>（找到了！！！在servlet3.0后，eclipse中开发服务器的时候，Eclipse不会自动在web.xml中生成该Servlet对应的mapping信息，而是在Servlet代码中加入注解@WebServlet。）</p>
-</li>
+<li>Vuex五大核心：state、mutations、actions、getters、modules：其中state就是存储管理变量、mutations类似methods，其中定义一些方法，对状态变量进行操作，但是只能是同步、actions针对异步操作、getters类似于computed，对状态变量进行一些计算或者筛选、modules主要是对state进行分流，随着要管理的变量增加，state会越来越臃肿，但是Vuex要求单一状态树(单一数据源)，所以就可以利用modules进行分模块，每个模块里又可以定义上述state、mutations等；</li>
+<li>ES6新语法，对象的解构：</li>
 </ol>
-<h1 id="Servlet接口实现类"><a href="#Servlet接口实现类" class="headerlink" title="Servlet接口实现类"></a>Servlet接口实现类</h1><p>Servlet接口Sun公司定义了两个默认实现类，分别为：GenericServlet和HttpServlet，前者就是之前讲过的，后者指能够处理HTTP请求的servlet，它在原有接口上添加了一些与HTTP协议处理方法，它比servlet接口的功能更为强大，因此在开发过程中，通常应该继承这个类，在刚才Eclipse自动创建servlet对象中也是继承的这个类。</p>
-<p>HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用doGet方法；如为POST请求，则调用doPost方法，因此，在实际开发中，通常只需要覆写这两种方法，而不去覆写service方法。</p>
-<h1 id="Servlet的一些细节"><a href="#Servlet的一些细节" class="headerlink" title="Servlet的一些细节"></a>Servlet的一些细节</h1><h2 id="web-xml配置"><a href="#web-xml配置" class="headerlink" title="web.xml配置"></a>web.xml配置</h2><p>这部分内容其实已经不需要了，但是为了深入了解，还是在此记录，简单学习一下。</p>
-<p>由于客户端是通过URL地址访问web服务器中的资源，所以Servlet程序若想被外界访问，必须把servlet程序映射到一个URL地址上，这个工作在web.xml文件中使用&lt; servlet &gt;元素和&lt; servlet-mapping &gt;元素完成。</p>
-<p>&lt; servlet &gt;元素用于注册Servlet，它包含两个主要的元素：&lt; servlet-name &gt;和&lt; servlet-class &gt;，分别用于设置Servlet的注册名称和Servlet的完整类名。</p>
-<p>&lt; servlet-mapping &gt;元素用于映射一个已注册的Servlet的一个对外访问路径，也就是说同一个Servlet可以被映射到多个URL上，每一个&lt; servlet-mapping &gt;包含两个子元素：&lt; servlet-name &gt;和&lt; url-pattern &gt;，分别用于指定Servlet的注册名称和Servlet的对外访问路径。</p>
-<p><img src="https://i.loli.net/2019/09/19/kSoKL5EMvOy6AWq.png" alt=""></p>
-<p>如果在&lt; servlet &gt;元素中配置了一个&lt; load-on-startup &gt;元素，那么web应用程序在启动时，就会装载并创建Servlet的实例对象以及调用Servlet实例对象的init()方法，&lt; load-on-startup &gt;2&lt; /load-on-startup &gt;中的数字代表创建的优先级，正整数越小代表优先级越高。</p>
-<h2 id="Servlet引擎"><a href="#Servlet引擎" class="headerlink" title="Servlet引擎"></a>Servlet引擎</h2><p>需要说明的是，Servlet是一个供其他Java程序调用的Java类，它不能独立运行，它的运行完全由Servlet引擎来控制和调度。这里的Servlet引擎其实就是调用它的其他Java程序，也就是web服务器。</p>
-<h2 id="缺省Servlet"><a href="#缺省Servlet" class="headerlink" title="缺省Servlet"></a>缺省Servlet</h2><p>如果某个Servlet的映射路径仅仅为一个正斜杠/，那么这个Servlet就成为当前web应用的缺省Servlet。</p>
-<p>凡是在web.xml文件中找不到匹配的&lt; servlet-mapping &gt;元素的URL，它们的访问请求都将交给缺省Servlet处理，也就是说，缺省Servlet用于处理其他Servlet都不处理的访问请求。</p>
-<p>当访问Tomcat服务器中某个静态HTML文件或者图片时，实际上是在访问这个缺省Servlet。也就是说你在浏览器中输入动态web资源也好，静态web资源也好，其实浏览器客户端都交给了Servlet，只不过输入静态web资源，例如访问xxxxxxxx/a.html，这个a.html资源并没有在&lt; servlet-mapping &gt;中进行映射，所以调用缺省Servlet，缺省Servlet寻找同名的a.html进行显示，若缺省Servlet也找不到，则返回404界面。</p>
-<h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet &#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	protected void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">	protected void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">	name: <span class="string">'gsynf'</span>,</span><br><span class="line">	age: <span class="number">18</span>,</span><br><span class="line">	height: <span class="number">1.88</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// const name = obj.name;</span></span><br><span class="line"><span class="comment">// const age = obj.age;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = obj</span><br></pre></td></tr></table></figure>
 
-<p>假设有两个用户，第一个用户的页面应该输出1，但是假如在该用户线程休眠过程中有另一个用户访问，则最后输出2，这样就涉及到了线程安全，当然，可以通过synchronized()方法来保证线程安全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">synchronized(this)&#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是，很显然在实际开发中，不可能这么做，否则一个用户访问其他用户只能等待。还有另外一种方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet implements SingleThreadModel</span><br></pre></td></tr></table></figure>
-
-<p>SingleThreadModel接口中没有定义任何内容，称为标记接口，相当于只是给该类贴了一个线程安全的标签，这种方法在servlet 2.4之后就已经Deprecated。</p>
-<p>线程安全问题很大部分是由实例变量造成的，只要在Servlet里面的任何方法里面都不使用实例变量，那么该Servlet就是线程安全的。<strong>所以，在Servlet中避免使用实例变量是保证Servlet线程安全的最佳选择。</strong></p>
-<p>Java 内存模型中，方法中的临时变量是在栈上分配空间，而且每个线程都有自己私有的栈空间，所以它们不会影响线程的安全。</p>
-<h1 id="Servlet对象"><a href="#Servlet对象" class="headerlink" title="Servlet对象"></a>Servlet对象</h1><p>服务器在创建Servlet时，除了有request、response对象，还有ServletConfig、ServletContext、Session、Cookie等对象。</p>
-<h2 id="ServletConfig对象"><a href="#ServletConfig对象" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h2><p>在Servlet配置文件中，可以在&lt; servlet &gt;元素中使用一个或多个&lt; init-param &gt;标签为Servlet配置一些初始化参数，配置之后，web容器在创建Servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用init()方法时，将ServletConfig对象传递给servlet，进而，开发人员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;date&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;2019&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<p>java程序中调用即可得到“2019”：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String value = this.getServletConfig().getInitParameter(&quot;data&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>在实际开发中，例如字符码表、要连接的数据库以及读取哪个配置文件等不适合在程序中显示，就用到了ServletConfig。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;charset&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;UTF-8&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;url&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;jdbc:mysql://localhost:3306/test&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;username&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;password&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;config&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;/struts-config.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><p> web容器在启动时，会为每个web应用都创建一个ServletContext对象，ServletConfig对象中维护ServletContext对象的引用，可以通过ServletConfig().ServletContext()方法获得ServletContext对象。、</p>
-<p>由于一个web应用中所有Servlet共用一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象实现通讯。ServletContext对象通常也称之为context域对象。</p>
-<p>在实际开发中，ServletContext具体有以下几个应用：</p>
-<ul>
-<li>多个servlet之间实现数据共享，一个写入，其他就可以读到；</li>
-<li>获取WEB应用的初始化参数，和上边ServletConfig设置初始化参数类似，只不过这里设置的是整个web应用，使用&lt; context-param &gt;</li>
-<li>实现servlet转发，关于转发和重定向的区别，打个比方，你找我借钱，我让你去找他借，这是重定向；你找我借钱，我帮你去找他借，这是转发。在开发中，转发用的很多，比如servlet的内容肯定要转发，让html去排版再在浏览器显示。</li>
+<ol start="6">
+<li>Vue中发送网络请求有很多方式：<ul>
+<li>传统的Ajax是基于XMLHttpRequest（XHR）；</li>
+<li>比传统的Ajax更好用的jQuery-Ajax;</li>
+<li>官方在Vue1.x时期，推出了Vue-resource；</li>
+<li>在宣布Vue-resource不再维护时，推荐了axios；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RequestDispatcher rd = this.getServletContext().getRequestDispatcher(&quot;/1.jsp&quot;);</span><br><span class="line">rd.forward(request，response);</span><br></pre></td></tr></table></figure>
-
+</li>
+<li>使用JSONP最主要的原因是为了解决跨域访问的问题；</li>
+</ol>
+<p><img src="https://i.loli.net/2019/10/17/hoG4mk1qQUCLbf6.png" alt=""></p>
+<ol start="8">
+<li>axios功能特点：</li>
+</ol>
 <ul>
-<li>读取资源文件</li>
+<li>在浏览器中发送XMLHttpRequests请求；</li>
+<li>在node.js中发送http请求；</li>
+<li>支持Promise API；</li>
+<li>拦截请求和响应；</li>
+<li>转换请求和响应数据；</li>
 </ul>
-<p>假设读取应用下的db.properties：(常见的两种配置文件，如果配置文件内数据有关联，则用xml，否则properties)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql://localhost:3306/test</span><br><span class="line">username=root</span><br><span class="line">password=root</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>axios最基本的使用：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 1.基本使用</span><br><span class="line">// axios(config)</span><br><span class="line">axios(&#123;</span><br><span class="line">  url: &apos;httpbin.org/&apos;</span><br><span class="line">  // 默认就是get</span><br><span class="line">  method: &apos;GET&apos;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// axios.get(&apos;httpbin.org/&apos;).then(res =&gt; &#123;</span><br><span class="line">//   console.log(res);</span><br><span class="line">// &#125;)</span><br></pre></td></tr></table></figure>
 
-<p>在servlet中读取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = this.getServletContext().getResourceAsStream(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//不能使用传统方法</span><br><span class="line">//FileInputStream in = new FileInputStream(&quot;classes/db.properties&quot;);</span><br><span class="line">//因为执行这行代码的是JVM，也就是说相对路径是以Tomcat下startup.bat来看的，此时并没有classes目录</span><br><span class="line">//要想使用，应该采用如下方法;</span><br><span class="line">//String path = this.getServletContext().getRealPath(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//FileInputStream in = new FileInputStream(path);</span><br><span class="line">Properties props = new properties();	//map</span><br><span class="line">props.load(in);		//将in的内容装载到props</span><br><span class="line"></span><br><span class="line">String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println(url);</span><br><span class="line">System.out.println(username);</span><br><span class="line">System.out.println(password);</span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">&gt;&gt;jdbc:mysql://localhost:3306/test</span><br><span class="line">&gt;&gt;root</span><br><span class="line">&gt;&gt;root</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>发送并发请求可以使用axios.all([])，传入的参数和返回的结果都是一个数组。传入参数的数组内每个对象就是上述每个单一的axios请求。</li>
+<li>axios常见配置选项：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">请求地址</span><br><span class="line">url: &apos;/user&apos;,</span><br><span class="line"></span><br><span class="line">请求类型</span><br><span class="line">method: &apos;get&apos;,</span><br><span class="line"></span><br><span class="line">请根路径</span><br><span class="line">baseURL: &apos;http://www.mt.com/api&apos;,</span><br><span class="line"></span><br><span class="line">请求前的数据处理</span><br><span class="line">transformRequest:[function(data)&#123;&#125;],</span><br><span class="line"></span><br><span class="line">请求后的数据处理</span><br><span class="line">transformResponse: [function(data)&#123;&#125;],</span><br><span class="line"></span><br><span class="line">自定义的请求头</span><br><span class="line">headers:&#123;&apos;x-Requested-With&apos;:&apos;XMLHttpRequest&apos;&#125;,</span><br><span class="line"></span><br><span class="line">URL查询对象</span><br><span class="line">params:&#123; id: 12 &#125;,</span><br><span class="line"></span><br><span class="line">查询对象序列化函数</span><br><span class="line">paramsSerializer: function(params)&#123; &#125;</span><br><span class="line"></span><br><span class="line">request body</span><br><span class="line">data: &#123; key: &apos;aa&apos;&#125;,</span><br><span class="line"></span><br><span class="line">超时设置s</span><br><span class="line">timeout: 1000,</span><br><span class="line"></span><br><span class="line">跨域是否带Token</span><br><span class="line">withCredentials: false,</span><br><span class="line"></span><br><span class="line">自定义请求处理</span><br><span class="line">adapter: function(resolve, reject, config)&#123;&#125;,</span><br><span class="line"></span><br><span class="line">身份验证信息</span><br><span class="line">auth: &#123; uname: &apos;&apos;, pwd: &apos;12&apos;&#125;,</span><br><span class="line"></span><br><span class="line">响应的数据格式 json / blob /document /arraybuffer / text / stream</span><br><span class="line">responseType: &apos;json&apos;,</span><br></pre></td></tr></table></figure>
 
-<p>如果读取资源文件的不是servlet，而是普通的Java文件，就只能通过<a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/index.html" target="_blank" rel="noopener">类加载器</a>，例如在dao读取db.properties:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#servlet</span><br><span class="line">……………………</span><br><span class="line">UserDao dao = new UserDao();</span><br><span class="line">dao.update();</span><br><span class="line">……………………</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li>意识：凡是对第三方框架，都不要在每一个组件内都加入依赖，这样一旦第三方框架停止维护，整个项目的维护将是一个巨大的工程，一般都要将对第三方框架进行一个封装。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// network/request.js</span><br><span class="line">export function request(config) &#123;</span><br><span class="line">    // 1. 创建axios实例</span><br><span class="line">    const instance = axios.create(&#123;</span><br><span class="line">        baseURL: &apos;http://123.207.32.32:8000/api/v1&apos;,</span><br><span class="line">        timeout: 5000</span><br><span class="line">    &#125;)</span><br><span class="line">    // 2.发送真正的网络请求</span><br><span class="line">    return instance(config)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// main.js</span><br><span class="line">request(&#123;</span><br><span class="line">  url: &apos;/home/multidata&apos;,</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res);</span><br><span class="line">  </span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">  console.log(err);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#UserDao.java</span><br><span class="line">package cn.itcast.dao;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">		InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">		Properties props = new properties();	</span><br><span class="line">		props.load(in);		</span><br><span class="line">		</span><br><span class="line">		String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">		String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">		String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(url);</span><br><span class="line">		System.out.println(username);</span><br><span class="line">		System.out.println(password);</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>扩展一：</p>
-<p>类加载器读取的文件不能太大，因为类加载器加载的文件直接存在内存中，文件太大会导致内存溢出，JVM爆掉。</p>
-<p>扩展二：</p>
-<p>UserDao.java中除了update方法还可能有find、delete等方法，但是这写方法只加载一次就可以，不用每个方法里都加载，所以可以写成静态代码块，实际开发中常这样写。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	private static Properties dbconfig = new Properties();</span><br><span class="line">	static &#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">			dbconfig.load(in);		</span><br><span class="line">		&#125;catch (Exception e)&#123;</span><br><span class="line">			throw new ExceptionInInitializerError(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>扩展三：</p>
-<p>这样的话，启动服务器后，在db.properties中进行修改，这边是无法更新的，因为类加载加载到内存中，要想更新，只能重启服务器，显然不是想要的，所以应该如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">	//通过类装载的方式得到资源文件的位置，再通过传统方式读取资源文件的数据，这样可以读取到更新后的数据</span><br><span class="line">			String path = UserDao.class.getClassLoader().getResource(&quot;db.properties&quot;).getPath();</span><br><span class="line">			FileInputStream in = new FileInputStream(path);</span><br><span class="line">			Properties dbconfig = new Properties();</span><br><span class="line">			dbconfig.load(in);</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ol start="13">
+<li>axios提供了拦截器，用于在发送每次请求或者得到响应后，进行对应的处理；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//1 请求拦截</span><br><span class="line">instance.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">    console.log(config);</span><br><span class="line">    // 1.比如config中的一些信息不符合服务器的要求</span><br><span class="line">    // 2.比如每次发送网络请求时，在界面显示一个请求图标</span><br><span class="line">    // 3.某些网络请求，例如登录（token），必须携带一些特殊的信息</span><br><span class="line">    return config</span><br><span class="line">&#125;, err =&gt; &#123;</span><br><span class="line">    console.log(err);   </span><br><span class="line">&#125;);</span><br><span class="line">// 2 响应拦截</span><br><span class="line">instance.interceptors.response.use(res =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">    return res.data</span><br><span class="line">&#125;, err =&gt; &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -916,7 +438,7 @@ if(referer==null || referer.startsWith("https://localhost")){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/2019-09-10-JavaWeb1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -935,7 +457,7 @@ if(referer==null || referer.startsWith("https://localhost")){
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/10/2019-09-10-JavaWeb1/" itemprop="url">JavaWeb1</a></h1>
+                <a class="post-title-link" href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" itemprop="url">Vue系列笔记</a></h1>
         
 
         <div class="post-meta">
@@ -947,198 +469,8 @@ if(referer==null || referer.startsWith("https://localhost")){
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T00:00:00+08:00">
-                2019-09-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Web开发相关概念"><a href="#Web开发相关概念" class="headerlink" title="Web开发相关概念"></a>Web开发相关概念</h1><ol>
-<li><p>静态Web资源开发技术：Html</p>
-<p>动态Web资源开发技术：JSP/Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。</p>
-</li>
-<li><p>常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；</p>
-</li>
-<li><p>一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及Jsp文件、java程序、支持jar包和配置文件等；</p>
-</li>
-<li><p>Web应用开发好之后，若想供外界访问，需要把web应用所在目录交给web服务器管理，这个过程称之为虚拟目录的映射，<a href="https://tomcat.apache.org/tomcat-8.5-doc/config/context.html#Defining_a_context" target="_blank" rel="noopener">详情</a>，目前已经不推荐直接在server.xml中直接修改 &lt; Context &gt;，例如直接写入&lt; Context path=“/login” docBase=”C:\login” /&gt;，这样直接浏览器输入<a href="http://localhost:8080/login/1.html" target="_blank" rel="noopener">http://localhost:8080/login/1.html</a> 就可以直接访问C盘login文件夹下的1.html资源了，但是这样一旦修改server.xml，服务器就必须重启；</p>
-</li>
-<li><p>补充小知识：互联网上一些协议及常用的端口：http-80;smtp-25;pop3-110;ftp-23;https-443;mysql-3306;oracle-1521;</p>
-</li>
-</ol>
-<h1 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h1><h2 id="服务器目录结构"><a href="#服务器目录结构" class="headerlink" title="服务器目录结构"></a>服务器目录结构</h2><p>bin：存放启动和关闭Tomcat的脚本文件；</p>
-<p>conf：存放Tomcat服务器的各种配置文件，最重要的是server.xml；</p>
-<p>lib：存放Tomcat服务器支持的jar包；</p>
-<p>logs：存放Tomcat服务器的日志文件，若启动不成功无法通过控制台查看问题的话可查看日志文件；</p>
-<p>temp：存放Tomcat服务器产生的临时文件；</p>
-<p>webapps：web应用所在目录，即供外界访问的web资源的存放目录，对于开发人员最重要的目录；</p>
-<p>work：存放Tomcat服务器的工作目录，JSP需要用到；</p>
-<h2 id="web应用的组成结构"><a href="#web应用的组成结构" class="headerlink" title="web应用的组成结构"></a>web应用的组成结构</h2><p>webapps下的web应用需要严格按照以下存放规则</p>
-<p><img src="https://i.loli.net/2019/09/10/T5ry6kOdICmjUXs.png" alt=""></p>
-<p>web.xml文件是整个web应用中最重要的配置文件，必须放在WEB-INF目录中，在开发web应用时，但凡涉及到对web应用中某个web资源的配置，往往都在web.xml中进行设置。例如把某个资源配置成网站首页，直接参考Tomcat中自带的Web.xml文件，取头取尾即可。</p>
-<p>应用发布到服务器上时需要打包成war包，这样服务器会自动解析。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//进入应用目录</span><br><span class="line">jar -cvf xxx.war xxx</span><br></pre></td></tr></table></figure>
-
-<p>打包后的war文件直接放到服务器的webapps目录，会看到自动解析出xxx文件。</p>
-<h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>所谓配置虚拟主机，就是在tomcat服务器中配置一个网站，一个tomcat服务器中可以放置多个文档，在Web服务器中配置一个网站，需使用Host元素在server.xml进行配置，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host name=&quot;www.google.com&quot; appBase=&quot;C:\login&quot;&gt;&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
-
-<p>但是配置的主机要想被外界访问，必须在DNS进行注册IP，很显然，<a href="http://www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。" target="_blank" rel="noopener">www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。</a></p>
-<h2 id="配置https连接器"><a href="#配置https连接器" class="headerlink" title="配置https连接器"></a>配置https连接器</h2><p>主要用于表单等提交时的加密，设计密码学尤其是非对称加密，这部分略过。</p>
-<p>首先需要为网站生产一份数字证书（公钥），cmd命令行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure>
-
-<p>系统将产生的数字证书保存到密钥库。然后将这份密钥库文件拷贝到Tomcat安装目录下的conf文件夹下，之后在server.xml中进行配置，也就是使网站自动提取密钥库中的密钥给网站使用用户。具体配置可以打开server.xml文件中关于8443端口的部分，这部分视频使用的方法在Tomcat官方文档中显示deprecated，故不记录，另外，这里配置的只是单向加密连接器，实际开发中应配置https双向加密连接器。</p>
-<h2 id="Tomcat管理器"><a href="#Tomcat管理器" class="headerlink" title="Tomcat管理器"></a>Tomcat管理器</h2><p>在官方文档首先有Manger APP，点击需要用户名密码。这个在复制文件中可以进行配置，打开tomcat-users.xml可以看到几个注释的用户名密码，可以用这几个或者自己再配置。注意默认正好无权限，需要加一个manager的角色。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;both&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;role1&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;role1&quot;/&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p>客户端连上web服务器之后，若想要获得web服务器中某个web资源，需遵守一定的通讯格式，HTTP协议用于定义客户端与web服务器通讯的格式，时TCP/IP协议的一个应用层协议。</p>
-<p>可以使用windows自带的telnet程序连上web服务器并使用HTTP协议获取某个页面或者浏览器的一些插件也可以实现查看HTTP的请求和响应。</p>
-<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>客户端连上服务器后，向服务器请求某个web资源，称之为客户端向服务器发送了一个HTTP请求，一个完整的HTTP请求包括：一个请求行、若干请求头、以及实体内容。请求行用于描述客户端的请求方式、请求的资源名称以及使用的HTTP协议版本号；请求头用于描述客户端请求哪台主机以及客户端的一些环境信息等；实体内容为表单请求的数据等。</p>
-<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行中常用的请求方式有GET和POST，如果用户没有设置，默认都是GET，用户想把请求方式改为POST，可通过更改表单的提交方式实现。GET在请求的URL地址后以?的形式带上交给服务器的数据，多个数据之间以&amp;进行分隔，例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mail/1.html?name=abc&amp;password=123456 HTTP/1.1</span><br></pre></td></tr></table></figure>
-
-<p>其数据容量通常不能超过1K，POST传送的数据量无限制。</p>
-<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>Accept：用于告诉服务器，客户机支持的数据类型；</p>
-<p>Accept-Charset：用于告诉服务器，客户机采用的编码；</p>
-<p>Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；</p>
-<p>Accept-Language：用于告诉服务器，客户机的语言环境；</p>
-<p>Host：客户机通过这个头告诉服务器，想访问的主机名；</p>
-<p>If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；</p>
-<p>Referer：客户机通过这个头告诉服务器，它是从哪个资源来访问服务器的（主要用于防盗链）；</p>
-<p>User-Agent：客户机通过这个头告诉服务器，客户机的软件环境；</p>
-<p>Cookie：客户机通过这个头可以向服务器带一点数据；</p>
-<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><p>一个HTTP响应代表服务器向客户端回送的数据。HTTP响应包括：一个状态行、若干响应头、以及实体内容。状态行用于描述服务器对于请求的处理结果；响应头用于描述服务器的基本信息，以及数据的描述，服务器通过这些数据的描述信息，可以通知客户端如何处理等一会儿它回送的数据；实体内容为服务器向客户端回送的数据。</p>
-<h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><p>状态码用于表示服务器对请求的处理结果，它是一个三位的十进制数，响应状态码分为三类：</p>
-<p><img src="https://i.loli.net/2019/09/15/gyEoDF23zGwltV9.png" alt=""></p>
-<p>例如302：服务器告诉客户端去其他地址找；304/307：服务器告诉客户端去找缓存；404：服务器告诉客户端资源找不到；403：服务器告诉客户端没有权限访问该资源；</p>
-<p>响应头</p>
-<p>Location：这个头配合302状态码使用，用于告诉客户端找谁，实现请求重定向；</p>
-<p>Server：通过这个头，告诉浏览器服务器的类型；</p>
-<p>Context-Type：通过这个头，告诉浏览器回送数据的类型，不同的文件类型对应的具体书写格式可在Tomcat/conf/web.xml中查看；</p>
-<p>Refresh：通过这个头，服务器告诉浏览器多久刷新一次；</p>
-<p>Content-Disposition：通过这个头，服务器告诉浏览器以下载方式打开数据；</p>
-<p>ETag：缓存相头的头；</p>
-<p>Expirse：通过这个头，服务器告诉浏览器把回送的资源缓存多长时间，-1或0代表不缓存；</p>
-<p>Set-Cookie、Cache-Control、Pragma等其他一些头和缓存相关；</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/2019-09-09-XML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/09/2019-09-09-XML/" itemprop="url">XML</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T00:00:00+08:00">
-                2019-09-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-14T00:00:00+08:00">
+                2019-10-14
               </time>
             
 
@@ -1178,1073 +510,407 @@ if(referer==null || referer.startsWith("https://localhost")){
         
           
             <blockquote>
-<p>XML语言出现的根本目标在于描述在现实生活中经常出现的有关系的数据。在XML语言中，它允许用户自定义标签。除了用于保存有关系的数据，还经常用作软件配置文件，以描述程序模块之间的关系。</p>
-</blockquote>
-<h1 id="XML内容"><a href="#XML内容" class="headerlink" title="XML内容"></a>XML内容</h1><ul>
-<li><p>文档申明</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>元素</p>
-<p>XML元素指的就是XML文件中出现的标签，一个标签分为开始标签和结束标签，格式良好的XML文档必须有且仅有一个根标签，其他标签都是这个根标签的子孙标签。</p>
-<p>由于在XML中，空格和换行都作为原始内容被处理，所以，在编写XML文件时，使用换行和缩进等方式让原文件内容清晰可读的习惯可能要被迫改变。</p>
-</li>
-<li><p>属性</p>
-<p>一个标签可以有多个属性，每个属性都有它自己名称和取值，在XML中，标签属性所代表的信息也可以被改成用子元素的形式来描述，例如下面两种写法是一样的：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>text<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注释</p>
-<p>需要注意XML声明之前不能有注释。</p>
-</li>
-<li><p>CDATA区</p>
-<p>在编写XML文件时，有些内容可能不想让解析引擎解析执行，而是当作原始数据处理。在这种情况下，就把这些内容放在CDATA区里，对于CDATA区域里的内容，XML解析程序不会处理，而是直接原封不动的输出。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x&lt;![CDATA[</span><br><span class="line">	内容</span><br><span class="line">]]&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理指令</p>
-</li>
-</ul>
-<p>处理指令用来指挥解析引擎如何解析XML文档内容，处理指令必须以&lt; ? 开头，以? &gt;作为结尾，XML声明语句是最常见的处理指令。另外，在XML文档中可以使用xml-stylesheet指令通知XML解析引擎，应用css文件显示xml文档内容。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/css" href="1.css"?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="XML约束"><a href="#XML约束" class="headerlink" title="XML约束"></a>XML约束</h1><p>在XML技术里，可以编写一个文档来约束一个XML文档的书写规范，这称之为XML约束。常用的约束技术包括XML DTD和XML Schema</p>
-<h2 id="XML-DTD"><a href="#XML-DTD" class="headerlink" title="XML DTD"></a>XML DTD</h2><p>DTD:Document Type Definition，举例：</p>
-<p>book.xml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 书架 SYSTEM &quot;book.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>book.dtd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT 书架（书+）&gt;</span><br><span class="line">	&lt;!ELEMENT 书（书名，作者，售价）&gt;</span><br><span class="line">	&lt;!ELEMENT 书名（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 作者（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 售价（#PCDATA）&gt;</span><br></pre></td></tr></table></figure>
-
-<p>查看一份XML文档是否遵循对应的DTD约束，可以使用Eclipse进行校验，DTD文件应该使用UTF-8或者Unicode。</p>
-<p>具体DTD的语法在此略过。</p>
-<h2 id="XML-Schema"><a href="#XML-Schema" class="headerlink" title="XML Schema"></a>XML Schema</h2><ul>
-<li><p>XML Schema符合XML语法，也就是说它本身就是一个XML文档，但它扩展名为.xsd，同时，它也必须有一个根节点，名称为chema；</p>
-</li>
-<li><p>XML Schema对<strong>名称空间</strong>支持得很好；</p>
-</li>
-<li><p>XML Schema比DTD支持更多的数据类型，并支持用户自定义新的数据类型；</p>
-</li>
-<li><p>XML Schema定义约束的能力非常强大，可以对XML实例文档作出细致的语义限制；</p>
-</li>
-<li><p>XML Schema不能像DTD一样定义实体，比DTD更复杂，但已成为W3C标准，正逐步取代DTD;</p>
-</li>
-<li><p>编写一个XML Schema约束文档之后，需要把这个文件中声明的元素绑定到一个URI地址上，这个地址，也就是所谓的名称空间，以后XML文件就可以通过这个URL来告诉解析引擎，xml文档中编写的元素来自哪里，被谁约束。</p>
-</li>
-<li><p>关于名称空间：每个约束模式文档都可以被赋予一个唯一的名称空间，用一个唯一的URI表示。在XML文件中书写标签时，可以通过名称空间声明（xmlns）,来声明当前编写的标签来自哪个Schema约束文档。如：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;gsynf:书架 xmlns:gsynf=&quot;http://gsynf.github.io&quot;&gt;</span><br><span class="line">	&lt;gsynf:书&gt;……&lt;/gsynf:书&gt;</span><br><span class="line">&lt;/gsynf:书架&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此处使用gsynf来指向声明的名称，方便后面对名称空间的引用。</p>
-<p>注意：名称空间的名字语法 很容易让人混淆，尽管以http://开始，那个URL并不指向一个包含模式定义的文件。事实上，这个URL：http ://gsynf.github.io 根本没有指向任何文件，只是一个分配的名字。</p>
-<p>为了在一个XML文档中声明它所遵循的Schema文件的具体位置，通常需要在Xml文档中的根节点使用schemaLocation属性来指定，例如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gsynf:书架</span> <span class="attr">xmlns:gsynf</span>=<span class="string">"http://gsynf.github.io"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://gsynf.github.io"</span> <span class="attr">book.xsd</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>schemaLocation此属性有两个值，第一个值是需要的命名空间，第二个值是供命名空间使用的XML Schema文件位置。</p>
-<h1 id="XML编程"><a href="#XML编程" class="headerlink" title="XML编程"></a>XML编程</h1><p>所谓XML编程，其实就是CRUD（create,read,update,delete）。</p>
-<h2 id="XMl解析方式"><a href="#XMl解析方式" class="headerlink" title="XMl解析方式"></a>XMl解析方式</h2><p>DOM：W3C官方推荐的解析方式；</p>
-<p>SAX：社区事实上的标准；</p>
-<p>XML解析开发包：Jaxp(sun)、Jdom、dom4j</p>
-<h3 id="DOM解析"><a href="#DOM解析" class="headerlink" title="DOM解析"></a>DOM解析</h3><p>把XML中的节点均变为对象，标签成为Element对象，文本成为Text对象，属性成为Attribute对象，然后根据这些对象之间的关系生成DOM树。DOM解析对增删改查比较容易，DOM解析对内存资源占用较大，不适用于较大的文档对象。</p>
-<p>以JAXP为例，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到dom解析器</span></span><br><span class="line">DocumentBuilder builder = factory.newDocumentBuilder();</span><br><span class="line"><span class="comment">//3.解析xml文档，得到代表文档的document</span></span><br><span class="line">Document document = builder.parse(<span class="string">"src/book.xml"</span>);</span><br><span class="line"><span class="comment">//4.调用Document方法获取某个节点内容</span></span><br><span class="line">NodeList list = document.getElementsByTagName(<span class="string">"书名"</span>);</span><br><span class="line">Node node = list.item(<span class="number">1</span>);</span><br><span class="line">String content = node.getTextContent();</span><br><span class="line"><span class="comment">//5.对某个节点进行操作，例如增加一个属性</span></span><br><span class="line">Element price = document.creatElement(<span class="string">"售价"</span>);</span><br><span class="line">price.setTextContent(<span class="string">"59元"</span>);</span><br><span class="line">Element book = (Element) document.getElementsByTagName(<span class="string">"书"</span>).item(<span class="number">0</span>);<span class="comment">//把创建的节点挂到第一本书上</span></span><br><span class="line">book.appendChild(price);</span><br></pre></td></tr></table></figure>
-
-<h3 id="SAX解析"><a href="#SAX解析" class="headerlink" title="SAX解析"></a>SAX解析</h3><p>从上向下读取，读取一行处理一行。所以对内存压力较小，解析速度快，但是只适合读取，不适合增删改查。</p>
-<p>SAX采用事件处理的方式解析XML文档，利用SAX解析文档，涉及两个部分：解析器和事件处理器。</p>
-<ul>
-<li><p>解析器可以使用JAXP的API创建，创建出解析器之后，就可以指定解析器去解析某个XML文档</p>
-</li>
-<li><p>解析器采用SAX方式在解析某个XML文档时，只要解析到XML文档中的一个组成部分，都会调用事件处理器的一个方法，解析器在调用事件处理器的方法时，会把当前解析到的xml文档内容作为方法的参数传递给事件处理器；</p>
-</li>
-<li><p>事件处理器由程序员编写，通过事件处理器中方法的参数，就可以轻松得到sax解析器解析到的数据，从而决定如何对数据进行处理。</p>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2019/09/10/6JRPor4UqTduI27.png" alt=""></p>
-<p>以JAXP为例，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">SAXParserFactory factory = SAXParseFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到解析器</span></span><br><span class="line">SAXParser sp = factory.newSAXParser();</span><br><span class="line"><span class="comment">//3.得到读取器</span></span><br><span class="line">XMLReader reader = sp.getXMLReader();</span><br><span class="line"><span class="comment">//4.设置内容处理器</span></span><br><span class="line">reader.SetContentHandler();</span><br><span class="line"><span class="comment">//5.读取xml文档</span></span><br><span class="line">reader.parse(<span class="string">"src/book.xml"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>除了JAXP，dom4j是一个简单、灵活的开放源代码的第三方库，使用接口和抽象基类，性能优异、功能强大，目前使用最多。</p>
-<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><p>快速定位需要找到的节点：</p>
-<ul>
-<li><p>如果路径以斜线/开始，表示到一个元素的绝对路径；</p>
-</li>
-<li><p>如果路径以双斜线//开始，表示选择文档中所有满足双斜线//之后规则的元素（无论层级关系）；</p>
-</li>
-<li><p>星号*表示选择所有由星号之前的路径所定位的元素；</p>
-</li>
-<li><p>方块中的表达式可以进一步指定元素，其中数字表示元素在选择集里的位置，而last()函数则表示选择集中的最后一个元素；</p>
-</li>
-<li><p>[@ATT]找到有特定属性的元素，还可以选择属性值[@ATT=‘att’];</p>
-</li>
-<li><p>……………………………………</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/AAA/BBB  找到AAA下的所有BBB</span><br><span class="line">//AAA/BBB  选择所有父元素是AAA的BBB元素</span><br><span class="line">/AAA/BBB/*  选择所有路径依附于/AAA/BBB的元素</span><br><span class="line">/AAA/BBB[1]  选择AAA的第一个BBB子元素</span><br><span class="line">//BBB[@name]  选择有name属性的BBB元素</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/05/2019-09-05-Java%E9%9B%B6%E6%95%A3%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/05/2019-09-05-Java%E9%9B%B6%E6%95%A3%E7%AC%94%E8%AE%B0/" itemprop="url">Java零散笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T00:00:00+08:00">
-                2019-09-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Java学习内容较多，在此零散记录一些需要注意的地方，尤其是其他语言没有的东西，不作为系统学习Java的教程。</p>
+<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
 </blockquote>
 <ol>
-<li><p>A obj = new A();，obj可以看作是内存对象中的一个对象（包括若干个数据）的句柄，在C/C++中，obj称为指针，在Java中成为Reference,需要注意的是对象比较庞大，所以对象赋值是Refenence赋值，也就是两个Reference会指向同一个东西，而如int等基本对象比较简单，他们的赋值是直接拷贝。</p>
+<li>前端渲染和后端渲染/前端路由和后端路由：</li>
+</ol>
+<ul>
+<li>早期，服务器收到URL通过正则进行匹配，交给Controller进行处理，利用JSP等技术，直接生产渲染好对应的HTML页面，不仅有html、css，还有获取数据的java代码，返回给客户端进行展示，这就是后端渲染，在后端处理URL和页面之间的映射关系，即后端路由；</li>
+<li>随着Ajax出现，有了前后端分离的开发模式，客户端通过URL发起请求，去静态资源服务器请求资源，请求回的资源包括html+css+js，前两者浏览器进行渲染，js浏览器执行，执行到API接口时，再去请求提供API接口的服务器，请求回之后由其他js代码进行处理，这就是前端渲染；</li>
+<li>再发展就是单页面富应用阶段，最主要的特点就是在前后端分离的基础上加了一层前端路由，整个网站只有一个html页面，浏览器向静态资源网站请求时将所有资源全部请求下来，前端路由监听浏览器，当URL改变，就将请求的全部资源进行抽离但不进行页面整体刷新也就是不再进行新的请求，显示该显示的部分，也就是一个网页，这种一个URL和一个网页的映射就是前端路由；</li>
+</ul>
+<ol start="2">
+<li>如何改变URL而页面不刷新呢？有两种方法，一种为利用URL的hash，另一种为html5的history模式。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//Console</span><br><span class="line">&gt;location.hash = &apos;foo&apos;</span><br><span class="line">&gt;history.pushState(&#123;&#125;,&apos;&apos;,&apos;foo&apos;) //这个push有点类似于入栈，history.back()或者history.go(-1)或者history.forward()或者浏览器返回类似于出栈</span><br><span class="line">&gt;history.replaceState(&#123;&#125;,&apos;&apos;,&apos;foo&apos;)//很明显，相比于上，这个直接是代替，不会留下history记录</span><br></pre></td></tr></table></figure>
+
+<p>Vue默认使用hash，但是会发现hash的URL会有#，看起来不是很舒服，可以改为history模式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    path: &apos;&apos;,</span><br><span class="line">    // redirect 重定向</span><br><span class="line">    redirect: &apos;/home&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: &apos;/home&apos;,</span><br><span class="line">    component: Home</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: &apos;/about&apos;,</span><br><span class="line">    component: About</span><br><span class="line">  &#125;,    </span><br><span class="line">],</span><br><span class="line">mode: &apos;history&apos;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>&lt;router-link&gt;该标签是vue-router中已经内置的一个标签，会被渲染成&lt;a&gt;标签，&lt;router-view&gt;该标签根据当前的路径，动态渲染不同组件，当路由切换，切换的是&lt;router-view&gt;挂载的组件，其他内容不会发送改变。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//App.vue</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-link to=&quot;/home&quot;&gt;首页&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</span><br><span class="line">    &lt;router-view/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&lt;router-link&gt;除了to属性，还有其他属性，例如tag属性，可以决定它会被渲染成除a意外的其他什么组件；replace属性，不会留下history记录，后退返回键不能用，也就是将默认的pushState改为了replaceState；active-class属性，当对应路由匹配成功，某组件会处于活跃状态，会自动给该元素设置一个router-link-active的class，active-class可以改这个class名字，但一般不做修改；</p>
+<ol start="4">
+<li><p>项目打包后会在dist文件夹下看到static/index.html，其中，static文件夹下有css/js，css文件夹下是将各个vue的css代码进行整合，js文件夹下有三个js文件，分别为app.js/manifest.js/vendor.js，分别是当前应用开发的所有业务代码、为了打包代码做的底层支撑代码、第三方（供应商）代码，如vue/axios/bs等；</p>
 </li>
-<li><p>String是不可变对象，而StringBuffer和StringBuilder是可变对象。也就是使用StringBuilder append(任意类型)方法可以实现添加数据并返回对象本身。StringBuilder reverse（）同理，但是String没有这两个常用的方法，所以涉及到相互转换：通过toString()就可以实现把StringBuilder转换为String；反之，通过构造方法StringBuilder(String s)。</p>
-</li>
-<li><p>短路逻辑运算符<br>逻辑与&amp;，无论左边真假，右边都要执行；短路与&amp;&amp;，如果左边为真，右边执行，如果左边为假，右边短路不执行。<br>逻辑或与短路或同理。</p>
-</li>
-<li><p>成员变量在类中方法外，存放于堆内存，有默认的初始化值；而局部变量存在于方法内或方法声明上，存放于栈内存，没有默认初始化值，必须先定义，赋值，才能使用。</p>
-</li>
-<li><p>Java构造函数的名称必须和类名一样，且没有返回值，定义时不能有void，写了就成为了普通函数；Java有构造函数但是没有析构函数，也就是每个变量都有生命周期，它只能存储在离它最近的一对{}中，当变量被创建时，变量将占据内存；当变量消亡时，系统将回收内存。每个Java类必须有构造函数，如果没有显式的定义构造函数，Java编译器自动为该类产生一个空的无形参的构造函数。一个类可以有多个构造函数，只要形参列表不相同即可，和重载函数一样。</p>
-</li>
-<li><p>面向对象有一个法则：信息隐藏，也就是类的成员属性是私有的private，类的方法是共有的public，通过方法修改成员属性的值。外界对类成员的操作只能通过get和set方法，可以用Java IDE快速生成，如Eclipse中Source-Generate Getters and Setters可以自动快速地对类中的成员生产get和set方法，且遵循驼峰命名法。</p>
-</li>
-<li><p>this不仅可以负责指向本类中的成员变量和成员方法，还可以代替本类的构造方法。</p>
-</li>
-<li><p>在Java语言设计中，针对C++中方法指代不清的问题进行改进，特意强调了单根继承的原则，也就是每个类只能继承一个类。继承如果不写extends，Java都默认继承java.lang.Object类，也就是Java所有类都从java.lang.Object开始，构建出一个类型继承树，Object类里面默认就有clone、equals、hashCode、toString等方法。另外，每个子类的构造函数第一句话都默认调用父类的<strong>无参数构造函数</strong>super()，除非子类的构造函数第一句话是super，而且super语句必须放在第一条。</p>
-</li>
-<li><p>多态的作用：<br>(1)以统一的接口来操纵某一类中不同的对象的动态行为，每一个对象的行为由自己来决定；<br>(2)对象之间的解耦，基于接口，利用转型和多态，不影响真正方法的调用，可以将调用类和被调用类解耦。<br>多态中成员访问特点：<br>成员变量：编译看左边，执行看左边；成员方法：编译看左边，执行看右边。解释一下，以Animal a = new Cat()为例，假设Animal类中有变量age=20和方法“动物吃东西”，Cat类继承于Animal类，变量有age=40和name，方法有“猫吃鱼”和“猫捉老鼠”。此时a.age可以，输出的是20，a.name报错；a.eat()可以，输出“猫吃鱼”，a.play()报错。原因是因为成员方法有重写，但是成员变量没有。如果想使用a.play()。需要用到转型，上述Animal a = new Cat()是父类引用指向子类对象，称为向上转型，反之，父类引用转为子类对象称为向下转型，即Cat c = (Cat)a。</p>
-</li>
-<li><p>在Java中，一个没有方法体的方法应该被定义为抽象方法，使用abstract关键字，而类中如果有抽象方法，该类必须定义为抽象类。抽象类不能直接创建对象，创建对象参照多态的方法即可，但是抽象类的子类要不重写抽象类的方法，要不同样将自己定义为抽象类。</p>
-</li>
-<li><p>接口：新建Inferface，定义接口使用关键字interface，例如public interface Eating{…抽象方法…}再定义类实现方法需要用到关键字implement，例如public class Cat implement Eating{…重写方法…}，注意接口中定义的常量默认是被public static final修饰的，也就是默认静态常量；另外接口中没有构造方法，也没有非抽象方法。</p>
-</li>
-<li><p>权限修饰符：private/默认/protecte/public<br>状态修饰符：final/static</p>
-<p><img src="https://i.loli.net/2019/09/10/jKMZB34fEyl1F27.png" alt=""></p>
-</li>
-<li><p>final关键字：final的类，不能被继承；父类中如果有final的方法，子类中不能改写此方法；final的变量，不能再次赋值（如果是基本类型的变量，不能修改其值；如果是对象实例，不能修改其指针，但是可以改值）<br>static变量只依赖于类存在，不依赖于实例对象存在，也就是如果有一个静态变量，那么一个类的所有对象实例都共享存储在一个共同的空间；static方法无需通过对象来引用，直接通过类名即可，在静态方法中，只能引用静态变量，且静态方法不能引用非静态方法。 </p>
-</li>
-<li><p>单例模式：保证一个类有且只有一个对象<br>-采用static来共享对象实例<br>-采用private构造函数，防止外界new操作</p>
-</li>
-<li><p>内部类：就是在一个类的内部再定义一个类。<br>格式：<br>public class 类名{</p>
-<pre><code>修饰符 class 类名{
-}</code></pre><p>}<br>内部类可以直接访问外部类的成员，包括私有；外部类想要访问内部类的成员，必须创建对象。<br>特殊：匿名内部类，也是局部内部类的一种，所以要写在外部类的方法中<br>new 类名或接口名() {</p>
-<pre><code>重写方法；</code></pre><p>}；<br>可见匿名内部类的本质就是一个继承了该类或者实现了该接口的子类匿名对象。所以可以采取以下例子<br>Inter i = new Inter() {</p>
-<pre><code>public void 方法名(){
-…方法体…
-}</code></pre><p>}；<br>i.方法名();</p>
-</li>
-<li><p>package<br>在Java类文件的第一句话给出包的名称，类似com.edu.nssc.PackageExample，在这里引用类的时候，必须采用全称引用，程序正文可以采用PackageExample短名称，而且必须严格放置在com/edu/nssc目录下。package name尽量唯一，因此常用域名逆序。</p>
-</li>
-<li><p>import<br>import必须全部放在package之后，定义类之前。</p>
+<li><p>随着业务逻辑的增多，会使得打包的app.js越来越大，这样用户请求加载时间变长，所以需要用到懒加载，一般一个vue打包成一个js，用到时才加载</p>
 </li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//router/index.js</span><br><span class="line"></span><br><span class="line">// import Home from &apos;../components/Home.vue&apos;</span><br><span class="line">// import About from &apos;../components/About.vue&apos;</span><br><span class="line">// import User from &apos;../components/User.vue&apos;</span><br><span class="line"></span><br><span class="line">// 懒加载</span><br><span class="line">const Home = () =&gt; import(&apos;../components/Home.vue&apos;)</span><br><span class="line">const About = () =&gt; import(&apos;../components/About.vue&apos;)</span><br><span class="line">const User = () =&gt; import(&apos;../components/User.vue&apos;)</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>路由传递参数：params类型和query类型</li>
+</ol>
+<ul>
+<li>前者就是动态路由的方法 <ul>
+<li>配置路由格式：/router/:id</li>
+<li>传递的方式：在path后面跟上对应的值</li>
+<li>传递后形成的路径：/router/123，/user/gsynf</li>
+</ul>
+</li>
+<li>后者就是query<ul>
+<li>配置路由格式：/router</li>
+<li>传递的方式：对象中使用query的key作为传递方式</li>
+<li>传递后形成的路径：/router?id=123，/user?id=gsynf</li>
+</ul>
+</li>
+</ul>
+<ol start="7">
+<li>keep-alive是Vue内置的一个组件，可以使被包含的组件保留状态，或避免搭环境：它有两个非常重要的属性：<ul>
+<li>include-字符串或正则表达式，只有匹配的组件会被缓存</li>
+<li>exclude-字符串或正则表达式，任何匹配的组件都不会被缓存</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>router-view也是一个组件，如果直接被包在keep-alive里面，所有路径匹配到的视图组件都会被缓存；</li>
+</ul>
+<ol start="8">
+<li>Promise是ES6的新特性，是异步编程的一种解决方案。</li>
+<li>什么情况下会用到Promise？一般情况下是有异步操作尤其是比较复杂的数据请求时，使用Promise对这个异步操作进行封装。执行过程，在new Promise时，会执行构造函数，一方面保存了一些状态信息，另一方面会执行传入的函数，在执行传入的回调函数时，会传入两个参数，resolve和reject，这两个参数本身又是函数，一旦调用resolve，就跳到then()，一旦调用reject，就跳到catch()</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    setTimeout((date) =&gt; &#123;</span><br><span class="line">        //请求中，等待状态，pending</span><br><span class="line">        </span><br><span class="line">        // 请求成功，满足状态，fulfill，调用resolve</span><br><span class="line">        resolve(data)</span><br><span class="line">        // 请求失败，拒绝状态，reject，调用reject</span><br><span class="line">        reject(&apos;error message&apos;)</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">&#125;).then((data) =&gt; &#123;</span><br><span class="line">    // 此处处理请求的data</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">    // 此处处理error</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/10/15/YVRXhBEdS3MnfHI.png" alt=""></p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/2019-10-10-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/10/2019-10-10-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" itemprop="url">Vue系列笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-10T00:00:00+08:00">
+                2019-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学习参考：coderwhy教学视频，整个系列可能会比较混乱，学到哪里觉得有需要的记录一下，可能和之前的java笔记类似。</p>
+</blockquote>
+<ol>
+<li>同一个项目中可能有多个js，这样就存在全局变量重名的问题，虽然通过函数闭包可以解决，但是又导致了不同js之间代码不可复用，所以就有了模块化的概念；</li>
+<li>常用的模块化规范：CommonJS、AMD、CMD、ES6的Modules;</li>
+<li>CommonJS导出写法：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//aaa.js</span><br><span class="line">modules.exports = &#123;</span><br><span class="line">	//要导出的部分</span><br><span class="line">	flag,</span><br><span class="line">	sum,</span><br><span class="line">	……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CommonJS导入写法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var/let &#123;flag,sum&#125; = require(&apos;./aaa.js&apos;)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>ES6的modules：首先在html代码中要引入js文件，并且类型设置为module，然后在要导出的js文件中使用export指令导出模块对外提供的接口，在要引入的js文件中通过import命令来加载。</li>
+<li>遇到本地Ajax跨域报错Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https.原因在于使用了File协议，应该使用它提示的http, data, chrome, chrome-extension, https这些协议。使用webstorm或是visual studio这种重量级的IDE，应该不会遇到这种问题，这类IDE都内置了HTTP服务器。针对VSCode，可以安装<strong>Live Server</strong>插件，这个插件功能十分强大，不止可以解决ajax不支持file协议的问题，还可以实现在编辑器里保存修改后，页面自动刷新的功能。</li>
+<li>什么是webpack，从本质上讲，webpack是一个现代的JavaScript应用的静态模块打包工具，分两点来讲，就是模块和打包。webpack其中一个核心就是让我们可以进行模块化开发，并且帮助我们处理模块间的依赖关系；打包就是将webpack中的各种资源模块进行打包合并成一个或多个包，并且在打包过程中，还可以对资源进行处理，例如压缩图片，ES5转成ES6等；</li>
+</ol>
+<p><img src="https://i.loli.net/2019/10/11/I7D6mBGlnfUhOxj.png" alt=""></p>
+<ol start="7">
+<li><p>grunt/gulp的核心是Task，更加强调的是前端流程的自动化，模块化不是它的核心；webpack更加强调模块化的开发管理，而grunt/gulp的文件压缩合并、预处理、转换等功能只是它附带的功能；</p>
+</li>
+<li><p>webpack为了正常运行，必须依赖node环境，node环境为了可以正常执行很多代码，其中必须包含各种依赖的包，为了便于安装管理这些包，需要npm（node package manager）工具。</p>
+</li>
+<li><p>全局安装webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack@3.6.0 -g</span><br></pre></td></tr></table></figure>
+
+<p>但是一般情况下，每个项目都要局部安装自己所对应需要的webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack@3.6.0 --save-dev</span><br><span class="line">//--save-dev安装的是开发时依赖，而不是运行时依赖，这个安装完成后在package.json可以看出来</span><br><span class="line">//–save 将依赖包名称添加到 package.json 文件的 dependencies 键下</span><br><span class="line">//–save-dev 则添加到 package.json 文件的 devDependencies 键下</span><br></pre></td></tr></table></figure>
+
+<p>然后需要在npm init创建的package.json中加入，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;webpack&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这样，在终端输入npm run dev即可，而且优先使用本地webpack而非全局。</p>
+</li>
+<li><p>loader是webpack中一个非常核心的概念，webpack可以处理JS代码和相互之间的依赖，但在开发中，不仅仅有基础的JS代码，还有CSS、图片加载、将高级的ES6转化为ES5等，此时就需要给webpack扩展对应的loader：</p>
+</li>
+</ol>
+<ul>
+<li>通过npm安装所需要的loader</li>
+<li>在webpack.config.js中的modules关键字中进行配置</li>
+<li>具体安装什么loader可以在webpack官方文档进行查询</li>
+</ul>
+<ol start="11">
+<li><p>plugin时webpack中另一个重要的核心，webpack中的插件，就是对webpack现有功能的各种扩展，比如打包优化，文件压缩等，loader主要用于转换某些类型的模块，它是一个转换器，plugin是插件，它是对webpack本身的扩展，是一个扩展器。</p>
+</li>
+<li><p>webpack配置文件的分离，再weback.config.js中，许多配置只是在开发中用到，在实际发布时并不需要，所以最好将这些配置抽离出来，便于后期管理：</p>
+</li>
+</ol>
+<ul>
+<li>创建base.config,js/dev.config.js/prod.config.js，将weback.config.js中内容进行分离，npm install webpack-merge –save-dev安装js合并工具，接下来</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//dev.config.js</span><br><span class="line">const WebpackMerge = require(&apos;webpack-merge&apos;)</span><br><span class="line">const baseConfig = require(&apos;./base.config&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = WebpackMerge(baseConfig,&#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">      contentBase: &apos;./dist&apos;,</span><br><span class="line">      inline: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在package.json中指定一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;webpack --config ./build/prod.config.js&quot;,</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ol start="13">
+<li><p>使用vue开发大型项目，需要考虑代码目录结构、项目结构和部署、热加载、代码单元测试等，为了提高效率，通常会用到一些脚手架工具来帮助完成，CLI是Command-Line Interface，翻译为命令行界面，俗称脚手架。使用vue-cli可以快速搭建Vue开发环境以及对应的webpack配置。</p>
+</li>
+<li><p>e2e–&gt;e to e –&gt;end to end</p>
+</li>
+<li><p>Vue CLI2新建项目</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/10/12/eTxIybH9tGXiCz4.png" alt=""></p>
+<ol start="16">
+<li><p>脚手架安装了ESlint如何关闭：config==&gt;index==&gt;useEslint改为false，重新编译一下项目;</p>
+</li>
+<li><p>Vue程序运行过程</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/10/12/diyYvSRof14FgCI.png" alt=""></p>
 <ol start="18">
-<li><p><img src="https://i.loli.net/2019/09/10/rKuGX5E1kBDwxml.png" alt=""></p>
-<p>异常处理<br>(1)try{</p>
-<pre><code>可能存在异常的代码；</code></pre><p>}catch(异常类名 变量名) {</p>
-<pre><code>异常的处理代码；
-如e.printStackTrace();System.out.println(e.getMessage());System.out.println(e.toString());等</code></pre><p>} finally {</p>
-<pre><code>最终执行的模块；</code></pre><p>}<br>执行流程：程序从try里面的代码开始执行，出现异常会自动生成一个异常类对象提交给JVM，当JVM接收到提交时，会到catch中找匹配的异常，找到后进行异常的处理，因此catch块可以有多个，每个有不同的入口形参，当已发生的异常和某一个catch块中的形参类型一致，那么将执行该catch块中的代码，如果没有一个匹配，catch也不会被触发，最后都进入finally块。<br>(2)并不是所有的情况都有权限对异常进行处理，因此方法存在可能异常的语句，但不处理，需要使用throws来声明异常：throws 异常类名；这个格式放在方法的括号后面。</p>
-<pre><code>(2.1)一个方法被覆盖，覆盖他的方法必须抛出相同的异常或者异常的子类；
-(2.2)如果父类的方法抛出多个异常，那么重写的子类方法必须抛出那么异常的子类，也就是不能抛出新的异常；
-(2.3)throws只是抛出或者说延后这个异常，并没有处理，处理还得用try…catch…</code></pre><p>(3)自定义异常：需要继承Exception类及其子类<br>-继承自Exception，就变成Checked Exception<br>-继承自RuntimeException，就变成Unchecked Exception<br>自定义异常重点在于构造函数：<br>-可以调用父类Exception的message构造函数<br>public 自定义Exception(){}<br>public 自定义Exception(String message){</p>
-<pre><code>super(message);</code></pre><p>}<br>其他方法调用<br>public void 方法名() <strong>throws</strong> 自定义Exception {</p>
-<pre><code>//throw new 自定义Exception();
-**throw** new 自定义Exception(&quot;xxxxxxx&quot;);</code></pre><p>}<br>-可以自定义自己的成员变量</p>
-</li>
-<li><p>泛型：<br>它提供了编译时类型安全检测机制，该机制允许再编译时检测到非法的类型，它的本质是<strong>参数化类型</strong>，也就是说所操作的数据类型被指定为一个参数。换个说法，其实就是将类型由原来的类型参数化，然后再使用/调用时传入具体的类型。<br>泛型定义格式：<br>&lt;类型1，类型2，……&gt;：指定多种类型的格式，多种类型之间用逗号隔开，这里的类型可以看作是形参。<br>泛型类定义：public class Generic&lt; T &gt;{</p>
-<pre><code>public void show(T t){
-方法体
-}</code></pre><p>}<br>泛型方法定义：<br>public class Generic{</p>
-<pre><code>public &lt; T &gt; void show&lt; T t &gt;{
-方法体    </code></pre><p>}<br>}<br>泛型接口定义：<br>修饰符 interface 接口名&lt;类型&gt;{}</p>
-</li>
-<li><p>类型通配符<br>为了标识各种类型List的父类，可以使用类型通配符&lt;?&gt;；<br>List&lt; ? &gt;表示元素类型未知的List，它的元素可以匹配任何的元素；如果不希望List&lt; ? &gt;是任何类型List的父类，只希望它代表某一类泛型List的父类，可以使用类型通配符的上限，如List&lt; ?extends Number &gt;：它表示的类型是Number或其子类型；也可以指定类型通配符的下限，如List&lt;?super Number&gt;：它表示的类型是Number或者其父类型。</p>
-</li>
-<li><p>个数可变参数<br>格式：修饰符 返回值类型 方法名(数据类型…变量名){ }，如public static int sum(int b, int… a){ } 注意：如果一个方法有多个参数，包含可变参数，可变参数要放在最后。</p>
-</li>
-<li><p>反射<br>若通过反射去使用一个类，首先要获取该类的字节码文件对象，也就是类型为Class类型的对象，三种方法获取Class类的对象。（此部分内容帮助文档搜索Class即可）<br>(1)使用类的class属性来获取该类对应的Class对象。举例，Class<Student> c1 = Student.class;<br>(2)调用对象的getClass()方法，返回该对象所属类对应的Class对象，举例，Student s = new Student()；Class<? extends Student> c2 = s.getClass();
-(3)使用Class类中的静态方法forName(String className)，该方法需要传入字符串参数，该字符串参数的值是某个类的全路径。举例，Class<?> c4 = Class.forName(“com.xxxx.Student”);<br>获取Class类的对象之后，使用c.getConstructors();c.getDeclaredConstructors();等方法获取构造方法；使用c.getFields();c.getDeclaredFields();等方法获取成员变量；使用c.getMethods();c.getDeclaredMethods();等方法获取成员变量；</p>
-</li>
-<li><p>内省introspector：<br>(1)内省主要是用来操作Javabean属性的，那么什么是Javabean呢？这里举例说明比较好：<br>定义了一个类Person，里面有age,name,sex等，其实这个Person就是一个Javabean，里面的age,name,sex等是字段还不是属性，如何成为属性呢？只有对age,name,sex这些定义了set,get方法才能成为Javabean属性，也就是说是不是Javabean属性取决于set或get方法。<br>(2)使用内省操作：首先，获得操作Javabean，BeanInfo info = introspector.getBeanInfo(Person.class);然后，获得属性描述器，PropertyDescriptor[] pds = info.getPropertyDescriptors();接下来可以对增强for循环对pds中的每一个进行pd.getName()可以看到属性名；若针对某一个属性进行操作，PropertyDescriptor pd = new PropertyDescriptor(“age”, Person.class);  然后使用Method method = pd.getWriteMethod();得到属性的写方法，相当于set，method.invoke(p,45)即可完成设置属性，读取属性pd.getReadMethod();同理。</p>
-</li>
-<li><p>beanUtils操作bean属性：<br>相比于内省，beanUtils在开发中更常用，beanUtils是一个第三方jar包，需要导入。<br>使用起来比内省简单许多，BeanUtils.setProperty(bean,name,value)即可。</p>
-</li>
-<li><p>模块化<br>Java9正式推出了模块化，模块基本使用步骤：<br>(1)创建模块，按照之前的方式创建模块，创建包，创建类，定义方法即可；<br>(2)在模块的src目录下新建一个module-info.java的描述文件，（Eclipse在工程名右键-Configure）该文件专门定义模块名，访问权限，模块依赖等信息；<br>(3)模块中所有未导出的包都是模块私有的，他们是不能在模块外被访问的，模块导出格式：experts 包名；<br>(4)一个模块要访问其他模块，必须明确指定依赖哪些模块，未明确指定依赖的模块不能访问，模块依赖格式：requires 模块名；</p>
-</li>
-<li><p>JCF(这部分内容学习的不是很详细，需要时再来认真学)<br>JCF主要的数据结构实现类：<br>-列表:List,ArrayList,LinkedList<br>-集合:Set,HashSet,TreeSet,LinkedHashSet<br>-映射:Map,HashMap,TreeMap,LinkedHashMap<br>JCF主要的算法类（工具类）：<br>-Arrays:对数组进行查找和排序等操作<br>-Collections：对Collection及其子类进行排序和查找等操作</p>
-</li>
-<li><p>ArrayList：<br>ArrayList&lt; E &gt;：<br>(1)可调整大小的数组实现；<br>(2)&lt; E &gt;是一种特殊的数据类型，泛型，也就是在出现E的地方使用引用的数据类型替换即可；</p>
-</li>
-<li><p>快速修复，ctrl+1<br>Eclipse自动生成返回值对象的快捷键：ctrl+1<br>快速生成main函数，输入main，alt+/<br>快速生成System.out.println()，输入syso，alt+/<br>内容提示，alt+/<br>自动import ，Ctrl + Shift + O<br>格式化代码，Ctrl + Shift + F<br>查看源码，ctrl+鼠标左键<br>向前向后，alt+左右<br>查看类的继承关系，ctrl+T<br>查看Eclipse所有快捷键，Ctrl + Shift + L</p>
-</li>
-<li><p>Junit测试工具<br>(1)方法前加注解@Test，导入Juit包，右侧Outline工具框，选中要测试的方法，右键，Run As–&gt;JUit Test；<br>(2)测试类中最前和最后可以写两个方法，分别加注解@Before和@After或者@BeforeClass和@AfterClass，用于初始化和销毁；<br>(3)断言Assert，判断期望的实际的是否相同，相同则通过测试，否则不通过；</p>
-</li>
-</ol>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<li><ul>
+<li><p>runtime-compiler—&gt;代码中可以有template</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// template -&gt; ast -&gt; render -&gt; vdom -&gt; UI</span><br><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
 
-    
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/2019-09-01-Qt%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/01/2019-09-01-Qt%E5%AD%A6%E4%B9%A0/" itemprop="url">QT学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T00:00:00+08:00">
-                2019-09-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-</blockquote>
-<ol>
-<li><p>定义宏</p>
-<p><img src="https://i.loli.net/2019/09/10/cCQvDPKMqlYVTGI.png" alt=""></p>
-</li>
-<li><p>.exe无法直接运行：打包或者添加环境变量</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">windeployqt HelloWorld.exe	//打包命令</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/2019-08-31-Spring%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/31/2019-08-31-Spring%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/" itemprop="url">Spring框架搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-31T00:00:00+08:00">
-                2019-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>包括JDK的下载安装、eclipse的安装、Spring插件的安装、Spring开发环境的搭建</p>
-</blockquote>
-<h1 id="一、JDK的下载安装"><a href="#一、JDK的下载安装" class="headerlink" title="一、JDK的下载安装"></a>一、JDK的下载安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<p>我这里下载了Java SE 12.0.2，下载安装即可，可以装到其他盘符。但是在安装完成周，安装目录下会有jre(Java Runtime Environment )文件夹，但是并没有，解决方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以管理员身份进入powershell，进入安装目录</span><br><span class="line">输入 bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>这里有点坑，以后需要及时躲避。一般情况下配置环境变量比较简单，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">新建JAVA_HOME：jdk的绝对路径</span><br><span class="line">编辑Path： 增加%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="line">新建Classpath： %JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</span><br></pre></td></tr></table></figure>
-
-<p>但是我参照这种方法配置之后，cmd输入Java -version发现并没有配置成功，最后发现问题所在，这好像是win10的毛病，也就是添加环境变量的时候不能使用上述比较安全的方法，只能使用目前JDK安装的绝对路径直接添加到PATH中。也就是说JDK的安装路径以后不可以移动或者改变。</p>
-<h1 id="二、eclipse的安装"><a href="#二、eclipse的安装" class="headerlink" title="二、eclipse的安装"></a>二、eclipse的安装</h1><p>这一步就很简单了，直接去<a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">官网</a>下载即可。下载之后打开注意去Help-&gt;About Eclipes IDE查看一下自己安装的版本号，我这里安装的是4.12.0，版本号接下来会用到。</p>
-<h1 id="三、Spring插件的安装"><a href="#三、Spring插件的安装" class="headerlink" title="三、Spring插件的安装"></a>三、Spring插件的安装</h1><p>官网下载地址：<a href="https://spring.io/tools/sts/all" target="_blank" rel="noopener">https://spring.io/tools/sts/all</a></p>
-<p><img src="https://i.loli.net/2019/08/31/WhkmQiFHw9Mx7Sj.png" alt=""></p>
-<p>请看清楚刚才查看的的<strong>eclipse版本</strong>和对应的<strong>springsource-tool-suite版本</strong>，下载对应的版本。</p>
-<h1 id="四、Spring插件的安装"><a href="#四、Spring插件的安装" class="headerlink" title="四、Spring插件的安装"></a>四、Spring插件的安装</h1><p>打开eclipse，选择 “Help” –&gt; “Install New Software” –&gt; “add” –&gt;”Archive” –&gt; 选择刚才下载好的springsource-tool-suite “打开”–&gt; “OK”。</p>
-<p>选择要安装的组件：选定<strong>4个标有“IDE”的组件</strong>：</p>
-<p><img src="https://i.loli.net/2019/08/31/cIDCvxFgwBs71qA.png" alt=""></p>
-<p>接着一直点“Next”，最后“Finish”。等待其安装，右下角会提示进度。安装完之后会弹出对话框问是否<strong>重启eclipse</strong>，点“yes”重启。重启之后Window-&gt;Preferences，如在弹出的对话框出现如下内容，则安装成功。</p>
-<p><img src="https://i.loli.net/2019/08/31/IrKA8YfgEsvbCwp.png" alt=""></p>
-<h1 id="五、Spring开发环境的搭建"><a href="#五、Spring开发环境的搭建" class="headerlink" title="五、Spring开发环境的搭建"></a>五、Spring开发环境的搭建</h1><ol>
-<li>左边窗口空白处右键–&gt;”New”–&gt;”Java Project”–&gt; 输入项目名称 –&gt;”Finish”；</li>
-<li>右击刚才创建的项目，”New”–&gt;”Folder”新建文件夹，并命名为“lib”,”Finish”；</li>
-</ol>
-<p>注意在工程目录下可以看到jre的版本，不同版本的软件和组件之间有不同的兼容性，如果安装或使用过程中出现错误，请考虑是否需要更换版本。</p>
-<ol start="3">
-<li>获取以下五个jar包：</li>
-</ol>
-<p>具体获取方法如下：</p>
-<ul>
-<li><p>第一个，commons-logging-1.2 官网下载地址：</p>
-<p><a href="https://commons.apache.org/proper/commons-logging/download_logging.cgi" target="_blank" rel="noopener">https://commons.apache.org/proper/commons-logging/download_logging.cgi</a></p>
 </li>
 </ul>
-<p><img src="https://i.loli.net/2019/08/31/oJ6zZqUWNH9OiCv.png" alt=""></p>
-<p>下载，解压，找到第一个jar包。</p>
-<ul>
-<li><p>下面四个jar包的 官网下载地址：</p>
-<p><a href="https://maven.springframework.org/release/org/springframework/spring/4.3.8.RELEASE/" target="_blank" rel="noopener">https://maven.springframework.org/release/org/springframework/spring/4.3.8.RELEASE/</a></p>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2019/08/31/pXWdClHoxP82GSI.png" alt=""></p>
-<p>将<strong>第一个</strong>也下载下来，解压，在“lib”目录下找到另外四个jar包。</p>
-<ol start="4">
-<li><p>将这5个jar包复制到eclipse里你新建的spring项目下的“lib”里面：</p>
-<p>选中jar包，ctrl+c，到eclipse里点击”lib”，ctrl+v 即可。现在的eclipse左侧窗口是这样的：</p>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2019/08/31/E3qVTI74zk5LKeQ.png" alt=""></p>
-<p>​        然后选中5个jar包，右键–&gt;”bulid path”–&gt;”add to build path”；</p>
-<p>​        现在的左侧窗口是这样的：</p>
-<p><img src="https://i.loli.net/2019/08/31/Of1zSG3bWVFHgIk.png" alt=""></p>
-<p>​        到这里Spring的开发环境就搭建完成了。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+<pre><code>* runtime-only---&gt;代码中不可以有任何的template，性能更好，代码量更少，少6KB。
 
-          
-        
-      
-    </div>
-    
-    
-    
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// render -&gt; vdom -&gt; UI</span><br><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/" itemprop="url">CentOS7下安装MySQL及连接</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">
-                2019-08-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>前段时间在闲置的电脑上装了centos7，打算先装个MySQL试试。在此记录一下。</p>
-</blockquote>
-<h1 id="一、添加yum源"><a href="#一、添加yum源" class="headerlink" title="一、添加yum源"></a>一、添加yum源</h1><p>MySQL官网：<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a></p>
-<p>进入官网去选择和是的rpm包，包的作用是添加MySQL yum源，我在这里下载的是 mysql80-community-release-el7-3.noarch.rpm。下载之后通过XFTP上传文件到服务器，然后在rpm文件目录下执行yum localinstall 命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql80-community-release-el7-3.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>如果权限不够请使用sudo执行，执行完毕过后我们可以使用 cd /etc/yum.repos.d进入到目录中查看文件，发现会有如下两个文件：</p>
-<ul>
-<li>mysql-community.repo</li>
-<li>mysql-community-source.repo</li>
-</ul>
-<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>当我们添加好yum源之后就可以执行安装命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、启动"><a href="#三、启动" class="headerlink" title="三、启动"></a>三、启动</h1><p>安装完成之后使用 systemctl start 执行启动MySQL命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
-
-<p>使用  systemctl status mysqld.service  可以查看MySQL的运行状态。</p>
-<p><img src="https://i.loli.net/2019/08/30/t37pmNBPezIiOXW.png" alt=""></p>
-<p>关闭命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop mysqld.service</span><br></pre></td></tr></table></figure>
-
-<p>重启命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、修改密码"><a href="#四、修改密码" class="headerlink" title="四、修改密码"></a>四、修改密码</h1><p>当MySQL服务启动之后我们就需要对密码进行更改：MySQL 默认创建了 root 用户的密码，这个密码打印在 MySQL 的日志文件<code>/var/log/mysqld.log</code>中，可以通过<code>temporary password</code>关键字来找出这个临时的密码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-
-<p>找到密码之后使用改密码连接数据库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
-<p>然后修改密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;NewPassword&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>执行上述命令密码将被修改为：NewPassword</p>
-<p>PS：新版本的MySQL对密码强度有限制，执行到上一步的时候，会提示密码强度不够，则应更改为更高强度的密码。</p>
-<p>密码更改完成之后重启MySQL服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="五、开放远程连接"><a href="#五、开放远程连接" class="headerlink" title="五、开放远程连接"></a>五、开放远程连接</h1><p>MySQL默认只对本机开放连接，我们则需要对mysql表的host字段进行修改以支持其他主机连接,%表示所有。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 先连接数据库</span><br><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>更改完成之后刷新权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-<p>然后在navicat新建连接：</p>
-<p><img src="https://i.loli.net/2019/08/30/XnKBdbcOxWtPizu.png" alt=""></p>
-<p>问题解决步骤：</p>
-<p>发现是防火墙未关闭，有两种方法去解决。</p>
-<ol>
-<li>关闭防火墙</li>
-<li>设置防火墙开放端口</li>
+​    </code></pre><ol start="19">
+<li>npm run build/dev具体执行示意</li>
 </ol>
-<p>第一种方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//停止</span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/10/13/qBbNAZ9kwSX5oml.png" alt=""></p>
+<p><img src="C:%5CUsers%5Cgsynf%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570934287208.png" alt="1570934287208"></p>
+<ol start="20">
+<li>Vue CLI3 创建项目</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create my-vue-project</span><br></pre></td></tr></table></figure>
 
-<p>第二种方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//这里发现防火墙是开启的，再来查看防火墙控制的端口</span><br><span class="line">systemctl status firewalld</span><br><span class="line">//查看防火墙控制的端口，发现我想要监听的8081端口没有开启</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line">//永久开启3306端口</span><br><span class="line">sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">//重载防火墙</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/10/13/5MzCDKqNBlLSZiG.png" alt=""></p>
+<ol start="21">
+<li><p>Vue CLI3管理配置文件及其他可以通过vue ui命令启动GUI界面进行可视化管理；</p>
+<p>Vue CLI3的配置文件其实并不是没有，而是“隐藏”起来了，在node_modules-&gt;@vue-&gt;cli-service;</p>
+<p>若要修改，可在工程目录下创建vue.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<p>我使用了第一种</p>
-<p><img src="https://i.loli.net/2019/08/30/geVp1iWMNvorOXU.png" alt=""></p>
-<p>再次实验，成功</p>
-<p><img src="https://i.loli.net/2019/08/30/bFtJRPHxdwViOyz.png" alt=""></p>
-<p><strong>注：</strong>在用正版navicat连接MySQL8+时没问题，但使用破解版会出现2059错误，这是由于新版本的MySQL使用的是caching_sha2_password验证方式，但此时的navicat还没有支持这种验证方式。解决方法就是将验证方式改为以前版本(5.7及以下)使用的验证方式mysql_native_password。</p>
-<hr>
-<h1 id="后续："><a href="#后续：" class="headerlink" title="后续："></a>后续：</h1><p>2019.09.12</p>
-<p>后期在安装mysql5.7时遇到了不少大坑，在此记录一下。</p>
-<h2 id="1、安装mysql5-7"><a href="#1、安装mysql5-7" class="headerlink" title="1、安装mysql5.7"></a>1、安装mysql5.7</h2><p>CentOS 7之后的版本yum的默认源中使用MariaDB替代原先MySQL，因此安装方式较为以往有一些改变：</p>
-<p>下载mysql的源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>安装yum库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall -y mysql57-community-release-el7-7.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>安装MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<p>启动MySQL服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、修改MySQL的root密码"><a href="#2、修改MySQL的root密码" class="headerlink" title="2、修改MySQL的root密码"></a>2、修改MySQL的root密码</h2><p>MySQL5.7加强了root用户的安全性，因此在第一次安装后会初始化一个随机密码，以下为查看初始随机密码的方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-
-<p>进入mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`mysql ``-``uroot ``-``p`</span><br></pre></td></tr></table></figure>
-
-<p>完成之后进入，首先修改密码策略，然后修改密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password.policy=0;</span><br><span class="line">set global validate_password.length=1;</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456789&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>然后退出后即可用新密码登录。</p>
-<h2 id="3、远程连接授权"><a href="#3、远程连接授权" class="headerlink" title="3、远程连接授权"></a>3、远程连接授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;root&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
-
-<p>授权之后，用nevicat检查一下是否可以连接，如果不可以，可能是防火墙限制了。需要在防火墙里面加开放数据库端口的规则。</p>
-<h2 id="4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）"><a href="#4、防火墙开放数据库端口（默认3306，可以在-etc-my-cnf中修改）" class="headerlink" title="4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）"></a>4、防火墙开放数据库端口（默认3306，可以在/etc/my.cnf中修改）</h2><p>【1】查看目前防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>【2】开放3306端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<p>【3】重启防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service firewalld restart</span><br></pre></td></tr></table></figure>
-
-<p>【4】查看3306端口是否开放</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<p>【5】再次查看现在防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>【6】再次测试是否可以远程连接，成功。</p>
-<h2 id="5、设置开机自启"><a href="#5、设置开机自启" class="headerlink" title="5、设置开机自启"></a>5、设置开机自启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/23/2019-08-23-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(2)-JavaScript%E6%A0%B8%E5%BF%83DOM%20BOM1/" itemprop="url">前端开发(2)-JavaScript核心DOM BOM1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T00:00:00+08:00">
-                2019-08-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 2：JavaScript，此部分涉及许多计算机及编程基础知识，这里略过不做记录，只记录之前用的比较少的部分。</p>
-</blockquote>
-<h1 id="Web-API"><a href="#Web-API" class="headerlink" title="Web API"></a>Web API</h1><h2 id="Web-API介绍"><a href="#Web-API介绍" class="headerlink" title="Web API介绍"></a>Web API介绍</h2><h3 id="API的概念"><a href="#API的概念" class="headerlink" title="API的概念"></a>API的概念</h3><p>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</p>
-<ul>
-<li>任何开发语言都有自己的API</li>
-<li>API的特征输入和输出(I/O)</li>
-<li>API的使用方法(console.log())</li>
-</ul>
-<h3 id="Web-API的概念"><a href="#Web-API的概念" class="headerlink" title="Web API的概念"></a>Web API的概念</h3><p>浏览器提供的一套操作浏览器功能和页面元素的API(BOM和DOM)</p>
-<p>此处的Web API特指浏览器提供的API(一组方法)，Web API在后面的课程中有其它含义</p>
-<h3 id="掌握常见的浏览器提供的API的调用方式"><a href="#掌握常见的浏览器提供的API的调用方式" class="headerlink" title="掌握常见的浏览器提供的API的调用方式"></a>掌握常见的浏览器提供的API的调用方式</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="noopener">MDN-Web API</a></p>
-<h3 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h3><p>![1496912475691](D:/Study/02-JavaScript-WEB-API-第1天/01教学资料/02-Web API/media/1496912475691.png)</p>
-<h4 id="ECMAScript-JavaScript的核心"><a href="#ECMAScript-JavaScript的核心" class="headerlink" title="ECMAScript - JavaScript的核心"></a>ECMAScript - JavaScript的核心</h4><p>定义了javascript的语法规范</p>
-<p>JavaScript的核心，描述了语言的基本语法和数据类型，ECMAScript是一套标准，定义了一种语言的标准与具体实现无关</p>
-<h4 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM - 浏览器对象模型"></a>BOM - 浏览器对象模型</h4><p>一套操作浏览器功能的API</p>
-<p>通过BOM可以操作浏览器窗口，比如：弹出框、控制浏览器跳转、获取分辨率等</p>
-<h4 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM - 文档对象模型"></a>DOM - 文档对象模型</h4><p>一套操作页面元素的API</p>
-<p>DOM可以把HTML看做是文档树，通过DOM提供的API可以对树上的节点进行操作</p>
-<h1 id="Dom"><a href="#Dom" class="headerlink" title="Dom"></a>Dom</h1><p><img src="https://i.loli.net/2019/08/23/guHfc9jkz6JmOwM.png" alt=""></p>
-<ul>
-<li>文档：一个页面就是一个文档，DOM 中使用 document 表示</li>
-<li>元素：页面中的所有标签都是元素，DOM 中使用 element 表示</li>
-<li>节点：网页中的所有内容都是节点（标签、属性、文本、注释等），DOM 中使用 node 表示</li>
-</ul>
-<p><strong>DOM 把以上内容都看做是对象</strong></p>
-<h2 id="获取页面元素"><a href="#获取页面元素" class="headerlink" title="获取页面元素"></a>获取页面元素</h2><h3 id="根据ID获取"><a href="#根据ID获取" class="headerlink" title="根据ID获取"></a>根据ID获取</h3><p>使用 getElementById() 方法可以获取带有ID 的元素对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="根据标签名获取"><a href="#根据标签名获取" class="headerlink" title="根据标签名获取"></a>根据标签名获取</h3><p>使用 getElementsByTagName() 方法可以返回带有指定标签名的对象的集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意： </p>
-<p>1.因为得到的是一个对象的集合，所以我们想要操作里面的元素就需要遍历。</p>
-<p>2.得到元素对象是动态的</p>
-<p>3.如果获取不到元素,则返回为空的伪数组(因为获取不到对象)</p>
-<p>还可以获取某个元素(父元素)内部所有指定标签名的子元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.getElementsByTagName(<span class="string">'标签名'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：父元素必须是单个对象(必须指明是哪一个元素对象)，获取的时候不包括父元素自己。</p>
-<h3 id="Html5新增的获取方法"><a href="#Html5新增的获取方法" class="headerlink" title="Html5新增的获取方法"></a>Html5新增的获取方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="built_in">document</span>.getElementsByClassName(‘类名’)；<span class="comment">// 根据类名返回元素对象集合</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.querySelector(<span class="string">'选择器'</span>);        <span class="comment">// 根据指定选择器返回第一个元素对象</span></span><br><span class="line"><span class="number">3.</span> <span class="built_in">document</span>.querySelectorAll(<span class="string">'选择器'</span>);     <span class="comment">// 根据指定选择器返回</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：querySelector 和 querySelectorAll里面的选择器需要加符号,比如:document.querySelector(‘#nav’); </p>
-<h3 id="特殊元素（body-html获取）"><a href="#特殊元素（body-html获取）" class="headerlink" title="特殊元素（body/html获取）"></a>特殊元素（body/html获取）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> doucumnet.body  <span class="comment">// 返回body元素对象</span></span><br><span class="line"><span class="number">2.</span> <span class="built_in">document</span>.documentElement  <span class="comment">// 返回html元素对象</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="事件基础"><a href="#事件基础" class="headerlink" title="事件基础"></a>事件基础</h2><h3 id="事件概述"><a href="#事件概述" class="headerlink" title="事件概述"></a>事件概述</h3><p>JavaScript 使我们有能力创建动态页面，而事件是可以被 JavaScript 侦测到的行为。</p>
-<p>简单理解： 触发— 响应机制。</p>
-<p>网页中的每个元素都可以产生某些可以触发 JavaScript 的事件，例如，我们可以在用户点击某按钮时产生一个 事件，然后去执行某些操作。</p>
-<h3 id="事件执行步骤"><a href="#事件执行步骤" class="headerlink" title="事件执行步骤"></a>事件执行步骤</h3><ol>
-<li><p>获取事件源</p>
+<p>会自动将手动的配置和默认的配置进行合并。</p>
 </li>
-<li><p>注册事件（绑定事件）</p>
-</li>
-<li><p>添加事件处理程序（采取函数赋值形式）</p>
+<li><p>前端渲染和后端渲染/前端路由和后端路由：</p>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2019/08/23/BYRD13zFGnq5dmw.png" alt=""></p>
-<h2 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h2><h3 id="改变元素内容"><a href="#改变元素内容" class="headerlink" title="改变元素内容"></a>改变元素内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerText</span><br></pre></td></tr></table></figure>
-
-<p>从起始位置到终止位置的内容, 但它去除 html 标签，同时空格和换行也会去掉。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.innerHTML</span><br></pre></td></tr></table></figure>
-
-<p>起始位置到终止位置的全部内容，包括 html 标签，同时保留空格和换行。</p>
-<h3 id="常用元素的属性操作"><a href="#常用元素的属性操作" class="headerlink" title="常用元素的属性操作"></a>常用元素的属性操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> src、href</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> id、alt、title</span><br></pre></td></tr></table></figure>
-
-<p>直接在事件中修改元素.属性即可。</p>
-<h3 id="表单元素属性修改"><a href="#表单元素属性修改" class="headerlink" title="表单元素属性修改"></a>表单元素属性修改</h3><p>利用 DOM 可以操作如下表单元素的属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  type、value、checked、selected、disabled</span><br><span class="line">- value 用于大部分表单元素的内容获取(option除外)</span><br><span class="line">- type 可以获取input标签的类型(输入框或复选框等)</span><br><span class="line">- disabled 禁用属性</span><br><span class="line">- checked 复选框选中属性</span><br><span class="line">- selected 下拉菜单选中属性</span><br></pre></td></tr></table></figure>
-
-<h3 id="样式属性操作"><a href="#样式属性操作" class="headerlink" title="样式属性操作"></a>样式属性操作</h3><p>我们可以通过 JS 修改元素的大小、颜色、位置等样式。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> element.style     行内样式操作</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> element.className 类名样式操作</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：</p>
-<ol>
-<li>JS 里面的样式采取驼峰命名法 比如 fontSize、 backgroundColor</li>
-<li>JS 修改 style 样式操作，产生的是行内样式，权重比CSS 高</li>
-<li>如果样式修改较多，可以采取操作类名方式更改元素样式。 </li>
-<li>class因为是个保留字，因此使用className来操作元素类名属性</li>
-<li>className 会直接更改元素的类名，会覆盖原先的类名，如果想要保留原类名，使用多类名选择器，即this.className=’原类名 新类名’。</li>
+<ul>
+<li>早期，服务器收到URL通过正则进行匹配，交给Controller进行处理，利用JSP等技术，直接生产渲染好对应的HTML页面，不仅有html、css，还有获取数据的java代码，返回给客户端进行展示，这就是后端渲染，在后端处理URL和页面之间的映射关系，即后端路由；</li>
+<li>随着Ajax出现，有了前后端分离的开发模式，客户端通过URL发起请求，去静态资源服务器请求资源，请求回的资源包括html+css+js，前两者浏览器进行渲染，js浏览器执行，执行到API接口时，再去请求提供API接口的服务器，请求回之后由其他js代码进行处理，这就是前端渲染；</li>
+<li>再发展就是单页面富应用阶段，最主要的特点就是在前后端分离的基础上加了一层前端路由，整个网站只有一个html页面，浏览器向静态资源网站请求时将所有资源全部请求下来，前端路由监听浏览器，当URL改变，就将请求的全部资源进行抽离但不进行页面整体刷新也就是不再进行新的请求，显示该显示的部分，也就是一个网页，这种一个URL和一个网页的映射就是前端路由；</li>
+</ul>
+<ol start="23">
+<li>如何改变URL而页面不刷新呢？有两种方法，一种为利用URL的hash，另一种为html5的history模式。</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//Console</span><br><span class="line">&gt;location.hash = &apos;foo&apos;</span><br><span class="line">&gt;history.pushState(&#123;&#125;,&apos;&apos;,&apos;foo&apos;) //这个push有点类似于入栈，history.back()或者history.go(-1)或者history.forward()或者浏览器返回类似于出栈</span><br><span class="line">&gt;history.replaceState(&#123;&#125;,&apos;&apos;,&apos;foo&apos;)//很明显，相比于上，这个直接是代替</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
@@ -2285,7 +951,7 @@ if(referer==null || referer.startsWith("https://localhost")){
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/3/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2401,15 +1067,9 @@ if(referer==null || referer.startsWith("https://localhost")){
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -2458,10 +1118,10 @@ if(referer==null || referer.startsWith("https://localhost")){
 
 
 
-  
-  
 
 
+  
+  
 
 
 
@@ -2506,7 +1166,7 @@ if(referer==null || referer.startsWith("https://localhost")){
 
   
   
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
   
 
 

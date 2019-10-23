@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/2019-06-26-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/2019-09-15-JavaWeb2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -269,7 +269,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/26/2019-06-26-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_9/" itemprop="url">Python语言程序设计_9</a></h1>
+                <a class="post-title-link" href="/2019/09/15/2019-09-15-JavaWeb2/" itemprop="url">JavaWeb2</a></h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T00:00:00+08:00">
-                2019-06-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T00:00:00+08:00">
+                2019-09-15
               </time>
             
 
@@ -322,659 +322,138 @@
         
           
             <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+<p>动态资源分为Servlet和JSP，前者是基础。</p>
 </blockquote>
-<h1 id="从数据处理到人工智能"><a href="#从数据处理到人工智能" class="headerlink" title="从数据处理到人工智能"></a>从数据处理到人工智能</h1><p>数据表示 ==&gt; 数据清洗 ==&gt; 数据统计 ==&gt; 数据可视化 ==&gt; 数据挖掘 ==&gt; 人工智能 </p>
-<h2 id="Python库之数据分析"><a href="#Python库之数据分析" class="headerlink" title="Python库之数据分析"></a>Python库之数据分析</h2><p>Numpy:表达N维数组的最基本库；<br>Pandas:Python数据分析高层次应用；<br>SciPy：数学、科学和工程计算功能库；</p>
-<h2 id="Python库之数据可视化"><a href="#Python库之数据可视化" class="headerlink" title="Python库之数据可视化"></a>Python库之数据可视化</h2><p>Matpoltlib:高质量的二维数据可视化库；<br>Seaborn:统计类数据可视化功能库；<br>Mayavi：三维科学数据可视化功能库；</p>
-<h2 id="Python库之文本处理"><a href="#Python库之文本处理" class="headerlink" title="Python库之文本处理"></a>Python库之文本处理</h2><p>PyPDF2:用来处理PDF文件的工具集；<br>NLTK:自然语言处理第三方库；<br>Python-docx：创建或更新Microsoft Word文件的第三方库；</p>
-<h2 id="Python库之机器学习"><a href="#Python库之机器学习" class="headerlink" title="Python库之机器学习"></a>Python库之机器学习</h2><p>Scikit-learn:机器学习方法工具集；<br>TensorFlow:AlphaGO背后的机器学习计算框架；<br>MXNet：基于神经网络的深度学习计算框架；</p>
-<h1 id="实例：霍兰德人格分析雷达图"><a href="#实例：霍兰德人格分析雷达图" class="headerlink" title="实例：霍兰德人格分析雷达图"></a>实例：霍兰德人格分析雷达图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#HollandRadarDraw</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import matplotlib</span><br><span class="line">matplotlib.rcParams[&apos;font.family&apos;]=&apos;SimHei&apos;</span><br><span class="line">radar_labels = np.array([&apos;研究型(I)&apos;,&apos;艺术型(A)&apos;,&apos;社会型(S)&apos;,\</span><br><span class="line">                         &apos;企业型(E)&apos;,&apos;常规型(C)&apos;,&apos;现实型(R)&apos;]) #雷达标签</span><br><span class="line">nAttr = 6</span><br><span class="line">data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],</span><br><span class="line">                 [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],</span><br><span class="line">                 [0.43, 0.89, 0.30, 0.28, 0.22, 0.30],</span><br><span class="line">                 [0.30, 0.25, 0.48, 0.85, 0.45, 0.40],</span><br><span class="line">                 [0.20, 0.38, 0.87, 0.45, 0.32, 0.28],</span><br><span class="line">                 [0.34, 0.31, 0.38, 0.40, 0.92, 0.28]]) #数据值</span><br><span class="line">data_labels = (&apos;艺术家&apos;, &apos;实验员&apos;, &apos;工程师&apos;, &apos;推销员&apos;, &apos;社会工作者&apos;,&apos;记事员&apos;)</span><br><span class="line">angles = np.linspace(0, 2*np.pi, nAttr, endpoint=False)</span><br><span class="line">data = np.concatenate((data, [data[0]]))</span><br><span class="line">angles = np.concatenate((angles, [angles[0]]))</span><br><span class="line">fig = plt.figure(facecolor=&quot;white&quot;)</span><br><span class="line">plt.subplot(111, polar=True)</span><br><span class="line">plt.plot(angles,data,&apos;o-&apos;, linewidth=1, alpha=0.2)</span><br><span class="line">plt.fill(angles,data, alpha=0.25)</span><br><span class="line">plt.thetagrids(angles*180/np.pi, radar_labels,frac = 1.2)</span><br><span class="line">plt.figtext(0.52, 0.95, &apos;霍兰德人格分析&apos;, ha=&apos;center&apos;, size=20)</span><br><span class="line">legend = plt.legend(data_labels, loc=(0.94, 0.80), labelspacing=0.1)</span><br><span class="line">plt.setp(legend.get_texts(), fontsize=&apos;large&apos;)</span><br><span class="line">plt.grid(True)</span><br><span class="line">plt.savefig(&apos;holland_radar.jpg&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>运行程序会发现，所有中文字体都变成了方框，网上找到了不少方法，在此记录自己成功的方案，总体来讲就是为系统安装需要的SimHei字体并增加到matplotlib中。</p>
-<p>(1)下载一个ttf中文字体，并在系统中安装。可在此下载 <a href="https://github.com/dolbydu/font" target="_blank" rel="noopener">https://github.com/dolbydu/font</a>, 我这里下载好后放在了桌面。</p>
-<p>(2)在 /usr/share/fonts 路径下创建存放此字体的文件夹myfonts，并下载的ttf文件复制到此文件夹中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/fonts</span><br><span class="line">sudo mkdir myfonts</span><br><span class="line">cd myfonts/</span><br><span class="line">sudo cp /home/hpf/桌面/SimHei.ttf  /usr/share/fonts/myfonts/</span><br></pre></td></tr></table></figure>
-
-<p>(3)给系统安装这个字体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#生成字体索引信息. 会显示字体的font-family</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo mkfontdir</span><br><span class="line">#更新字体缓存：</span><br><span class="line">fc-cache</span><br></pre></td></tr></table></figure>
-<p>此时在终端运行:fc-list :lang=zh，会发现系统已经安装。</p>
-<p>(4)修改matplotlibrc文件<br>找到路径/home/hpf/anaconda3/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 去掉这一行注释</span><br><span class="line">font.family         : sans-serif        </span><br><span class="line"># 去掉这一行注释，并新增我们刚下载的中文字体　</span><br><span class="line">font.sans-serif     : DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif,SimHei</span><br></pre></td></tr></table></figure>
-<p>下面这句注释要去掉，不然中文减号也显示方块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axes.unicode_minus  : False</span><br></pre></td></tr></table></figure>
-
-<p>(5)为matplotlib增加中文字体<br>将下载的字体文件复制一份到步骤4找到的配置文件的同级文件夹fonts/ttf中。</p>
-<p>(6) 清除本地matplotlib中的缓存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/.cache/matplotlib</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="从Web解析到网络空间"><a href="#从Web解析到网络空间" class="headerlink" title="从Web解析到网络空间"></a>从Web解析到网络空间</h1><h2 id="Python库之网络爬虫"><a href="#Python库之网络爬虫" class="headerlink" title="Python库之网络爬虫"></a>Python库之网络爬虫</h2><p>Requests:最友好的网络爬虫功能库；<br>Scrapy:优秀的网络爬虫框架；<br>pyspider：强大的Web页面爬取系统；</p>
-<h2 id="Python库之Web信息提取"><a href="#Python库之Web信息提取" class="headerlink" title="Python库之Web信息提取"></a>Python库之Web信息提取</h2><p>Beautiful Soup:HTML和XL的解析库；<br>Re:正则表达式解析和处理功能库；<br>Python-Goose：提取文章类型Web页面的功能库；</p>
-<h2 id="Python库之Web网站开发"><a href="#Python库之Web网站开发" class="headerlink" title="Python库之Web网站开发"></a>Python库之Web网站开发</h2><p>Django:最流行的Web应用框架；<br>Pyramid:规模适中的Web应用框架；<br>Flask：Web应用开发微框架；</p>
-<h2 id="Python库之网络应用开发"><a href="#Python库之网络应用开发" class="headerlink" title="Python库之网络应用开发"></a>Python库之网络应用开发</h2><p>WeRoBot:微信公众号开发框架；<br>aip:百度AI开放平台接口；<br>MyQR：二维码生成第三方库；</p>
-<h1 id="从人机交互到艺术设计"><a href="#从人机交互到艺术设计" class="headerlink" title="从人机交互到艺术设计"></a>从人机交互到艺术设计</h1><h2 id="Python库之图形用户界面"><a href="#Python库之图形用户界面" class="headerlink" title="Python库之图形用户界面"></a>Python库之图形用户界面</h2><p>PyQt5:Qt开发框架的Python接口；<br>wxPython:跨平台GUI开发框架；<br>PyGObject：使用GTK+开发GUI的功能库；</p>
-<h2 id="Python库之游戏开发"><a href="#Python库之游戏开发" class="headerlink" title="Python库之游戏开发"></a>Python库之游戏开发</h2><p>PyGame:简单的游戏开发功能库；<br>Panda3D:开源、跨平台的3D渲染和游戏开发库；<br>cocos2D：构建2D游戏和图形界面交互式应用的框架；</p>
-<h2 id="Python库之虚拟现实"><a href="#Python库之虚拟现实" class="headerlink" title="Python库之虚拟现实"></a>Python库之虚拟现实</h2><p>VR Zero:在树莓派上开发VR应用的Python库；<br>pyvor:Oculus Rift的Python开发接口；<br>Vizard：基于Python的通用VR开发引擎；</p>
-<h2 id="Python库之图形艺术"><a href="#Python库之图形艺术" class="headerlink" title="Python库之图形艺术"></a>Python库之图形艺术</h2><p>Quads：迭代的艺术；<br>ascii_art:ASCII艺术库；<br>turtle：海龟绘图体系；</p>
-<h1 id="实例：玫瑰花绘制"><a href="#实例：玫瑰花绘制" class="headerlink" title="实例：玫瑰花绘制"></a>实例：玫瑰花绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#RoseDraw.py</span><br><span class="line">import turtle as t</span><br><span class="line"># 定义一个曲线绘制函数</span><br><span class="line">def DegreeCurve(n, r, d=1):</span><br><span class="line">    for i in range(n):</span><br><span class="line">        t.left(d)</span><br><span class="line">        t.circle(r, abs(d))</span><br><span class="line"># 初始位置设定</span><br><span class="line">s = 0.2 # size</span><br><span class="line">t.setup(450*5*s, 750*5*s)</span><br><span class="line">t.pencolor(&quot;black&quot;)</span><br><span class="line">t.fillcolor(&quot;red&quot;)</span><br><span class="line">t.speed(100)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(0, 900*s)</span><br><span class="line">t.pendown()</span><br><span class="line"># 绘制花朵形状</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.circle(200*s,30)</span><br><span class="line">DegreeCurve(60, 50*s)</span><br><span class="line">t.circle(200*s,30)</span><br><span class="line">DegreeCurve(4, 100*s)</span><br><span class="line">t.circle(200*s,50)</span><br><span class="line">DegreeCurve(50, 50*s)</span><br><span class="line">t.circle(350*s,65)</span><br><span class="line">DegreeCurve(40, 70*s)</span><br><span class="line">t.circle(150*s,50)</span><br><span class="line">DegreeCurve(20, 50*s, -1)</span><br><span class="line">t.circle(400*s,60)</span><br><span class="line">DegreeCurve(18, 50*s)</span><br><span class="line">t.fd(250*s)</span><br><span class="line">t.right(150)</span><br><span class="line">t.circle(-500*s,12)</span><br><span class="line">t.left(140)</span><br><span class="line">t.circle(550*s,110)</span><br><span class="line">t.left(27)</span><br><span class="line">t.circle(650*s,100)</span><br><span class="line">t.left(130)</span><br><span class="line">t.circle(-300*s,20)</span><br><span class="line">t.right(123)</span><br><span class="line">t.circle(220*s,57)</span><br><span class="line">t.end_fill()</span><br><span class="line"># 绘制花枝形状</span><br><span class="line">t.left(120)</span><br><span class="line">t.fd(280*s)</span><br><span class="line">t.left(115)</span><br><span class="line">t.circle(300*s,33)</span><br><span class="line">t.left(180)</span><br><span class="line">t.circle(-300*s,33)</span><br><span class="line">DegreeCurve(70, 225*s, -1)</span><br><span class="line">t.circle(350*s,104)</span><br><span class="line">t.left(90)</span><br><span class="line">t.circle(200*s,105)</span><br><span class="line">t.circle(-500*s,63)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(170*s,-30*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.left(160)</span><br><span class="line">DegreeCurve(20, 2500*s)</span><br><span class="line">DegreeCurve(220, 250*s, -1)</span><br><span class="line"># 绘制一个绿色叶子</span><br><span class="line">t.fillcolor(&apos;green&apos;)</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(670*s,-180*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(140)</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.circle(300*s,120)</span><br><span class="line">t.left(60)</span><br><span class="line">t.circle(300*s,120)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(180*s,-550*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(85)</span><br><span class="line">t.circle(600*s,40)</span><br><span class="line"># 绘制另一个绿色叶子</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(-150*s,-1000*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.rt(120)</span><br><span class="line">t.circle(300*s,115)</span><br><span class="line">t.left(75)</span><br><span class="line">t.circle(300*s,100)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(430*s,-1070*s)</span><br><span class="line">t.pendown()</span><br><span class="line">t.right(30)</span><br><span class="line">t.circle(-600*s,35)</span><br><span class="line">t.done()</span><br></pre></td></tr></table></figure>
-
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/2019-06-25-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/2019-06-25-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_8/" itemprop="url">Python语言程序设计_8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T00:00:00+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="实例：体育竞技分析"><a href="#实例：体育竞技分析" class="headerlink" title="实例：体育竞技分析"></a>实例：体育竞技分析</h1><p>程序框架及步骤：<br>-步骤一pirntInfo()：打印程序的介绍性信息式；<br>-步骤二getInputs()：获得程序运行参数：proA，proB，n；<br>-步骤三simNGames()：获得球员A和球员B的能力值，模拟n局比赛；<br>-步骤四printSummary()：输出球员A和B获胜比赛的场次及概率；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#MatchAnalysis.py</span><br><span class="line">from random import random</span><br><span class="line">def printIntro():</span><br><span class="line">    print(&quot;这个程序模拟两个选手A和B的某种竞技比赛&quot;)</span><br><span class="line">    print(&quot;程序运行需要A和B的能力值（以0到1之间的小数表示）&quot;)</span><br><span class="line">def getInputs():</span><br><span class="line">    a = eval(input(&quot;请输入选手A的能力值(0-1): &quot;))</span><br><span class="line">    b = eval(input(&quot;请输入选手B的能力值(0-1): &quot;))</span><br><span class="line">    n = eval(input(&quot;模拟比赛的场次: &quot;))</span><br><span class="line">    return a, b, n</span><br><span class="line">def simNGames(n, probA, probB):</span><br><span class="line">    winsA, winsB = 0, 0</span><br><span class="line">    for i in range(n):</span><br><span class="line">        scoreA, scoreB = simOneGame(probA, probB)</span><br><span class="line">        if scoreA &gt; scoreB:</span><br><span class="line">            winsA += 1</span><br><span class="line">        else:</span><br><span class="line">            winsB += 1</span><br><span class="line">    return winsA, winsB</span><br><span class="line">def gameOver(a,b):</span><br><span class="line">    return a==15 or b==15</span><br><span class="line">def simOneGame(probA, probB):</span><br><span class="line">    scoreA, scoreB = 0, 0</span><br><span class="line">    serving = &quot;A&quot;</span><br><span class="line">    while not gameOver(scoreA, scoreB):</span><br><span class="line">        if serving == &quot;A&quot;:</span><br><span class="line">            if random() &lt; probA:</span><br><span class="line">                scoreA += 1</span><br><span class="line">            else:</span><br><span class="line">                serving=&quot;B&quot;</span><br><span class="line">        else:</span><br><span class="line">            if random() &lt; probB:</span><br><span class="line">                scoreB += 1</span><br><span class="line">            else:</span><br><span class="line">                serving=&quot;A&quot;</span><br><span class="line">    return scoreA, scoreB</span><br><span class="line">def printSummary(winsA, winsB):</span><br><span class="line">    n = winsA + winsB</span><br><span class="line">    print(&quot;竞技分析开始，共模拟&#123;&#125;场比赛&quot;.format(n))</span><br><span class="line">    print(&quot;选手A获胜&#123;&#125;场比赛，占比&#123;:0.1%&#125;&quot;.format(winsA, winsA/n))</span><br><span class="line">    print(&quot;选手B获胜&#123;&#125;场比赛，占比&#123;:0.1%&#125;&quot;.format(winsB, winsB/n))</span><br><span class="line">def main():</span><br><span class="line">    printIntro()</span><br><span class="line">    probA, probB, n = getInputs()</span><br><span class="line">    winsA, winsB = simNGames(n, probA, probB)</span><br><span class="line">    printSummary(winsA, winsB)</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-
-<h1 id="Python程序设计思维"><a href="#Python程序设计思维" class="headerlink" title="Python程序设计思维"></a>Python程序设计思维</h1><h2 id="计算思维和程序设计"><a href="#计算思维和程序设计" class="headerlink" title="计算思维和程序设计"></a>计算思维和程序设计</h2><p>计算思维（抽象+自动化）：以设计和构造为特点，计算机为代表，基于计算机强大的算力及海量数据；</p>
-<h2 id="计算生态和Python语言"><a href="#计算生态和Python语言" class="headerlink" title="计算生态和Python语言"></a>计算生态和Python语言</h2><p>计算生态以开源项目为组织形式，充分利用“共识原则”和“社会利他”组织人员，在竞争发展、相互依存和迅速更迭中完成信息技术的更新换代，形成了技术的自我演化之路。</p>
-<p>Python:以开源项目为代表的大量第三方库；社区庞大，技术更新很快。</p>
-<h2 id="用户体验和软件产品"><a href="#用户体验和软件产品" class="headerlink" title="用户体验和软件产品"></a>用户体验和软件产品</h2><p>-用户体验指用户对产品建立的主观感受和认识。</p>
-<p>-编程只是手段，不是目的，程序最终为人类服务。</p>
-<h2 id="基本的程序设计模式"><a href="#基本的程序设计模式" class="headerlink" title="基本的程序设计模式"></a>基本的程序设计模式</h2><p>IPO、自顶向下设计、模块化设计、配置化设计</p>
-<h1 id="Python第三方库安装"><a href="#Python第三方库安装" class="headerlink" title="Python第三方库安装"></a>Python第三方库安装</h1><h2 id="看见更大的Python世界"><a href="#看见更大的Python世界" class="headerlink" title="看见更大的Python世界"></a>看见更大的Python世界</h2><p>Python全球社区: <a href="https://pypi.org" target="_blank" rel="noopener">https://pypi.org</a></p>
-<h2 id="第三方库的pip安装方法"><a href="#第三方库的pip安装方法" class="headerlink" title="第三方库的pip安装方法"></a>第三方库的pip安装方法</h2><p>使用pip安装工具： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#安装</span><br><span class="line">pip install &lt;第三方库名&gt;</span><br><span class="line">#更新</span><br><span class="line">pip install -U &lt;第三方库名&gt;</span><br><span class="line">#卸载</span><br><span class="line">pip uninstall &lt;第三方库名&gt;</span><br><span class="line">#列出目前系统已安装的第三方库</span><br><span class="line">pip list</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三方库的集成安装方法"><a href="#第三方库的集成安装方法" class="headerlink" title="第三方库的集成安装方法"></a>第三方库的集成安装方法</h2><p>Anaconda（主要用于数据分析） : <a href="https://www.continuum.io" target="_blank" rel="noopener">https://www.continuum.io</a></p>
-<h2 id="第三方库的文件安装方法"><a href="#第三方库的文件安装方法" class="headerlink" title="第三方库的文件安装方法"></a>第三方库的文件安装方法</h2><p>windows下UCI页面的“补丁”安装方法。</p>
-<h1 id="OS库的基本使用"><a href="#OS库的基本使用" class="headerlink" title="OS库的基本使用"></a>OS库的基本使用</h1><p>os库提供了通用的、基本的操作系统交互功能，包括路径操作、进程管理、环境参数等几大功能。</p>
-<h2 id="路径操作"><a href="#路径操作" class="headerlink" title="路径操作"></a>路径操作</h2><p>os.path子库以path为入口，用于操作和处理文件路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os.path</span><br><span class="line">import os.path as op</span><br></pre></td></tr></table></figure>
-<p>os.path.abspath(path):返回path在当前系统中的绝对路径；<br>os.path.relpath(path):返回path与当前程序之间的相对路径；<br>os.path.exists(path):判断path对应文件或目录是否存在，返回True或False;<br>…………</p>
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>os.system（command）</p>
-<h1 id="实例：第三方库自动安装脚本"><a href="#实例：第三方库自动安装脚本" class="headerlink" title="实例：第三方库自动安装脚本"></a>实例：第三方库自动安装脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#BatchInstall.py</span><br><span class="line">import os</span><br><span class="line">libs = &#123;&quot;numpy&quot;,&quot;matplotlib&quot;,&quot;pillow&quot;,&quot;sklearn&quot;,&quot;requests&quot;,\</span><br><span class="line">        &quot;jieba&quot;,&quot;beautifulsoup4&quot;,&quot;wheel&quot;,&quot;networkx&quot;,&quot;sympy&quot;,\</span><br><span class="line">        &quot;pyinstaller&quot;,&quot;django&quot;,&quot;flask&quot;,&quot;werobot&quot;,&quot;pyqt5&quot;,\</span><br><span class="line">        &quot;pandas&quot;,&quot;pyopengl&quot;,&quot;pypdf2&quot;,&quot;docopt&quot;,&quot;pygame&quot;&#125;</span><br><span class="line">try:</span><br><span class="line">    for lib in libs:</span><br><span class="line">        os.system(&quot;pip3 install &quot;+lib)</span><br><span class="line">    print(&quot;Successful&quot;)        </span><br><span class="line">except:</span><br><span class="line">    print(&quot;Failed Somehow&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/23/2019-06-23-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/23/2019-06-23-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_7/" itemprop="url">Python语言程序设计_7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T00:00:00+08:00">
-                2019-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="文件的使用"><a href="#文件的使用" class="headerlink" title="文件的使用"></a>文件的使用</h1><h2 id="文件的类型"><a href="#文件的类型" class="headerlink" title="文件的类型"></a>文件的类型</h2><p>-文件是存储在辅助存储器上的数据序列，是数据存储的一种形式。<br>-文件展现形态：文本文件、二进制文件（本质上，所有文件都是以二进制形式存储）</p>
-<h3 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h3><p>-由单一特定编码组成的文件，如UTF-8编码；<br>-由于存在编码，也被看作是存储着的长字符串；<br>-适用于例如：.txt文件、.py文件；</p>
-<h3 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h3><p>-直接由比特0和1组成，没有统一编码；<br>-一般存在二进制0和1的组织结构，即文件格式；<br>-适用于例如：.png文件、.avi文件；</p>
-<h2 id="文件的打开和关闭"><a href="#文件的打开和关闭" class="headerlink" title="文件的打开和关闭"></a>文件的打开和关闭</h2><p>文件处理步骤：打开-操作-关闭；</p>
-<h3 id="文件的打开"><a href="#文件的打开" class="headerlink" title="文件的打开"></a>文件的打开</h3><p>&lt; 变量名 &gt; = open(&lt;文件名&gt;，&lt;打开模式&gt;)</p>
-<p>1.”r”:只读模式，默认值，文件不存在返回ERROR；<br>2.”w”:覆盖写模式，文件不存在则创建，存在则完全覆盖；<br>3.”x”:创建写模式，文件不存在则创建，存在则返回ERROR；<br>4.”a”:追加写模式，文件不存在则创建，存在则在文件最后追加内容；<br>5.”b”:以二进制形式打开文件；<br>6.”t”:以文本形式打开文件，默认值；<br>7.”+”:与r/w/x/a一同使用，在原功能基础上增加同时读写功能；</p>
-<h3 id="文件的关闭"><a href="#文件的关闭" class="headerlink" title="文件的关闭"></a>文件的关闭</h3><p>&lt; 变量名 &gt;.close()</p>
-<h2 id="文件内容的读取"><a href="#文件内容的读取" class="headerlink" title="文件内容的读取"></a>文件内容的读取</h2><p>&lt; f &gt;.read(size=-1):读入全部内容，如果给出参数，读入前size长度；<br>&lt; f &gt;.readline(size=-1):读入一行内容，如果给出参数，读入该行前size长度；<br>&lt; f &gt;.readlines(hint=-1):读入文件所有行，以每行为元素形成列表，如果给出参数，读入前hint行；</p>
-<h2 id="数据的文件写入"><a href="#数据的文件写入" class="headerlink" title="数据的文件写入"></a>数据的文件写入</h2><p>&lt; f &gt;.write(s):向文件写入一个字符串或者字节流；<br>&lt; f &gt;.writelines(lines):将一个元素全为字符串的列表写入文件；<br>&lt; f &gt;.seek(offset):改变当前文件操作指针的位置，offse含义如下：0-文件开头，1-当前位置，2-文件结尾；</p>
-<h1 id="实例：自动轨迹绘制"><a href="#实例：自动轨迹绘制" class="headerlink" title="实例：自动轨迹绘制"></a>实例：自动轨迹绘制</h1><p>根据脚本来绘制图形，不是写代码而是写数据绘制轨迹。<br>-步骤1：定义数据文件格式（接口）；<br>-步骤2：编写程序，根据文件接口解析参数绘制图形；<br>-步骤3：编制数据文件；</p>
-<p><img src="https://i.loli.net/2019/06/23/5d0f97280320c94185.jpg" alt="data.txt"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#AutoTraceDraw.py</span><br><span class="line">import turtle as t</span><br><span class="line">t.title(&apos;自动轨迹绘制&apos;)</span><br><span class="line">t.setup(800, 600, 0, 0)</span><br><span class="line">t.pencolor(&quot;red&quot;)</span><br><span class="line">t.pensize(5)</span><br><span class="line">#数据读取</span><br><span class="line">datals = []</span><br><span class="line">f = open(&quot;data.txt&quot;)</span><br><span class="line">for line in f:</span><br><span class="line">    line = line.replace(&quot;\n&quot;,&quot;&quot;)</span><br><span class="line">    datals.append(list(map(eval, line.split(&quot;,&quot;))))</span><br><span class="line">f.close()</span><br><span class="line">#自动绘制</span><br><span class="line">for i in range(len(datals)):</span><br><span class="line">    t.pencolor(datals[i][3],datals[i][4],datals[i][5])</span><br><span class="line">    t.fd(datals[i][0])</span><br><span class="line">    if datals[i][1]:</span><br><span class="line">        t.rt(datals[i][2])</span><br><span class="line">    else:</span><br><span class="line">        t.lt(datals[i][2])</span><br></pre></td></tr></table></figure>
-
-<h1 id="一维数据的格式化和处理"><a href="#一维数据的格式化和处理" class="headerlink" title="一维数据的格式化和处理"></a>一维数据的格式化和处理</h1><h2 id="数据组织的维度"><a href="#数据组织的维度" class="headerlink" title="数据组织的维度"></a>数据组织的维度</h2><p>一维数据：由对等关系的有序或无序数据组成，采用线性方式组织，对应列表、数组、集合等概念；<br>二维数据：由多个一维数据组成，是一维数据 的组合形式，对应表格等；<br>多维数据、高维数据……</p>
-<h2 id="一维数据的表示"><a href="#一维数据的表示" class="headerlink" title="一维数据的表示"></a>一维数据的表示</h2><p>如果数据间有序：使用列表类型；<br>如果数据间无序：使用集合类型；</p>
-<h2 id="一维数据的存储"><a href="#一维数据的存储" class="headerlink" title="一维数据的存储"></a>一维数据的存储</h2><p>方式一：空格分隔；<br>方式二：逗号分隔；<br>方式三：其他特殊符号分隔；</p>
-<h2 id="一维数据的处理"><a href="#一维数据的处理" class="headerlink" title="一维数据的处理"></a>一维数据的处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#从特殊符号分隔的文件中读入数据</span><br><span class="line">#中国$美国$日本$德国$法国</span><br><span class="line">txt = open(fname).read()</span><br><span class="line">ls = txt.split(&quot;$&quot;)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;ls</span><br><span class="line">[&apos;中国&apos;,&apos;美国&apos;,&apos;日本&apos;,&apos;德国&apos;,&apos;法国&apos;]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#采用特殊符号分隔将数据写入文件中</span><br><span class="line">ls = [&apos;中国&apos;,&apos;美国&apos;,&apos;日本&apos;,&apos;德国&apos;,&apos;法国&apos;]</span><br><span class="line">f = open(fname,&apos;w&apos;)</span><br><span class="line">f.write(&quot;$&quot;.join(ls))</span><br><span class="line">f.close</span><br><span class="line"></span><br><span class="line">中国$美国$日本$德国$法国</span><br></pre></td></tr></table></figure>
-
-<h1 id="二维数据的格式化和处理"><a href="#二维数据的格式化和处理" class="headerlink" title="二维数据的格式化和处理"></a>二维数据的格式化和处理</h1><h2 id="二维数据的表示"><a href="#二维数据的表示" class="headerlink" title="二维数据的表示"></a>二维数据的表示</h2><p>使用二维列表表示。<br>使用两层for循环遍历每个元素，第一层遍历每个列表，第二层遍历列表中每个元素。</p>
-<h2 id="CSV数据存储格式"><a href="#CSV数据存储格式" class="headerlink" title="CSV数据存储格式"></a>CSV数据存储格式</h2><p>CSV:Comma-Separated Values逗号分隔的值</p>
-<p><img src="https://i.loli.net/2019/06/24/5d101bea17e7229812.png" alt="CSV数据格式存储"></p>
-<h2 id="二维数据的存储"><a href="#二维数据的存储" class="headerlink" title="二维数据的存储"></a>二维数据的存储</h2><p>一般索引习惯：ls[row][column]，先行后列。所以一般按行存储，外层列表每个元素是一行。</p>
-<h2 id="二维数据的处理"><a href="#二维数据的处理" class="headerlink" title="二维数据的处理"></a>二维数据的处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#从CSV文件中读入数据</span><br><span class="line">fo = open(fname)</span><br><span class="line">ls = []</span><br><span class="line">for line in fo:</span><br><span class="line">	line = line.replace(&quot;\n&quot;,&quot;&quot;)</span><br><span class="line">	ls.append(line.split(&quot;,&quot;))</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#从数据写入CSV文件中</span><br><span class="line">ls = [[],[],[]] #二维列表</span><br><span class="line">f = open(fname，&apos;w&apos;)</span><br><span class="line">for item in ls:</span><br><span class="line">	f.write(&apos;,&apos;.join(item)+&apos;\n&apos;)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#遍历每一个元素</span><br><span class="line">ls = [[1,2],[3,4],[5,6]]</span><br><span class="line">for row in ls:</span><br><span class="line">	for column in row:</span><br><span class="line">		print(column)</span><br></pre></td></tr></table></figure>
-
-<h1 id="wordcloud库的使用"><a href="#wordcloud库的使用" class="headerlink" title="wordcloud库的使用"></a>wordcloud库的使用</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>-wordcloud库是优秀的词云展示第三方库;<br>-pip install wordcloud;<br>-wordcloud库把词云当作一个WordCloud对象，wordcloud.WordCloud()代表一个文本对应的词云;</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>w.generate(txt):向WordCloud对象w中加载文件txt;<br>w.to_file(filename):将词云输出为图像文件，.png或.jpg格式;<br>这里介绍一个有意思的参数mask:<br><img src="https://i.loli.net/2019/06/24/5d1022aa9a8d692217.png" alt="参数mask"></p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>-步骤一：配置对象参数；<br>-步骤二：加载词云文本；<br>-步骤三：输出词云文件；</p>
-<h1 id="实例：政府工作报告词云"><a href="#实例：政府工作报告词云" class="headerlink" title="实例：政府工作报告词云"></a>实例：政府工作报告词云</h1><p>资源：<a href="https://python123.io/resources/pye/新时代中国特色社会主义.txt" target="_blank" rel="noopener">https://python123.io/resources/pye/新时代中国特色社会主义.txt</a><br>资源：<a href="https://python123.io/resources/pye/关于实施乡村振兴战略的意见.txt" target="_blank" rel="noopener">https://python123.io/resources/pye/关于实施乡村振兴战略的意见.txt</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#常见矩形词云</span><br><span class="line">   #GovRptWordCloudv1.py</span><br><span class="line">   import jieba</span><br><span class="line">   import wordcloud</span><br><span class="line">   f = open(&quot;新时代中国特色社会主义.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)</span><br><span class="line">    </span><br><span class="line">   t = f.read()</span><br><span class="line">   f.close()</span><br><span class="line">   ls = jieba.lcut(t)</span><br><span class="line">    </span><br><span class="line">   txt = &quot; &quot;.join(ls)</span><br><span class="line">   w = wordcloud.WordCloud( \</span><br><span class="line">       width = 1000, height = 700,\</span><br><span class="line">       background_color = &quot;white&quot;,</span><br><span class="line">       font_path = &quot;msyh.ttc&quot;    </span><br><span class="line">       )</span><br><span class="line">   w.generate(txt)</span><br><span class="line">   w.to_file(&quot;grwordcloud.png&quot;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#不规则图形词云</span><br><span class="line">   #GovRptWordCloudv2.py</span><br><span class="line">   import jieba</span><br><span class="line">   import wordcloud</span><br><span class="line">   from scipy.misc import imread</span><br><span class="line">   mask = imread(&quot;chinamap.jpg&quot;)</span><br><span class="line">   excludes = &#123; &#125;</span><br><span class="line">   f = open(&quot;新时代中国特色社会主义.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)</span><br><span class="line">   t = f.read()</span><br><span class="line">   f.close()</span><br><span class="line">   ls = jieba.lcut(t)</span><br><span class="line">   txt = &quot; &quot;.join(ls)</span><br><span class="line">   w = wordcloud.WordCloud(\</span><br><span class="line">       width = 1000, height = 700,\</span><br><span class="line">       background_color = &quot;white&quot;,</span><br><span class="line">       font_path = &quot;msyh.ttc&quot;, mask = mask</span><br><span class="line">       )</span><br><span class="line">   w.generate(txt)</span><br><span class="line">   w.to_file(&quot;grwordcloudm.png&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>注意几个问题：<br>1、当使用电脑中不存在的字体时，运行程序会报错OSError: cannot open resourse；<br>2、当不定义参数font_path时，制作中文词云会出现乱码；</p>
-<p><img src="https://i.loli.net/2019/06/24/5d10a4b0b15df77889.png" alt="字体乱码"></p>
-<p>3、Linux系统在终端运行:fc-list :lang=zh查看电脑系统所带字体；</p>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/2019-06-19-%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/19/2019-06-19-%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0/" itemprop="url">阿里云物联网平台</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T00:00:00+08:00">
-                2019-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>对于电磁加热系统，从硬件模块调试到入网、数据上传云端再到调用分析，整个工程比较庞大，而且考虑瞬时流量可能比较大，服务器带宽要求较大，价格较高，所以考虑利用阿里云或者百度云的物联网IOT平台，其实基本都差不多，在此记录。<br>本篇基于阿里云官方的阿里云大学教学视频以及IOT平台参考文档。<br>比较详细的一篇<a href="https://www.yuque.com/cloud-dev/iot-tech/gvttbm" target="_blank" rel="noopener">教程</a>可以参考。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/06/21/5d0c50535b70d13308.png" alt="物联网开发体系"></p>
-<h1 id="IoT开发步骤"><a href="#IoT开发步骤" class="headerlink" title="IoT开发步骤"></a>IoT开发步骤</h1><p>IoT云端开发（产品创建、设备注册）==&gt; 设备端开发（安装mqtt库、应用程序编码）==&gt; 联机运行（设备上线、数据查看处理）</p>
-<h1 id="云端开发"><a href="#云端开发" class="headerlink" title="云端开发"></a>云端开发</h1><p>简单来讲，在阿里云IoT平台操作相对简单，首先创建产品（可选高级版或者基础版），然后定义物模型-属性，然后在产品下注册一个或多个设备。</p>
-<h2 id="产品与设备"><a href="#产品与设备" class="headerlink" title="产品与设备"></a>产品与设备</h2><p>产品是设备的集合，指一组具有相同功能的设备。物联网平台为每个产品颁发全局唯一的productKey。设备是归属于某个产品下的具体设备，物联网平台为每个设备颁发产品内唯一的devlceName。</p>
-<h1 id="设备基于MQTT协议接入阿里云IOT平台"><a href="#设备基于MQTT协议接入阿里云IOT平台" class="headerlink" title="设备基于MQTT协议接入阿里云IOT平台"></a>设备基于MQTT协议接入阿里云IOT平台</h1><h2 id="MQTT协议"><a href="#MQTT协议" class="headerlink" title="MQTT协议"></a>MQTT协议</h2><p>订阅者：某些设备对特定信息感兴趣，并希望订阅它，这些设备叫做订阅者；<br>发布者：负责为其他设备生成数据的叫做发布者；<br>代理：负责将来自发布者的消息进行存储处理，并将这些消息发送到正确的订阅者中去。<br>发布者和订阅者通过Topic来进行信息传输，Topic是相对于设备的概念，设备可以往Topic中发布信息，也可以在Topic中订阅信息。Topic类是相对于产品的概念，产品定义Topic类，其下设备会自动生成对应的Topic。</p>
-<h2 id="物模型"><a href="#物模型" class="headerlink" title="物模型"></a>物模型</h2><p>物模型指将物理空间中的实体数字化，并在云端构建该物体的数据模型。在物联网平台，定义物模型即定义功能，完成下述三类功能定义后，将自动生成该产品的物模型。物模型描述产品是什么、能做什么、能对外提供哪些服务。<br><img src="https://i.loli.net/2019/06/21/5d0c57408477030408.png" alt="定义物模型"></p>
-<h2 id="连接域名"><a href="#连接域名" class="headerlink" title="连接域名"></a>连接域名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(productKey).iot-as-mqtt.$(regionID).aliyuncs.com:1883</span><br></pre></td></tr></table></figure>
-<h2 id="MQTT的Connect报文"><a href="#MQTT的Connect报文" class="headerlink" title="MQTT的Connect报文"></a>MQTT的Connect报文</h2><p>设备端与阿里云IOT平台建立MQTT通道的Connect报文有三个关键参数：客户端标识符（ClientID）、用户名（UserName）、密码（Password），这三个参数由设备三元组（productKey、devlceName、deviceSecret）按照阿里云IOT签名规则生成。</p>
-<h2 id="设备端开发"><a href="#设备端开发" class="headerlink" title="设备端开发"></a>设备端开发</h2><p>简单来讲，在利用npm安装好mqtt库之后，需要进行的操作包括修改设备身份三元组、建立连接、上报数据到指定topic、接受云端订阅topic的指令。</p>
-<h1 id="数据通过规则引擎流转到OTS"><a href="#数据通过规则引擎流转到OTS" class="headerlink" title="数据通过规则引擎流转到OTS"></a>数据通过规则引擎流转到OTS</h1><p>数据根据Topic的不同有不同的处理方式：自定义Topic直接推到规则引擎；物模型Topic会流转进行物模型解析再推到规则引擎；<br>规则引擎的作用就是将数据转储到自己的数据库、消息队列、实时云计算等中，方便下一步处理。这里以流转到表格存储OTS为例。</p>
-<p>阿里云规则引擎的数据处理采用SQL方式,处理之后得到一个规则化的数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT contextData,payLoadData FROM TOPIC WHERE FILTER</span><br></pre></td></tr></table></figure>
-
-<h1 id="数据通过规则引擎流转到函数计算FC"><a href="#数据通过规则引擎流转到函数计算FC" class="headerlink" title="数据通过规则引擎流转到函数计算FC"></a>数据通过规则引擎流转到函数计算FC</h1><p>首先在平台选择编程语言，创建函数，然后在规则引擎中添加流转到函数计算FC，选择刚才创建的函数，在函数计算中可以选择将数据通过钉钉、短信等方式推送到运营人员。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/2019-06-18-%E9%98%BF%E9%87%8C%E4%BA%91%E5%BB%BA%E7%AB%99%E5%88%9D%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/18/2019-06-18-%E9%98%BF%E9%87%8C%E4%BA%91%E5%BB%BA%E7%AB%99%E5%88%9D%E8%AF%95/" itemprop="url">阿里云建站初试</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T00:00:00+08:00">
-                2019-06-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>电磁加热系统前端后端的工作也拖了许久，之前开始了前端网页的尝试，后来考试复习等等也暂停了下来，建站工作更是一拖再拖，现在着手开始一步步工作，在此记录。</p>
-<p>需要用到SSH工具<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener">putty</a>、FTP文件传输工具<a href="https://www.netsarang.com/zh/xftp/" target="_blank" rel="noopener">xftp</a>，去相应官网下载即可。</p>
-</blockquote>
-<h1 id="云服务器及域名"><a href="#云服务器及域名" class="headerlink" title="云服务器及域名"></a>云服务器及域名</h1><p>就云服务器来说，AWS一家独大，但在国内而言，还是<a href="https://www.aliyun.com/" target="_blank" rel="noopener">阿里云</a>的天下。可以自己先买一个服务器搭着试试，在本科时候进行过学生认证但是过期了，导致这次认证时出现失败，所以申请了一个工单，进行人工认证，传学信网-手持身份证-手持学生证照片一系列操作，终于成功，可以享受云翼计划的9.5/月，1核2Git1Mbps带宽对于入门来说已经够了。</p>
-<p>关于<a href="https://wanwang.aliyun.com/domain/1yuan?spm=5176.8075371.850118.top1yuan.3b6166d2Lve7Vw" target="_blank" rel="noopener">域名注册</a> ，这里注册了.top，新用户首年只需要1元，你值得拥有。<br>关于域名解析，需要在域名实名认证通过之后再进行解析，解析按照阿里云解析页面右上角“新手引导”，添加记录值，也就是IP即可。</p>
-<p>关于备案，阿里云提供<a href="https://beian.aliyun.com/" target="_blank" rel="noopener">代备案</a>，整个过程用时较长。</p>
-<h1 id="搭建lnmp集成开发环境"><a href="#搭建lnmp集成开发环境" class="headerlink" title="搭建lnmp集成开发环境"></a>搭建lnmp集成开发环境</h1><p>关于LNMP介绍及下载，在<a href="https://lnmp.org/" target="_blank" rel="noopener">官网</a>比较具体，可以查看。<br>在这里阐述一下具体步骤：</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Sun公司在其API中提供了一个Servlet接口，用户若想开发一个动态web资源（即开发一个java程序向浏览器输出数据），需要完成以下两个步骤：</p>
+<ul>
+<li>编写一个Java类，实现Servlet接口；</li>
+<li>把开发好的Java类部署到web服务器；</li>
+</ul>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>如同人一样，六岁上学，十八岁上大学，三十岁结婚，六十岁退休……这些事件是和人这个对象的生命周期相关的，到了某个特定时间就会做。同样，Servlet中有些方法和Servlet的生命周期也是相关的，文档中原文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This interface defines methods to initialize a servlet, to service requests, and to remove a servlet from the server. These are known as life-cycle methods and are called in the following sequence: </span><br><span class="line"></span><br><span class="line">1. The servlet is constructed, then initialized with the init method. </span><br><span class="line">2. Any calls from clients to the service method are handled. </span><br><span class="line">3. The servlet is taken out of service, then destroyed with the destroy method, then garbage collected and finalized.</span><br></pre></td></tr></table></figure>
+
+<p>也就是初始化init()、响应请求service()、移除destory()这些方法在某个特定时刻必定会执行。具体来说，客户端第一次访问web资源时会创建一个servlet对象，随后init方法会完成对象的初始化，servlet对象不会随着此次访问结束而摧毁，而是留于内存中，客户端访问调用service方法，调用service方法时先创建request对象和response对象，直至关闭服务器或者web应用从服务器删除才会调用servlet的destory()方法。</p>
+<p><img src="https://i.loli.net/2019/09/18/J7SmpFgCARqaV4s.png" alt=""></p>
+<h2 id="初试"><a href="#初试" class="headerlink" title="初试"></a>初试</h2><ol>
+<li>在tomcat中新建一个servlettest应用，在应用中新建一个WEB-INF/classes目录；</li>
+<li>在classes目录中新建一个FirstServlet.java</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package cn.itcast;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line"></span><br><span class="line">public class FirstServlet extends GenericServlet &#123;</span><br><span class="line">	public void service(ServletRequest req,ServletResponse res) throws ServletException,java.io.IOException</span><br><span class="line">	&#123;</span><br><span class="line">		OutputStream out = res.getOutputStream();</span><br><span class="line">		out.write(&quot;hello world&quot;.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>进入classes文件夹，进行编译，但需先导入jar包</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set classpath=%classpath%;E:\apache-tomcat-8.5.45\lib\servlet-api.jar</span><br></pre></td></tr></table></figure>
+
+<p>再进行编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -d . FirstServlet.java</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>编写配置文件，在WEB-INF目录下新建web.xml，配置servlet对外访问路径</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee</span><br><span class="line">                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span><br><span class="line">    version=&quot;3.1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;cn.itcast.FirstServlet&lt;/servlet-class&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;FirstServlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/FirstServlet&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>启动服务器，浏览器地址栏输入<a href="http://localhost:8080/servlettest/FirstServlet即可。" target="_blank" rel="noopener">http://localhost:8080/servlettest/FirstServlet即可。</a></li>
+</ol>
+<h2 id="在Eclipse中初始"><a href="#在Eclipse中初始" class="headerlink" title="在Eclipse中初始"></a>在Eclipse中初始</h2><p>参考这几个博客：</p>
 <ol>
-<li>粘贴服务器公网IP，用putty进行连接，输入账号密码之后出现Welcome to Alibaba Cloud Elastic Compute Service !字样，说明连接服务器成功；</li>
-<li>命令行：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;&amp; tar zxf lnmp1.6.tar.gz &amp;&amp; cd lnmp1.6 &amp;&amp; ./install.sh lnmp</span><br></pre></td></tr></table></figure>
-随着版本号更新，命令会有不同。</li>
-<li>选择MYSQL版本及设置密码，版本选默认即可；</li>
-<li>选择PHP版本，这里选择了最新版；</li>
-<li>询问是否需要启用MySQL InnoDB，InnoDB引擎默认为开启，一般建议开启；</li>
-<li>选择是否安装内存的三个优化，选择默认不优化即可；</li>
-<li>提示”Press any key to install…or Press Ctrl+c to cancel”后，按回车键确认开始安装。LNMP脚本就会自动安装编译Nginx、MySQL、PHP、phpMyAdmin等软件及相关的组件，用时大概半个小时。</li>
-<li>如果显示Nginx: OK，MySQL: OK，PHP: OK。并且Nginx、MySQL、PHP都是running，80和3306端口都存在，并提示安装使用的时间及Install lnmp V1.6 completed! enjoy it.的话，说明已经安装成功。<br>某些系统可能会一直卡在Install lnmp V1.5 completed! enjoy it.不自动退出，可以按Ctrl+c退出。</li>
-<li>此时浏览器访问公网IP地址，就发现可以成功（安全组打开了80端口）；</li>
-<li>在命令行 cd /home/wwwroot会发现有一个default文件夹，上述网页的全部内容都在这个文件夹中；</li>
+<li><a href="https://blog.csdn.net/ldw4033/article/details/18313281" target="_blank" rel="noopener">https://blog.csdn.net/ldw4033/article/details/18313281</a></li>
 </ol>
-<h1 id="利用宝塔搭建集成开发环境"><a href="#利用宝塔搭建集成开发环境" class="headerlink" title="利用宝塔搭建集成开发环境"></a>利用宝塔搭建集成开发环境</h1><p>除了上述外，还有一种利用宝塔搭建集成开发环境的方法，具体步骤为：</p>
-<ol>
-<li><p>登陆<a href="http://www.bt.cn/download/linux.html" target="_blank" rel="noopener">官网</a>，可以找到下载linux免费版的脚本，这里服务器为Centos，所以脚本为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<p>这篇介绍的最基本的，截至2.3都是没问题的，但是按照他的方法启动有些问题，浏览器一直404，也可能是自己启动方法不对；</p>
+<ol start="2">
+<li><a href="https://blog.csdn.net/u014079773/article/details/51397850" target="_blank" rel="noopener">https://blog.csdn.net/u014079773/article/details/51397850</a></li>
+</ol>
+<p>这篇主要参考设置服务器，也就是第10项；</p>
+<ol start="3">
+<li><a href="https://www.cnblogs.com/SamWeb/p/7627044.html" target="_blank" rel="noopener">https://www.cnblogs.com/SamWeb/p/7627044.html</a></li>
+</ol>
+<p>这篇主要参考最后总结修改class文件生成路径部分；</p>
+<ol start="4">
+<li><p>参考以上，最后右击项目，Run As=&gt;Run on Server，成功。</p>
 </li>
-<li><p>浏览器输入公网IP:8888，第一次进入会出现安装LNMP集成环境的提示，按照提示选择配置开始安装即可，安装较快；</p>
-</li>
-<li><p>安装完成之后进入面板，在“面板设置”菜单修改安全入口、面板用户、面板密码，绑定宝塔官网密码等；</p>
-</li>
-<li><p>在面板“网站”菜单中，添加站点，即绑定域名并进行管理；</p>
-</li>
-<li><p>在面板“FTP”、“数据库”菜单中可进行管理；</p>
-</li>
-<li><p>此刻浏览器输入服务器IP，发现会是宝塔的欢迎界面；</p>
-</li>
-<li><p>之后再进入，IP:8888/baota，账号密码为之前设定的；</p>
+<li><p>但是有一个问题，在工程的web.xml下也没有对servlet进行配置，如何成功的呢？这里存疑。</p>
+<p>（找到了！！！在servlet3.0后，eclipse中开发服务器的时候，Eclipse不会自动在web.xml中生成该Servlet对应的mapping信息，而是在Servlet代码中加入注解@WebServlet。）</p>
 </li>
 </ol>
-<h1 id="wordpress"><a href="#wordpress" class="headerlink" title="wordpress"></a>wordpress</h1><p>建站初始就用wordpress为例：</p>
-<ol>
-<li>首先进入<a href="https://cn.wordpress.org/" target="_blank" rel="noopener">中文官网</a>，下载zi安装包，注意最新版可能没有中文解析包，如用中文可下载之前版本；</li>
-<li>解压之后将文件夹下全部文件都通过xftp上传到/www/wwwroot目录下已自己域名命名的文件夹下（注意提前删掉index.php）；</li>
-<li>此刻浏览器输入服务器IP，按照步骤往下即可，服务器和FTP账号密码即为刚才在宝塔设置的；</li>
-<li>登陆进去发现有更新，需要ftp账号密码等，所以需要跳过这步，具体操作为：<br>1）修改wordpress安装目录的权限：chmod -R 777 wordpress；<br>2）在wordpress的根目录下找到wp-config.php文件，在wp-config.php中添加以下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** 更新需要ftp地址的解决方法 */</span><br><span class="line">define(&quot;FS_METHOD&quot;,&quot;direct&quot;);</span><br><span class="line">define(&quot;FS_CHMOD_DIR&quot;, 0777);</span><br><span class="line">define(&quot;FS_CHMOD_FILE&quot;, 0777);</span><br></pre></td></tr></table></figure>
-保存文件，并刷新wordpress后台。</li>
-<li>以后在浏览器输入域名/wp-admin或者IP/wp-admin即可进入wordpress控制台；</li>
-</ol>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+<h1 id="Servlet接口实现类"><a href="#Servlet接口实现类" class="headerlink" title="Servlet接口实现类"></a>Servlet接口实现类</h1><p>Servlet接口Sun公司定义了两个默认实现类，分别为：GenericServlet和HttpServlet，前者就是之前讲过的，后者指能够处理HTTP请求的servlet，它在原有接口上添加了一些与HTTP协议处理方法，它比servlet接口的功能更为强大，因此在开发过程中，通常应该继承这个类，在刚才Eclipse自动创建servlet对象中也是继承的这个类。</p>
+<p>HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用doGet方法；如为POST请求，则调用doPost方法，因此，在实际开发中，通常只需要覆写这两种方法，而不去覆写service方法。</p>
+<h1 id="Servlet的一些细节"><a href="#Servlet的一些细节" class="headerlink" title="Servlet的一些细节"></a>Servlet的一些细节</h1><h2 id="web-xml配置"><a href="#web-xml配置" class="headerlink" title="web.xml配置"></a>web.xml配置</h2><p>这部分内容其实已经不需要了，但是为了深入了解，还是在此记录，简单学习一下。</p>
+<p>由于客户端是通过URL地址访问web服务器中的资源，所以Servlet程序若想被外界访问，必须把servlet程序映射到一个URL地址上，这个工作在web.xml文件中使用&lt; servlet &gt;元素和&lt; servlet-mapping &gt;元素完成。</p>
+<p>&lt; servlet &gt;元素用于注册Servlet，它包含两个主要的元素：&lt; servlet-name &gt;和&lt; servlet-class &gt;，分别用于设置Servlet的注册名称和Servlet的完整类名。</p>
+<p>&lt; servlet-mapping &gt;元素用于映射一个已注册的Servlet的一个对外访问路径，也就是说同一个Servlet可以被映射到多个URL上，每一个&lt; servlet-mapping &gt;包含两个子元素：&lt; servlet-name &gt;和&lt; url-pattern &gt;，分别用于指定Servlet的注册名称和Servlet的对外访问路径。</p>
+<p><img src="https://i.loli.net/2019/09/19/kSoKL5EMvOy6AWq.png" alt=""></p>
+<p>如果在&lt; servlet &gt;元素中配置了一个&lt; load-on-startup &gt;元素，那么web应用程序在启动时，就会装载并创建Servlet的实例对象以及调用Servlet实例对象的init()方法，&lt; load-on-startup &gt;2&lt; /load-on-startup &gt;中的数字代表创建的优先级，正整数越小代表优先级越高。</p>
+<h2 id="Servlet引擎"><a href="#Servlet引擎" class="headerlink" title="Servlet引擎"></a>Servlet引擎</h2><p>需要说明的是，Servlet是一个供其他Java程序调用的Java类，它不能独立运行，它的运行完全由Servlet引擎来控制和调度。这里的Servlet引擎其实就是调用它的其他Java程序，也就是web服务器。</p>
+<h2 id="缺省Servlet"><a href="#缺省Servlet" class="headerlink" title="缺省Servlet"></a>缺省Servlet</h2><p>如果某个Servlet的映射路径仅仅为一个正斜杠/，那么这个Servlet就成为当前web应用的缺省Servlet。</p>
+<p>凡是在web.xml文件中找不到匹配的&lt; servlet-mapping &gt;元素的URL，它们的访问请求都将交给缺省Servlet处理，也就是说，缺省Servlet用于处理其他Servlet都不处理的访问请求。</p>
+<p>当访问Tomcat服务器中某个静态HTML文件或者图片时，实际上是在访问这个缺省Servlet。也就是说你在浏览器中输入动态web资源也好，静态web资源也好，其实浏览器客户端都交给了Servlet，只不过输入静态web资源，例如访问xxxxxxxx/a.html，这个a.html资源并没有在&lt; servlet-mapping &gt;中进行映射，所以调用缺省Servlet，缺省Servlet寻找同名的a.html进行显示，若缺省Servlet也找不到，则返回404界面。</p>
+<h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet &#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	protected void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">	protected void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">			throws ServletException, IOException &#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假设有两个用户，第一个用户的页面应该输出1，但是假如在该用户线程休眠过程中有另一个用户访问，则最后输出2，这样就涉及到了线程安全，当然，可以通过synchronized()方法来保证线程安全</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">synchronized(this)&#123;</span><br><span class="line">		i++;</span><br><span class="line">		try&#123;</span><br><span class="line">			Thread.sleep(1000*10);</span><br><span class="line">		&#125;catch(InterruptedException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		response.getOutputStream().write((i+&quot;&quot;).getBytes());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是，很显然在实际开发中，不可能这么做，否则一个用户访问其他用户只能等待。还有另外一种方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Webtest extends HttpServlet implements SingleThreadModel</span><br></pre></td></tr></table></figure>
+
+<p>SingleThreadModel接口中没有定义任何内容，称为标记接口，相当于只是给该类贴了一个线程安全的标签，这种方法在servlet 2.4之后就已经Deprecated。</p>
+<p>线程安全问题很大部分是由实例变量造成的，只要在Servlet里面的任何方法里面都不使用实例变量，那么该Servlet就是线程安全的。<strong>所以，在Servlet中避免使用实例变量是保证Servlet线程安全的最佳选择。</strong></p>
+<p>Java 内存模型中，方法中的临时变量是在栈上分配空间，而且每个线程都有自己私有的栈空间，所以它们不会影响线程的安全。</p>
+<h1 id="Servlet对象"><a href="#Servlet对象" class="headerlink" title="Servlet对象"></a>Servlet对象</h1><p>服务器在创建Servlet时，除了有request、response对象，还有ServletConfig、ServletContext、Session、Cookie等对象。</p>
+<h2 id="ServletConfig对象"><a href="#ServletConfig对象" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h2><p>在Servlet配置文件中，可以在&lt; servlet &gt;元素中使用一个或多个&lt; init-param &gt;标签为Servlet配置一些初始化参数，配置之后，web容器在创建Servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用init()方法时，将ServletConfig对象传递给servlet，进而，开发人员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;date&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;2019&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
+
+<p>java程序中调用即可得到“2019”：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String value = this.getServletConfig().getInitParameter(&quot;data&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>在实际开发中，例如字符码表、要连接的数据库以及读取哪个配置文件等不适合在程序中显示，就用到了ServletConfig。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;charset&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;UTF-8&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;url&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;jdbc:mysql://localhost:3306/test&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;username&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;password&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;root&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">	&lt;param-name&gt;config&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;/struts-config.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><p> web容器在启动时，会为每个web应用都创建一个ServletContext对象，ServletConfig对象中维护ServletContext对象的引用，可以通过ServletConfig().ServletContext()方法获得ServletContext对象。、</p>
+<p>由于一个web应用中所有Servlet共用一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象实现通讯。ServletContext对象通常也称之为context域对象。</p>
+<p>在实际开发中，ServletContext具体有以下几个应用：</p>
+<ul>
+<li>多个servlet之间实现数据共享，一个写入，其他就可以读到；</li>
+<li>获取WEB应用的初始化参数，和上边ServletConfig设置初始化参数类似，只不过这里设置的是整个web应用，使用&lt; context-param &gt;</li>
+<li>实现servlet转发，关于转发和重定向的区别，打个比方，你找我借钱，我让你去找他借，这是重定向；你找我借钱，我帮你去找他借，这是转发。在开发中，转发用的很多，比如servlet的内容肯定要转发，让html去排版再在浏览器显示。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RequestDispatcher rd = this.getServletContext().getRequestDispatcher(&quot;/1.jsp&quot;);</span><br><span class="line">rd.forward(request，response);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>读取资源文件</li>
+</ul>
+<p>假设读取应用下的db.properties：(常见的两种配置文件，如果配置文件内数据有关联，则用xml，否则properties)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql://localhost:3306/test</span><br><span class="line">username=root</span><br><span class="line">password=root</span><br></pre></td></tr></table></figure>
+
+<p>在servlet中读取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = this.getServletContext().getResourceAsStream(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//不能使用传统方法</span><br><span class="line">//FileInputStream in = new FileInputStream(&quot;classes/db.properties&quot;);</span><br><span class="line">//因为执行这行代码的是JVM，也就是说相对路径是以Tomcat下startup.bat来看的，此时并没有classes目录</span><br><span class="line">//要想使用，应该采用如下方法;</span><br><span class="line">//String path = this.getServletContext().getRealPath(&quot;/WEB-INF/classes/db.properties&quot;);</span><br><span class="line">//FileInputStream in = new FileInputStream(path);</span><br><span class="line">Properties props = new properties();	//map</span><br><span class="line">props.load(in);		//将in的内容装载到props</span><br><span class="line"></span><br><span class="line">String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println(url);</span><br><span class="line">System.out.println(username);</span><br><span class="line">System.out.println(password);</span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">&gt;&gt;jdbc:mysql://localhost:3306/test</span><br><span class="line">&gt;&gt;root</span><br><span class="line">&gt;&gt;root</span><br></pre></td></tr></table></figure>
+
+<p>如果读取资源文件的不是servlet，而是普通的Java文件，就只能通过<a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/index.html" target="_blank" rel="noopener">类加载器</a>，例如在dao读取db.properties:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#servlet</span><br><span class="line">……………………</span><br><span class="line">UserDao dao = new UserDao();</span><br><span class="line">dao.update();</span><br><span class="line">……………………</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#UserDao.java</span><br><span class="line">package cn.itcast.dao;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">		InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">		Properties props = new properties();	</span><br><span class="line">		props.load(in);		</span><br><span class="line">		</span><br><span class="line">		String url = props.getProperty(&quot;url&quot;);</span><br><span class="line">		String username = props.getProperty(&quot;username&quot;);</span><br><span class="line">		String password = props.getProperty(&quot;password&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(url);</span><br><span class="line">		System.out.println(username);</span><br><span class="line">		System.out.println(password);</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>扩展一：</p>
+<p>类加载器读取的文件不能太大，因为类加载器加载的文件直接存在内存中，文件太大会导致内存溢出，JVM爆掉。</p>
+<p>扩展二：</p>
+<p>UserDao.java中除了update方法还可能有find、delete等方法，但是这写方法只加载一次就可以，不用每个方法里都加载，所以可以写成静态代码块，实际开发中常这样写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	private static Properties dbconfig = new Properties();</span><br><span class="line">	static &#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			InputStream in = UserDao.class.getClassLoader().getResourceAsStream(&quot;db.properties&quot;);</span><br><span class="line">			dbconfig.load(in);		</span><br><span class="line">		&#125;catch (Exception e)&#123;</span><br><span class="line">			throw new ExceptionInInitializerError(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>扩展三：</p>
+<p>这样的话，启动服务器后，在db.properties中进行修改，这边是无法更新的，因为类加载加载到内存中，要想更新，只能重启服务器，显然不是想要的，所以应该如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class UserDao(</span><br><span class="line">	public void update() throws IOException &#123;</span><br><span class="line">	//通过类装载的方式得到资源文件的位置，再通过传统方式读取资源文件的数据，这样可以读取到更新后的数据</span><br><span class="line">			String path = UserDao.class.getClassLoader().getResource(&quot;db.properties&quot;).getPath();</span><br><span class="line">			FileInputStream in = new FileInputStream(path);</span><br><span class="line">			Properties dbconfig = new Properties();</span><br><span class="line">			dbconfig.load(in);</span><br><span class="line">			System.out.println(dbconfig.getProperty(&quot;url&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">	public void find()  &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
@@ -1023,7 +502,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/2019-06-13-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/2019-09-10-JavaWeb1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -1042,7 +521,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/13/2019-06-13-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_6/" itemprop="url">Python语言程序设计_6</a></h1>
+                <a class="post-title-link" href="/2019/09/10/2019-09-10-JavaWeb1/" itemprop="url">JavaWeb1</a></h1>
         
 
         <div class="post-meta">
@@ -1054,8 +533,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T00:00:00+08:00">
-                2019-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T00:00:00+08:00">
+                2019-09-10
               </time>
             
 
@@ -1094,34 +573,77 @@
       
         
           
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="集合类型及操作"><a href="#集合类型及操作" class="headerlink" title="集合类型及操作"></a>集合类型及操作</h1><h2 id="集合类型定义"><a href="#集合类型定义" class="headerlink" title="集合类型定义"></a>集合类型定义</h2><p>-与数学中的集合概念一致，是多个元素的无序组合，每个元素唯一，不存在相同元素。<br>-集合用大括号{}表示，元素间用逗号分隔。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; A = &#123;&quot;python&quot;, 123, (&quot;python&quot;, 123)&#125;</span><br><span class="line">&gt;&gt;&gt; B = set(&quot;pypy123&quot;)</span><br><span class="line">&#123;&apos;1&apos;, &apos;p&apos;, &apos;2&apos;, &apos;3&apos;, &apos;y&apos;&#125;</span><br></pre></td></tr></table></figure>
-<p>-建立集合类型用{}或set()；建立空集合类型必须使用 set()。</p>
-<h2 id="集合操作符"><a href="#集合操作符" class="headerlink" title="集合操作符"></a>集合操作符</h2><p>S|T:包含集合S和T中的所有元素；<br>S-T:包含在集合S但不在T中的元素；<br>S&amp;T:包含同时在集合S和T中的元素；<br>S^T:包含集合S和T中的非相同元素；<br>S &lt;= T/S &lt; T:返回True/False，判断S和T的子集关系；<br>S &gt;= T/S &gt; T:返回True/False，判断S和T的包含关系；</p>
-<h2 id="集合处理方法"><a href="#集合处理方法" class="headerlink" title="集合处理方法"></a>集合处理方法</h2><p>S.add(x):如果x不在集合S中，将x增加到S<br>S.discard(x)：移除S中元素x，如果x不在集合S中，不报错<br>S.remove(x):同上，如不在，产生keyerror异常<br>S.clear():移除S中所有元素<br>S.pop():随机返回S的一个元素，更新S<br>len(S)：返回集合S的元素个数</p>
-<h2 id="集合类型应用场景"><a href="#集合类型应用场景" class="headerlink" title="集合类型应用场景"></a>集合类型应用场景</h2><p>数据去重</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;ls = [&quot;p&quot;, &quot;p&quot;, &quot;y&quot;, &quot;y&quot;, &quot;&quot;,123]</span><br><span class="line">&gt;&gt;&gt;s = set(ls)</span><br><span class="line">&#123;&apos;p&apos;, &apos;y&apos;, 123&#125;</span><br><span class="line">&gt;&gt;&gt;ls = list(s)</span><br><span class="line">[&apos;p&apos;, &apos;y&apos;, 123]</span><br></pre></td></tr></table></figure>
-<h1 id="序列类型及操作"><a href="#序列类型及操作" class="headerlink" title="序列类型及操作"></a>序列类型及操作</h1><h2 id="序列类型定义"><a href="#序列类型定义" class="headerlink" title="序列类型定义"></a>序列类型定义</h2><p>序列是具有先后关系的一组一维元素向量，元素类型可以不同。<br>序列：字符串类型、元组类型、列表类型</p>
-<h2 id="序列处理函数及方法"><a href="#序列处理函数及方法" class="headerlink" title="序列处理函数及方法"></a>序列处理函数及方法</h2><p>s+t:连接两个序列s和t；<br>s*n:将序列s复制n次；</p>
-<h2 id="元组类型及操作"><a href="#元组类型及操作" class="headerlink" title="元组类型及操作"></a>元组类型及操作</h2><p>元组是序列类型的一种扩展，一旦创建就不能被修改。使用小括号（）或tuple()创建，元素间用逗号分隔。</p>
-<h2 id="列表类型及操作"><a href="#列表类型及操作" class="headerlink" title="列表类型及操作"></a>列表类型及操作</h2><p>元组是序列类型的一种扩展，创建后可以被随意修改。使用方括号[]或list()创建，元素间用逗号分隔。注意使用=赋值并不是真正的创建，只是将同一个列表贴了另一个标签。<br>ls[i]=x:替换列表ls的第i个元素为x；<br>ls[i: j :k]=lt:用列表lt替换ls切片后所对应的元素子列表；<br>del ls[i]:删除列表ls中第i个元素；<br>ls+=lt:更新列表ls，将列表lt元素增加到列表ls中；<br>ls.insert(i,x):在列表ls的第i个位置增加元素x;<br>ls.pop(i):在列表ls中第i个位置元素取出并删除；<br>ls.remove(x):将列表ls中出现的第一个元素x删除；<br>ls.reverse():将列表ls中的元素反转；</p>
-<h2 id="序列类型应用场景"><a href="#序列类型应用场景" class="headerlink" title="序列类型应用场景"></a>序列类型应用场景</h2><p>数据表示：表示一组有序数据，进而操作它们；<br>数据保护，不希望数据被程序修改，转换为元组类型；</p>
-<h1 id="实例：基本统计值计算"><a href="#实例：基本统计值计算" class="headerlink" title="实例：基本统计值计算"></a>实例：基本统计值计算</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#CalStatisticsV1.py</span><br><span class="line">def getNum():       #获取用户不定长度的输入</span><br><span class="line">    nums = []</span><br><span class="line">    iNumStr = input(&quot;请输入数字(回车退出): &quot;)</span><br><span class="line">    while iNumStr != &quot;&quot;:</span><br><span class="line">        nums.append(eval(iNumStr))</span><br><span class="line">        iNumStr = input(&quot;请输入数字(回车退出): &quot;)</span><br><span class="line">    return nums</span><br><span class="line"> </span><br><span class="line">def mean(numbers):  #计算平均值</span><br><span class="line">    s = 0.0</span><br><span class="line">    for num in numbers:</span><br><span class="line">        s = s + num</span><br><span class="line">    return s / len(numbers)</span><br><span class="line"> </span><br><span class="line">def dev(numbers, mean): #计算方差</span><br><span class="line">    sdev = 0.0</span><br><span class="line">    for num in numbers:</span><br><span class="line">        sdev = sdev + (num - mean)**2</span><br><span class="line">    return pow(sdev / (len(numbers)-1), 0.5)</span><br><span class="line"> </span><br><span class="line">def median(numbers):    #计算中位数</span><br><span class="line">    sorted(numbers)</span><br><span class="line">    size = len(numbers)</span><br><span class="line">    if size % 2 == 0:</span><br><span class="line">        med = (numbers[size//2-1] + numbers[size//2])/2</span><br><span class="line">    else:</span><br><span class="line">        med = numbers[size//2]</span><br><span class="line">    return med</span><br><span class="line"> </span><br><span class="line">n =  getNum() #主体函数</span><br><span class="line">m =  mean(n)</span><br><span class="line">print(&quot;平均值:&#123;&#125;,方差:&#123;:.2&#125;,中位数:&#123;&#125;.&quot;.format(m, dev(n,m),median(n)))</span><br></pre></td></tr></table></figure>
-<h1 id="字典类型及操作"><a href="#字典类型及操作" class="headerlink" title="字典类型及操作"></a>字典类型及操作</h1><h2 id="字典类型定义"><a href="#字典类型定义" class="headerlink" title="字典类型定义"></a>字典类型定义</h2><p>字典中的映射是一种键（用户自定义索引）和值（数据）的对应。字典是键值对的集合，键值对之间无序，采用大括号{}或者dict()创建，键值对用冒号：表示。</p>
-<h2 id="字典处理函数及方法"><a href="#字典处理函数及方法" class="headerlink" title="字典处理函数及方法"></a>字典处理函数及方法</h2><p>del d[k]:删除字典d中键k对应的数据值；<br>d.keys():返回字典d中所有的键信息；<br>d.values():返回字典d中所有的值信息；<br>d.items():返回字典d中所有的键值对信息；<br>d.get(k,<default>)：键k存在，返回相应值，不存在则返回<default>值；<br>d.pop(k,<default>)：键k存在，取出相应值，不存在则返回<default>值；</p>
-<h1 id="jieba库的使用"><a href="#jieba库的使用" class="headerlink" title="jieba库的使用"></a>jieba库的使用</h1><p>-jieba是优秀的中文分词第三方库。<br>-利用一个中文词库，确定汉字之间的关联概率，概率大的组成词组，形成分词结果。</p>
-<h2 id="jieba分词三种模式"><a href="#jieba分词三种模式" class="headerlink" title="jieba分词三种模式"></a>jieba分词三种模式</h2><h3 id="精确模式"><a href="#精确模式" class="headerlink" title="精确模式"></a>精确模式</h3><p>把文本精确的切分开，不存在冗余单词。<br>jieba.lcut(s):精确模式，返回一个列表类型的分词结果。</p>
-<h3 id="全模式"><a href="#全模式" class="headerlink" title="全模式"></a>全模式</h3><p>把文本中所有可能的词语都扫描出来，有冗余。</p>
-<h3 id="搜索引擎模式"><a href="#搜索引擎模式" class="headerlink" title="搜索引擎模式"></a>搜索引擎模式</h3><p>在精确模式基础上，对长词在此切分。</p>
-<h1 id="实例：文本字频统计"><a href="#实例：文本字频统计" class="headerlink" title="实例：文本字频统计"></a>实例：文本字频统计</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#CalHamletV1.py</span><br><span class="line">def getText():</span><br><span class="line">    txt = open(&quot;hamlet.txt&quot;, &quot;r&quot;).read()</span><br><span class="line">    txt = txt.lower()</span><br><span class="line">    for ch in &apos;!&quot;#$%&amp;()*+,-./:;&lt;=&gt;?@[\\]^_‘&#123;|&#125;~&apos;:</span><br><span class="line">        txt = txt.replace(ch, &quot; &quot;)   #将文本中特殊字符替换为空格</span><br><span class="line">    return txt</span><br><span class="line"> </span><br><span class="line">hamletTxt = getText()</span><br><span class="line">words  = hamletTxt.split()</span><br><span class="line">counts = &#123;&#125;</span><br><span class="line">for word in words:           </span><br><span class="line">    counts[word] = counts.get(word,0) + 1</span><br><span class="line">items = list(counts.items())</span><br><span class="line">items.sort(key=lambda x:x[1], reverse=True) </span><br><span class="line">for i in range(10):</span><br><span class="line">    word, count = items[i]</span><br><span class="line">    print (&quot;&#123;0:&lt;10&#125;&#123;1:&gt;5&#125;&quot;.format(word, count))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#CalThreeKingdomsV1.py</span><br><span class="line">import jieba</span><br><span class="line">txt = open(&quot;threekingdoms.txt&quot;, &quot;r&quot;, encoding=&apos;utf-8&apos;).read()</span><br><span class="line">words  = jieba.lcut(txt)</span><br><span class="line">counts = &#123;&#125;</span><br><span class="line">for word in words:</span><br><span class="line">    if len(word) == 1:</span><br><span class="line">        continue</span><br><span class="line">    else:</span><br><span class="line">        counts[word] = counts.get(word,0) + 1</span><br><span class="line">items = list(counts.items())</span><br><span class="line">items.sort(key=lambda x:x[1], reverse=True) </span><br><span class="line">for i in range(15):</span><br><span class="line">    word, count = items[i]</span><br><span class="line">    print (&quot;&#123;0:&lt;10&#125;&#123;1:&gt;5&#125;&quot;.format(word, count))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#CalThreeKingdomsV2.py</span><br><span class="line">import jieba</span><br><span class="line">excludes = &#123;&quot;将军&quot;,&quot;却说&quot;,&quot;荆州&quot;,&quot;二人&quot;,&quot;不可&quot;,&quot;不能&quot;,&quot;如此&quot;&#125;</span><br><span class="line">txt = open(&quot;threekingdoms.txt&quot;, &quot;r&quot;, encoding=&apos;utf-8&apos;).read()</span><br><span class="line">words  = jieba.lcut(txt)</span><br><span class="line">counts = &#123;&#125;</span><br><span class="line">for word in words:</span><br><span class="line">    if len(word) == 1:</span><br><span class="line">        continue</span><br><span class="line">    elif word == &quot;诸葛亮&quot; or word == &quot;孔明曰&quot;:</span><br><span class="line">        rword = &quot;孔明&quot;</span><br><span class="line">    elif word == &quot;关公&quot; or word == &quot;云长&quot;:</span><br><span class="line">        rword = &quot;关羽&quot;</span><br><span class="line">    elif word == &quot;玄德&quot; or word == &quot;玄德曰&quot;:</span><br><span class="line">        rword = &quot;刘备&quot;</span><br><span class="line">    elif word == &quot;孟德&quot; or word == &quot;丞相&quot;:</span><br><span class="line">        rword = &quot;曹操&quot;</span><br><span class="line">    else:</span><br><span class="line">        rword = word</span><br><span class="line">    counts[rword] = counts.get(rword,0) + 1</span><br><span class="line">for word in excludes:</span><br><span class="line">    del counts[word]</span><br><span class="line">items = list(counts.items())</span><br><span class="line">items.sort(key=lambda x:x[1], reverse=True) </span><br><span class="line">for i in range(10):</span><br><span class="line">    word, count = items[i]</span><br><span class="line">    print (&quot;&#123;0:&lt;10&#125;&#123;1:&gt;5&#125;&quot;.format(word, count))</span><br></pre></td></tr></table></figure>
+            <h1 id="Web开发相关概念"><a href="#Web开发相关概念" class="headerlink" title="Web开发相关概念"></a>Web开发相关概念</h1><ol>
+<li><p>静态Web资源开发技术：Html</p>
+<p>动态Web资源开发技术：JSP/Servlet、ASP、PHP等，在Java中，动态web资源开发统称为JavaWeb。</p>
+</li>
+<li><p>常见Web服务器：WebLogic，目前应用最广泛，商业；WebSphere，IBM，商业；Tomcat，APache，免费；</p>
+</li>
+<li><p>一个Web应用由多个静态Web资源和多个动态Web资源组成，如html、css、js文件以及Jsp文件、java程序、支持jar包和配置文件等；</p>
+</li>
+<li><p>Web应用开发好之后，若想供外界访问，需要把web应用所在目录交给web服务器管理，这个过程称之为虚拟目录的映射，<a href="https://tomcat.apache.org/tomcat-8.5-doc/config/context.html#Defining_a_context" target="_blank" rel="noopener">详情</a>，目前已经不推荐直接在server.xml中直接修改 &lt; Context &gt;，例如直接写入&lt; Context path=“/login” docBase=”C:\login” /&gt;，这样直接浏览器输入<a href="http://localhost:8080/login/1.html" target="_blank" rel="noopener">http://localhost:8080/login/1.html</a> 就可以直接访问C盘login文件夹下的1.html资源了，但是这样一旦修改server.xml，服务器就必须重启；</p>
+</li>
+<li><p>补充小知识：互联网上一些协议及常用的端口：http-80;smtp-25;pop3-110;ftp-23;https-443;mysql-3306;oracle-1521;</p>
+</li>
+</ol>
+<h1 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h1><h2 id="服务器目录结构"><a href="#服务器目录结构" class="headerlink" title="服务器目录结构"></a>服务器目录结构</h2><p>bin：存放启动和关闭Tomcat的脚本文件；</p>
+<p>conf：存放Tomcat服务器的各种配置文件，最重要的是server.xml；</p>
+<p>lib：存放Tomcat服务器支持的jar包；</p>
+<p>logs：存放Tomcat服务器的日志文件，若启动不成功无法通过控制台查看问题的话可查看日志文件；</p>
+<p>temp：存放Tomcat服务器产生的临时文件；</p>
+<p>webapps：web应用所在目录，即供外界访问的web资源的存放目录，对于开发人员最重要的目录；</p>
+<p>work：存放Tomcat服务器的工作目录，JSP需要用到；</p>
+<h2 id="web应用的组成结构"><a href="#web应用的组成结构" class="headerlink" title="web应用的组成结构"></a>web应用的组成结构</h2><p>webapps下的web应用需要严格按照以下存放规则</p>
+<p><img src="https://i.loli.net/2019/09/10/T5ry6kOdICmjUXs.png" alt=""></p>
+<p>web.xml文件是整个web应用中最重要的配置文件，必须放在WEB-INF目录中，在开发web应用时，但凡涉及到对web应用中某个web资源的配置，往往都在web.xml中进行设置。例如把某个资源配置成网站首页，直接参考Tomcat中自带的Web.xml文件，取头取尾即可。</p>
+<p>应用发布到服务器上时需要打包成war包，这样服务器会自动解析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//进入应用目录</span><br><span class="line">jar -cvf xxx.war xxx</span><br></pre></td></tr></table></figure>
 
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+<p>打包后的war文件直接放到服务器的webapps目录，会看到自动解析出xxx文件。</p>
+<h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>所谓配置虚拟主机，就是在tomcat服务器中配置一个网站，一个tomcat服务器中可以放置多个文档，在Web服务器中配置一个网站，需使用Host元素在server.xml进行配置，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host name=&quot;www.google.com&quot; appBase=&quot;C:\login&quot;&gt;&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是配置的主机要想被外界访问，必须在DNS进行注册IP，很显然，<a href="http://www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。" target="_blank" rel="noopener">www.google.com是不能再被注册的，但是浏览器在询问DNS之前会先询问Windows系统，这个主机名是否在系统中注册IP，所以可以修改C:\Windows\System32\drivers\etc下的hosts文件，将本机IP映射成为www.google.com，这样本机浏览器访问www.google.com就可以访问自己C盘下的login应用。</a></p>
+<h2 id="配置https连接器"><a href="#配置https连接器" class="headerlink" title="配置https连接器"></a>配置https连接器</h2><p>主要用于表单等提交时的加密，设计密码学尤其是非对称加密，这部分略过。</p>
+<p>首先需要为网站生产一份数字证书（公钥），cmd命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure>
+
+<p>系统将产生的数字证书保存到密钥库。然后将这份密钥库文件拷贝到Tomcat安装目录下的conf文件夹下，之后在server.xml中进行配置，也就是使网站自动提取密钥库中的密钥给网站使用用户。具体配置可以打开server.xml文件中关于8443端口的部分，这部分视频使用的方法在Tomcat官方文档中显示deprecated，故不记录，另外，这里配置的只是单向加密连接器，实际开发中应配置https双向加密连接器。</p>
+<h2 id="Tomcat管理器"><a href="#Tomcat管理器" class="headerlink" title="Tomcat管理器"></a>Tomcat管理器</h2><p>在官方文档首先有Manger APP，点击需要用户名密码。这个在复制文件中可以进行配置，打开tomcat-users.xml可以看到几个注释的用户名密码，可以用这几个或者自己再配置。注意默认正好无权限，需要加一个manager的角色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">&lt;role rolename=&quot;manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,manager&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;both&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;role1&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;role1&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p>客户端连上web服务器之后，若想要获得web服务器中某个web资源，需遵守一定的通讯格式，HTTP协议用于定义客户端与web服务器通讯的格式，时TCP/IP协议的一个应用层协议。</p>
+<p>可以使用windows自带的telnet程序连上web服务器并使用HTTP协议获取某个页面或者浏览器的一些插件也可以实现查看HTTP的请求和响应。</p>
+<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>客户端连上服务器后，向服务器请求某个web资源，称之为客户端向服务器发送了一个HTTP请求，一个完整的HTTP请求包括：一个请求行、若干请求头、以及实体内容。请求行用于描述客户端的请求方式、请求的资源名称以及使用的HTTP协议版本号；请求头用于描述客户端请求哪台主机以及客户端的一些环境信息等；实体内容为表单请求的数据等。</p>
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行中常用的请求方式有GET和POST，如果用户没有设置，默认都是GET，用户想把请求方式改为POST，可通过更改表单的提交方式实现。GET在请求的URL地址后以?的形式带上交给服务器的数据，多个数据之间以&amp;进行分隔，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mail/1.html?name=abc&amp;password=123456 HTTP/1.1</span><br></pre></td></tr></table></figure>
+
+<p>其数据容量通常不能超过1K，POST传送的数据量无限制。</p>
+<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>Accept：用于告诉服务器，客户机支持的数据类型；</p>
+<p>Accept-Charset：用于告诉服务器，客户机采用的编码；</p>
+<p>Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；</p>
+<p>Accept-Language：用于告诉服务器，客户机的语言环境；</p>
+<p>Host：客户机通过这个头告诉服务器，想访问的主机名；</p>
+<p>If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；</p>
+<p>Referer：客户机通过这个头告诉服务器，它是从哪个资源来访问服务器的（主要用于防盗链）；</p>
+<p>User-Agent：客户机通过这个头告诉服务器，客户机的软件环境；</p>
+<p>Cookie：客户机通过这个头可以向服务器带一点数据；</p>
+<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><p>一个HTTP响应代表服务器向客户端回送的数据。HTTP响应包括：一个状态行、若干响应头、以及实体内容。状态行用于描述服务器对于请求的处理结果；响应头用于描述服务器的基本信息，以及数据的描述，服务器通过这些数据的描述信息，可以通知客户端如何处理等一会儿它回送的数据；实体内容为服务器向客户端回送的数据。</p>
+<h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><p>状态码用于表示服务器对请求的处理结果，它是一个三位的十进制数，响应状态码分为三类：</p>
+<p><img src="https://i.loli.net/2019/09/15/gyEoDF23zGwltV9.png" alt=""></p>
+<p>例如302：服务器告诉客户端去其他地址找；304/307：服务器告诉客户端去找缓存；404：服务器告诉客户端资源找不到；403：服务器告诉客户端没有权限访问该资源；</p>
+<p>响应头</p>
+<p>Location：这个头配合302状态码使用，用于告诉客户端找谁，实现请求重定向；</p>
+<p>Server：通过这个头，告诉浏览器服务器的类型；</p>
+<p>Context-Type：通过这个头，告诉浏览器回送数据的类型，不同的文件类型对应的具体书写格式可在Tomcat/conf/web.xml中查看；</p>
+<p>Refresh：通过这个头，服务器告诉浏览器多久刷新一次；</p>
+<p>Content-Disposition：通过这个头，服务器告诉浏览器以下载方式打开数据；</p>
+<p>ETag：缓存相头的头；</p>
+<p>Expirse：通过这个头，服务器告诉浏览器把回送的资源缓存多长时间，-1或0代表不缓存；</p>
+<p>Set-Cookie、Cache-Control、Pragma等其他一些头和缓存相关；</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
@@ -1170,7 +692,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/2019-06-09-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/2019-09-09-XML/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -1189,7 +711,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/09/2019-06-09-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_5/" itemprop="url">Python语言程序设计_5</a></h1>
+                <a class="post-title-link" href="/2019/09/09/2019-09-09-XML/" itemprop="url">XML</a></h1>
         
 
         <div class="post-meta">
@@ -1201,8 +723,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T00:00:00+08:00">
-                2019-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T00:00:00+08:00">
+                2019-09-09
               </time>
             
 
@@ -1242,494 +764,119 @@
         
           
             <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+<p>XML语言出现的根本目标在于描述在现实生活中经常出现的有关系的数据。在XML语言中，它允许用户自定义标签。除了用于保存有关系的数据，还经常用作软件配置文件，以描述程序模块之间的关系。</p>
 </blockquote>
-<h1 id="函数的定义和使用"><a href="#函数的定义和使用" class="headerlink" title="函数的定义和使用"></a>函数的定义和使用</h1><h2 id="函数的理解与定义"><a href="#函数的理解与定义" class="headerlink" title="函数的理解与定义"></a>函数的理解与定义</h2><p>两个作用：<br>-降低编码难度；<br>-代码复用；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def &lt;函数名&gt;(&lt;参数(0个或多个)&gt;):</span><br><span class="line">	&lt;函数体&gt;</span><br><span class="line">	return &lt;返回值&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="函数的使用及调用过程"><a href="#函数的使用及调用过程" class="headerlink" title="函数的使用及调用过程"></a>函数的使用及调用过程</h2><p>-调用时要给出实际参数；<br>-实际参数替换定义中的参数；<br>-函数调用后得到返回值；</p>
-<h2 id="函数的参数传递"><a href="#函数的参数传递" class="headerlink" title="函数的参数传递"></a>函数的参数传递</h2><p>-参数可有可无，但必须保留括号；<br>-非可选参数（必选参数）要放在可选参数前边；<br>-函数参数可以为可变数量参数，即不确定参数总数量；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def &lt;函数名&gt;(&lt;参数&gt;，*b):</span><br></pre></td></tr></table></figure>
-
-<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>-return保留字用来传递返回值；<br>-函数可以有返回值，也可以没有，即可以有return，也可以没有；<br>-return可以返回一个，也可以返回多个；</p>
-<h2 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h2><p>-函数外部定义的为全局变量，函数内部定义的为局部变量，在函数内部可以使用保留字global定义全局变量。<br>-对于组合数据类型，如列表等，如果局部变量为真实创建，且函数内变量名与全局定义的变量相同，则它就是全局变量（原因：组合数据类型定义的是指针，在函数内部操作的也是指针）；</p>
-<h2 id="lambda函数"><a href="#lambda函数" class="headerlink" title="lambda函数"></a>lambda函数</h2><p>-lambda函数使用lambda保留字定义，是一种匿名函数，即没有名字的函数，返回函数名作为结果；<br>-用于定义简单的、能够在一行内表示的函数；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;函数名&gt; = lambda&lt;参数&gt;:&lt;表达式&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = lambda x,y:x+y</span><br><span class="line">&gt;&gt;&gt; f(10,15)</span><br><span class="line">25</span><br><span class="line">&gt;&gt;&gt; f = lambda:&quot;lambda函数&quot;</span><br><span class="line">&gt;&gt;&gt; print(f())</span><br><span class="line">lambda函数</span><br></pre></td></tr></table></figure>
-
-<h1 id="实例：-七段数码管绘制"><a href="#实例：-七段数码管绘制" class="headerlink" title="实例： 七段数码管绘制"></a>实例： 七段数码管绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#SevenDigitsDrawV1.py</span><br><span class="line">import turtle</span><br><span class="line">def drawLine(draw):   #绘制单段数码管</span><br><span class="line">    turtle.pendown() if draw else turtle.penup()</span><br><span class="line">    turtle.fd(40)</span><br><span class="line">    turtle.right(90)</span><br><span class="line">def drawDigit(digit): #根据数字绘制七段数码管</span><br><span class="line">    drawLine(True) if digit in [2,3,4,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if digit in [0,1,3,4,5,6,7,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if digit in [0,2,3,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if digit in [0,2,6,8] else drawLine(False)</span><br><span class="line">    turtle.left(90)</span><br><span class="line">    drawLine(True) if digit in [0,4,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if digit in [0,2,3,5,6,7,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if digit in [0,1,2,3,4,7,8,9] else drawLine(False)</span><br><span class="line">    turtle.left(180)</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.fd(20) </span><br><span class="line">def drawDate(date):  #获得要输出的数字</span><br><span class="line">    for i in date:</span><br><span class="line">        drawDigit(eval(i))  #通过eval()函数将数字变为整数</span><br><span class="line">def main():</span><br><span class="line">    turtle.setup(800, 350, 200, 200)</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.fd(-300)</span><br><span class="line">    turtle.pensize(5)</span><br><span class="line">    drawDate(&apos;20181010&apos;)</span><br><span class="line">    turtle.hideturtle()</span><br><span class="line">    turtle.done()</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#SevenDigitsDrawV2.py</span><br><span class="line">import turtle, time</span><br><span class="line">def drawGap(): #绘制数码管间隔</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.fd(5)</span><br><span class="line">def drawLine(draw):   #绘制单段数码管</span><br><span class="line">    drawGap()</span><br><span class="line">    turtle.pendown() if draw else turtle.penup()</span><br><span class="line">    turtle.fd(40)</span><br><span class="line">    drawGap()</span><br><span class="line">    turtle.right(90)</span><br><span class="line">def drawDigit(d): #根据数字绘制七段数码管</span><br><span class="line">    drawLine(True) if d in [2,3,4,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if d in [0,1,3,4,5,6,7,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if d in [0,2,3,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if d in [0,2,6,8] else drawLine(False)</span><br><span class="line">    turtle.left(90)</span><br><span class="line">    drawLine(True) if d in [0,4,5,6,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if d in [0,2,3,5,6,7,8,9] else drawLine(False)</span><br><span class="line">    drawLine(True) if d in [0,1,2,3,4,7,8,9] else drawLine(False)</span><br><span class="line">    turtle.left(180)</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.fd(20)</span><br><span class="line">def drawDate(date):</span><br><span class="line">    turtle.pencolor(&quot;red&quot;)</span><br><span class="line">    for i in date:</span><br><span class="line">        if i == &apos;-&apos;:</span><br><span class="line">            turtle.write(&apos;年&apos;,font=(&quot;Arial&quot;, 18, &quot;normal&quot;))</span><br><span class="line">            turtle.pencolor(&quot;green&quot;)</span><br><span class="line">            turtle.fd(40)</span><br><span class="line">        elif i == &apos;=&apos;:</span><br><span class="line">            turtle.write(&apos;月&apos;,font=(&quot;Arial&quot;, 18, &quot;normal&quot;))</span><br><span class="line">            turtle.pencolor(&quot;blue&quot;)</span><br><span class="line">            turtle.fd(40)</span><br><span class="line">        elif i == &apos;+&apos;:</span><br><span class="line">            turtle.write(&apos;日&apos;,font=(&quot;Arial&quot;, 18, &quot;normal&quot;))</span><br><span class="line">        else:</span><br><span class="line">            drawDigit(eval(i))</span><br><span class="line">def main():</span><br><span class="line">    turtle.setup(800, 350, 200, 200)</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.fd(-350)</span><br><span class="line">    turtle.pensize(5)</span><br><span class="line">#    drawDate(&apos;2018-10=10+&apos;)</span><br><span class="line">    drawDate(time.strftime(&apos;%Y-%m=%d+&apos;,time.gmtime()))</span><br><span class="line">    turtle.hideturtle()</span><br><span class="line">    turtle.done()</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-<h1 id="代码复用和函数递归"><a href="#代码复用和函数递归" class="headerlink" title="代码复用和函数递归"></a>代码复用和函数递归</h1><h2 id="代码复用与模块化设计"><a href="#代码复用与模块化设计" class="headerlink" title="代码复用与模块化设计"></a>代码复用与模块化设计</h2><p>-函数和对象是代码复用的两种主要形式。<br>-模块化设计：分而治之。具体包括主程序、子程序和子程序之间的关系。</p>
-<h2 id="函数递归的理解"><a href="#函数递归的理解" class="headerlink" title="函数递归的理解"></a>函数递归的理解</h2><p>-函数定义中调用函数自身的形式。</p>
-<h2 id="函数递归的调用过程"><a href="#函数递归的调用过程" class="headerlink" title="函数递归的调用过程"></a>函数递归的调用过程</h2><p>函数+分支语句<br>-递归本身是一个函数，需要函数定义方式描述；<br>-函数内部，采用分支语句对输入参数进行判断；<br>-基例和链条，分别编写对应代码；</p>
-<h2 id="函数递归实例解析"><a href="#函数递归实例解析" class="headerlink" title="函数递归实例解析"></a>函数递归实例解析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#字符串反转</span><br><span class="line">def rvs(s):</span><br><span class="line">	if s==&quot;&quot;:</span><br><span class="line">		return s</span><br><span class="line">	else:</span><br><span class="line">		return rvs(s[1:]+s[0])</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#斐波那契数列</span><br><span class="line">def f(n):</span><br><span class="line">	if n==1 or n==2</span><br><span class="line">		return 1</span><br><span class="line">	else:</span><br><span class="line">		return f(n-1)+f(n-2)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#汉诺塔</span><br><span class="line">count = 0</span><br><span class="line">#n号小圆盘从src到dst,mid作为过渡</span><br><span class="line">def hanoi(n,src,dst,mid):</span><br><span class="line">	global count</span><br><span class="line">	if n==1:</span><br><span class="line">		print(&quot;&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;&quot;.format(1,src,dst))</span><br><span class="line">		countt +=1</span><br><span class="line">	else:</span><br><span class="line">		hanoi(n-1,src,mid,dst)</span><br><span class="line">		print(&quot;&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;&quot;.format(n,src,dst))</span><br><span class="line">		count +=1</span><br><span class="line">		hanoi(n-1,mid,dst,src)</span><br></pre></td></tr></table></figure>
-<h1 id="PyInstall库使用"><a href="#PyInstall库使用" class="headerlink" title="PyInstall库使用"></a>PyInstall库使用</h1><h2 id="PyInstall库概述"><a href="#PyInstall库概述" class="headerlink" title="PyInstall库概述"></a>PyInstall库概述</h2><p>将 .py源代码转换成无需源代码的可执行文件，是一个第三方库。</p>
-<h2 id="PyInstall库使用-1"><a href="#PyInstall库使用-1" class="headerlink" title="PyInstall库使用"></a>PyInstall库使用</h2><p>在文件目录下进入命令行： pyinstaller -F &lt;文件名.py&gt;</p>
-<h1 id="实例：科赫雪花小包裹"><a href="#实例：科赫雪花小包裹" class="headerlink" title="实例：科赫雪花小包裹"></a>实例：科赫雪花小包裹</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#科赫曲线绘制</span><br><span class="line">    #KochDrawV1.py</span><br><span class="line">    import turtle</span><br><span class="line">    def koch(size, n):</span><br><span class="line">        if n == 0:</span><br><span class="line">            turtle.fd(size)</span><br><span class="line">        else:</span><br><span class="line">            for angle in [0, 60, -120, 60]:</span><br><span class="line">               turtle.left(angle)</span><br><span class="line">               koch(size/3, n-1)</span><br><span class="line">    def main():</span><br><span class="line">        turtle.setup(800,400)</span><br><span class="line">        turtle.penup()</span><br><span class="line">        turtle.goto(-300, -50)</span><br><span class="line">        turtle.pendown()</span><br><span class="line">        turtle.pensize(2)</span><br><span class="line">        koch(600,3)     # 0阶科赫曲线长度，阶数</span><br><span class="line">        turtle.hideturtle()</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#科赫雪花绘制</span><br><span class="line">    #KochDrawV2.py</span><br><span class="line">    import turtle</span><br><span class="line">    def koch(size, n):</span><br><span class="line">        if n == 0:</span><br><span class="line">            turtle.fd(size)</span><br><span class="line">        else:</span><br><span class="line">            for angle in [0, 60, -120, 60]:</span><br><span class="line">               turtle.left(angle)</span><br><span class="line">               koch(size/3, n-1)</span><br><span class="line">    def main():</span><br><span class="line">        turtle.setup(600,600)</span><br><span class="line">        turtle.penup()</span><br><span class="line">        turtle.goto(-200, 100)</span><br><span class="line">        turtle.pendown()</span><br><span class="line">        turtle.pensize(2)</span><br><span class="line">        level = 3      # 3阶科赫雪花，阶数</span><br><span class="line">        koch(400,level)     </span><br><span class="line">        turtle.right(120)</span><br><span class="line">        koch(400,level)</span><br><span class="line">        turtle.right(120)</span><br><span class="line">        koch(400,level)</span><br><span class="line">        turtle.hideturtle()</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/06/2019-06-06-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/06/2019-06-06-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_4/" itemprop="url">Python语言程序设计_4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T00:00:00+08:00">
-                2019-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="程序的分支结构"><a href="#程序的分支结构" class="headerlink" title="程序的分支结构"></a>程序的分支结构</h1><h2 id="单分支结构"><a href="#单分支结构" class="headerlink" title="单分支结构"></a>单分支结构</h2><p>根据判断条件结果而选择不同向前路径的运行方式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if &lt;条件&gt;：</span><br><span class="line">    &lt;语句块&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="二分支结构"><a href="#二分支结构" class="headerlink" title="二分支结构"></a>二分支结构</h2><p>根据判断条件结果而选择不同向前路径的运行方式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if &lt;条件&gt;：</span><br><span class="line">    &lt;语句块1&gt;</span><br><span class="line">else:</span><br><span class="line">    &lt;语句块2&gt;</span><br></pre></td></tr></table></figure>
-<p>紧凑形式：适用于简单表达式的二分支结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;表达式1&gt; if &lt;条件&gt; else &lt;表达式2&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="多分支结构"><a href="#多分支结构" class="headerlink" title="多分支结构"></a>多分支结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if &lt;条件&gt;：</span><br><span class="line">    &lt;语句块1&gt;</span><br><span class="line">elif:</span><br><span class="line">    &lt;语句块2&gt;</span><br><span class="line">    ……</span><br><span class="line">else:</span><br><span class="line">    &lt;语句块n&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="条件判断及组合"><a href="#条件判断及组合" class="headerlink" title="条件判断及组合"></a>条件判断及组合</h2><p>用于条件组合的三个保留字：and、or、not</p>
-<h2 id="程序的异常处理"><a href="#程序的异常处理" class="headerlink" title="程序的异常处理"></a>程序的异常处理</h2><p>异常处理的基本使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    &lt;语句块1&gt;</span><br><span class="line">except:</span><br><span class="line">    &lt;语句块2&gt;</span><br></pre></td></tr></table></figure>
-<p>高级使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    &lt;语句块1&gt;</span><br><span class="line">except:</span><br><span class="line">    &lt;语句块2&gt;</span><br><span class="line">#不发生异常时执行语句块3</span><br><span class="line">else:</span><br><span class="line">    &lt;语句块3&gt;</span><br><span class="line">#语句块4一定会执行</span><br><span class="line">finally：</span><br><span class="line">    &lt;语句块4&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="实例：-身体质量指数BMI"><a href="#实例：-身体质量指数BMI" class="headerlink" title="实例： 身体质量指数BMI#"></a>实例： 身体质量指数BMI#</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#CalBMIv1.py</span><br><span class="line">height, weight = eval(input(&quot;请输入身高(米)和体重(公斤)[逗号隔开]: &quot;))</span><br><span class="line">bmi = weight / pow(height, 2)</span><br><span class="line">print(&quot;BMI 数值为：&#123;:.2f&#125;&quot;.format(bmi))</span><br><span class="line">who = &quot;&quot;</span><br><span class="line">if bmi &lt; 18.5:</span><br><span class="line">    who = &quot;偏瘦&quot;</span><br><span class="line">elif 18.5 &lt;= bmi &lt; 25:</span><br><span class="line">    who = &quot;正常&quot;</span><br><span class="line">elif 25 &lt;= bmi &lt; 30:</span><br><span class="line">    who = &quot;偏胖&quot;</span><br><span class="line">else:</span><br><span class="line">    who = &quot;肥胖&quot;</span><br><span class="line">print(&quot;BMI 指标为:国际&apos;&#123;0&#125;&apos;&quot;.format(who))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#CalBMIv2.py</span><br><span class="line">height, weight = eval(input(&quot;请输入身高(米)和体重\(公斤)[逗号隔开]: &quot;))</span><br><span class="line">bmi = weight / pow(height, 2)</span><br><span class="line">print(&quot;BMI 数值为：&#123;:.2f&#125;&quot;.format(bmi))</span><br><span class="line">nat = &quot;&quot;</span><br><span class="line">if bmi &lt; 18.5:</span><br><span class="line">    nat = &quot;偏瘦&quot;</span><br><span class="line">elif 18.5 &lt;= bmi &lt; 24:</span><br><span class="line">    nat = &quot;正常&quot;</span><br><span class="line">elif 24 &lt;= bmi &lt; 28:</span><br><span class="line">    nat = &quot;偏胖&quot;</span><br><span class="line">else:</span><br><span class="line">    nat = &quot;肥胖&quot;</span><br><span class="line">print(&quot;BMI 指标为:国内&apos;&#123;0&#125;&apos;&quot;.format(nat))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#CalBMIv3.py</span><br><span class="line">height, weight = eval(input(&quot;请输入身高(米)和体重(公斤)[逗号隔开]: &quot;))</span><br><span class="line">bmi = weight / pow(height, 2)</span><br><span class="line">print(&quot;BMI 数值为：&#123;:.2f&#125;&quot;.format(bmi))</span><br><span class="line">who, nat = &quot;&quot;, &quot;&quot;</span><br><span class="line">if bmi &lt; 18.5:</span><br><span class="line">    who, nat = &quot;偏瘦&quot;, &quot;偏瘦&quot;</span><br><span class="line">elif 18.5 &lt;= bmi &lt; 24:</span><br><span class="line">    who, nat = &quot;正常&quot;, &quot;正常&quot;</span><br><span class="line">elif 24 &lt;= bmi &lt; 25:</span><br><span class="line">    who, nat = &quot;正常&quot;, &quot;偏胖&quot;</span><br><span class="line">elif 25 &lt;= bmi &lt; 28:</span><br><span class="line">    who, nat = &quot;偏胖&quot;, &quot;偏胖&quot;</span><br><span class="line">elif 28 &lt;= bmi &lt; 30:</span><br><span class="line">    who, nat = &quot;偏胖&quot;, &quot;肥胖&quot;</span><br><span class="line">else:</span><br><span class="line">    who, nat = &quot;肥胖&quot;, &quot;肥胖&quot;</span><br><span class="line">print(&quot;BMI 指标为:国际&apos;&#123;0&#125;&apos;, 国内&apos;&#123;1&#125;&apos;&quot;.format(who, nat))</span><br></pre></td></tr></table></figure>
-<h1 id="程序的循环结构"><a href="#程序的循环结构" class="headerlink" title="程序的循环结构"></a>程序的循环结构</h1><h2 id="遍历循环"><a href="#遍历循环" class="headerlink" title="遍历循环"></a>遍历循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for&lt;循环变量&gt; in &lt;遍历结构&gt;：</span><br><span class="line">	&lt;语句块&gt;</span><br></pre></td></tr></table></figure>
-<p>-计数循环<br>-字符串遍历循环<br>-列表遍历循环<br>-文件遍历循环<br>-………………</p>
-<h2 id="无限循环"><a href="#无限循环" class="headerlink" title="无限循环"></a>无限循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while &lt;条件&gt;：</span><br><span class="line">	&lt;语句块&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="循环控制保留字"><a href="#循环控制保留字" class="headerlink" title="循环控制保留字"></a>循环控制保留字</h2><p>-break:跳出并结束当前（最内层）整个循环，执行循环后的语句；<br>-continue:结束当此循环，继续执行后续次数循环；</p>
-<h2 id="循环高级用法"><a href="#循环高级用法" class="headerlink" title="循环高级用法"></a>循环高级用法</h2><p>循环与else搭配，当循环没有被break语句退出时，执行else语句块，可以看作是作为”正常”完成循环的奖励。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for&lt;循环变量&gt; in &lt;遍历结构&gt;：</span><br><span class="line">	&lt;语句块1&gt;</span><br><span class="line">else:</span><br><span class="line">	&lt;语句块2&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while &lt;条件&gt;：</span><br><span class="line">	&lt;语句块1&gt;</span><br><span class="line">else:</span><br><span class="line">	&lt;语句块2&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="random库使用"><a href="#random库使用" class="headerlink" title="random库使用"></a>random库使用</h1><h2 id="random库概述"><a href="#random库概述" class="headerlink" title="random库概述"></a>random库概述</h2><p>-random库是使用随机数的python标准库。<br>-import random</p>
-<h2 id="基本随机函数"><a href="#基本随机函数" class="headerlink" title="基本随机函数"></a>基本随机函数</h2><p>-产生过程：随机数种子–&gt;梅森旋转矩阵–&gt;产生随机序列<br>-seed(a):初始化给定随机数种子，默认为当前系统时间，给定种子后，random产生的随机数确定，之后可以再现；<br>-random():生成一个[0.0,1.0]之间的随机小数；</p>
-<h2 id="扩展随机函数"><a href="#扩展随机函数" class="headerlink" title="扩展随机函数"></a>扩展随机函数</h2><p>-random.randint(a,b):生成一个[a,b]之间的整数；<br>-random.randrange(m,n[,k]):生成一个[m,n)之间以k为步长的随机整数；<br>-random.getrandbits(k):生成一个k比特长的随机整数；<br>-random.uniform(a,b):生成一个[a，b]之间的随机小数；<br>-random.choice(seq):从序列seq中随机选择一个元素；<br>-random.shuffle(seq):将序列seq中元素随机排列，返回打乱后的序列；</p>
-<h1 id="实例：圆周率的计算"><a href="#实例：圆周率的计算" class="headerlink" title="实例：圆周率的计算"></a>实例：圆周率的计算</h1><h2 id="公式近似方法"><a href="#公式近似方法" class="headerlink" title="公式近似方法"></a>公式近似方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#CalPiV1.py</span><br><span class="line">pi = 0</span><br><span class="line">N = 100</span><br><span class="line">for k in range(N):</span><br><span class="line">    pi += 1/pow(16,k)*( \</span><br><span class="line">              4/(8*k+1) - 2/(8*k+4) - \</span><br><span class="line">              1/(8*k+5) - 1/(8*k+6) ) </span><br><span class="line">print(&quot;圆周率值是: &#123;&#125;&quot;.format(pi))</span><br></pre></td></tr></table></figure>
-<h2 id="蒙特卡洛方法"><a href="#蒙特卡洛方法" class="headerlink" title="蒙特卡洛方法"></a>蒙特卡洛方法</h2><p>随机给大量散点，会随机出现在区域中的位置，采用比例，用正方形面积可以估算出圆的面积，进而可以得到圆周率。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#CalPiV2.py</span><br><span class="line">from random import random</span><br><span class="line">from time import perf_counter</span><br><span class="line">DARTS = 1000*1000</span><br><span class="line">hits = 0.0</span><br><span class="line">start = perf_counter()</span><br><span class="line">for i in range(1, DARTS+1):</span><br><span class="line">    x, y = random(), random()</span><br><span class="line">    dist = pow(x ** 2 + y ** 2, 0.5)</span><br><span class="line">    if dist &lt;= 1.0:</span><br><span class="line">        hits = hits + 1</span><br><span class="line">pi = 4 * (hits/DARTS)</span><br><span class="line">print(&quot;圆周率值是: &#123;&#125;&quot;.format(pi))</span><br><span class="line">print(&quot;运行时间是: &#123;:.5f&#125;s&quot;.format(perf_counter() - start))</span><br></pre></td></tr></table></figure>
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/2019-06-05-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/05/2019-06-05-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_3/" itemprop="url">Python语言程序设计_3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T00:00:00+08:00">
-                2019-06-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="数字类型及操作"><a href="#数字类型及操作" class="headerlink" title="数字类型及操作"></a>数字类型及操作</h1><h2 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h2><p>-与数学中整数概念一致，可正可负，没有取值范围限制。<br>-pow(x,y)函数:计算x<sup>y</sup>，想算多大就算多大。<br>-4种进制表示形式：</p>
-<ol>
-<li>十进制；</li>
-<li>二进制，以0b或0B开头；</li>
-<li>八进制，以0o或0O开头；</li>
-<li>十六进制，以0x或0X开头；</li>
-</ol>
-<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>-与数学中实数概念一致，带有小数点及小数的数字。<br>-浮点数间的运算存在不确定尾数，不是bug（原因：计算机二进制表示小数，可以无限接近，但不完全相同）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#浮点数运算及比较用round函数辅助</span><br><span class="line">&gt;&gt;&gt;0.1+0.2 == 0.3</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;round（0.1+0.2，1）== 0.3</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
-<p>-使用字母e或E作为幂的符号，以10为基数，格式如下：<br>&lt; a &gt;e&lt; b &gt;表示a*10<sup>b</sup></p>
-<h2 id="复数类型"><a href="#复数类型" class="headerlink" title="复数类型"></a>复数类型</h2><p>-与数学中复数概念一致。<br>-z.real获得实部；z.imag获得虚部。</p>
-<h2 id="数值运算操作符"><a href="#数值运算操作符" class="headerlink" title="数值运算操作符"></a>数值运算操作符</h2><p>+、-、<em>、/、 //（整数除） 、%、*</em>（幂运算）<br>-类型间可进行混合运算，生成结果为“最宽”类型，整数–&gt;浮点数–&gt;复数。</p>
-<h2 id="数字运算函数"><a href="#数字运算函数" class="headerlink" title="数字运算函数"></a>数字运算函数</h2><p>abs(x)、divmod(x,y)同时输出商和余数、pow(x,y[,z])幂余(x**y)%z、round(x[,d])、max()、min()、int(x)、float（x）</p>
-<h1 id="实例：天天向上的力量"><a href="#实例：天天向上的力量" class="headerlink" title="实例：天天向上的力量"></a>实例：天天向上的力量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#DayDayUpQ1.py</span><br><span class="line">dayup = pow(1.001, 365)</span><br><span class="line">daydown = pow(0.999, 365)</span><br><span class="line">print(&quot;向上：&#123;:.2f&#125;，向下：&#123;:.2f&#125;&quot;.format(dayup, daydown))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#DayDayUpQ2.py</span><br><span class="line">dayfactor = 0.005</span><br><span class="line">dayup = pow(1+dayfactor, 365)</span><br><span class="line">daydown = pow(1-dayfactor, 365)</span><br><span class="line">print(&quot;向上：&#123;:.2f&#125;，向下：&#123;:.2f&#125;&quot;.format(dayup, daydown))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#DayDayUpQ3.py</span><br><span class="line">dayup = 1.0</span><br><span class="line">dayfactor = 0.01</span><br><span class="line">for i in range(365):</span><br><span class="line">   if i % 7 in [6,0]:</span><br><span class="line">       dayup = dayup*(1-dayfactor)</span><br><span class="line">   else:</span><br><span class="line">       dayup = dayup*(1+dayfactor)</span><br><span class="line">print(&quot;工作日的力量：&#123;:.2f&#125; &quot;.format(dayup))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#DayDayUpQ4.py</span><br><span class="line">def dayUP(df):</span><br><span class="line">    dayup = 1</span><br><span class="line">    for i in range(365):</span><br><span class="line">       if i % 7 in [6,0]:</span><br><span class="line">           dayup = dayup*(1 - 0.01)</span><br><span class="line">       else:</span><br><span class="line">           dayup = dayup*(1 + df)</span><br><span class="line">    return dayup</span><br><span class="line">dayfactor = 0.01</span><br><span class="line">while dayUP(dayfactor) &lt; 37.78:</span><br><span class="line">    dayfactor += 0.001</span><br><span class="line">print(&quot;工作日的努力参数是：&#123;:.3f&#125; &quot;.format(dayfactor))</span><br></pre></td></tr></table></figure>
-<h1 id="字符串类型及操作"><a href="#字符串类型及操作" class="headerlink" title="字符串类型及操作"></a>字符串类型及操作</h1><h2 id="字符串类型的表示"><a href="#字符串类型的表示" class="headerlink" title="字符串类型的表示"></a>字符串类型的表示</h2><p>-由一对单引号或者双引号表示，仅表示单行字符串。<br>-由一对三单引号或三双引号表示，可表示多行字符串。<br>-转义符\，表达特定字符的本意。</p>
-<h2 id="字符串操作符"><a href="#字符串操作符" class="headerlink" title="字符串操作符"></a>字符串操作符</h2><p>x+y;n*x;x in s</p>
-<h2 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h2><p>len(x)、str(x)、hen(x)或oct(x)转换为十六进制和八进制、chr(u)u为Unicode编码、ord(x)与前一相反</p>
-<h2 id="字符串处理方法"><a href="#字符串处理方法" class="headerlink" title="字符串处理方法"></a>字符串处理方法</h2><p>“方法”特指&lt; a &gt;.&lt; b &gt;()风格中的函数&lt; b &gt;()，方法本身也是函数，但与&lt; a &gt;有关。<br>-str.lower()或str.upper()：字符串字符全部大写或者小写；<br>-str.split()：返回一个列表，由str根据sep被分割的部分组成；<br>-str.count(sub)：sub在str中出现的次数；<br>-str.replace(old,new)：所有old子串被替换为new；<br>-str.center(width[，fillchar]):字符串str根据宽度width居中，fillchar可选；<br>-str.strip(chars):从str中去掉在其左侧和右侧chars中列出的字符；<br>-str.join(iter):在iter变量除最后元素外每个元素后增加一个str “,”；</p>
-<h2 id="字符串类型的格式化"><a href="#字符串类型的格式化" class="headerlink" title="字符串类型的格式化"></a>字符串类型的格式化</h2><p>-字符串格式化使用.format()方法，用法为：&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)<br>-模板字符串中只用槽{}来占位，与后边format()中参数的顺序一一对应。<br>-槽内部对格式化的配置方式：{&lt;参数序号&gt;：&lt;格式控制标记&gt;}</p>
-<p>：| &lt;填充&gt; | &lt;对齐&gt; | &lt;宽度&gt; | &lt;，&gt; |&lt;.精度&gt; | &lt;类型&gt;<br>-|-|-<br>引导符号 | 用于填充的单个字符 | &lt;左对齐 &gt;右对齐 ^居中对齐 | 槽设定的输出宽度 | 数字的千位分隔符 | 浮点数小数精度 或 字符串最大输出长度 | 整数类型 b、c、d、o、x、X 浮点数类型e、E、f、%</p>
-<h1 id="模块2：time库的使用"><a href="#模块2：time库的使用" class="headerlink" title="模块2：time库的使用"></a>模块2：time库的使用</h1><h2 id="time库基本情况"><a href="#time库基本情况" class="headerlink" title="time库基本情况"></a>time库基本情况</h2><p>-python中处理时间的标准库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">time.&lt;b&gt;()</span><br></pre></td></tr></table></figure>
-<p>-time库包含三类函数：</p>
-<ol>
-<li>时间获取：time()、ctime()、gmtime()</li>
-<li>时间格式化：strtime()、strptime()</li>
-<li>程序计时：sleep()、perf_counter()</li>
-</ol>
-<h2 id="时间获取"><a href="#时间获取" class="headerlink" title="时间获取"></a>时间获取</h2><p>-time()：获取当前时间戳，及计算机内部时间值，浮点数；<br>-ctime()：获取当前时间并以易读方式表示，字符串；<br>-gmtime():获取当前时间，表示为计算机可处理的时间格式；</p>
-<h2 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h2><p>将时间以合理的方式展示出来。<br>-strtime(tpl,ts):tpl是格式化模板字符串，用来定义输出效果；ts是计算机内部时间类型变量；<br>-strptime(str,tpl):与上互补，将时间字符串处理成计算机内部可操作的；</p>
-<h2 id="程序计时应用"><a href="#程序计时应用" class="headerlink" title="程序计时应用"></a>程序计时应用</h2><p>-sleep(s):s是休眠时间，单位为秒，可以是浮点数；<br>-perf_counter():返回一个CPU级别的精确时间计数值，单位为秒，由于这个计数值起点不确定，连续调用计算差值才有意义；</p>
-<h1 id="实例：文本进度条"><a href="#实例：文本进度条" class="headerlink" title="实例：文本进度条"></a>实例：文本进度条</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#TextProBarV1.py简单的开始</span><br><span class="line">import time</span><br><span class="line">scale = 10</span><br><span class="line">print(&quot;------执行开始------&quot;)</span><br><span class="line">for i in range(scale+1):</span><br><span class="line">    a = &apos;*&apos; * i</span><br><span class="line">    b = &apos;.&apos; * (scale - i)</span><br><span class="line">    c = (i/scale)*100</span><br><span class="line">    print(&quot;&#123;:^3.0f&#125;%[&#123;&#125;-&gt;&#123;&#125;]&quot;.format(c,a,b))</span><br><span class="line">    time.sleep(0.1)</span><br><span class="line">print(&quot;------执行结束------&quot;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#TextProBarV2.py单行动态刷新</span><br><span class="line">import time</span><br><span class="line">for i in range(101):</span><br><span class="line">    print(&quot;\r&#123;:3&#125;%&quot;.format(i), end=&quot;&quot;)</span><br><span class="line">    time.sleep(0.1)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#TextProBarV3.py完整实例</span><br><span class="line">import time</span><br><span class="line">scale = 50</span><br><span class="line">print(&quot;执行开始&quot;.center(scale//2, &quot;-&quot;))</span><br><span class="line">start = time.perf_counter()</span><br><span class="line">for i in range(scale+1):</span><br><span class="line">    a = &apos;*&apos; * i</span><br><span class="line">    b = &apos;.&apos; * (scale - i)</span><br><span class="line">    c = (i/scale)*100</span><br><span class="line">    dur = time.perf_counter() - start</span><br><span class="line">    print(&quot;\r&#123;:^3.0f&#125;%[&#123;&#125;-&gt;&#123;&#125;]&#123;:.2f&#125;s&quot;.format(c,a,b,dur),end=&apos;&apos;)</span><br><span class="line">    time.sleep(0.1)</span><br><span class="line">print(&quot;\n&quot;+&quot;执行结束&quot;.center(scale//2,&apos;-&apos;))</span><br></pre></td></tr></table></figure>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/" itemprop="url">Python语言程序设计_2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T00:00:00+08:00">
-                2019-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="turtle库"><a href="#turtle库" class="headerlink" title="turtle库"></a>turtle库</h1><p>turtle（海龟）是turtle绘图体系的Python实现，是Python的标准库之一，使用RGB色彩模式。</p>
-<h2 id="空间坐标系"><a href="#空间坐标系" class="headerlink" title="空间坐标系"></a>空间坐标系</h2><p>画布上以中心为原点的空间坐标系：绝对坐标&amp;海龟坐标。</p>
-<h2 id="角度坐标系"><a href="#角度坐标系" class="headerlink" title="角度坐标系"></a>角度坐标系</h2><p>画布上以空间x轴为0度的角度坐标系：绝对角度&amp;海龟角度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#PythonDraw.py，绘制“蟒蛇”</span><br><span class="line">import turtle</span><br><span class="line">turtle.setup(650, 350, 200, 200)</span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.fd(-250)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.pensize(25)</span><br><span class="line">turtle.pencolor(&quot;purple&quot;)</span><br><span class="line">turtle.seth(-40)</span><br><span class="line">for i in range(4):</span><br><span class="line">    turtle.circle(40, 80)</span><br><span class="line">    turtle.circle(-40, 80)</span><br><span class="line">turtle.circle(40, 80/2)</span><br><span class="line">turtle.fd(40)</span><br><span class="line">turtle.circle(16, 180)</span><br><span class="line">turtle.fd(40 * 2/3)</span><br><span class="line">turtle.done()</span><br></pre></td></tr></table></figure>
-
-<h1 id="库引用"><a href="#库引用" class="headerlink" title="库引用"></a>库引用</h1><p>扩充Python程序功能的方式。</p>
-<ol>
-<li>使用import保留字完成</li>
-</ol>
-<pre><code>import &lt;库名&gt;
-&lt;库名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><ol start="2">
-<li>使用from和import保留字完成</li>
-</ol>
-<pre><code>from &lt;库名&gt; import &lt;函数名&gt;
-from &lt;库名&gt; import *
-&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><ol start="3">
-<li>使用as和import保留字完成</li>
-</ol>
-<pre><code>import &lt;库名&gt; as &lt;库别名&gt;
-&lt;库别名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+<h1 id="XML内容"><a href="#XML内容" class="headerlink" title="XML内容"></a>XML内容</h1><ul>
+<li><p>文档申明</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>元素</p>
+<p>XML元素指的就是XML文件中出现的标签，一个标签分为开始标签和结束标签，格式良好的XML文档必须有且仅有一个根标签，其他标签都是这个根标签的子孙标签。</p>
+<p>由于在XML中，空格和换行都作为原始内容被处理，所以，在编写XML文件时，使用换行和缩进等方式让原文件内容清晰可读的习惯可能要被迫改变。</p>
+</li>
+<li><p>属性</p>
+<p>一个标签可以有多个属性，每个属性都有它自己名称和取值，在XML中，标签属性所代表的信息也可以被改成用子元素的形式来描述，例如下面两种写法是一样的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>text<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注释</p>
+<p>需要注意XML声明之前不能有注释。</p>
+</li>
+<li><p>CDATA区</p>
+<p>在编写XML文件时，有些内容可能不想让解析引擎解析执行，而是当作原始数据处理。在这种情况下，就把这些内容放在CDATA区里，对于CDATA区域里的内容，XML解析程序不会处理，而是直接原封不动的输出。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x&lt;![CDATA[</span><br><span class="line">	内容</span><br><span class="line">]]&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>处理指令</p>
+</li>
+</ul>
+<p>处理指令用来指挥解析引擎如何解析XML文档内容，处理指令必须以&lt; ? 开头，以? &gt;作为结尾，XML声明语句是最常见的处理指令。另外，在XML文档中可以使用xml-stylesheet指令通知XML解析引擎，应用css文件显示xml文档内容。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/css" href="1.css"?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="XML约束"><a href="#XML约束" class="headerlink" title="XML约束"></a>XML约束</h1><p>在XML技术里，可以编写一个文档来约束一个XML文档的书写规范，这称之为XML约束。常用的约束技术包括XML DTD和XML Schema</p>
+<h2 id="XML-DTD"><a href="#XML-DTD" class="headerlink" title="XML DTD"></a>XML DTD</h2><p>DTD:Document Type Definition，举例：</p>
+<p>book.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 书架 SYSTEM &quot;book.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>book.dtd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT 书架（书+）&gt;</span><br><span class="line">	&lt;!ELEMENT 书（书名，作者，售价）&gt;</span><br><span class="line">	&lt;!ELEMENT 书名（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 作者（#PCDATA）&gt;</span><br><span class="line">	&lt;!ELEMENT 售价（#PCDATA）&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查看一份XML文档是否遵循对应的DTD约束，可以使用Eclipse进行校验，DTD文件应该使用UTF-8或者Unicode。</p>
+<p>具体DTD的语法在此略过。</p>
+<h2 id="XML-Schema"><a href="#XML-Schema" class="headerlink" title="XML Schema"></a>XML Schema</h2><ul>
+<li><p>XML Schema符合XML语法，也就是说它本身就是一个XML文档，但它扩展名为.xsd，同时，它也必须有一个根节点，名称为chema；</p>
+</li>
+<li><p>XML Schema对<strong>名称空间</strong>支持得很好；</p>
+</li>
+<li><p>XML Schema比DTD支持更多的数据类型，并支持用户自定义新的数据类型；</p>
+</li>
+<li><p>XML Schema定义约束的能力非常强大，可以对XML实例文档作出细致的语义限制；</p>
+</li>
+<li><p>XML Schema不能像DTD一样定义实体，比DTD更复杂，但已成为W3C标准，正逐步取代DTD;</p>
+</li>
+<li><p>编写一个XML Schema约束文档之后，需要把这个文件中声明的元素绑定到一个URI地址上，这个地址，也就是所谓的名称空间，以后XML文件就可以通过这个URL来告诉解析引擎，xml文档中编写的元素来自哪里，被谁约束。</p>
+</li>
+<li><p>关于名称空间：每个约束模式文档都可以被赋予一个唯一的名称空间，用一个唯一的URI表示。在XML文件中书写标签时，可以通过名称空间声明（xmlns）,来声明当前编写的标签来自哪个Schema约束文档。如：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;gsynf:书架 xmlns:gsynf=&quot;http://gsynf.github.io&quot;&gt;</span><br><span class="line">	&lt;gsynf:书&gt;……&lt;/gsynf:书&gt;</span><br><span class="line">&lt;/gsynf:书架&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此处使用gsynf来指向声明的名称，方便后面对名称空间的引用。</p>
+<p>注意：名称空间的名字语法 很容易让人混淆，尽管以http://开始，那个URL并不指向一个包含模式定义的文件。事实上，这个URL：http ://gsynf.github.io 根本没有指向任何文件，只是一个分配的名字。</p>
+<p>为了在一个XML文档中声明它所遵循的Schema文件的具体位置，通常需要在Xml文档中的根节点使用schemaLocation属性来指定，例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gsynf:书架</span> <span class="attr">xmlns:gsynf</span>=<span class="string">"http://gsynf.github.io"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://gsynf.github.io"</span> <span class="attr">book.xsd</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>schemaLocation此属性有两个值，第一个值是需要的命名空间，第二个值是供命名空间使用的XML Schema文件位置。</p>
+<h1 id="XML编程"><a href="#XML编程" class="headerlink" title="XML编程"></a>XML编程</h1><p>所谓XML编程，其实就是CRUD（create,read,update,delete）。</p>
+<h2 id="XMl解析方式"><a href="#XMl解析方式" class="headerlink" title="XMl解析方式"></a>XMl解析方式</h2><p>DOM：W3C官方推荐的解析方式；</p>
+<p>SAX：社区事实上的标准；</p>
+<p>XML解析开发包：Jaxp(sun)、Jdom、dom4j</p>
+<h3 id="DOM解析"><a href="#DOM解析" class="headerlink" title="DOM解析"></a>DOM解析</h3><p>把XML中的节点均变为对象，标签成为Element对象，文本成为Text对象，属性成为Attribute对象，然后根据这些对象之间的关系生成DOM树。DOM解析对增删改查比较容易，DOM解析对内存资源占用较大，不适用于较大的文档对象。</p>
+<p>以JAXP为例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到dom解析器</span></span><br><span class="line">DocumentBuilder builder = factory.newDocumentBuilder();</span><br><span class="line"><span class="comment">//3.解析xml文档，得到代表文档的document</span></span><br><span class="line">Document document = builder.parse(<span class="string">"src/book.xml"</span>);</span><br><span class="line"><span class="comment">//4.调用Document方法获取某个节点内容</span></span><br><span class="line">NodeList list = document.getElementsByTagName(<span class="string">"书名"</span>);</span><br><span class="line">Node node = list.item(<span class="number">1</span>);</span><br><span class="line">String content = node.getTextContent();</span><br><span class="line"><span class="comment">//5.对某个节点进行操作，例如增加一个属性</span></span><br><span class="line">Element price = document.creatElement(<span class="string">"售价"</span>);</span><br><span class="line">price.setTextContent(<span class="string">"59元"</span>);</span><br><span class="line">Element book = (Element) document.getElementsByTagName(<span class="string">"书"</span>).item(<span class="number">0</span>);<span class="comment">//把创建的节点挂到第一本书上</span></span><br><span class="line">book.appendChild(price);</span><br></pre></td></tr></table></figure>
+
+<h3 id="SAX解析"><a href="#SAX解析" class="headerlink" title="SAX解析"></a>SAX解析</h3><p>从上向下读取，读取一行处理一行。所以对内存压力较小，解析速度快，但是只适合读取，不适合增删改查。</p>
+<p>SAX采用事件处理的方式解析XML文档，利用SAX解析文档，涉及两个部分：解析器和事件处理器。</p>
+<ul>
+<li><p>解析器可以使用JAXP的API创建，创建出解析器之后，就可以指定解析器去解析某个XML文档</p>
+</li>
+<li><p>解析器采用SAX方式在解析某个XML文档时，只要解析到XML文档中的一个组成部分，都会调用事件处理器的一个方法，解析器在调用事件处理器的方法时，会把当前解析到的xml文档内容作为方法的参数传递给事件处理器；</p>
+</li>
+<li><p>事件处理器由程序员编写，通过事件处理器中方法的参数，就可以轻松得到sax解析器解析到的数据，从而决定如何对数据进行处理。</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/09/10/6JRPor4UqTduI27.png" alt=""></p>
+<p>以JAXP为例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建解析工厂</span></span><br><span class="line">SAXParserFactory factory = SAXParseFactory.newInstance();</span><br><span class="line"><span class="comment">//2.得到解析器</span></span><br><span class="line">SAXParser sp = factory.newSAXParser();</span><br><span class="line"><span class="comment">//3.得到读取器</span></span><br><span class="line">XMLReader reader = sp.getXMLReader();</span><br><span class="line"><span class="comment">//4.设置内容处理器</span></span><br><span class="line">reader.SetContentHandler();</span><br><span class="line"><span class="comment">//5.读取xml文档</span></span><br><span class="line">reader.parse(<span class="string">"src/book.xml"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>除了JAXP，dom4j是一个简单、灵活的开放源代码的第三方库，使用接口和抽象基类，性能优异、功能强大，目前使用最多。</p>
+<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><p>快速定位需要找到的节点：</p>
+<ul>
+<li><p>如果路径以斜线/开始，表示到一个元素的绝对路径；</p>
+</li>
+<li><p>如果路径以双斜线//开始，表示选择文档中所有满足双斜线//之后规则的元素（无论层级关系）；</p>
+</li>
+<li><p>星号*表示选择所有由星号之前的路径所定位的元素；</p>
+</li>
+<li><p>方块中的表达式可以进一步指定元素，其中数字表示元素在选择集里的位置，而last()函数则表示选择集中的最后一个元素；</p>
+</li>
+<li><p>[@ATT]找到有特定属性的元素，还可以选择属性值[@ATT=‘att’];</p>
+</li>
+<li><p>……………………………………</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/AAA/BBB  找到AAA下的所有BBB</span><br><span class="line">//AAA/BBB  选择所有父元素是AAA的BBB元素</span><br><span class="line">/AAA/BBB/*  选择所有路径依附于/AAA/BBB的元素</span><br><span class="line">/AAA/BBB[1]  选择AAA的第一个BBB子元素</span><br><span class="line">//BBB[@name]  选择有name属性的BBB元素</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
           
         
@@ -1769,7 +916,7 @@ from &lt;库名&gt; import *
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/6/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1885,15 +1032,9 @@ from &lt;库名&gt; import *
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -1942,10 +1083,10 @@ from &lt;库名&gt; import *
 
 
 
-  
-  
 
 
+  
+  
 
 
 
@@ -1990,7 +1131,7 @@ from &lt;库名&gt; import *
 
   
   
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
   
 
 
