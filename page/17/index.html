@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Gsynf|My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gsynf|My Blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;page&#x2F;17&#x2F;index.html">
+<meta property="og:site_name" content="Gsynf|My Blog">
+<meta property="og:description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Gsynf|My Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gsynf|My Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">曾梦想仗剑天涯，后来学习忙没去</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gsynf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2018-09-26-《跟老齐学python》学习笔记3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" class="article-date">
+  <time datetime="2018-09-25T16:00:00.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">《跟老齐学python》学习笔记3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
+</li>
+<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
+</li>
+<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
+<p>python里简直不要太方便，直接a,b=b,a即可。</p>
+<ul>
+<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" data-id="ck240owfe000a00ulbiw2fubw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2018-10-28-《跟老齐学python》学习笔记4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" class="article-date">
+  <time datetime="2018-09-25T16:00:00.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">《跟老齐学python》学习笔记4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>全局变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = 2</span><br><span class="line">def funcx():</span><br><span class="line">x = 9</span><br><span class="line">print &quot;this x is in the funcx:--&gt;&quot;, x</span><br><span class="line">funcx()</span><br><span class="line">print &quot;--------------------------&quot;</span><br><span class="line">print &quot;this x is out of funcx:--&gt;&quot;, x</span><br></pre></td></tr></table></figure>
+输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this x is in the funcx:--&gt; 9</span><br><span class="line">--------------------------</span><br><span class="line">this x is out of funcx:--&gt; 2</span><br></pre></td></tr></table></figure>
+<p>在函数内多了一个global x,这句话的意思是在声明x是全局变量,也就是说这个x跟函数外面的那个x是同一个,接下来通过x=9将x的引用对象变成了9</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = 2</span><br><span class="line">def funcx():</span><br><span class="line">global x</span><br><span class="line">#跟上面函数的不同之处</span><br><span class="line">x = 9</span><br><span class="line">print &quot;this x is in the funcx:--&gt;&quot;, x</span><br><span class="line">funcx()</span><br><span class="line">print &quot;--------------------------&quot;</span><br><span class="line">print &quot;this x is out of funcx:--&gt;&quot;,x</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this x is in the funcx:--&gt; 9</span><br><span class="line">--------------------------</span><br><span class="line">this x is out of funcx:--&gt; 9</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当函数的参数个数不确定的时候，可以通过如下方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def func(x,*arg):</span><br><span class="line">    print(x)</span><br><span class="line">    result = x</span><br><span class="line">    print(arg)</span><br><span class="line">    for i in arg:</span><br><span class="line">        result += i</span><br><span class="line">    return result</span><br><span class="line">print(func(1,2,3,4,5,6,7,8,9))</span><br></pre></td></tr></table></figure>
+结果为</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">(2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line">45</span><br></pre></td></tr></table></figure>
+<p>从上面例子可以看出,如果输入的参数个数不确定,其他参数全部通过*arg,以元组的形式由arg收集起来。</p>
+<ul>
+<li>更优（zhuang）雅（b）的方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def add(x, y):</span><br><span class="line">...</span><br><span class="line">return x + y</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bars = (2, 3)</span><br><span class="line">&gt;&gt;&gt; add(*bars)</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>先把要传的值放到元组中,赋值给一个变量bars,然后用add(<em>bars)的方式,把值传到函数内。注意,元组中元素的个数要跟函数所要求的变量个数一致。使用一个星号</em>,以元组形式传值,用**的方式,是以字典的形式传值。</p>
+<ul>
+<li>几个特殊函数，filter、map、reduce、lambda、yield……</li>
+<li>函数尽量达到的要求<br>1 尽量不要使用全局变量。<br>2 如果参数是可变类型数据,则在函数内不要修改它。<br>3 每个函数的功能和目标要单纯,不要试图一个函数做很多事情。<br>4 函数的代码行数尽量少。<br>5 函数的独立性越强越好,不要跟其他的外部东西产生关联。</li>
+</ul>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" data-id="ck240owff000c00ul9zsl87i3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2018-09-25-Anaconda环境安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/25/2018-09-25-Anaconda%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2018-09-24T16:00:00.000Z" itemprop="datePublished">2018-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/25/2018-09-25-Anaconda%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">Anaconda环境安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>中秋浪完回来，得弄CCF大赛了，需要跑数据，首先搭平台，决定在linux下搞整一把。</p>
+</blockquote>
+<p>#Anaconda</p>
+<ol>
+<li>首先，安装anaconda,<a href="https://www.anaconda.com/download/#download" target="_blank" rel="noopener">Anaconda 5.2 For Linux Installer</a>，安装3.6版本，点击下载即可。</li>
+<li>找到自己下载的目录</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-5.2.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>然后一直点击Enter键，然后一直yes</li>
+</ol>
+<p><img src="https://i.loli.net/2019/07/19/5d31603c2245e47668.png" alt=""></p>
+<p>直到出现这张图片，这里可以更改安装目录，Enter选择默认即可，在home/user下</p>
+<ol start="4">
+<li>安装完成之后电脑重启，在终端输入 anaconda，即可看到安装成功，命令conda list可查看安装的所有包</li>
+</ol>
+<p>#Pycharm<br>接下来，安装pycharm，懒得破解，安装一个社区版就行了，够用，同样去官网找即可，<a href="http://www.jetbrains.com/pycharm/download/#section=linux" target="_blank" rel="noopener">Pycharm Linux</a>，下载完成之后解压，在bin文件夹下运行 <code>sh pycharm.sh &amp;</code>即可，打开之后在工具栏tools里可以添加desktop快捷方式，回到桌面在搜索里搜到右键“添加到收藏栏“即可。</p>
+<p>从群里找到了大神写的一个脚本，用pycharm打开脚本之后除了改改字体大小之外首先需要修改环境：fils–&gt;setting–&gt;project pywork–&gt;project interpreter，可以看到此时默认的是pytharm安装的python环境，由于没有什么包，所以需要换刚才安装的anaconda里的python环境，点击齿轮修改即可，大神用到了ligthgbm,需要添加包，在anaconda里添加包即可，ligthgbm官网找到了添加的终端命令：<code>conda install -c conda-forge lightgbm</code>，OK搞定。</p>
+<p>#Xgboost<br>在anaconda下安装xgboost</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install libgcc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xgboost</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2018/09/25/2018-09-25-Anaconda%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" data-id="ck240owfb000400ulgfst961y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2018-09-05-《跟老齐学python》学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/2018-09-05-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" class="article-date">
+  <time datetime="2018-09-04T16:00:00.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/2018-09-05-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">《跟老齐学python》学习笔记2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一季第一章第六节主要讲述了字符编码的问题，Python2中还有这个问题，但3中几乎不涉及这个问题了，所以这里不多做笔记，仔细看一看，对以前ASCII，Unicode等编码有不错的理解，挺好的。<br>额外记录一点：如果对文件操作,打开文件的时候,最好用codecs.open替代open</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import codecs</span><br><span class="line">codecs.open(&apos;filename&apos;, encoding=&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
+<p>第七节：列表</p>
+<ul>
+<li>列表list同int,float,str一样，也是python的一种对象类型。</li>
+<li>list用[]表示，这同其他语言的数组类似，但是数组中的元素必须是同一种类型，因为数组需要提前声明，说明数组类型，但列表不用，所以里面的元素可以是不同类型。</li>
+<li>列表和字符串两种类型都属于序列(都是一些对象按照某个次序排列起来,这是序列的最大特征)</li>
+<li>“反转”函数，示例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst=[1,2,3,4,5]</span><br><span class="line">&gt;&gt;&gt; list(reversed(lst))</span><br><span class="line">[5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于迭代，看完一次有些不懂，建议再看，其实就目前而言，还无法理解迭代和extend函数之间的关系，我对于迭代有待以后更加深入，除了文章中给出的使用函数查看，还可以用“for 元素 in 对象： printf 元素”来检验，如果可以打印出来，那么对象就是可迭代的，不过文章中示例可以看出str类型的对象是不可迭代的，不过通过实验发现是可以迭代的，不知道是文章的错误还是python 2 和3之间的区别。</li>
+<li>1.7和1.8 主要讲了列表的一些操作函数，例如反转、插入、删除等以及对于这么函数，列表和字符串的相同和不同，说实话，函数太多具体用法记不住，只能先过一遍，知道有这么个函数，可以实现什么功能，到具体用的时候再来仔细查看。<br>第九节：元组</li>
+<li>1.9介绍了一个新的概念：元组。元组是用圆括号括起来的，元素之间用逗号隔开。</li>
+</ul>
+<p>| 对比 | 字符串 | 列表|元组<br>| ————- |————-| —–|<br>| 是否是序列 | 是 | 是  |是<br>| 元素是否可改 | 否 | 是  |否<br>| 元素类型 |非任意 | 任意 | 任意</p>
+<p>######特别提醒，如果一个元组中只有一个元素，应该在该元素后面加一个半角的英文逗号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=1</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; a=(1)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; a=(1,)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;tuple&apos;&gt;</span><br></pre></td></tr></table></figure>
+<p>第十节：字典</p>
+<ul>
+<li>1.10介绍了新概念，字典(dict)。在一个字典中,键是唯一的,不能重复，必须是不可变对象。值则对应于键,且值可以重复。建立字典有三种方法，具体见p123。其中最后一种为使用{}.fromkeys</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person=&#123;&#125;.fromkeys((&quot;one&quot;,&quot;two&quot;),&quot;hpf&quot;)</span><br><span class="line">&gt;&gt;&gt; person</span><br><span class="line">&#123;&apos;one&apos;: &apos;hpf&apos;, &apos;two&apos;: &apos;hpf&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里不同的键对应同一个值，如何不同的键对应不同的值呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person=&#123;&#125;.fromkeys((&quot;one&quot;,&quot;two&quot;),(&quot;hpf&quot;,&quot;lqh&quot;))</span><br><span class="line">&gt;&gt;&gt; person</span><br><span class="line">&#123;&apos;one&apos;: (&apos;hpf&apos;, &apos;lqh&apos;), &apos;two&apos;: (&apos;hpf&apos;, &apos;lqh&apos;)&#125;</span><br></pre></td></tr></table></figure>
+<p>呃，也不是<br>查了一下，貌似是不可以的<br>类似键值对这种映射方式的数据存储方式十分高效，例如使用列表，python需要从头开始读，直到找到制定的索引值；但是使用字典便不需要，直接通过“键”来找到值，数据规模越大，这种优势越明显，因此也广泛应用于数据库中。</p>
+<ul>
+<li>Python中的copy为浅拷贝，如何理解浅拷贝。简单讲python只存储基本数据对象，如int、str等，这些对象在复制时，会新建一个内存地址，但是对于其他数据类型，在复制时并不会新辟地址。如果在复制时想全部新建地址，就需要“深复制”，需要导入一个模块，import copy，使用copy.deepcopy进行复制。</li>
+<li>对于一个字典</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&#123;&quot;name&quot;:&quot;hpf&quot;&#125;</span><br><span class="line">&gt;&gt;&gt; a.clear()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;&#125;</span><br><span class="line">&gt;&gt;&gt; del a</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#42&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    a</span><br><span class="line">NameError: name &apos;a&apos; is not defined</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>clear为清空，del为删除。<br>第十一节  集合<br>哇，感觉开学之后每天很紧张，好几天没有看老齐了，心中有愧呐，数据库课前看一波</p>
+<ul>
+<li>集合（set），特点：有的可变，有的不可变；元素无顺序，不可重复</li>
+<li>可通过set（）创建，或者通过{}直接创建（不提倡，有时会和字典搞混）</li>
+<li>set()创建的是可变的集合，用frozenset()创建的是不可变的集合，也就是可哈希的</li>
+<li>其他的交并补等运算自己看</li>
+</ul>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2018/09/05/2018-09-05-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" data-id="ck240owfd000600ulgstc960q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2018-09-03-《跟老齐学python》学习笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/03/2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="article-date">
+  <time datetime="2018-09-02T16:00:00.000Z" itemprop="datePublished">2018-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/03/2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">《跟老齐学python》学习笔记1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>哈哈哈，前言太有趣，不得不说正是前言才让我选择继续跟着他学。</p>
+</blockquote>
+<ul>
+<li>Ubuntu18.04.1版本默认是安装了Python3，没有装2，那我也不装喽，貌似2已经不怎么维护了。<br>（PS：查看版本号命令  lsb_release  -a）</li>
+<li>Python2中print不是一个函数；Python3中print是一个函数，同样输出“Hello World”，2是print   “Hello, World”；3是print   （”Hello, World”）</li>
+<li>Python中一个对象的特征：身份，类型，值。所谓“身份”，其实就是对象的内存地址，可以通过内建函数id()查看；所谓“类型”，也就是整形、浮点型这些，可以通过内建函数type()查看；所谓“值”，就是对象本身喽。</li>
+<li>Python2中非浮点数准备的有int和long类型，长整型后边会有L；Python3中只有一种整数类型int。</li>
+<li>在Python2里面有一个规定,像2/5这样的除法要取整(就是去掉小数,但不是四舍五入)。2除以5,商是0(整数),余数是2(整数)。如果用这种形式:2/5,那么计算结果就是商那个整数。或者可以理解为:整数除以整数,结果是整数(商)。2计算2/5，结果为0；3计算2/5，结果为0.4.</li>
+<li>字符串，用单引号或者双引号。但是如果字符串中有单引号或双引号，这时再用相同的符号就会报错，所以有单用双，有双用单；另外还可以在字符串的引号前加一个转义符，使本来计算机不认为是字符串一部分的引号变为字符串一部分，转义符为\，例如&gt;&gt;&gt; ‘What&#39;s your name?’。</li>
+<li>由r开头引起的字符串就是声明了后面引号里的东西是原始字符串,在里面放任何字符都表示该字符的原始含义。例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dos = r&quot;c:\news&quot;</span><br><span class="line">&gt;&gt;&gt; print dos</span><br><span class="line">c:\news   #这里\n没有表示转义字符换行，而是按照原始格式打印</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发现一个比较有趣的东东</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=input(&quot;input your old:&quot;)</span><br><span class="line">input your old:12</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;str&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; b=print(12)</span><br><span class="line">12</span><br><span class="line">&gt;&gt;&gt; type(b)</span><br><span class="line">&lt;class &apos;NoneType&apos;&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p> 貌似input的值都是str类型，于是想试一下print，后来发现没法这么试，input函数是把键盘输入的值赋给了a，但print函数很显然并不是把要打印的值赋给b，但 b=print(12)没有报错，所以这句话表示什么呢？有些疑问</p>
+<ul>
+<li>有一个编写小对话的示例，才发现IDLE一直没用，一直在终端里进python3输命令，在终端输idle，显示未安装，按照提示安装即可。安装完成回到终端，输入idle即可打开，在shell里新建窗口就可以写代码啦。</li>
+<li>在leetcode上第一题两数之和看到了index，查了也没完全弄明白，今天看到了，恍然大悟</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&quot;study&quot;</span><br><span class="line">&gt;&gt;&gt; a[0]</span><br><span class="line">&apos;s&apos;</span><br><span class="line">&gt;&gt;&gt; a.index(&quot;y&quot;)</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>不用解释了，一看就明白了</p>
+<ul>
+<li>有时候字符串的拼接使用join函数更加便捷</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b=&quot;I.love.lqh&quot;</span><br><span class="line">&gt;&gt;&gt; c=b.split(&quot;.&quot;)</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">[&apos;I&apos;, &apos;love&apos;, &apos;lqh&apos;]</span><br><span class="line">&gt;&gt;&gt; &quot;.&quot;.join(c)</span><br><span class="line">&apos;I.love.lqh&apos;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>python中占位符与后边实际输出的内容通过%连接</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;  print(&quot;i like %s&quot;,&quot;python&quot;)</span><br><span class="line">SyntaxError: unexpected indent</span><br><span class="line">&gt;&gt;&gt; print(&quot;i like %s&quot;%&quot;python&quot;)</span><br><span class="line">i like python</span><br></pre></td></tr></table></figure>
+<p>另外还有一种python推荐的格式化方法string.format()，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&quot;I love &#123;0&#125; since &#123;1&#125; years ago.&quot;.format(&quot;lqh&quot;,7))</span><br><span class="line">I love lqh since 7 years ago.</span><br></pre></td></tr></table></figure>
+<p>按0，1，2……的顺序（PS：{}里面甚至可以不是标号，写什么都可以）用{}标好占位符，字符串后边.format()写入要输出的内容即可，嘿嘿嘿，美滋滋。</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2018/09/03/2018-09-03-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ck240owfc000500ul0cjlfawj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/16/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/18/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B05/">Vue系列笔记5</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B04/">Vue系列笔记4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/10/2019-10-10-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B03/">Vue系列笔记3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Gsynf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Gsynf|My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gsynf|My Blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;page&#x2F;13&#x2F;index.html">
+<meta property="og:site_name" content="Gsynf|My Blog">
+<meta property="og:description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Gsynf|My Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gsynf|My Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">曾梦想仗剑天涯，后来学习忙没去</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gsynf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2019-04-22-数据结构_7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/22/2019-04-22-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_7/" class="article-date">
+  <time datetime="2019-04-21T16:00:00.000Z" itemprop="datePublished">2019-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/22/2019-04-22-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_7/">数据结构_7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="最小生成树问题"><a href="#最小生成树问题" class="headerlink" title="最小生成树问题"></a>最小生成树问题</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>是一棵树</li>
+</ol>
+<ul>
+<li>无回路</li>
+<li>|v|个顶点一定有|v|-1条边</li>
+</ul>
+<ol start="2">
+<li>是生成树</li>
+</ol>
+<ul>
+<li>包含所有顶点</li>
+<li>|v|-1条边都在图里</li>
+<li>向生成树中任加一条边都一定构成回路</li>
+</ul>
+<ol start="3">
+<li>最小</li>
+</ol>
+<ul>
+<li>边的权重和最小</li>
+</ul>
+<h2 id="如何构建"><a href="#如何构建" class="headerlink" title="如何构建"></a>如何构建</h2><p>贪心算法：每次找权值最小的边，但有约束：</p>
+<ul>
+<li>只能用图里有的边</li>
+<li>只能正好用掉v-1条边</li>
+<li>不能有回路</li>
+</ul>
+<ol>
+<li>Prim算法–让一颗小树长大</li>
+</ol>
+<p>适合稠密图，时间复杂度O(|V|<sup>2</sup>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接矩阵存储 - Prim最小生成树算法 */</span><br><span class="line">  </span><br><span class="line"> Vertex FindMinDist( MGraph Graph, WeightType dist[] )</span><br><span class="line"> &#123; /* 返回未被收录顶点中dist最小者 */</span><br><span class="line">     Vertex MinV, V;</span><br><span class="line">     WeightType MinDist = INFINITY;</span><br><span class="line">  </span><br><span class="line">     for (V=0; V&lt;Graph-&gt;Nv; V++) &#123;</span><br><span class="line">         if ( dist[V]!=0 &amp;&amp; dist[V]&lt;MinDist) &#123;</span><br><span class="line">             /* 若V未被收录，且dist[V]更小 */</span><br><span class="line">             MinDist = dist[V]; /* 更新最小距离 */</span><br><span class="line">             MinV = V; /* 更新对应顶点 */</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     if (MinDist &lt; INFINITY) /* 若找到最小dist */</span><br><span class="line">         return MinV; /* 返回对应的顶点下标 */</span><br><span class="line">     else return ERROR;  /* 若这样的顶点不存在，返回-1作为标记 */</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> int Prim( MGraph Graph, LGraph MST )</span><br><span class="line"> &#123; /* 将最小生成树保存为邻接表存储的图MST，返回最小权重和 */</span><br><span class="line">     WeightType dist[MaxVertexNum], TotalWeight;</span><br><span class="line">     Vertex parent[MaxVertexNum], V, W;</span><br><span class="line">     int VCount;</span><br><span class="line">     Edge E;</span><br><span class="line">      </span><br><span class="line">     /* 初始化。默认初始点下标是0 */</span><br><span class="line">        for (V=0; V&lt;Graph-&gt;Nv; V++) &#123;</span><br><span class="line">         /* 这里假设若V到W没有直接的边，则Graph-&gt;G[V][W]定义为INFINITY */</span><br><span class="line">            dist[V] = Graph-&gt;G[0][V];</span><br><span class="line">            parent[V] = 0; /* 暂且定义所有顶点的父结点都是初始点0 */ </span><br><span class="line">     &#125;</span><br><span class="line">     TotalWeight = 0; /* 初始化权重和     */</span><br><span class="line">     VCount = 0;      /* 初始化收录的顶点数 */</span><br><span class="line">     /* 创建包含所有顶点但没有边的图。注意用邻接表版本 */</span><br><span class="line">     MST = CreateGraph(Graph-&gt;Nv);</span><br><span class="line">     E = (Edge)malloc( sizeof(struct ENode) ); /* 建立空的边结点 */</span><br><span class="line">             </span><br><span class="line">     /* 将初始点0收录进MST */</span><br><span class="line">     dist[0] = 0;</span><br><span class="line">     VCount ++;</span><br><span class="line">     parent[0] = -1; /* 当前树根是0 */</span><br><span class="line">  </span><br><span class="line">     while (1) &#123;</span><br><span class="line">         V = FindMinDist( Graph, dist );</span><br><span class="line">         /* V = 未被收录顶点中dist最小者 */</span><br><span class="line">         if ( V==ERROR ) /* 若这样的V不存在 */</span><br><span class="line">             break;   /* 算法结束 */</span><br><span class="line">              </span><br><span class="line">         /* 将V及相应的边&lt;parent[V], V&gt;收录进MST */</span><br><span class="line">         E-&gt;V1 = parent[V];</span><br><span class="line">         E-&gt;V2 = V;</span><br><span class="line">         E-&gt;Weight = dist[V];</span><br><span class="line">         InsertEdge( MST, E );</span><br><span class="line">         TotalWeight += dist[V];</span><br><span class="line">         dist[V] = 0;</span><br><span class="line">         VCount++;</span><br><span class="line">          </span><br><span class="line">         for( W=0; W&lt;Graph-&gt;Nv; W++ ) /* 对图中的每个顶点W */</span><br><span class="line">             if ( dist[W]!=0 &amp;&amp; Graph-&gt;G[V][W]&lt;INFINITY ) &#123;</span><br><span class="line">             /* 若W是V的邻接点并且未被收录 */</span><br><span class="line">                 if ( Graph-&gt;G[V][W] &lt; dist[W] ) &#123;</span><br><span class="line">                 /* 若收录V使得dist[W]变小 */</span><br><span class="line">                     dist[W] = Graph-&gt;G[V][W]; /* 更新dist[W] */</span><br><span class="line">                     parent[W] = V; /* 更新树 */</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">     &#125; /* while结束*/</span><br><span class="line">     if ( VCount &lt; Graph-&gt;Nv ) /* MST中收的顶点不到|V|个 */</span><br><span class="line">        TotalWeight = ERROR;</span><br><span class="line">     return TotalWeight;   /* 算法执行完毕，返回最小权重和或错误标记 */</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Kruskal算法–将森林合并成树</li>
+</ol>
+<p>适合稀疏图，时间复杂度最小可为O(|E|Log|E|)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接表存储 - Kruskal最小生成树算法 */</span><br><span class="line"> </span><br><span class="line">/*-------------------- 顶点并查集定义 --------------------*/</span><br><span class="line">typedef Vertex ElementType; /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef Vertex SetName;     /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MaxVertexNum]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void InitializeVSet( SetType S, int N )</span><br><span class="line">&#123; /* 初始化并查集 */</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    for ( X=0; X&lt;N; X++ ) S[X] = -1;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool CheckCycle( SetType VSet, Vertex V1, Vertex V2 )</span><br><span class="line">&#123; /* 检查连接V1和V2的边是否在现有的最小生成树子集中构成回路 */</span><br><span class="line">    Vertex Root1, Root2;</span><br><span class="line"> </span><br><span class="line">    Root1 = Find( VSet, V1 ); /* 得到V1所属的连通集名称 */</span><br><span class="line">    Root2 = Find( VSet, V2 ); /* 得到V2所属的连通集名称 */</span><br><span class="line"> </span><br><span class="line">    if( Root1==Root2 ) /* 若V1和V2已经连通，则该边不能要 */</span><br><span class="line">        return false;</span><br><span class="line">    else &#123; /* 否则该边可以被收集，同时将V1和V2并入同一连通集 */</span><br><span class="line">        Union( VSet, Root1, Root2 );</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/*-------------------- 并查集定义结束 --------------------*/</span><br><span class="line"> </span><br><span class="line">/*-------------------- 边的最小堆定义 --------------------*/</span><br><span class="line">void PercDown( Edge ESet, int p, int N )</span><br><span class="line">&#123; /* 改编代码4.24的PercDown( MaxHeap H, int p )    */</span><br><span class="line">  /* 将N个元素的边数组中以ESet[p]为根的子堆调整为关于Weight的最小堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    struct ENode X;</span><br><span class="line"> </span><br><span class="line">    X = ESet[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; (Parent*2+1)&lt;N; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2 + 1;</span><br><span class="line">        if( (Child!=N-1) &amp;&amp; (ESet[Child].Weight&gt;ESet[Child+1].Weight) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较小者 */</span><br><span class="line">        if( X.Weight &lt;= ESet[Child].Weight ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            ESet[Parent] = ESet[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    ESet[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void InitializeESet( LGraph Graph, Edge ESet )</span><br><span class="line">&#123; /* 将图的边存入数组ESet，并且初始化为最小堆 */</span><br><span class="line">    Vertex V;</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">    int ECount;</span><br><span class="line"> </span><br><span class="line">    /* 将图的边存入数组ESet */</span><br><span class="line">    ECount = 0;</span><br><span class="line">    for ( V=0; V&lt;Graph-&gt;Nv; V++ )</span><br><span class="line">        for ( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next )</span><br><span class="line">            if ( V &lt; W-&gt;AdjV ) &#123; /* 避免重复录入无向图的边，只收V1&lt;V2的边 */</span><br><span class="line">                ESet[ECount].V1 = V;</span><br><span class="line">                ESet[ECount].V2 = W-&gt;AdjV;</span><br><span class="line">                ESet[ECount++].Weight = W-&gt;Weight;</span><br><span class="line">            &#125;</span><br><span class="line">    /* 初始化为最小堆 */</span><br><span class="line">    for ( ECount=Graph-&gt;Ne/2; ECount&gt;=0; ECount-- )</span><br><span class="line">        PercDown( ESet, ECount, Graph-&gt;Ne );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int GetEdge( Edge ESet, int CurrentSize )</span><br><span class="line">&#123; /* 给定当前堆的大小CurrentSize，将当前最小边位置弹出并调整堆 */</span><br><span class="line"> </span><br><span class="line">    /* 将最小边与当前堆的最后一个位置的边交换 */</span><br><span class="line">    Swap( &amp;ESet[0], &amp;ESet[CurrentSize-1]);</span><br><span class="line">    /* 将剩下的边继续调整成最小堆 */</span><br><span class="line">    PercDown( ESet, 0, CurrentSize-1 );</span><br><span class="line"> </span><br><span class="line">    return CurrentSize-1; /* 返回最小边所在位置 */</span><br><span class="line">&#125;</span><br><span class="line">/*-------------------- 最小堆定义结束 --------------------*/</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">int Kruskal( LGraph Graph, LGraph MST )</span><br><span class="line">&#123; /* 将最小生成树保存为邻接表存储的图MST，返回最小权重和 */</span><br><span class="line">    WeightType TotalWeight;</span><br><span class="line">    int ECount, NextEdge;</span><br><span class="line">    SetType VSet; /* 顶点数组 */</span><br><span class="line">    Edge ESet;    /* 边数组 */</span><br><span class="line"> </span><br><span class="line">    InitializeVSet( VSet, Graph-&gt;Nv ); /* 初始化顶点并查集 */</span><br><span class="line">    ESet = (Edge)malloc( sizeof(struct ENode)*Graph-&gt;Ne );</span><br><span class="line">    InitializeESet( Graph, ESet ); /* 初始化边的最小堆 */</span><br><span class="line">    /* 创建包含所有顶点但没有边的图。注意用邻接表版本 */</span><br><span class="line">    MST = CreateGraph(Graph-&gt;Nv);</span><br><span class="line">    TotalWeight = 0; /* 初始化权重和     */</span><br><span class="line">    ECount = 0;      /* 初始化收录的边数 */</span><br><span class="line"> </span><br><span class="line">    NextEdge = Graph-&gt;Ne; /* 原始边集的规模 */</span><br><span class="line">    while ( ECount &lt; Graph-&gt;Nv-1 ) &#123;  /* 当收集的边不足以构成树时 */</span><br><span class="line">        NextEdge = GetEdge( ESet, NextEdge ); /* 从边集中得到最小边的位置 */</span><br><span class="line">        if (NextEdge &lt; 0) /* 边集已空 */</span><br><span class="line">            break;</span><br><span class="line">        /* 如果该边的加入不构成回路，即两端结点不属于同一连通集 */</span><br><span class="line">        if ( CheckCycle( VSet, ESet[NextEdge].V1, ESet[NextEdge].V2 )==true ) &#123;</span><br><span class="line">            /* 将该边插入MST */</span><br><span class="line">            InsertEdge( MST, ESet+NextEdge );</span><br><span class="line">            TotalWeight += ESet[NextEdge].Weight; /* 累计权重 */</span><br><span class="line">            ECount++; /* 生成树中边数加1 */</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if ( ECount &lt; Graph-&gt;Nv-1 )</span><br><span class="line">        TotalWeight = -1; /* 设置错误标记，表示生成树不存在 */</span><br><span class="line"> </span><br><span class="line">    return TotalWeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2019/04/22/2019-04-22-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_7/" data-id="ck240owhu007700ul1ns723na" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-16-Self-supervised Multi-level Face Model Learning for Monocular Reconstruction at over 250 Hz" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/" class="article-date">
+  <time datetime="2019-04-15T16:00:00.000Z" itemprop="datePublished">2019-04-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/">Self-supervised Multi-level Face Model Learning for Monocular Reconstruction at over 250 Hz</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>原文链接：<a href="http://gvv.mpi-inf.mpg.de/projects/FML/" target="_blank" rel="noopener">http://gvv.mpi-inf.mpg.de/projects/FML/</a><br>本文由马克斯-普朗克研究所和斯坦福大学等机构合作完成，是 CVPR 2018 的 oral 文章。<br>为了提升单张图片重建 3D 脸部模型的效果，该论文采用了多层次的脸部结构重建方法，作者把传统的基于参数化 3D 可变形模型（3DMM）作为基础模型，在此之上引入纠正模型来增加模型的表达力。实验表明纠正模型使得 3D 脸部重建效果更接近原图，而且能重建出更多细节。<br>基础模型与纠正模型均为线性模型，其中基础模型的基向量通过对训练样本做 PCA 得到（即 3DMM 模型），而纠正模型的基向量由神经网络直接学习得到。脸部的形状与纹理通过基础模型加上纠正模型来拟合。算法使用编码器来学习基础模型和纠正模型的组合参数。随后整合两个模型的结果，通过解码器得到渲染的 3D 脸部模型。然后，算法把 3D 模型成像，对比成像结果与输入图片的差异，目标是使差异变小，因此该方法是自监督的方式进行训练。此外，算法还限制了成像结果与输入图的脸部特征点要对齐。注意该方法中只有编码器是可学习的，而解码器和渲染器都是手工设计的可导层，不是可学习的。为了让模型更加鲁棒和训练过程更加稳定，作者在损失函数上加入额外调节项，用于提升纠正模型的平滑性、纹理的稀疏性和整体一致性。</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://raw.githubusercontent.com/Gsynf/BlogImg/master/20190415173416703.png" alt="figure0"><br>我们的新型单目重建方法高质量地估计了面部几何形状，皮肤反射率(包括面部毛发)和超过250赫兹的入射光。利用前馈反渲染网络，学习了一种可训练的多层人脸表示方法。端到端训练基于自我监督的损失，不需要密集的地面实况。</p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p><em>从一张单一的图像中重建密集的人脸几何和外观三维模型是非常具有挑战性和不适定的。为了约束该问题，许多方法依赖于强先验，如从有限的三维扫描数据中学习的参数化人脸模型。然而，先验的模型限制了人脸几何、皮肤反射率和光照的真实多样性的泛化。为了解决这一问题，我们提出了一种联合学习方法1)人脸形状、表情、反射率和光照的回归器的方法。2)基于并行学习的参数化人脸模型。我们的多层人脸模型结合了3D 可变形模型（3DMM）的正则化优势和学习校正空间的空间外泛化。我们的多层人脸模型结合了三维形态模型的正则化优势和学习校正空间的空间外泛化。我们通过在多层细节级别上定义的专家设计的可微渲染器来融合卷积编码器，以及自监督训练损失，在没有密集注释的自然环境图像上进行端到端的训练。我们的方法在重建质量上优于目前的技术水平，可以更好地推广到真实世界的人脸，运行频率超过250赫兹。</em></p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1><p>在过去的几十年里，单目人脸重建在计算机视觉和图形学领域引起了极大的关注。我们的目标是从一张照片中估计出一个高质量的个性化人脸模型。这种模型理想地包括几个可解释的语义维度，例如，三维人脸形状和表情以及表面反射率特性。这一领域的研究是由不断增加的人脸图像可用性所推动的，例如，家用摄像头捕捉的人脸图像，以及跨多个领域的广泛重要应用，如面部运动捕捉、游戏和电影的内容创建、虚拟和增强现实以及通信。</p>
+<p>从一张照片中重建人脸是一个非常具有挑战性和不适定的逆问题，因为图像的形成过程将多个复杂的物理维度(几何、反射率和光照)卷积成每个像素的单一颜色测量。为了解决这种不适定性，研究人员已经做了额外的先验假设，比如将人脸限制在一个低维子空间中，例如，3D可变形模型(3DMM)从有限尺寸的扫描数据库中学习。许多最先进的基于优化的和基于学习的人脸重建方法严重依赖这些先验。虽然这些算法产生了令人印象深刻的结果，但它们不能很好地推广到除受限低维子空间之外的底层模型。因此，重建的三维人脸可能缺乏重要的面部细节，包含不正确的面部特征，并不能很好地与图像匹配。例如，纯合成数据训练的算法或使用3DMM进行正则化的算法的重构质量的对胡须显示效果会急剧下降。一些方法试图通过启发式来防止这些失败，例如，一个单独的分割方法来消除分离皮肤和头发区域带来的的歧义。最近的方法通过添加精细尺度的细节，或者基于阴影的形状，或者基于预先学习的回归量来细化拟合的先验。然而，这些方法依赖于缓慢的优化，或者需要高质量的带注释的训练语义库。此外，他们没有为中型形状、反射率和动画建立一个的改进子空间，这对泛化来说至关重要。最近，Sela等人的预测了一个单像素深度图，通过在训练中学习去变形和填补有一个有限几何子空间的洞。虽然结果令人印象深刻，但非刚性匹配是离线运行的。此外，他们的方法只捕捉人脸的几何形状，如果人脸与训练语义库有很大差异，就会失败，例如考虑皮肤反射率和面部毛发。理想情况下，人们希望构建更好的先验，用有意义的和可解释的参数解释各种各样的现实世界面孔。用传统方法学习这样的模型需要大量标记密集的真实世界数据，这实际上是不可行的。</p>
+<p>我们提出了一种全新的端到端可训练的方法，该方法联合学习1)一个有效的回归因子来估计高质量的身份几何、面部表情和有色皮肤反射率，以及2)一个改进的多级人脸模型的参数化，该模型能更好地概括和解释现实世界中的人脸多样性。我们的方法可以在稀疏标记的自然环境图像上进行端到端的训练，并在超过250赫兹的单目RGB输入中重建人脸和光照。我们的方法利用3DMM进行正则化，并利用学习的校正空间进行空间外泛化。为了使自然环境图像的端到端训练成为可能，我们提出了一种混合卷积自编码器，它将CNN编码器与专家设计的可微渲染层和自监督损失结合起来，两者都定义在多个细节级别。此外，我们加入了一个新的轮廓约束，生成更好的人脸匹配。与Tewari等人的不同，我们的自动编码器学习了一个改进的多级模型，超越了预先定义的低维参数脸部先验。实验结果表明，该方法具有较强的鲁棒性、较好的泛化性，并能较好地估计几何形状、反射率和光照质量。</p>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h1><p>我们主要讨论基于优化和学习的方法，这些方法使用参数模型。而高质量的多视图三维重建方法已经存在，我们感兴趣的是更难的单眼重建问题。</p>
+<p><strong>参数化人脸模型:</strong>应用最广泛的人脸模型是3D可变形模型(3DMM)，这是一种通过高质量扫描学习人脸几何和纹理的仿射参数化人脸模型。【5】中提出了一个相似的人脸动画模型。最近，Booth等人从大约10,000个面部扫描中创建了一个大规模的面部模型(LSFM)，这代表了一个更丰富的形状分布。Booth等人的【9】中，人脸模型被一个“in-the-wild”纹理模型增强。将这种模型拟合到图像上是一个非凸优化问题，类似于基于Active Shape (ASMs) 和<br>Appearance (AAMs) 模型的结构。虽然3DMMs是一种高效的先验，但它们将人脸重构限制在一个有限的低维子空间内，如胡须或特征鼻子无法重构。相反，我们通过共同学习一个修正模型来扩展有限的子空间，该模型可以更好地概括真实数据。</p>
+<p><strong>基于优化的方法：</strong>单目人脸重建、基于图像采集的重建以及高质量三维人脸平台的估计，很多方法都是基于能量优化的。从不同的数据源，如照片集、网络照片、视频，得到了令人印象深刻的人脸重建结果。此外，还提出了不依赖于训练过的形状或外观模型的方法，如使用模态分析得到的模型或利用视觉流与消息处理相结合。虽然实时人脸跟踪在一般情况下是可行的，但是基于优化的人脸重建在计算上是昂贵的。此外，基于优化的方法对初始化很敏感，需要2D特征点检测。一些方法允许3D人脸轮廓在预定义的路径上(例如等值线)滑动或迭代固定顶点集，以此来寻找三维轮廓对应。我们的方法既不需要昂贵的优化策略，也不需要参数初始化，但通过在训练过程中考虑轮廓，它可以精确地将3D人脸网格与图像匹配。</p>
+<p><strong>基于学习的方法：</strong>除了基于优化的重构方法外，还有许多基于学习的方法。其中，基于卷积神经网络或受限玻尔兹曼机的方法用来学习在图像中高精度地监测基准点。此外，我们还可以发现(弱)监督的深度网络，它集成生成模型来解决像面部表现捕捉这样的任务。<br>Ranja等人提出了一种多用途CNN，用于从人脸图像中恢复语义参数(如年龄、性别、姿势)。理查森等人提出了一种基于学习和优化的混合方法，可以从一张图像重建精细的面部几何形状。在【48】中提出了训练端到端回归器，以恢复粗糙和精细尺度的面部几何形状。在【61】中，对人脸形状和纹理进行回归，进行人脸识别。后一种人脸重建方法对真实世界人脸多样性的推广受到底层低维人脸模型的限制。</p>
+<p><strong>基校正和子空间学习：</strong>通过添加中等尺度的细节，可以提高人脸重建的质量。Li等人使用增量PCA对表情基实现实时个性化。Bouaziz等人【11】提出了基于流形谐波的中尺度形状校正方法。最近，Garrido等人提出了一种基于固定校正基础的单目视频学习中尺度形状的方法。Sela等人的【53】直接提出回归深度和单像素对应，从而超越了3DMM受限子空间。然而，它们不能恢复彩色表面反射率，并且需要离线非刚性配准步骤才能获得已知一致拓扑结构的重构。据我们所知，目前还没有一种算法能从自然环境图像中同时学习几何和反射率校正。</p>
+<p><strong>生成模型的深度集成：</strong>这是Jaderberg等人的开创性工作【31】，引入了空间转换网络，实现了一个神经网络中的位置不变性。透视转换网络【67】能够从单个二维图像中获得三维对象表示。gvvn库【27】实现了用于这种转换的低级计算机视觉层。最近，一种基于模型的人脸自动编码器(MoFA)【59】被提出用于单目人脸重建，它结合了专家设计的渲染层和可训练的CNN编码器。它们的结果是显著的，但仅限于人脸模型的固定低维子空间。外子空间的变异，如面部细节和个性化的鼻子，没有被重现，严重降低了重建的质量。我们的方法解决了所有这些挑战，在几何和反射率方面实现了更强的鲁棒性和更高的质量。</p>
+<h1 id="3-Method-Overview"><a href="#3-Method-Overview" class="headerlink" title="3.Method Overview"></a>3.Method Overview</h1><p>我们全新的人脸重建方法从一个单一的图像高质量地估计几何形状，皮肤反射率和入射光。我们在同时学习多级参数化人脸模型的基础上，联合训练各维度的回归器，如图1所示。<br><img src="https://i.loli.net/2019/04/17/5cb7363754822.jpg" alt="figure1"><br><em>图1所示。我们的方法在超过250赫兹时回归一个低维的潜在人脸表示。前馈CNN是与一个超越当前3DMMs低维子空间的多层次人脸模型共同学习的。可训练图层显示为蓝色，专家设计的图层显示为灰色。训练是基于可微的图像形成，结合自监督损失(橙色)。</em></p>
+<p><strong>参数回归：</strong>在测试时(图1，左)，使用一个前馈CNN计算一个低维的，但有表现力和鉴别力，潜在的空间人脸表示花费在4ms以下。如AlexNet【37】或VGG-Face【44】。我们的潜在空间是基于一个新的多层次的人脸模型(第4节)它结合了一个粗糙尺度的3DMM与可训练的单顶点几何和皮肤反射校正。这使我们的方法能够超越有限的低维几何和皮肤反射子空间，通常使用基于3DMM的方法进行人脸拟合。</p>
+<p><strong>自监督训练：</strong>我们训练(图1，右)前馈网络和校正空间，基于一种新的CNN架构，不依赖于密集标注的基础几何事实、皮肤反射率和光照训练语义库。为此，我们将多层模型与专家设计的图像形成层(第5节)相结合，得到一个可微计算机图形模块。为了实现多级人脸模型的联合估计，该模块提出了粗糙3DMM模型和中等规模的模型，其中均包括校正。在训练方面，我们使用自监督的损失函数(第6节)，使我们的架构能够在大量自然环境人脸图像上进行有效的端到端训练，而不需要密集地注释基础事实。我们定性和定量地评估我们的方法，并将其与最先进的优化和基于学习的面部重建技术进行比较(第7节)。</p>
+<h1 id="4-Trainable-Multi-level-Face-Model"><a href="#4-Trainable-Multi-level-Face-Model" class="headerlink" title="4.Trainable Multi-level Face Model"></a>4.Trainable Multi-level Face Model</h1><p>我们的方法的核心是一个新的多层次的面部模型，确定面部几何形状和皮肤反射率的参数。我们的模型是基于一个流形模板网格与N ~ 30k顶点和每个顶点的皮肤反射率。我们将所有顶点v<sub>i</sub>∈V的x-、y-和z-坐标叠加在一个几何向量v<sup>f</sup>∈R<sup>3n</sup>中，几何与反射率参数化表示如下:<br><img src="https://i.loli.net/2019/04/17/5cb740d84cec8.png" alt="公式1,2"></p>
+<p>在基本级别上是参数化面（粗糙）部几何vb和(粗糙)皮肤反射rb通过低维的一组参数(α;β)。<br>此外,我们使用校正加入中等规模的几何Fg和反射率Fr变形,参数化的(δg;Θg)将基准面模型与校正模型结合起来，就得到最终的水平模型，参数化vf和rf。下面，我们将描述多级人脸模型的不同级别。</p>
+<h2 id="4-1-Static-Parametric-Base-Model"><a href="#4-1-Static-Parametric-Base-Model" class="headerlink" title="4.1. Static Parametric Base Model"></a>4.1. Static Parametric Base Model</h2><p>底层采用的参数化人脸模型通过两个独立的仿射模型表达了似是而非的人脸几何和反射率空间:<br><img src="https://i.loli.net/2019/04/23/5cbe6c2b369e2.png" alt="公式3,4"><br>反射率变化的子空间由向量b张成，该向量由PCA从200个高质量人脸扫描数据集中创建。<br>几何子空间分为Ms和Me，表示形状和表达式的变化。<br>这些向量是用PCA从[2]和[17]的混合形状子集中生成的。注意，这些混合形状已经使用变形转移[56]转移到我们的拓扑结构中。基捕获了使用的混合形状的99%的方差。我们使用ms = mr = 80个形状和反射向量，me = 64个表达向量。相关的标准差σg和σr。</p>
+<h2 id="4-2-Trainable-Shape-and-Reflectance-Corrections"><a href="#4-2-Trainable-Shape-and-Reflectance-Corrections" class="headerlink" title="4.2. Trainable Shape and Reflectance Corrections"></a>4.2. Trainable Shape and Reflectance Corrections</h2><p>许多基于优化和学习的重建技术，如[7,5,60，59]。由于其低维性，4.1节所述的基本模型对面部形状和反射率的高精度建模表达能力有限。一个特殊的问题是皮肤反照率的变化，因为所使用的模型有种族偏见，缺乏面部毛发，例如胡须。<br>这项工作的目的是通过学习一个可训练的纠正模型来改进这一点，该模型可以表示这些空间外的变化。与其他使用固定的预定义校正基础[25]的方法不同，我们学习了校正器的生成模型和最佳校正参数。此外，我们不需要对几何形状、皮肤反射率和入射光照的地面真相注释。<br>与基准水平的关键区别在于，修正水平不使用固定的预训练基础，而是直接从训练数据中学习生成模型和系数。</p>
+<h1 id="5-Differentiable-Image-Formation-Model"><a href="#5-Differentiable-Image-Formation-Model" class="headerlink" title="5. Differentiable Image Formation Model"></a>5. Differentiable Image Formation Model</h1><p>为了训练我们新颖的端到端多层人脸重建方法，我们需要一个可微的图像形成模型。下面，我们将描述它的组件。<br><strong>全参相机:</strong>这一部分是求了相机的内参数，相机模型包含内部物理并执行透视划分。<br><strong>光照模型:</strong>利用球谐基函数，建立了远距离照明的假设，并对入射光进行了近似<img src="https://i.loli.net/2019/04/23/5cbe6ddb18d95.png" alt=""><br>我们假设入射光只依赖于表面法向量n:<br><img src="https://i.loli.net/2019/04/23/5cbe6dffa30a5.png" alt="公式5"><br>其中，圈点表示哈达玛乘积，r表示表面反射，B代表球谐基函数带，rb是控制照明的系数。<br>由于入射光足够平滑，平均误差低于1%，可以实现只有B = 3波段独立于照明。这导致了每个颜色通道的变量<img src="https://i.loli.net/2019/04/23/5cbe6e98b5929.png" alt=""><br><strong>图像合成：</strong>我们的可微图像生成层以模型空间的顶点形状和反射率作为输入。这可以是基本级别模型rb和vb，或者最终级别模型vf和rf，其中包括所学习的校正器。<img src="https://i.loli.net/2019/04/23/5cbe6f230022f.png" alt="">表示基面第i个顶点的位置和反射率(l = b)和最后一层(‘l= f)。<br>我们的渲染层接受这些信息，并形成一个基于点的场景渲染，如下所示。<br>首先，它将这些点映射到相机空间，即<img src="https://i.loli.net/2019/04/23/5cbe6f741286a.png" alt="">)然后计算所有顶点的投影像素位置为<img src="https://i.loli.net/2019/04/23/5cbe6f8977b2b.png" alt="">这些像素位置的阴影颜色c ‘ i是根据前面描述的光照模型计算的:<img src="https://i.loli.net/2019/04/23/5cbe6ffe4a354.png" alt="">其中，n是相关联的摄像机空间法线到v. 我们的图像形成模型是可微的，这使得端到端的训练使用反向传播。回归器学习预测的自由变量有: 模型参数<img src="https://i.loli.net/2019/04/23/5cbe701dae588.png" alt="">相机参数R, t和照明参数γ。此外,在训练期间,我们学习纠正形状和反射率基地,Θr。这导致了以下未知向量:<br><img src="https://i.loli.net/2019/04/23/5cbe7048cd56a.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/04/19/5cb92b2795684.png" alt="figure2"><br><em>图2所示。我们将固定和移动特征点区分开来。这将使得更好的轮廓对齐。注意外部轮廓如何依赖于刚性头部姿态(左)。在全局反射率恒常性约束中使用了皮肤掩模(右)。</em></p>
+<h1 id="6-Self-supervised-Learning"><a href="#6-Self-supervised-Learning" class="headerlink" title="6.Self-supervised Learning"></a>6.Self-supervised Learning</h1><p>我们的人脸回归网络使用一个全新的自监督损失来进行训练，这样使得它能够符合我们的基础模型并且端到端地学习每个像素的校正。我们的损失包括数据拟合以及正则项：<br><img src="https://i.loli.net/2019/04/18/5cb81c54f2c3b.png" alt="公式6"><br>这里E<sub>date</sub>惩罚了模型在输入图像上的偏差，E<sub>reg</sub>对人脸在粗尺度和中等尺度上的先验假设进行编码，ω<sub>reg</sub>是控制正则项的平衡因子。数据拟合项基于稀疏和稠密的一致性约束。<br><img src="https://i.loli.net/2019/04/18/5cb81ec0f13c8.png" alt="公式7"><br>正则化项表示在基础模型和修正模型上的先验假设:<br><img src="https://i.loli.net/2019/04/18/5cb81f54052d0.png" alt="公式8"><br>在下文中，将详细介绍各个部分。</p>
+<h2 id="6-1-数据项"><a href="#6-1-数据项" class="headerlink" title="6.1 数据项"></a>6.1 数据项</h2><p><strong>多维稠密光度损失：</strong>我们采用了一个稠密多维光度损失函数，用来衡量粗尺度上的偏差并且更好地拟合输入。V是所有可见顶点的集合，我们的光度项可以定义为：<br><img src="https://i.loli.net/2019/04/18/5cb8214fdef38.png" alt="公式9"><br>这里u<sup>l</sup><sub>i</sub>（x）是屏幕的空间位置，c<sup>l</sup><sub>i</sub>（x）是第i个顶点的阴影颜色，L是当前训练的图像。为了增强鲁棒性，我们使用了l<sub>2,1</sub>-norm，其中l<sub>2</sub>-norm来衡量颜色之间的差距，但是对每个像素的l<sub>2</sub>-norm进行求和促进了稀疏性，因为它对应于l<sub>1</sub>-norm。使用后脸剔除可以计算可见性，这是一个近似值，不过效果很好，因为脸部可以近似看作一个凸面体。</p>
+<p><strong>稀疏特征点：</strong>面部包含许多突出的特征点，我们通过一个弱监督自动地检测66个面部标记。面部标记点集可以分为两类：固定的和移动的特征点。固定的特征点，例如眼睛和鼻子，和模板模型上的固定顶点相关联；移动的特征点，例如面部轮廓，基于刚性位姿而改变在模板中的位置，见图2（右），模型可以显式地表达为：<br><img src="https://i.loli.net/2019/04/18/5cb82cffc7cd2.png" alt="公式10"><br>这里，k<sub>f</sub>是目标顶点的索引：对于固定的点，我们将对应网格顶点的索引进行硬编码（把一个本来应该写到配置信息中的信息直接在程序代码中写死），移动特征点的索引通过例如交替方案来计算。在每一步的随机梯度下降中，我们发现网格顶点是最靠近3D线的，通过相机中心和检测到的2D特征点的背投影来定义。我们计算欧式距离的平方并且将k<sub>r</sub>设为最近顶点的索引。</p>
+<h2 id="6-2-正则化项"><a href="#6-2-正则化项" class="headerlink" title="6.2 正则化项"></a>6.2 正则化项</h2><p><strong>统计正则化：</strong>我们对基础水平的3DMM模型参数进行统计正则化，以确保重构的合理性。基于模型参数服从零均值高斯分布的假设，我们采用Tikhonov正则化:<br><img src="https://i.loli.net/2019/04/18/5cb8655472c5e.png" alt="公式11"><br>这是在不适定的单目重建场景中防止人脸几何形状和反射率退化的常见约束条件。</p>
+<p><strong>平滑性校正：</strong>我们还通过对所有顶点集合V中的顶点位移添加拉普拉斯正则项来增加局部光滑性:<br><img src="https://i.loli.net/2019/04/18/5cb8670434ec8.png" alt="公式12"><br>其中（F<sub>g</sub>(x)）<sub>i</sub>=(F<sub>g</sub>(δ<sub>g</sub>|θ<sub>g</sub>))<sub>i</sub>表示第i个顶点给定参数x的的修正量，并且N<sub>i</sub>是第i个顶点的一环领域。</p>
+<p><strong>局部反射稀疏性：</strong>根据最近的内在分解方法，我们加强实施稀疏性，以进一步规范全重构的反射性：<br><img src="https://i.loli.net/2019/04/18/5cb86e96cfd60.png" alt="公式13"><br>其中，<img src="https://i.loli.net/2019/04/18/5cb86ebd7b546.png" alt="">是衡量输入中颜色之间色度相似性的恒权值，这里X<sup>old</sup>是在前一轮迭代中的估值参数。我们假设具有相同色度的像素更有可能具有相同的反射率。l<sub>2,p</sub>-norm对组合反射率估计值添加稀疏性。在所有实验中我们假定α=50，p=0.9。</p>
+<p><strong>全局反射恒常性：</strong>我们在一组只覆盖皮肤区域的固定顶点上设定皮肤反射率恒定，见图2（右）<br><img src="https://i.loli.net/2019/04/19/5cb924aa97869.png" alt="公式14"><br>这里，M是每个像素的皮肤掩模，G<sub>i</sub>存储着掩模区域顶点索引的六个随机采样。这样做是为了保证整个皮肤区域有相同的反射率。为了更高效，我们假设同一块皮肤区域中任意一对顶点之间的反射率都近似相同。需要注意的是，这些区域可能有面部的毛发，这是不包含在掩模中的。当组合在一起的时候，局部和全局的反射从反射通道中高效的移除了阴影。</p>
+<p><strong>稳定性：</strong>我们还通过强制执行小的顶点位移来确保修正后的几何形状接近于基础重构:<br><img src="https://i.loli.net/2019/04/19/5cb9297b56673.png" alt="公式15"></p>
+<h1 id="7-Results"><a href="#7-Results" class="headerlink" title="7.Results"></a>7.Results</h1><p>我们演示了前馈编码器的联合端到端自监督训练和基于野生图像的新型多层次人脸表示，而不需要密集注释。我们的方法是在250赫兹以上的高质量的位置、形状、表达式、反射和照明进行回归，见图3。<br><img src="https://i.loli.net/2019/04/23/5cbe712d1ccdf.png" alt="figure3"><br>对于前馈编码器，我们使用了Alexnet[37]的修改版本，该版本输出我们的人脸模型的参数。请注意，可以使用其他前馈架构。<br>我们使用caffe[32]实现了我们的方法。培训基于批量大小为5的adadelta。我们对我们的网络进行预培训，使其达到20万次迭代的基本水平，学习率为0:01。之后，我们对整个网络进行了190k次迭代的微调，基本级别的学习率为0:001，几何结构的学习率为0:005，反射校正的学习率为0:01。我们的网络的所有组件都在CUDA[43]中实现，以便进行有效的培训，这需要16个小时。我们在所有的实验中都使用常数w。在下面，我们将校正参数的大小c固定为500，用于几何和反射率。我们测试了不同的校正空间（线性和非线性），见图5。线性校正基础给出了最好的结果，因此我们将其用于所有后续实验。详情请参阅补充文件。<br><img src="https://i.loli.net/2019/04/23/5cbe716a8a397.png" alt="figure5"><br>我们的方法是在一个没有密集注释的原始的的面部图像的语料库上训练的。我们结合了四种不同的数据集：Celeba[41]、LFW[28]、Face-Warehouse[16]和300-VW[18、54、62]。稀疏地标注释自动获得[52]，我们使用HAAR级联人脸检测[13]裁剪到240240像素的紧面边界框。检测不良的图像会根据地标置信度自动删除。总的来说，我们使用144K图像，随机分为一组训练（142K图像）和验证（2K图像）。<br>我们将我们的最终输出（“最终”）与从预训练网络获得的基础低维3dmm重建（“基础”）进行比较，以说明我们的多级模型允许我们恢复更高质量的几何体和反射比（图4）。下面，我们将展示更多的结果，评估我们的方法，并与最新技术进行比较。<br><img src="https://i.loli.net/2019/04/23/5cbe719973ff2.png" alt="figure4"></p>
+<h2 id="7-1-与最新技术的比较"><a href="#7-1-与最新技术的比较" class="headerlink" title="7.1 与最新技术的比较"></a>7.1 与最新技术的比较</h2><p><strong>基于最优化的技术：</strong>我们将其与基于优化的高质量重建方法进行了比较。[25]，见图6。我们的方法获得了相似的几何质量，但由于我们学习了纠正空间，更好地捕捉了人的特征。由于我们的方法共同学习了一个校正反射空间，它可以离开底层3dmm的受限子空间，从而产生更真实的外观。注意，与Garrido等人不同，我们的方法在测试时不需要标志，运行速度更快（4ms对120s每幅图像）。我们还比较了布斯等人的方法。[9]见图7。我们的方法共同学习一个更好的形状和反射模型，而他们的方法只建立一个’原始图片模型，包含阴影。与我们的方法不同，布斯等人基于优化，需要初始化或标志。<br><strong>基于学习的技术：</strong>我们比较了Tewari等人基于学习的高质量重建方法。[59]（图8），Richardson等人[47，48]（图9）和Sela等人〔53〕（图9）。在使用的合成训练语料库或使用的3dmm模型范围内，这些方法获得了令人印象深刻的结果，但受到了子空间形状和反射变化的影响，例如有胡子的人。我们的方法不仅对面部毛发和化妆都很有效，而且可以根据共同学习的模型自动学习重建这些变化。重建需要4 ms，而[53]需要缓慢的离线非刚性配准，以从预测深度图获得无孔重建。此外，我们还共同获得了彩色反射和照明的重建。由于我们的模型学习，我们的方法能够离开三维空间的低维空间，这导致了一个更现实的面部外观和几何重建。</p>
+<h2 id="7-2-数量级上的结果"><a href="#7-2-数量级上的结果" class="headerlink" title="7.2 数量级上的结果"></a>7.2 数量级上的结果</h2><p>我们定量地评估了我们的方法。对于几何图形，我们使用FaceWarehouse[16]数据集并重建180个网格（9个标识，每个表达式20个）。我们比较了不同的方法，在对齐后（刚性变换加上各向同性缩放），以提供的地面真相使用豪斯多夫距离。我们的方法优于Tewari等人的基于学习的技术。[59]和Kim Etal.〔36〕见Tab。1。我们接近Garrido等人的高质量优化方法。[25]虽然速度快了几个数量级（4ms vs.120sec），但在测试时不需要进行特征检测，见图10（上图）。[16]主要包含“干净”的脸，没有化妆或胡须，因为这会导致问题，即使是高质量的离线3D重建方法。我们的兴趣是坚定地处理这种更困难的情况，在这种情况下，我们证明我们的方法明显优于以前的方法，见图。8, 6和9。我们还评估了我们的方法，在一个视频序列（300帧）具有挑战性的表达和特征面，这是在3dmm的跨度之外。Valgaerts等人获得了基本事实。〔63〕。我们的校正方法（平均值：1.77mm，标准差：0.29mm）显著优于基础结果（平均值：2.16mm，标准差：0.29mm），Garrido等人[25]在粗（平均：1.96mm，标准差：0.35mm）和中等（平均：1.97mm，标准差：0.41mm）水平，以及Tewari等人[59]（平均值：2.94mm，标准差：0.28mm），见图10（底部）。我们在验证集上评估我们方法的光度拟合误差，见图11。我们的最终结果（平均值：0.072，标准差：0.020）与基础水平（平均值：0.092，标准差：0.025）相比，误差（RGB空间中的距离，通道在[0；1]中）显著降低。</p>
+<h1 id="8-局限性"><a href="#8-局限性" class="headerlink" title="8.局限性"></a>8.局限性</h1><p>我们在250Hz以上的频率下进行了高质量的单目重建，即使是在有面部毛发的情况下，或是在有挑战性的脸上。不过，我们的方法有一些局限性，可以在将来的工作中加以解决：外部遮挡（例如，通过眼镜）被烘烤到我们的校正中，见图12。解决这一问题需要对训练语料库进行语义分割。不能保证封闭面区域的一致重建。对于鲁棒模型学习，我们强制纠正空间的低维性。因此，我们无法恢复细尺度的表面细节。我们认为这是一个正交的研究方向，已经产生了令人印象深刻的结果[47，48，53]。</p>
+<h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9.总结"></a>9.总结</h1><p>我们提出了第一种共同学习人脸模型和参数回归器的方法，用于人脸形状、表情、外观和照明。它结合了3dmm正则化的优点和已知校正空间的超空间泛化。这克服了目前依赖强先验的方法的缺点，提高了泛化性和鲁棒性，并导致250Hz以上的高质量重建。在这项工作中，我们将重点放在人脸重建上，我们的方法不局限于人脸，因为它可以推广到更多的对象类。因此，我们认为这是从原始图像构建三维模型的第一步。</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2019/04/16/2019-04-16-Self-supervised%20Multi-level%20Face%20Model%20Learning%20for%20Monocular%20Reconstruction%20at%20over%20250%20Hz/" data-id="ck240owik009f00ul51fd1ca5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-10-数据结构_6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/" class="article-date">
+  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/">数据结构_6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="什么是图"><a href="#什么是图" class="headerlink" title="什么是图"></a>什么是图</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>图：表示“多对多”的关系<br>包含：</p>
+<ul>
+<li>一组顶点：通常用V（Vertex）表示顶点集合；</li>
+<li>一组边：通常用E（Eege）表示边的集合；<br>边是顶点对：<br>无向边（v,w）∈E，其中v,w∈V<br>有向边&lt;v,w&gt;∈E，其中v,w∈V</li>
+</ul>
+<h2 id="程序中图的表示"><a href="#程序中图的表示" class="headerlink" title="程序中图的表示"></a>程序中图的表示</h2><ul>
+<li><strong>邻接矩阵</strong>:G[N][N]-N个顶点从0到N-1编号<br>G[N][N]=1（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;是G中的边）/0（&lt; v<sub>i</sub>,v<sub>j</sub>&gt;不是G中的边）。<br>对于有N个顶点的无向图，用一个长度为N(N+1)/2的1维数组存储可以省一半空间。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接矩阵表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">#define INFINITY 65535        /* ∞设为双字节无符号整数的最大值65535*/</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line">        </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;</span><br><span class="line">    int Nv;  /* 顶点数 */</span><br><span class="line">    int Ne;  /* 边数   */</span><br><span class="line">    WeightType G[MaxVertexNum][MaxVertexNum]; /* 邻接矩阵 */</span><br><span class="line">    DataType Data[MaxVertexNum];      /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data[]可以不用出现 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode MGraph; /* 以邻接矩阵存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">MGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V, W;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (MGraph)malloc(sizeof(struct GNode)); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接矩阵 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        for (W=0; W&lt;Graph-&gt;Nv; W++)  </span><br><span class="line">            Graph-&gt;G[V][W] = INFINITY;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( MGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">     /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V1][E-&gt;V2] = E-&gt;Weight;    </span><br><span class="line">     /* 若是无向图，还要插入边&lt;V2, V1&gt; */</span><br><span class="line">     Graph-&gt;G[E-&gt;V2][E-&gt;V1] = E-&gt;Weight;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">MGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    MGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc(sizeof(struct ENode)); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;Data[V]));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>邻接表</strong>：G[N]为指针数组，对应矩阵每行一个链表，只存非0元素。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">/* 图的邻接表表示法 */</span><br><span class="line"> </span><br><span class="line">#define MaxVertexNum 100    /* 最大顶点数设为100 */</span><br><span class="line">typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */</span><br><span class="line">typedef int WeightType;        /* 边的权值设为整型 */</span><br><span class="line">typedef char DataType;        /* 顶点存储的数据类型设为字符型 */</span><br><span class="line"> </span><br><span class="line">/* 边的定义 */</span><br><span class="line">typedef struct ENode *PtrToENode;</span><br><span class="line">struct ENode&#123;</span><br><span class="line">    Vertex V1, V2;      /* 有向边&lt;V1, V2&gt; */</span><br><span class="line">    WeightType Weight;  /* 权重 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToENode Edge;</span><br><span class="line"> </span><br><span class="line">/* 邻接点的定义 */</span><br><span class="line">typedef struct AdjVNode *PtrToAdjVNode; </span><br><span class="line">struct AdjVNode&#123;</span><br><span class="line">    Vertex AdjV;        /* 邻接点下标 */</span><br><span class="line">    WeightType Weight;  /* 边权重 */</span><br><span class="line">    PtrToAdjVNode Next;    /* 指向下一个邻接点的指针 */</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">/* 顶点表头结点的定义 */</span><br><span class="line">typedef struct Vnode&#123;</span><br><span class="line">    PtrToAdjVNode FirstEdge;/* 边表头指针 */</span><br><span class="line">    DataType Data;            /* 存顶点的数据 */</span><br><span class="line">    /* 注意：很多情况下，顶点无数据，此时Data可以不用出现 */</span><br><span class="line">&#125; AdjList[MaxVertexNum];    /* AdjList是邻接表类型 */</span><br><span class="line"> </span><br><span class="line">/* 图结点的定义 */</span><br><span class="line">typedef struct GNode *PtrToGNode;</span><br><span class="line">struct GNode&#123;  </span><br><span class="line">    int Nv;     /* 顶点数 */</span><br><span class="line">    int Ne;     /* 边数   */</span><br><span class="line">    AdjList G;  /* 邻接表 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToGNode LGraph; /* 以邻接表方式存储的图类型 */</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">LGraph CreateGraph( int VertexNum )</span><br><span class="line">&#123; /* 初始化一个有VertexNum个顶点但没有边的图 */</span><br><span class="line">    Vertex V;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">     </span><br><span class="line">    Graph = (LGraph)malloc( sizeof(struct GNode) ); /* 建立图 */</span><br><span class="line">    Graph-&gt;Nv = VertexNum;</span><br><span class="line">    Graph-&gt;Ne = 0;</span><br><span class="line">    /* 初始化邻接表头指针 */</span><br><span class="line">    /* 注意：这里默认顶点编号从0开始，到(Graph-&gt;Nv - 1) */</span><br><span class="line">       for (V=0; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        Graph-&gt;G[V].FirstEdge = NULL;</span><br><span class="line">             </span><br><span class="line">    return Graph; </span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">void InsertEdge( LGraph Graph, Edge E )</span><br><span class="line">&#123;</span><br><span class="line">    PtrToAdjVNode NewNode;</span><br><span class="line">     </span><br><span class="line">    /* 插入边 &lt;V1, V2&gt; */</span><br><span class="line">    /* 为V2建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V2;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V2插入V1的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V1].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V1].FirstEdge = NewNode;</span><br><span class="line">         </span><br><span class="line">    /* 若是无向图，还要插入边 &lt;V2, V1&gt; */</span><br><span class="line">    /* 为V1建立新的邻接点 */</span><br><span class="line">    NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));</span><br><span class="line">    NewNode-&gt;AdjV = E-&gt;V1;</span><br><span class="line">    NewNode-&gt;Weight = E-&gt;Weight;</span><br><span class="line">    /* 将V1插入V2的表头 */</span><br><span class="line">    NewNode-&gt;Next = Graph-&gt;G[E-&gt;V2].FirstEdge;</span><br><span class="line">    Graph-&gt;G[E-&gt;V2].FirstEdge = NewNode;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">LGraph BuildGraph()</span><br><span class="line">&#123;</span><br><span class="line">    LGraph Graph;</span><br><span class="line">    Edge E;</span><br><span class="line">    Vertex V;</span><br><span class="line">    int Nv, i;</span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;Nv);   /* 读入顶点个数 */</span><br><span class="line">    Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */ </span><br><span class="line">     </span><br><span class="line">    scanf(&quot;%d&quot;, &amp;(Graph-&gt;Ne));   /* 读入边数 */</span><br><span class="line">    if ( Graph-&gt;Ne != 0 ) &#123; /* 如果有边 */ </span><br><span class="line">        E = (Edge)malloc( sizeof(struct ENode) ); /* 建立边结点 */ </span><br><span class="line">        /* 读入边，格式为&quot;起点 终点 权重&quot;，插入邻接矩阵 */</span><br><span class="line">        for (i=0; i&lt;Graph-&gt;Ne; i++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;E-&gt;V1, &amp;E-&gt;V2, &amp;E-&gt;Weight); </span><br><span class="line">            /* 注意：如果权重不是整型，Weight的读入格式要改 */</span><br><span class="line">            InsertEdge( Graph, E );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    /* 如果顶点有数据的话，读入数据 */</span><br><span class="line">    for (V=0; V&lt;Graph-&gt;Nv; V++) </span><br><span class="line">        scanf(&quot; %c&quot;, &amp;(Graph-&gt;G[V].Data));</span><br><span class="line"> </span><br><span class="line">    return Graph;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>站在一个路口，看有几条路还没走，选择其中一条往下走，走到下一个路口，继续判断，如没有，则原路返回上一个路口，看上一个路口是否有没走的路，如没有则继续原路返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接表存储的图 - DFS */</span><br><span class="line"> </span><br><span class="line">void Visit( Vertex V )</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;正在访问顶点%d\n&quot;, V);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void DFS( LGraph Graph, Vertex V, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以V为出发点对邻接表存储的图Graph进行DFS搜索 */</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">     </span><br><span class="line">    Visit( V ); /* 访问第V个顶点 */</span><br><span class="line">    Visited[V] = true; /* 标记V已访问 */</span><br><span class="line"> </span><br><span class="line">    for( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next ) /* 对V的每个邻接点W-&gt;AdjV */</span><br><span class="line">        if ( !Visited[W-&gt;AdjV] )    /* 若W-&gt;AdjV未被访问 */</span><br><span class="line">            DFS( Graph, W-&gt;AdjV, Visit );    /* 则递归访问之 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>指定一个起点，把它压到队列里，在把它弹出队列时，将与它相连的点一一压到队列里，以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* 邻接矩阵存储的图 - BFS */</span><br><span class="line"> </span><br><span class="line">/* IsEdge(Graph, V, W)检查&lt;V, W&gt;是否图Graph中的一条边，即W是否V的邻接点。  */</span><br><span class="line">/* 此函数根据图的不同类型要做不同的实现，关键取决于对不存在的边的表示方法。*/</span><br><span class="line">/* 例如对有权图, 如果不存在的边被初始化为INFINITY, 则函数实现如下:         */</span><br><span class="line">bool IsEdge( MGraph Graph, Vertex V, Vertex W )</span><br><span class="line">&#123;</span><br><span class="line">    return Graph-&gt;G[V][W]&lt;INFINITY ? true : false;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* Visited[]为全局变量，已经初始化为false */</span><br><span class="line">void BFS ( MGraph Graph, Vertex S, void (*Visit)(Vertex) )</span><br><span class="line">&#123;   /* 以S为出发点对邻接矩阵存储的图Graph进行BFS搜索 */</span><br><span class="line">    Queue Q;     </span><br><span class="line">    Vertex V, W;</span><br><span class="line"> </span><br><span class="line">    Q = CreateQueue( MaxSize ); /* 创建空队列, MaxSize为外部定义的常数 */</span><br><span class="line">    /* 访问顶点S：此处可根据具体访问需要改写 */</span><br><span class="line">    Visit( S );</span><br><span class="line">    Visited[S] = true; /* 标记S已访问 */</span><br><span class="line">    AddQ(Q, S); /* S入队列 */</span><br><span class="line">     </span><br><span class="line">    while ( !IsEmpty(Q) ) &#123;</span><br><span class="line">        V = DeleteQ(Q);  /* 弹出V */</span><br><span class="line">        for( W=0; W&lt;Graph-&gt;Nv; W++ ) /* 对图中的每个顶点W */</span><br><span class="line">            /* 若W是V的邻接点并且未访问过 */</span><br><span class="line">            if ( !Visited[W] &amp;&amp; IsEdge(Graph, V, W) ) &#123;</span><br><span class="line">                /* 访问顶点W */</span><br><span class="line">                Visit( W );</span><br><span class="line">                Visited[W] = true; /* 标记W已访问 */</span><br><span class="line">                AddQ(Q, W); /* W入队列 */</span><br><span class="line">            &#125;</span><br><span class="line">    &#125; /* while结束*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2019/04/10/2019-04-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_6/" data-id="ck240owhr007500ulfpx8dat6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-09-Linux下Github使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2019-04-08T16:00:00.000Z" itemprop="datePublished">2019-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/">Linux下Github使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>python主要用linux，所以在linux下使用Github特意来学习一下。</p>
+<h1 id="Linux下Git和GitHub环境的搭建"><a href="#Linux下Git和GitHub环境的搭建" class="headerlink" title="Linux下Git和GitHub环境的搭建"></a>Linux下Git和GitHub环境的搭建</h1><ol>
+<li>安装Git， 使用命令sudo apt-get install git；</li>
+<li>创建GitHub帐号；</li>
+<li>生成ssh key，使用命令 ssh-keygen -t rsa -C “<a href="mailto:your_email@youremail.com" target="_blank" rel="noopener">your_email@youremail.com</a>“，your_email是你的email；</li>
+<li>终端输入命令 cd ~/.ssh，之后ls命令，之后vi id_rsa.pub，复制内容；</li>
+<li>回到github，进入Account Settings，左边选择SSH Keys，Add SSH Key，粘贴key；</li>
+<li>测试ssh key是否成功，使用命令ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，如果出现You’ve successfully ；authenticated, but GitHub does not provide shell access ，这就表示已成功连上github；</li>
+<li>配置Git的配置文件：配置用户名：git config –global user.name “your name” ，配置email：git config –global user.email “your email”</li>
+</ol>
+<h1 id="从GitHub克隆项目到本地"><a href="#从GitHub克隆项目到本地" class="headerlink" title="从GitHub克隆项目到本地"></a>从GitHub克隆项目到本地</h1><ol>
+<li>到GitHub的某个仓库，然后复制右边的那个（HTTPS clone url）；</li>
+<li>回到要存放的目录下，使用命令 git clone <a href="https://github.com/your_name/yourRepo.git，" target="_blank" rel="noopener">https://github.com/your_name/yourRepo.git，</a> your_name是你的GitHub的用户名，yourRepo是你要clone的仓库；</li>
+<li>如果本地的版本不是最新的，可以使用命令 git fetch origin，origin是本地仓库；</li>
+<li>把更新的内容合并到本地分支，可以使用命令 git merge origin/master；</li>
+<li>如果你不想手动去合并，那么你可以使用： git pull &lt;本地仓库&gt; master 这个命令来拉去最新版本并自动合并；</li>
+</ol>
+<h1 id="利用Git从本地上传到GitHub"><a href="#利用Git从本地上传到GitHub" class="headerlink" title="利用Git从本地上传到GitHub"></a>利用Git从本地上传到GitHub</h1><ol>
+<li>进入要所要上传文件的目录, 输入命令 git init；</li>
+<li>创建一个本地仓库origin，使用命令 git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:your_name/yourRepo.git，your_name是你的GitHub的用户名，yourRepo是你要上传到GitHub的仓库；</li>
+<li>比如你要添加一个文件xxx到本地仓库，使用命令 git add xxx，可以使用 git add . 自动判断添加哪些文件；</li>
+<li>然后把这个添加提交到本地的仓库，使用命令 git commit -m “说明这次的提交”；</li>
+<li>最后把本地仓库origin提交到远程的GitHub仓库，使用命令 git push origin master；</li>
+</ol>
+<h3 id="说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为："><a href="#说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为：" class="headerlink" title="说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为："></a><em>说明：作者在本地库文件夹下的某一文件夹下进行操作，上传某一文件，一直无法成功，随后回到库文件夹下进行操作，命令分别为：</em></h3><blockquote>
+<p>git add . //注意.代表全部上传，也可以换为要上传更新的文件</p>
+</blockquote>
+<blockquote>
+<p>git commit -m ‘update’</p>
+</blockquote>
+<blockquote>
+<p>git push</p>
+</blockquote>
+<p><em>即相当于对要添加的文件所在的整个文件夹进行了更新。</em></p>
+<h1 id="GitHub的分支管理"><a href="#GitHub的分支管理" class="headerlink" title="GitHub的分支管理"></a>GitHub的分支管理</h1><p>创建分支</p>
+<ol>
+<li>创建一个本地分支： git branch &lt;新分支名字&gt;；</li>
+<li>将本地分支同步到GitHub上面： git push &lt;本地仓库名&gt; &lt;新分支名&gt;；</li>
+<li>切换到新建立的分支： git checkout &lt;新分支名&gt;；</li>
+<li>为你的分支加入一个新的远程端： git remote add &lt;远程端名字&gt; &lt;地址&gt;；</li>
+<li>查看当前仓库有几个分支: git branch；</li>
+</ol>
+<p>删除分支</p>
+<ol>
+<li>从本地删除一个分支： git branch -d &lt;分支名称&gt;；</li>
+<li>同步到GitHub上面删除这个分支： git push &lt;本地仓库名&gt; :&lt;GitHub端分支&gt;；</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/" data-id="ck240owfp000y00ul0gpl0yvc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-03-静生生物调查所史稿" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/2019-04-03-%E9%9D%99%E7%94%9F%E7%94%9F%E7%89%A9%E8%B0%83%E6%9F%A5%E6%89%80%E5%8F%B2%E7%A8%BF/" class="article-date">
+  <time datetime="2019-04-02T16:00:00.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/2019-04-03-%E9%9D%99%E7%94%9F%E7%94%9F%E7%89%A9%E8%B0%83%E6%9F%A5%E6%89%80%E5%8F%B2%E7%A8%BF/">静生生物调查所史稿</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《静生生物调查所史稿》由胡宗刚著，山东教育出版社出版，在此感谢！</p>
+</blockquote>
+<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><h2 id="中国生物学之回顾"><a href="#中国生物学之回顾" class="headerlink" title="中国生物学之回顾"></a>中国生物学之回顾</h2><p>中国生物学的发展，大致可分三个时期：第一期，本草研究时期。此时期发展缓慢；第二期，为引进西方生物学时期。自近代中国与西洋海通以来，西方传教士纷纷来华传教，同时也传播了西方的现代自然科学知识；第三期，即现代生物学时期。中国生物学研究机构渐次设立，在研究方法上尽量采取<br>西方的研究方法，而在研究对象上则以“中国的生物”为材料。</p>
+<h2 id="中国科学社生物研究所"><a href="#中国科学社生物研究所" class="headerlink" title="中国科学社生物研究所"></a>中国科学社生物研究所</h2><p>1914年6月，留美中国学生组织成立中国科学社。1922年，生物研究所在南京兴办，推定秉志主持。所内设动物部、植物部，分别由秉志、胡先骕各司其事。其时，科学社社长任鸿隽也在东南大学供职，任副校长。他对于生物研究所的贡献，主要在于寻求社会的支持和谅解。主要争取到了利用美国第二次退还庚子赔款成立的“中华教育文化基金董事会”。研究所研究渐有成绩，也渐为学界所注意，以至成为中国现代生物学的摇篮。许多著名的生物学家曾在此研究所接受研究工作的训练，并开始算研究生涯。</p>
+<h1 id="第二章-静生生物调查所创办经纬"><a href="#第二章-静生生物调查所创办经纬" class="headerlink" title="第二章 静生生物调查所创办经纬"></a>第二章 静生生物调查所创办经纬</h1><h2 id="酝酿筹设静生生物所调查"><a href="#酝酿筹设静生生物所调查" class="headerlink" title="酝酿筹设静生生物所调查"></a>酝酿筹设静生生物所调查</h2><p>在南京的生物所里的中国生物学家们．认为他们的研究范围，无力伸延至北方，而在有文化中心之称的北京，也应有一生物学研究机构之设立。秉志、胡先骕等人联名呈书中基会干事长范源廉。<br>范源廉(1874—1927)，字静生。素爱自然．业余时暇则治博物之学，十几年不辍，尝往郊外，采集植物，探研名实。当其主持中基会事务，以补助自然科学为职志，因于生物学早有亲缘，故与中国科学社生物研究所多有关顾，与生物学家也有交往。<br>筹设调查所事正在酝酿之中，范静生却突然于1927年12月23日在天津逝世，享年53岁。静生先生为人公正，尽心教育，数十年如一日，由于范先生人格的伟大，在世人心目之中具有较高威望，他的早逝，不仅没有延误调查所的实现，反而加快了调查所的诞生，人们意在以此来纪念静生先生。1928年春，生物调查所于北京成立．并以“静生”名之，以做永久纪念。</p>
+<h2 id="合组静生生物调查所经过"><a href="#合组静生生物调查所经过" class="headerlink" title="合组静生生物调查所经过"></a>合组静生生物调查所经过</h2><p>范静生生前主持的中华教育文化基金董事会与尚志学会达成共识，共同组建生物调查所。<br>1928年6月19日，中基会第4次董事会，正式通过接受尚志学会嘱托，组织静生生物调查所，议决秉志为所长。7月，秉志、胡先骕即赴北京，负责组建。<br>静生所在起首时，因受经费的限制，所罗致的人才，名望皆不甚高，却都年轻有为，大都得到巨大发展，成为各个专门学科的人才。</p>
+<h1 id="第三章-静生生物调查所事业的开创（1928-1937）"><a href="#第三章-静生生物调查所事业的开创（1928-1937）" class="headerlink" title="第三章 静生生物调查所事业的开创（1928-1937）"></a>第三章 静生生物调查所事业的开创（1928-1937）</h1><p>最初几年，所长秉志每年春秋两次北上，为静生所和生物所奔波于南北<br>两地。其不在北平时，静生所所务由胡先骕代理。秉志主持南北两所，实难兼顾，递交辞呈，胡先骕接任。秉志虽不再担任所长，但他在任几年所表现出的科学精神及对事业的敬谨诚笃的态度，乃具极大魅力，继任者胡先骕皆为之传承。</p>
+<h2 id="静生生物调查所的初期事业"><a href="#静生生物调查所的初期事业" class="headerlink" title="静生生物调查所的初期事业"></a>静生生物调查所的初期事业</h2><p>1928年，静生生物开办于范旭东所捐其胞兄静生先生的故居，但面积太小，难以适应静生所事业发展。仅半年时间，便提出新办所址的提议，1931年4月即搬入文津街3号新址。</p>
+<ol>
+<li>植物部主要人员及研究</li>
+</ol>
+<ul>
+<li>秦仁昌与蕨类植物研究</li>
+<li>李良庆与藻类植物研究</li>
+<li>唐燿与木材研究</li>
+<li>冯澄如与生物绘图</li>
+<li>周宗璜与真菌学研究</li>
+</ul>
+<ol start="2">
+<li>动物部主要人员及研究</li>
+</ol>
+<ul>
+<li>寿振黄与鸟类研究</li>
+<li>张春霖与鱼类研究</li>
+<li>沈嘉瑞与甲壳类研究</li>
+</ul>
+<ol start="3">
+<li>藏书<br>静生所使用之图书，依托国立北平图书馆，因经费充裕，其所购置生物学之文献也甚为齐备。</li>
+</ol>
+<h2 id="静生生物调查所之采集"><a href="#静生生物调查所之采集" class="headerlink" title="静生生物调查所之采集"></a>静生生物调查所之采集</h2><p>静生生物调查所自成立之初便开始对所采集的标本予以分类化的研究。至1948年，共采集动物标本约30万件；植物标本约15万件；菌类标本约3.5万号。</p>
+<ol>
+<li>植物部之采集<br>前往山西、四川、吉林等地采集标本，采集旅途之中，不仅只是科学之理性，还有人文之情怀。如《凉山杂诗》一卷。</li>
+<li>在云南的植物采集<br>在上述采集之后，事业不断壮大，便把目光投到了植物种类更加向往的地方。不仅非常辛苦，还有生命危险。主要人员蔡希陶，进行了为期三年的采集，1934年返平共得植物标本万余号，新种和新分布极多。静生所于1935年再派王启无等组队前往，为其两年。于1937年再派于德浚再次前往，与英国皇家园艺学会合作。他们所收集的标本，现大多收藏于中科院植物所、昆明植物所、华南植物所等。</li>
+<li>动物部的采集<br>同样自建所即开始采集工作，但遗憾的是档案中关于这一部分的材料甚少。</li>
+</ol>
+<h2 id="庐山森林植物园创建始末"><a href="#庐山森林植物园创建始末" class="headerlink" title="庐山森林植物园创建始末"></a>庐山森林植物园创建始末</h2><p>20世纪初期，随着西学的全面引进，现代植物园作为大学的附设机构已开始建立，但作为正规化科研性质的植物园，则产生于20世纪30年代。此中以静生生物调查所与江西省农业院于1934年合办之庐山森林植物园最为著名。</p>
+<ol>
+<li>胡先骕与创设植物园之理想<br>1917年，胡先骕学成回国之后事业甚为失意，只得回到江西，被聘为庐山森林局副局长，在与自然之庐山交融中，却得到纯美的情感，在胡先骕以后的工作生涯中发挥了重要作用，为其日后选择庐山创办植物园奠定了基础。</li>
+<li>选定庐山创设植物园<br>1931年，胡先骕重上庐山，对庐山植物做科学考察，发现了许多植物特有分布。此行让胡先骕感到，在庐山建一个森林植物园，以实现多年宿愿。选择庐山，自然条件是其次，主要是庐山已形成的文化环境（优越的政治地位，加上便利的交通和宜人的气候，使得一时学者云集，自然形成良好的文化氛围）。胡先骕以其在学界的地位和出色的组织才能说服了静生所委员会的委员们，使得在庐山床架森林植物园成为大家的共识。</li>
+<li>委任秦仁昌筹建植物园<br>时任静生所技师兼任植物标本室主任，自告奋勇愿承担建园之责。其后便前往实地勘察，后携家眷正式移居庐山，在此开辟新的事业，为中国植物学史揭开新的一页。</li>
+<li>庐山森林植物园之成立及职员<br>1934年8月20日植物园成立，秦仁昌担任主任。研究旨趣分为纯粹植物学研究与应用植物学研究两个方面。</li>
+<li>创业初期<br>募集资金、任鸿隽与古青书屋、植物的调查与采集、园林建设及研究设施、陈封怀与庐山森林植物园、勘定界址</li>
+</ol>
+<h1 id="第四章-抗日战争时期的静生生物调查所（1937-1945）"><a href="#第四章-抗日战争时期的静生生物调查所（1937-1945）" class="headerlink" title="第四章 抗日战争时期的静生生物调查所（1937-1945）"></a>第四章 抗日战争时期的静生生物调查所（1937-1945）</h1><h2 id="北平沦陷后的静生所"><a href="#北平沦陷后的静生所" class="headerlink" title="北平沦陷后的静生所"></a>北平沦陷后的静生所</h2><p>静生所乃民间生物所，与国民政府无涉，所以在北平沦陷前几年，依靠美国在华势力，得以生存。</p>
+<ol>
+<li>沦陷后的研究工作<br>静生所经过10余年的学术积累，在植物学、动物学等研究成果已进入不断涌现时期，一些重要论文相继发表。</li>
+<li>杨惟义代理所长<br>胡先骕准备出国考察之时，即已委任杨惟义代理所长之职。（主持任何一项事业的用人都会出现这样那样的问题，先贤也不能避免）。虽然杨尚乏声望，加之战事，诸多问题无法解决，但总体来说，尚称尽职，在任期间，所中工作能正常进行，为保存静生所，还与日本人周旋，得美国人之照拂。</li>
+<li>静生所所址被日军侵占<br>1941年12月，美日交恶，太平洋战争爆发，受美国势力保护的中国文化教育机构被视为美国在中国的财产，被日军强行占领，司徒雷登也在北平被日军羁押，12月8日，日军封闭静生所，所员全被驱逐，图书及动植物标本概未救出。静生所在沦陷之后，因各种事由，最终留在北平的人员，不得已而任事于伪职，以维持生活，苟全性命于乱世，但是他们并没有忘记自己的事业。（因为他们的屈辱被认为是失去民族的气节。抗日战争胜利后，胡先骕在静生所复员时，在人员的安排上，也如当时社会对待在敌伪时期所供职的人员一样，对他们不予考虑：在1949年后，这些在日本人统治之下供过职的人，更被称为民族的叛徒汉奸，得到不同程度的迫害，使他们的人格道受了更大的屈辱。）</li>
+</ol>
+<h2 id="云南农林植物研究所创办缘起"><a href="#云南农林植物研究所创办缘起" class="headerlink" title="云南农林植物研究所创办缘起"></a>云南农林植物研究所创办缘起</h2><p>中国的西南，生物物种极为丰富，近代以来许多国外人士以各种名义纷纷前住采集，获得大量植物标本，经植物学家的研究，发现极具科学价值和开发价值，遂享誉全球。静生生物所成立之后，也着手调查西南地区的生物资源。</p>
+<ol>
+<li>筹设原委<br>1937年初，胡先骕致函云南教育厅长龚自知，提出愿与教育厅合作在昆明创设一植物研究所。达成初步意向后，1938年春即派曾在云南进行植物采集的蔡希陶前往昆明，勘察所址及筹备相关其他事宜。蔡希陶最终选址黑龙潭。</li>
+<li>初期概况<br>开办起来，其员工自当奋起工作，努力为之。胡先骕十分关心，1940年春亲下云南主持工作，并且请国民政府每年资助。云南政府的经费也得以增加，这些经费使得农林所规模扩大，人员增多，一些研究工程相继落成，野外工作也得以展开。此外还邀请了郑万钧等著名学者来所工作。</li>
+<li>研究成就<br>农林所同仁之研究所得，前期大多刊于《静生生物调查所汇报》，其中一些论文颇为重要。静生所被日军占领后，随着农林所研究成绩渐多，遂有编辑出版《云南农林所植物研究所丛刊》。但是随着抗日战争进入艰苦时期，研究工作自然也受到影响，甚至员工生活难以为继，主要人员先后散去。最后所务由蔡希陶主持，其时已是国内战争时期。</li>
+</ol>
+<h2 id="中正大学静生所办事处"><a href="#中正大学静生所办事处" class="headerlink" title="中正大学静生所办事处"></a>中正大学静生所办事处</h2><p>北平落入日本人之手后，胡先骕前往昆明主持云南农林所，1941年，胡先骕任国立中正大学校长，从而促进了静生所与中正大学的合作事宜。</p>
+<ol>
+<li>研究工作<br>静生所许多人员来中正大学教学，创办并扩大了中正大学生物系。杨惟义研究了多种杀虫植物；彭鸿绶采集研究当地两栖类及爬虫类动物……</li>
+<li>新增人员<br>1943年，胡先骕招收了傅书遐为采集员，1945年日本投降后为静生所复原后的主要人员。复原时更为重要的人员还有张肇骞，也是此时为胡先骕所延揽。</li>
+</ol>
+<h2 id="庐山森林植物园丽江工作站"><a href="#庐山森林植物园丽江工作站" class="headerlink" title="庐山森林植物园丽江工作站"></a>庐山森林植物园丽江工作站</h2><p>庐山森林植物园成立不几年便以优异成绩令世人瞩目。但遇到抗日战争爆发，庐山被日本人占领，人员不得不走西南，在云南丽江建立工作站。</p>
+<ol>
+<li>西迁之前<br>“七七事变”之后，庐山森林植物园尚未收到战争直接影响，1938年上半年各类工作仍顺利进行，仍有实验室等施工。</li>
+<li>西迁经过<br>抗日战争全面爆发仅1年，庐山就已在铁蹄的威胁之下。1938年10月底，植物园得到西迁的指令，其时拟加入云南农林所。与静生所想法一致，许多物品都寄存在了庐山美国学习，认为日人会礼遇英美。然而最后均被日军霸占，日军获悉植物园与静生所关系后，便把部分物品运往北平静生所，供日军使用。</li>
+<li>设立丽江工作站<br>植物园大多员工到达昆明后，即加入农林所工作，然该所人员甚多，房舍容纳不了且植物园本有志于高山花卉研究，遂决定前往丽江设立分所。经费十分吃紧，但任坚持不懈，克服困难，做出许多令后人称艳的业绩。</li>
+<li>研究成就<br>秦仁昌继续其蕨类植物研究，研究不断深入，1940年发表的《水龙骨科的自然分类系统》震惊了世界植物学界。<br>植物园前往丽江的首要目的是：收集各种真气森林园艺植物以供繁殖，采集植物腊叶标本以供研究。</li>
+<li>绝处逢生<br>秦仁昌谋得政府林业部门建立的“金沙江流域林业管理处”负责人，遂将工作站人员纳入该处；同时，秦仁昌还进行了一些应用技术的研究，用于生产。</li>
+</ol>
+<h2 id="四川乐山木材实验室创建原委"><a href="#四川乐山木材实验室创建原委" class="headerlink" title="四川乐山木材实验室创建原委"></a>四川乐山木材实验室创建原委</h2><p>唐燿美国留学归来后于1939年秋由静生所与经济部工业试验研究所在四川乐山合办木材试验研究室，由唐燿任主任，该研究室为中国木材学的发展做出了奠基性贡献。</p>
+<ol>
+<li>唐燿在国外留学与考察<br>1935年，经秉志、胡先骕推荐，唐燿获得中基会资助，赴美耶鲁大学研究院进修。学习结束后，即赴加拿大、欧洲各相关学术机构进行考察。</li>
+<li>四川乐山木材试验室<br>唐燿系1939年回国，9月22日即乘飞机前往重庆开辟工作。但正当筹备之时，不幸遭到日军飞机轰炸，遂把木材室迁往乐山。就这样，唐燿筚路蓝缕，开创了中国第一个木材实验室。（李约瑟抗战时在中国考察科学事业时曾视察该室）</li>
+<li>研究工作<br>1）培养了一批国内外知名的木材专家。<br>2）编印了《木材试验室特刊》。</li>
+</ol>
+<h2 id="陷于孤岛中的秉志"><a href="#陷于孤岛中的秉志" class="headerlink" title="陷于孤岛中的秉志"></a>陷于孤岛中的秉志</h2><p>抗日战争爆发之际，秉志夫人病重，在沪就医，长久不能起床，秉志只得坐困沪上。秉志家中5个子女，皆尚幼，经济来源几绝，以秉志的社会名望，日本对他的情况调查的十分清楚，企图拉他出来做事。然而秉志不为所动，隐姓埋名，蓄起胡须，过起隐居生活，潜心研究，长达八年之久。</p>
+<ol>
+<li>二通旧札<br>在与任鸿隽通信中可以看出来，秉志之所以能够度过此漫长劫难，中基会提供了不可或缺的帮助，但其生活依旧艰难。</li>
+<li>潜心研究和著述<br>秉志不时在做内迁的准备，几次即将动身却有突发情况不得成行。秉志在沪上虽有种种危险和困苦，但继续他的研究，其研究细致入微，成绩卓著。</li>
+</ol>
+<h1 id="第五章-静生生物所的复员（1945-1948）"><a href="#第五章-静生生物所的复员（1945-1948）" class="headerlink" title="第五章 静生生物所的复员（1945-1948）"></a>第五章 静生生物所的复员（1945-1948）</h1><h2 id="北平静生生物调查所的复员"><a href="#北平静生生物调查所的复员" class="headerlink" title="北平静生生物调查所的复员"></a>北平静生生物调查所的复员</h2><p>1945年日本投降，胡先骕饱受战争苦难之后精神已甚衰微，但仍欣喜鼓舞，他视若生命的静生所将得以复员。</p>
+<ol>
+<li>复员的准备<br>胡先骕致信任鸿隽，他的意见得到任鸿隽的赞同，复函劝胡先骕立即回北平，主持复员工作。</li>
+<li>接收静生所<br>其时敌占区所有的文化教育机构已由政府主持办理接受手续，10月17日办理了文津街3号静生所的接收工作，18日接收了石驸马大街83号静生所所属的通俗博物馆。<br>静生所复员后的职员，因经费拮据，商得暂时复员植物部，也仅限于种子植物方面得研究。</li>
+<li>复员工作<br>1940年10月，胡先骕终于回到北平，亲临主持静生所，并重新开始在自己得植物分类学研究。自此至1948年底北平解放，短短两年里时局动荡，国家经济迅速崩溃，静生所陷入艰难境地，遂百般寻求社会支持，然收效甚微，复员进展缓慢，研究工作极难展开。<br>在如此艰难时期，研究并未中断，虽学科范围缩小了很多，但战时得工作积累使得成果相机涌现，并取得骄人成绩。胡先骕、郑万钧合著得《水杉新科及生存之水杉新种》震动了当时国际植物学界。静生所其他人员的研究也都在积极进行。但动物部未能复员一直是胡先骕得一块心病，各种合作援助等都是画饼充饥，未见实施。<br>与中央政府主办的林业试验所合作编辑出版了《中国森林树木图志》，但随中华人民共和国成立，一切事业重新开始，10年出版10册的宏大计划仅出版1册即告结束；与林业试验所合作进行滇北赣北森林植物调查，但未有圆满之结果，仅差强人意。</li>
+</ol>
+<p>总之，静生所虽经历了两年多的复员，但远没有达到战前水准。</p>
+<h2 id="庐山森林植物园的复员"><a href="#庐山森林植物园的复员" class="headerlink" title="庐山森林植物园的复员"></a>庐山森林植物园的复员</h2><p>历经战乱的庐山森林植物园景物全非，满目疮痍，陈封怀主持的复员工作自1946年8月1日正式开始。</p>
+<ol>
+<li>复员进展<br>陈封怀一方面向江西农业院申请经费，另一方面也和任鸿隽沟通，双方为了植物园呕心沥血，费尽心思。</li>
+<li>研究和采集工作<br>繁殖试验水杉，结果甚好；由庐山森林植物园代表静生所和中央林业实验所进行湘鄂赣边区森林资源调查。</li>
+</ol>
+<h2 id="云南农林植物所的生产"><a href="#云南农林植物所的生产" class="headerlink" title="云南农林植物所的生产"></a>云南农林植物所的生产</h2><p>抗日战争胜利之际，云南农林植物研究所经费拮据，人员星散，先未曾有大规模工作，后参与合作调查滇南森林植物。蔡希陶在云南试种烟草，获得丰收，缓解了经济局面。</p>
+<h1 id="第六章-静生生物调查所的终结-（1949-1950）"><a href="#第六章-静生生物调查所的终结-（1949-1950）" class="headerlink" title="第六章 静生生物调查所的终结 （1949-1950）"></a>第六章 静生生物调查所的终结 （1949-1950）</h1><p>胡先骕对国民党已感失望，但对共产党又因惧怕而反对，所以政治主张走了第三条道路，积极与北京大学一些知名教授组织独立时论社，还组织成立了社会党，但不仅静生所事业艰难，其个人生活也陷入困境。</p>
+<ol>
+<li>胡先骕留在大陆的原因<br>对于自己热爱的植物学研究，对于自己终身的事业静生所，对于复员时对旧政府的失望，他把希望寄托在了新政府，期望静生所不仅可以恢复，还可以光大，但没有预料到，他的一系列时政论文已经产生了不可挽回的影响。<br>胡先骕一直希望政府接办静生所，多次致函军管文化接管会。6月，华北人民政府批准接管静生所得决议，将该所纳入华北大学农学院领导。</li>
+<li>关于静生生物调查所所址<br>1949年11月1日，中国科学院成立。对于植物学，国内已有诸多研究机构，有组织一统一研究所得设想。静生所由于其骄人的业绩，科学院乐于接管，但须予以改组。（中科院想接收静生所，更想占其房屋作为科学院院址，但胡先骕只同意被纳入科学院，但不同意房屋被占用，中科院郭沫若、严济慈等人成立整理委员会，整理静生所是名，迁走静生所是实，此时的胡先骕面对强大的压力，只好任之，实属无奈，在整理委员会会议上的发言感人至深。）</li>
+<li>合组中国科学院植物分类研究所<br>中科院决定将静生所与北平研究院植物研究所合并，重新组建中科院植物分类研究所。静生生物调查所就这样终结了，中科院植物分类研究所成立后，胡先骕曾担任研究员，后改名中国科学院植物研究所。在静生所的动物标本基础上扩建成立了中科院动物研究所。</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gsynf.github.io/2019/04/03/2019-04-03-%E9%9D%99%E7%94%9F%E7%94%9F%E7%89%A9%E8%B0%83%E6%9F%A5%E6%89%80%E5%8F%B2%E7%A8%BF/" data-id="ck240owic008v00ul4sl42d4r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/12/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditorConfig/" rel="tag">EditorConfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Element/" rel="tag">Element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GLPK/" rel="tag">GLPK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/" rel="tag">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/" rel="tag">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TomcatJDK/" rel="tag">TomcatJDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" rel="tag">数据分析与展示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/ECS/" style="font-size: 13.33px;">ECS</a> <a href="/tags/EditorConfig/" style="font-size: 10px;">EditorConfig</a> <a href="/tags/Element/" style="font-size: 13.33px;">Element</a> <a href="/tags/GLPK/" style="font-size: 10px;">GLPK</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/IOT/" style="font-size: 12.22px;">IOT</a> <a href="/tags/Java/" style="font-size: 11.11px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 15.56px;">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 14.44px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MOOC/" style="font-size: 20px;">MOOC</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TomcatJDK/" style="font-size: 10px;">TomcatJDK</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 18.89px;">前端开发</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA/" style="font-size: 12.22px;">数据分析与展示</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.56px;">数据结构</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">文献阅读</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 13.33px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/18/2019-10-18-vscode%E4%BD%BF%E7%94%A8editorconfig/">vscode使用editorconfig</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B05/">Vue系列笔记5</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/">关于npm audit fix</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/2019-10-14-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B04/">Vue系列笔记4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/10/2019-10-10-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B03/">Vue系列笔记3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Gsynf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
