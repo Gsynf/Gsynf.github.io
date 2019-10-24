@@ -20,6 +20,29 @@
       </tags>
   </entry>
   <entry>
+    <title>关于npm audit fix</title>
+    <url>/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/</url>
+    <content><![CDATA[<p> 其实之前也遇到过，一直没注意，今天安装vuex，<code>npm install vuex --save</code>出现如下提醒 </p>
+<p><img src="https://i.loli.net/2019/10/16/SJFRPQtyCkHgx4D.png" alt=""></p>
+<p> 执行 <code>npm audit fix</code>  </p>
+<p><img src="https://i.loli.net/2019/10/16/YkSTBdZgepCRDIW.png" alt=""></p>
+<p>出于好奇，从npm官网上查阅了对于<strong>npm audit fix</strong>的相关介绍。 npm@6 的一大更新是新增了 <code>npm audit</code> 命令 ,  <code>npm aduit</code> 主要动作就是在 <code>npm install</code> 完成之后把需要检查的包的信息发送给一个官方接口, 再根据返回信息生成一个包含包名称、漏洞严重性、简介, 路径等的报告。 该命令会在项目中更新或者下载新的依赖包之后会自动运行，如果你在项目中使用了具有已知安全问题的依赖，就收到官方的警告通知。 </p>
+<p> ps. 一般不要直接运行 <code>--force</code> ，对于没能自动修复的问题，说明肯定出现了 <code>SEMVER WARNING</code> 之类的警告，这意味着推荐的修复版本存在让代码出问题的可能，主要发生在依赖包更改了 API 或者升级了大版本的情况下（semantic version major change）。这时候就需要格外的小心甚至需要改动一些自己的代码了。 </p>
+<p>其他一些具体命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 扫描项目漏洞把不安全的依赖项自动更新到兼容性版本</span><br><span class="line">npm audit fix</span><br><span class="line"></span><br><span class="line"># 在不修改 node_modules 的情况下执行 audit fix，仍然会更改 pkglock</span><br><span class="line">npm audit fix --package-lock-only</span><br><span class="line"></span><br><span class="line"># 跳过更新 devDependencies</span><br><span class="line">npm audit fix --only=prod</span><br><span class="line"></span><br><span class="line"># 强制执行 audit fix 安装最新的依赖项（toplevel）</span><br><span class="line">npm audit fix --force</span><br><span class="line"></span><br><span class="line"># 单纯的获取 audit fix 会做的事，并以 json 格式输出。</span><br><span class="line">npm audit fix --dry-run --json</span><br><span class="line"></span><br><span class="line"># 获取详情</span><br><span class="line">npm audit</span><br><span class="line"></span><br><span class="line"># 以 JSON 格式打印报告</span><br><span class="line">npm audit --json</span><br></pre></td></tr></table></figure>
+
+<p>至于如何关闭安全检查，可以采用以下方式：</p>
+<ul>
+<li>安装单个包关闭安全审查: <code>npm install example-package-name --no-audit</code></li>
+<li>安装所有包关闭安全审查 - 运行 <code>npm set audit false</code> - 手动将 <code>~/.npmrc</code> 配置文件中的 <code>audit</code> 修改为 <code>false</code></li>
+</ul>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue系列笔记5</title>
     <url>/2019/10/16/2019-10-16-Vue%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B05/</url>
     <content><![CDATA[<blockquote>
@@ -94,29 +117,6 @@
 ]]></content>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于npm audit fix</title>
-    <url>/2019/10/16/2019-10-16-%E5%85%B3%E4%BA%8Enpm%20audit%20fix/</url>
-    <content><![CDATA[<p> 其实之前也遇到过，一直没注意，今天安装vuex，<code>npm install vuex --save</code>出现如下提醒 </p>
-<p><img src="https://i.loli.net/2019/10/16/SJFRPQtyCkHgx4D.png" alt=""></p>
-<p> 执行 <code>npm audit fix</code>  </p>
-<p><img src="https://i.loli.net/2019/10/16/YkSTBdZgepCRDIW.png" alt=""></p>
-<p>出于好奇，从npm官网上查阅了对于<strong>npm audit fix</strong>的相关介绍。 npm@6 的一大更新是新增了 <code>npm audit</code> 命令 ,  <code>npm aduit</code> 主要动作就是在 <code>npm install</code> 完成之后把需要检查的包的信息发送给一个官方接口, 再根据返回信息生成一个包含包名称、漏洞严重性、简介, 路径等的报告。 该命令会在项目中更新或者下载新的依赖包之后会自动运行，如果你在项目中使用了具有已知安全问题的依赖，就收到官方的警告通知。 </p>
-<p> ps. 一般不要直接运行 <code>--force</code> ，对于没能自动修复的问题，说明肯定出现了 <code>SEMVER WARNING</code> 之类的警告，这意味着推荐的修复版本存在让代码出问题的可能，主要发生在依赖包更改了 API 或者升级了大版本的情况下（semantic version major change）。这时候就需要格外的小心甚至需要改动一些自己的代码了。 </p>
-<p>其他一些具体命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 扫描项目漏洞把不安全的依赖项自动更新到兼容性版本</span><br><span class="line">npm audit fix</span><br><span class="line"></span><br><span class="line"># 在不修改 node_modules 的情况下执行 audit fix，仍然会更改 pkglock</span><br><span class="line">npm audit fix --package-lock-only</span><br><span class="line"></span><br><span class="line"># 跳过更新 devDependencies</span><br><span class="line">npm audit fix --only=prod</span><br><span class="line"></span><br><span class="line"># 强制执行 audit fix 安装最新的依赖项（toplevel）</span><br><span class="line">npm audit fix --force</span><br><span class="line"></span><br><span class="line"># 单纯的获取 audit fix 会做的事，并以 json 格式输出。</span><br><span class="line">npm audit fix --dry-run --json</span><br><span class="line"></span><br><span class="line"># 获取详情</span><br><span class="line">npm audit</span><br><span class="line"></span><br><span class="line"># 以 JSON 格式打印报告</span><br><span class="line">npm audit --json</span><br></pre></td></tr></table></figure>
-
-<p>至于如何关闭安全检查，可以采用以下方式：</p>
-<ul>
-<li>安装单个包关闭安全审查: <code>npm install example-package-name --no-audit</code></li>
-<li>安装所有包关闭安全审查 - 运行 <code>npm set audit false</code> - 手动将 <code>~/.npmrc</code> 配置文件中的 <code>audit</code> 修改为 <code>false</code></li>
-</ul>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -2808,82 +2808,6 @@ if(referer==null || referer.startsWith("https://localhost")){
       </tags>
   </entry>
   <entry>
-    <title>前端开发(1)-CSS入门及提高7</title>
-    <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h1><p>所谓层叠性是指多种CSS样式的叠加。</p>
-<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉。</p>
-<p>比如先给某个标签指定了内部文字颜色为红色，接着又指定了颜色为蓝色，此时出现一个标签指定了相同样式不同值的情况，这就是样式冲突。</p>
-<p>一般情况下，如果出现样式冲突，则会按照CSS书写的顺序，以最后的样式为准。</p>
-<ol>
-<li>样式冲突，遵循的原则是就近原则。 那个样式离着结构近，就执行那个样式。</li>
-<li>样式不冲突，不会层叠</li>
-</ol>
-<h1 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h1><p>所谓继承性是指书写CSS样式表时，子标签会继承父标签的某些样式，如文本颜色和字号。想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">恰当地使用继承可以简化代码，降低CSS样式的复杂性。子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性）</span><br></pre></td></tr></table></figure>
-
-<h1 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h1><p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，这时就会出现优先级的问题。</p>
-<h2 id="CSS特殊性"><a href="#CSS特殊性" class="headerlink" title="CSS特殊性"></a>CSS特殊性</h2><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity，我们称为CSS 特性或称非凡性，它是一个衡量CSS值优先级的一个标准 具体规范入如下：</p>
-<p>specificity用一个四位的数 字串(CSS2是三位)来表示，更像四个级别，值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </p>
-<table>
-<thead>
-<tr>
-<th>继承或者* 的贡献值</th>
-<th>0,0,0,0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>每个元素（标签）贡献值为</td>
-<td>0,0,0,1</td>
-</tr>
-<tr>
-<td>每个类，伪类贡献值为</td>
-<td>0,0,1,0</td>
-</tr>
-<tr>
-<td>每个ID贡献值为</td>
-<td>0,1,0,0</td>
-</tr>
-<tr>
-<td>每个行内样式贡献值</td>
-<td>1,0,0,0</td>
-</tr>
-<tr>
-<td>每个!important贡献值</td>
-<td>∞ 无穷大</td>
-</tr>
-</tbody></table>
-<p>权重是可以叠加的</p>
-<p> 比如的例子：</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div ul  li   ------&gt;      0,0,0,3</span><br><span class="line"></span><br><span class="line">.nav ul li   ------&gt;      0,0,1,2</span><br><span class="line"></span><br><span class="line">a:hover      -----—&gt;      0,0,1,1</span><br><span class="line"></span><br><span class="line">.nav a       ------&gt;      0,0,1,1   </span><br><span class="line"></span><br><span class="line">#nav p       -----&gt;       0,1,0,1</span><br></pre></td></tr></table></figure>
-
-<p>注意： </p>
-<p>1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</p>
-<ol start="2">
-<li>继承的 权重是 0</li>
-</ol>
-<p>总结优先级：</p>
-<ol>
-<li>使用了 !important声明的规则。</li>
-<li>内嵌在 HTML 元素的 style属性里面的声明。</li>
-<li>使用了 ID 选择器的规则。</li>
-<li>使用了类选择器、属性选择器、伪元素和伪类选择器的规则。</li>
-<li>使用了元素选择器的规则。</li>
-<li>只包含一个通用选择器的规则。</li>
-<li>同一类选择器则遵循就近原则。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">总结：权重是优先级的算法，层叠是优先级的表现</span><br></pre></td></tr></table></figure>
-<p>​ </p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端开发(1)-CSS入门及提高8</title>
     <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%988/</url>
     <content><![CDATA[<blockquote>
@@ -3073,6 +2997,82 @@ if(referer==null || referer.startsWith("https://localhost")){
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">10px</span> solid orange;</span><br><span class="line">  <span class="attribute">box-shadow</span>:<span class="number">3px</span> <span class="number">3px</span> <span class="number">5px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(0,0,0,1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端开发(1)-CSS入门及提高7</title>
+    <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h1><p>所谓层叠性是指多种CSS样式的叠加。</p>
+<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉。</p>
+<p>比如先给某个标签指定了内部文字颜色为红色，接着又指定了颜色为蓝色，此时出现一个标签指定了相同样式不同值的情况，这就是样式冲突。</p>
+<p>一般情况下，如果出现样式冲突，则会按照CSS书写的顺序，以最后的样式为准。</p>
+<ol>
+<li>样式冲突，遵循的原则是就近原则。 那个样式离着结构近，就执行那个样式。</li>
+<li>样式不冲突，不会层叠</li>
+</ol>
+<h1 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h1><p>所谓继承性是指书写CSS样式表时，子标签会继承父标签的某些样式，如文本颜色和字号。想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">恰当地使用继承可以简化代码，降低CSS样式的复杂性。子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性）</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h1><p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，这时就会出现优先级的问题。</p>
+<h2 id="CSS特殊性"><a href="#CSS特殊性" class="headerlink" title="CSS特殊性"></a>CSS特殊性</h2><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity，我们称为CSS 特性或称非凡性，它是一个衡量CSS值优先级的一个标准 具体规范入如下：</p>
+<p>specificity用一个四位的数 字串(CSS2是三位)来表示，更像四个级别，值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </p>
+<table>
+<thead>
+<tr>
+<th>继承或者* 的贡献值</th>
+<th>0,0,0,0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>每个元素（标签）贡献值为</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类贡献值为</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID贡献值为</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式贡献值</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important贡献值</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<p>权重是可以叠加的</p>
+<p> 比如的例子：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div ul  li   ------&gt;      0,0,0,3</span><br><span class="line"></span><br><span class="line">.nav ul li   ------&gt;      0,0,1,2</span><br><span class="line"></span><br><span class="line">a:hover      -----—&gt;      0,0,1,1</span><br><span class="line"></span><br><span class="line">.nav a       ------&gt;      0,0,1,1   </span><br><span class="line"></span><br><span class="line">#nav p       -----&gt;       0,1,0,1</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<p>1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</p>
+<ol start="2">
+<li>继承的 权重是 0</li>
+</ol>
+<p>总结优先级：</p>
+<ol>
+<li>使用了 !important声明的规则。</li>
+<li>内嵌在 HTML 元素的 style属性里面的声明。</li>
+<li>使用了 ID 选择器的规则。</li>
+<li>使用了类选择器、属性选择器、伪元素和伪类选择器的规则。</li>
+<li>使用了元素选择器的规则。</li>
+<li>只包含一个通用选择器的规则。</li>
+<li>同一类选择器则遵循就近原则。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">总结：权重是优先级的算法，层叠是优先级的表现</span><br></pre></td></tr></table></figure>
+<p>​ </p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -3425,72 +3425,6 @@ if(referer==null || referer.startsWith("https://localhost")){
       </tags>
   </entry>
   <entry>
-    <title>前端开发(1)-CSS入门及提高2</title>
-    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
-<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
-
-<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
-
-<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
-
-<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-<p>用法基本和类选择器相同。</p>
-<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
-<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
-<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
-<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
-<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
-<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
-<li>:link      /* 未访问的链接 */</li>
-<li>:visited   /* 已访问的链接 */</li>
-<li>:hover     /* 鼠标移动到链接上 */</li>
-<li>:active    /* 选定的链接 */</li>
-</ul>
-<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
-<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
-<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
-<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
-<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
-<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
-</ul>
-<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端开发(1)-CSS入门及提高1</title>
     <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/</url>
     <content><![CDATA[<blockquote>
@@ -3593,6 +3527,72 @@ if(referer==null || referer.startsWith("https://localhost")){
 
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</span><br><span class="line"></span><br><span class="line">注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端开发(1)-CSS入门及提高2</title>
+    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
+<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
+
+<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
+
+<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+<p>用法基本和类选择器相同。</p>
+<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
+<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
+<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
+<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
+<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
+<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
+<li>:link      /* 未访问的链接 */</li>
+<li>:visited   /* 已访问的链接 */</li>
+<li>:hover     /* 鼠标移动到链接上 */</li>
+<li>:active    /* 选定的链接 */</li>
+</ul>
+<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
+<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
+<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
+<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
+</ul>
+<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
@@ -3840,6 +3840,68 @@ if(referer==null || referer.startsWith("https://localhost")){
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-HTML入门与实践1</title>
+    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
+</blockquote>
+<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
+<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
+</li>
+<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
+</li>
+<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
+</li>
+<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
+</li>
+</ol>
+<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
+<ol>
+<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
+<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
+<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
+</ol>
+<p>理想状态的源码：.html .css .js</p>
+<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
+<p>1.双标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.单标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
+<ol>
+<li>html: 5   </li>
+<li>!</li>
+</ol>
+<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
+<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
+
+<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-HTML入门与实践2</title>
     <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B52/</url>
     <content><![CDATA[<blockquote>
@@ -3934,84 +3996,6 @@ if(referer==null || referer.startsWith("https://localhost")){
       </tags>
   </entry>
   <entry>
-    <title>前端开发(1)-HTML入门与实践1</title>
-    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
-</blockquote>
-<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
-<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
-</li>
-<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
-</li>
-<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
-</li>
-<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
-</li>
-</ol>
-<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
-<ol>
-<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
-<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
-<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
-</ol>
-<p>理想状态的源码：.html .css .js</p>
-<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
-<p>1.双标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>2.单标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
-<ol>
-<li>html: 5   </li>
-<li>!</li>
-</ol>
-<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
-
-<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
-<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
-<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
-
-<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LinkDevelop阿里云物联网应用开发方案</title>
-    <url>/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<blockquote>
-<p>阿里云的物联网应用开发，即<a href="https://iot.aliyun.com/products/iotstudio" target="_blank" rel="noopener">Link Develop</a>。虽然现在已经不存在，被IoT Studio所取代，但基本框架并没有改变，所以在此仍然简单了解学习一下。<br>学习视频地址：<a href="https://edu.aliyun.com/course/1392/learn?spm=5176.8764728.aliyun-edu-course-header.15.6926319aoN2rnZ#lesson/11620" target="_blank" rel="noopener">戳这里</a>。</p>
-</blockquote>
-<h1 id="设备开发"><a href="#设备开发" class="headerlink" title="设备开发"></a>设备开发</h1><p>-将设备模型抽象成三类：属性、服务、事件；<br>-实时查看设备上报的数据并进行在线调试；</p>
-<h1 id="服务编排"><a href="#服务编排" class="headerlink" title="服务编排"></a>服务编排</h1><p>-直接使用官方根据物联网需求建好的服务；<br>-做服务的二次开发；</p>
-<h1 id="Bone开发框架"><a href="#Bone开发框架" class="headerlink" title="Bone开发框架"></a>Bone开发框架</h1><p><a href="https://bone.aliyun.com/" target="_blank" rel="noopener">Bone开发框架</a>分为两部分：Bone Moblie和Bone Web。<br>Bone Web是一个基于react+redux封装的Web开发框架，在使用上进行了简化并且提供了一些常用的UI组件。<br>可以在此下载模板进行三元组的修改之后打包上传，进行构建，实现简单功能的实现。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>ECS</tag>
-        <tag>IOT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LinkDevelop阿里云物联网应用开发方案</title>
     <url>/2019/07/15/2019-07-15-%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%89%A9%E8%81%94%E7%BD%91%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<blockquote>
@@ -4036,6 +4020,22 @@ if(referer==null || referer.startsWith("https://localhost")){
 <li>Ant Design UI组件提供丰富的页面UI组件库，Umi在初始化时选择antd插件即可集成，也可以通过命令行执行npm install -g antd进行安装；</li>
 <li>Dva.js数据流方案，将UI和数据解耦，提高前端的开发效率，Umi在初始化时选择dva插件即可集成，也可以通过命令行执行npm install -g dva进行安装；</li>
 </ol>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>ECS</tag>
+        <tag>IOT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LinkDevelop阿里云物联网应用开发方案</title>
+    <url>/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<blockquote>
+<p>阿里云的物联网应用开发，即<a href="https://iot.aliyun.com/products/iotstudio" target="_blank" rel="noopener">Link Develop</a>。虽然现在已经不存在，被IoT Studio所取代，但基本框架并没有改变，所以在此仍然简单了解学习一下。<br>学习视频地址：<a href="https://edu.aliyun.com/course/1392/learn?spm=5176.8764728.aliyun-edu-course-header.15.6926319aoN2rnZ#lesson/11620" target="_blank" rel="noopener">戳这里</a>。</p>
+</blockquote>
+<h1 id="设备开发"><a href="#设备开发" class="headerlink" title="设备开发"></a>设备开发</h1><p>-将设备模型抽象成三类：属性、服务、事件；<br>-实时查看设备上报的数据并进行在线调试；</p>
+<h1 id="服务编排"><a href="#服务编排" class="headerlink" title="服务编排"></a>服务编排</h1><p>-直接使用官方根据物联网需求建好的服务；<br>-做服务的二次开发；</p>
+<h1 id="Bone开发框架"><a href="#Bone开发框架" class="headerlink" title="Bone开发框架"></a>Bone开发框架</h1><p><a href="https://bone.aliyun.com/" target="_blank" rel="noopener">Bone开发框架</a>分为两部分：Bone Moblie和Bone Web。<br>Bone Web是一个基于react+redux封装的Web开发框架，在使用上进行了简化并且提供了一些常用的UI组件。<br>可以在此下载模板进行三元组的修改之后打包上传，进行构建，实现简单功能的实现。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -5725,37 +5725,6 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>《跟老齐学python》学习笔记3</title>
-    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<ul>
-<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
-</li>
-<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
-</li>
-<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
-<p>python里简直不要太方便，直接a,b=b,a即可。</p>
-<ul>
-<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
-
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《跟老齐学python》学习笔记4</title>
     <url>/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
     <content><![CDATA[<ul>
@@ -5785,6 +5754,37 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
 <li>几个特殊函数，filter、map、reduce、lambda、yield……</li>
 <li>函数尽量达到的要求<br>1 尽量不要使用全局变量。<br>2 如果参数是可变类型数据,则在函数内不要修改它。<br>3 每个函数的功能和目标要单纯,不要试图一个函数做很多事情。<br>4 函数的代码行数尽量少。<br>5 函数的独立性越强越好,不要跟其他的外部东西产生关联。</li>
 </ul>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《跟老齐学python》学习笔记3</title>
+    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<ul>
+<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
+</li>
+<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
+</li>
+<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
+<p>python里简直不要太方便，直接a,b=b,a即可。</p>
+<ul>
+<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
+
+
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
