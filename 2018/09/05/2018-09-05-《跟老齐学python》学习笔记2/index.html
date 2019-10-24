@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Gsynf | My Blog">
 <meta property="og:description" content="第一季第一章第六节主要讲述了字符编码的问题，Python2中还有这个问题，但3中几乎不涉及这个问题了，所以这里不多做笔记，仔细看一看，对以前ASCII，Unicode等编码有不错的理解，挺好的。额外记录一点：如果对文件操作,打开文件的时候,最好用codecs.open替代open 12import codecscodecs.open(&amp;apos;filename&amp;apos;, encoding=&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-22T14:37:49.980Z">
+<meta property="og:updated_time" content="2019-10-24T13:56:18.705Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -416,12 +416,42 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst=[1,2,3,4,5]</span><br><span class="line">&gt;&gt;&gt; list(reversed(lst))</span><br><span class="line">[5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>关于迭代，看完一次有些不懂，建议再看，其实就目前而言，还无法理解迭代和extend函数之间的关系，我对于迭代有待以后更加深入，除了文章中给出的使用函数查看，还可以用“for 元素 in 对象： printf 元素”来检验，如果可以打印出来，那么对象就是可迭代的，不过文章中示例可以看出str类型的对象是不可迭代的，不过通过实验发现是可以迭代的，不知道是文章的错误还是python 2 和3之间的区别。</li>
-<li>1.7和1.8 主要讲了列表的一些操作函数，例如反转、插入、删除等以及对于这么函数，列表和字符串的相同和不同，说实话，函数太多具体用法记不住，只能先过一遍，知道有这么个函数，可以实现什么功能，到具体用的时候再来仔细查看。<br>第九节：元组</li>
-<li>1.9介绍了一个新的概念：元组。元组是用圆括号括起来的，元素之间用逗号隔开。</li>
+<li><p>关于迭代，看完一次有些不懂，建议再看，其实就目前而言，还无法理解迭代和extend函数之间的关系，我对于迭代有待以后更加深入，除了文章中给出的使用函数查看，还可以用“for 元素 in 对象： printf 元素”来检验，如果可以打印出来，那么对象就是可迭代的，不过文章中示例可以看出str类型的对象是不可迭代的，不过通过实验发现是可以迭代的，不知道是文章的错误还是python 2 和3之间的区别。</p>
+</li>
+<li><p>1.7和1.8 主要讲了列表的一些操作函数，例如反转、插入、删除等以及对于这么函数，列表和字符串的相同和不同，说实话，函数太多具体用法记不住，只能先过一遍，知道有这么个函数，可以实现什么功能，到具体用的时候再来仔细查看。<br>第九节：元组</p>
+</li>
+<li><p>1.9介绍了一个新的概念：元组。元组是用圆括号括起来的，元素之间用逗号隔开。</p>
+</li>
 </ul>
-<p>| 对比 | 字符串 | 列表|元组<br>| ————- |————-| —–|<br>| 是否是序列 | 是 | 是  |是<br>| 元素是否可改 | 否 | 是  |否<br>| 元素类型 |非任意 | 任意 | 任意</p>
-<p>######特别提醒，如果一个元组中只有一个元素，应该在该元素后面加一个半角的英文逗号。</p>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>字符串</th>
+<th>列表</th>
+<th>元组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否是序列</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>元素是否可改</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>元素类型</td>
+<td>非任意</td>
+<td>任意</td>
+<td>任意</td>
+</tr>
+</tbody></table>
+<p><strong>特别提醒，如果一个元组中只有一个元素，应该在该元素后面加一个半角的英文逗号。</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=1</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; a=(1)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; a=(1,)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &apos;tuple&apos;&gt;</span><br></pre></td></tr></table></figure>
 <p>第十节：字典</p>
 <ul>

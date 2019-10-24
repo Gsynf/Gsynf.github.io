@@ -105,7 +105,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;08&#x2F;8rs7zERUAZK4eMk.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;08&#x2F;YZB3fdb4Mcr79Jl.png">
 <meta property="og:image" content="c:%5CUsers%5Cgsynf%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570496438265.png">
-<meta property="og:updated_time" content="2019-10-23T14:03:00.395Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;08&#x2F;7NDfCeuZXOgqELG.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;08&#x2F;kbKwUJmEgjFx9HI.png">
+<meta property="og:updated_time" content="2019-10-24T14:42:08.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;08&#x2F;8rs7zERUAZK4eMk.png">
 
@@ -371,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  2.2k
                 </span>
               
 
@@ -424,214 +426,72 @@
 </ol>
 <p><img src="C:%5CUsers%5Cgsynf%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570496438265.png" alt="1570496438265"></p>
 <ol start="4">
-<li><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;!-- 3.使用组件 --&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-        &lt;my-cpn&gt;&lt;/my-cpn&gt;
-    &lt;/div&gt;
-    &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        //1.创建组件构造器对象
-        const cpnContructor = Vue.extend({
-           template: `
-                &lt;div&gt;
-                    &lt;h2&gt;我是标题&lt;/h2&gt;
-                    &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-                    &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-                &lt;/div&gt;`
-        })
-        //2.注册组件
-        Vue.component(&apos;my-cpn&apos;, cpnContructor)
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!DOCTYPE html&gt;</span><br><span class="line">   &lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">   &lt;head&gt;</span><br><span class="line">       &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">       &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">       &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">           &lt;!-- 3.使用组件 --&gt;</span><br><span class="line">           &lt;my-cpn&gt;&lt;/my-cpn&gt;</span><br><span class="line">           &lt;my-cpn&gt;&lt;/my-cpn&gt;</span><br><span class="line">           &lt;my-cpn&gt;&lt;/my-cpn&gt;</span><br><span class="line">       &lt;/div&gt;</span><br><span class="line">       &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">       &lt;script&gt;</span><br><span class="line">           //1.创建组件构造器对象</span><br><span class="line">           const cpnContructor = Vue.extend(&#123;</span><br><span class="line">              template: `</span><br><span class="line">                   &lt;div&gt;</span><br><span class="line">                       &lt;h2&gt;我是标题&lt;/h2&gt;</span><br><span class="line">                       &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;</span><br><span class="line">                       &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;</span><br><span class="line">                   &lt;/div&gt;`</span><br><span class="line">           &#125;)</span><br><span class="line">           //2.注册组件</span><br><span class="line">           Vue.component(&apos;my-cpn&apos;, cpnContructor)</span><br><span class="line">   </span><br><span class="line">           const app = new Vue(&#123;</span><br><span class="line">               el: &apos;#app&apos;,</span><br><span class="line">               data: &#123;</span><br><span class="line">                   message: &apos;Hello!&apos;,</span><br><span class="line">               &#125;,</span><br><span class="line">   </span><br><span class="line">           &#125;)</span><br><span class="line">       &lt;/script&gt;</span><br><span class="line">   &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-        const app = new Vue({
-            el: &apos;#app&apos;,
-            data: {
-                message: &apos;Hello!&apos;,
-            },
-
-        })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   Vue.extend()创建的是一个组件构造器，通常在创建组件构造器时，传入template代表我们自定义组件的模板。该模板就是在使用到组件的地方，要显示的HTML代码，事实上，这种写法在Vue 2.x的文档中就几乎看不到了，它会直接使用下面的语法糖，但这种方式是基础。</span><br><span class="line"></span><br><span class="line">   Vue.component()是将刚才的组件构造器注册为一个组件，并且给它起一个组件的标签名称。</span><br><span class="line"></span><br><span class="line">   组件使用时必须挂载在某个Vue实例下，否则它不会生效。</span><br><span class="line"></span><br><span class="line">5. 全局组件和局部组件:上述方法构建的为全局组件。局部组件需要挂载到Vue实例下，只有该实例对应的app才可以使用。</span><br></pre></td></tr></table></figure>
- const app = new Vue({
-            el: &apos;#app&apos;,
-            //2.局部组件注册
-            components: {
-                cpn: cpnC
-            }
-        })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 父组件和子组件：要求子组件在父组件中进行注册：</span><br></pre></td></tr></table></figure>
-//1.创建第一个组件构造器(子组件)
-     const cpnC1 = Vue.extend({
-         template:`
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题1&lt;/h2&gt;
-                 &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-             &lt;/div&gt;`
-     })
-
-     //2.创建第二个组件构造器(父组件)
-     const cpnC2 = Vue.extend({
-         template:`
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题2&lt;/h2&gt;
-                 &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-                 &lt;cpn1&gt;&lt;/cpn1&gt;
-             &lt;/div&gt;`
-         ,
-         components: {
-             cpn1: cpnC1
-         }
-     })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">7. 组件注册的语法糖，将上述创建组件构造器和注册组件合并：</span><br></pre></td></tr></table></figure>
-     Vue.component(&apos;cpn1&apos;, {
-         template: `
-             &lt;div&gt;
-                 &lt;h2&gt;我是标题1&lt;/h2&gt;
-                 &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
-             &lt;/div&gt;`
-     })
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. 组件模板的抽离写法，可以看出来，上边的js代码中嵌套HTML，看起来比较乱，所以需要抽离，有两种写法：</span><br></pre></td></tr></table></figure>
-&lt;body&gt;
- &lt;div id=&quot;app&quot;&gt;
-     &lt;cpn1&gt;&lt;/cpn1&gt;
-     &lt;cpn2&gt;&lt;/cpn2&gt;
- &lt;/div&gt;
- &lt;!-- 1.通过script标签，但是注意类型必须是text/x-template --&gt;
- &lt;script type=&quot;text/x-template&quot; id=&quot;cpn1&quot;&gt;
- &lt;div&gt;
-     &lt;h2&gt;我是标题1&lt;/h2&gt;
-     &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;
- &lt;/div&gt;
- &lt;/script&gt;
-
-&lt;!-- 2.template标签 --&gt;
-&lt;template id=&quot;cpn2&quot;&gt;
-     &lt;div&gt;
-         &lt;h2&gt;我是标题2&lt;/h2&gt;
-         &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;
-     &lt;/div&gt;
-&lt;/template&gt;
-
- &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
- &lt;script&gt;
-     Vue.component(&apos;cpn1&apos;, {
-         template: &apos;#cpn1&apos;,
-     })
-     Vue.component(&apos;cpn2&apos;, {
-         template: &apos;#cpn2&apos;,
-     })
-     const app = new Vue({
-         el: &apos;#app&apos;,
-     })
- &lt;/script&gt;
-&lt;/body&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">9. 组件中的数据不应该也不能放在全局的data中，应该放在自己的data中，但是需要注意组件的data属性必须是一个函数，且要求返回一个实例对象，对象内部保存着数据。</span><br><span class="line"></span><br><span class="line">10. 在开发中，往往一些数据确实需要从上层传到下层，例如在一个页面中，从服务器请求了许多数据，其中一部分数据并非整个页面的大组件来展示，而是需要下面的小组件来展示，这时，并不会让小组件再发一次网络请求，而是让大组件将数据传给小组件，这是就涉及到父子组件之间的通信，有两种方式：通过props向子组件传递数据和通过事件向父组件发送消息。</span><br><span class="line"></span><br><span class="line">![](https://i.loli.net/2019/10/08/7NDfCeuZXOgqELG.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">11. 在组件中，使用选项props来声明需要从父级接受的数据。</span><br><span class="line"></span><br><span class="line">props的值有两种方式：</span><br><span class="line"></span><br><span class="line">1）字符串数组，数组中的字符串就是传递时的名称；</span><br><span class="line"></span><br><span class="line">2）对象，对象可以设置传递时的类型，也可以设置默认值等；</span><br><span class="line"></span><br><span class="line">![](https://i.loli.net/2019/10/08/kbKwUJmEgjFx9HI.png)</span><br><span class="line"></span><br><span class="line">12. 子组件向父组件发送数据：子组件内部先通过&amp;emit()定义发射事件，父组件中监听（类似于系统自带的click等监听），监听到后执行相应的响应函数即可。</span><br></pre></td></tr></table></figure>
-//子组件
-         methods: {
-             btnClick(item) {
-                 //发射事件(自定义事件)
-                 this.$emit(&apos;item-click&apos;, item)
-             }
-         }
-//监听
- &lt;div id=&quot;app&quot;&gt;
-     &lt;!-- 监听事件 --&gt;
-     &lt;cpn @item-click=&quot;cpnClick&quot;&gt;&lt;/cpn&gt;
- &lt;/div&gt;
-//父组件
-         methods: {
-             cpnClick(item) {
-                 console.log(item);                 
-             }
-         }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">13. 父子组件的访问：父组件访问子组件使用$children或者$refs；子组件访问父组件使用$parent；子组件访问根组件使用$root</span><br><span class="line"></span><br><span class="line">14. 在实际开发中，refs用的比较多一些，因为使用children需要使用下标，但是组件顺序可能会有更改，不利于维护</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;button @click=&quot;btnClick&quot;&gt;按钮&lt;/button&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;cpn ref=&quot;aaa&quot;&gt;&lt;/cpn&gt;
- &lt;/div&gt;
- ………………
-             methods: {
-             btnClick() {
-                 // 1.$children
-                 // console.log(this.$children);
-                 // this.$children[0].showMessage();
-                 // console.log(this.$children[1].name);
-
-                 //2.$refs
-                 this.$refs.aaa.showMessage();
-                 console.log(this.$refs.aaa.name);  
-             }
-  ………………
-           components: {
-             cpn: {
-                 template: &apos;#cpn&apos;,
-                 data() {
-                     return {
-                         name: &apos;我是子组件的name&apos;
-                     }
-                 },
-                 methods: {
-                     showMessage() {
-                         console.log(&apos;aaaaaaaa&apos;);
-
-                     }
-                 }
-             }
-         }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">15. $parent在实际开发中应用不多，因为组件强调的是复用性，在组件中使用$parent可能会导致其和父组件的耦合度太高。</span><br><span class="line"></span><br><span class="line">16. 组件的插槽slot是为了让组件有更强的扩展性，往往需要的一些组件之间有很多区别，但也有很多共性，每个都封装成一个单独的不太合理，将所有的都封装成一个也不合理，这里就需要用到slot，slot就是占位，具体占好位置放什么可以由调用者决定；</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;cpn&gt;&lt;button&gt;按钮&lt;/button&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;&lt;span&gt;哈哈哈&lt;/span&gt;&lt;/cpn&gt;
-     &lt;cpn&gt;
-         &lt;p&gt;哦哦哦&lt;/p&gt;
-         &lt;i&gt;呵呵呵&lt;/i&gt;
-     &lt;/cpn&gt;
- &lt;/div&gt;
-
- &lt;template id=&quot;cpn&quot;&gt;
-     &lt;div&gt;
-         &lt;h2&gt;我是组件&lt;/h2&gt;
-         &lt;p&gt;我是组件，嘿嘿嘿&lt;/p&gt;
-         &lt;slot&gt;&lt;/slot&gt;
-     &lt;/div&gt;
- &lt;/template&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">17. 作用域插槽：举例：子组件中包含一组数据，pLanguages: [&apos;JavaScript&apos;,&apos;Python&apos;,&apos;Java&apos;,&apos;C++&apos;]，要求进行不同的展示效果，例如以列表形式展示，以水平方向展示等等</span><br></pre></td></tr></table></figure>
- &lt;div id=&quot;app&quot;&gt;
-     &lt;!-- 默认以列表进行展示 --&gt;
-     &lt;cpn&gt;&lt;/cpn&gt;
-     &lt;!-- 以水平方式进行展示 --&gt;
-     &lt;cpn&gt;
-         &lt;!-- 目的是获取子组件的pLanguages --&gt;
-         &lt;template slot-scope=&quot;slot&quot;&gt;
-             &lt;!-- &lt;span v-for=&quot;item in slot.data&quot;&gt;{{item}} ** &lt;/span&gt; --&gt;
-             &lt;span&gt;{{slot.data.join(' * ')}}&lt;/span&gt;
-         &lt;/template&gt;
-     &lt;/cpn&gt;
-
- &lt;/div&gt;
-
- &lt;template id=&quot;cpn&quot;&gt;
-     &lt;div&gt;
-         &lt;slot :data=&quot;pLanguages&quot;&gt;
-             &lt;ul&gt;
-                 &lt;li v-for=&quot;item in pLanguages&quot;&gt;{{item}}&lt;/li&gt;
-             &lt;/ul&gt;
-         &lt;/slot&gt;
-     &lt;/div&gt;
- &lt;/template&gt;</code></pre></li>
+<p>Vue.extend()创建的是一个组件构造器，通常在创建组件构造器时，传入template代表我们自定义组件的模板。该模板就是在使用到组件的地方，要显示的HTML代码，事实上，这种写法在Vue 2.x的文档中就几乎看不到了，它会直接使用下面的语法糖，但这种方式是基础。</p>
+<p>Vue.component()是将刚才的组件构造器注册为一个组件，并且给它起一个组件的标签名称。</p>
+<p>组件使用时必须挂载在某个Vue实例下，否则它不会生效。</p>
+</li>
+<li><p>全局组件和局部组件:上述方法构建的为全局组件。局部组件需要挂载到Vue实例下，只有该实例对应的app才可以使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const app = new Vue(&#123;</span><br><span class="line">           el: &apos;#app&apos;,</span><br><span class="line">           //2.局部组件注册</span><br><span class="line">           components: &#123;</span><br><span class="line">               cpn: cpnC</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>父组件和子组件：要求子组件在父组件中进行注册：</p>
+</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//1.创建第一个组件构造器(子组件)</span><br><span class="line">        const cpnC1 = Vue.extend(&#123;</span><br><span class="line">            template:`</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;h2&gt;我是标题1&lt;/h2&gt;</span><br><span class="line">                    &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;</span><br><span class="line">                &lt;/div&gt;`</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        //2.创建第二个组件构造器(父组件)</span><br><span class="line">        const cpnC2 = Vue.extend(&#123;</span><br><span class="line">            template:`</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;h2&gt;我是标题2&lt;/h2&gt;</span><br><span class="line">                    &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;</span><br><span class="line">                    &lt;cpn1&gt;&lt;/cpn1&gt;</span><br><span class="line">                &lt;/div&gt;`</span><br><span class="line">            ,</span><br><span class="line">            components: &#123;</span><br><span class="line">                cpn1: cpnC1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>组件注册的语法糖，将上述创建组件构造器和注册组件合并：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;cpn1&apos;, &#123;</span><br><span class="line">    template: `</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h2&gt;我是标题1&lt;/h2&gt;</span><br><span class="line">            &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>组件模板的抽离写法，可以看出来，上边的js代码中嵌套HTML，看起来比较乱，所以需要抽离，有两种写法：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;cpn1&gt;&lt;/cpn1&gt;</span><br><span class="line">        &lt;cpn2&gt;&lt;/cpn2&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- 1.通过script标签，但是注意类型必须是text/x-template --&gt;</span><br><span class="line">    &lt;script type=&quot;text/x-template&quot; id=&quot;cpn1&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h2&gt;我是标题1&lt;/h2&gt;</span><br><span class="line">        &lt;p&gt;我是内容，哈哈哈哈&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- 2.template标签 --&gt;</span><br><span class="line">   &lt;template id=&quot;cpn2&quot;&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h2&gt;我是标题2&lt;/h2&gt;</span><br><span class="line">            &lt;p&gt;我是内容，呵呵呵呵&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">   &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        Vue.component(&apos;cpn1&apos;, &#123;</span><br><span class="line">            template: &apos;#cpn1&apos;,</span><br><span class="line">        &#125;)</span><br><span class="line">        Vue.component(&apos;cpn2&apos;, &#123;</span><br><span class="line">            template: &apos;#cpn2&apos;,</span><br><span class="line">        &#125;)</span><br><span class="line">        const app = new Vue(&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><p>组件中的数据不应该也不能放在全局的data中，应该放在自己的data中，但是需要注意组件的data属性必须是一个函数，且要求返回一个实例对象，对象内部保存着数据。</p>
+</li>
+<li><p>在开发中，往往一些数据确实需要从上层传到下层，例如在一个页面中，从服务器请求了许多数据，其中一部分数据并非整个页面的大组件来展示，而是需要下面的小组件来展示，这时，并不会让小组件再发一次网络请求，而是让大组件将数据传给小组件，这是就涉及到父子组件之间的通信，有两种方式：通过props向子组件传递数据和通过事件向父组件发送消息。</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/10/08/7NDfCeuZXOgqELG.png" alt=""></p>
+<ol start="11">
+<li>在组件中，使用选项props来声明需要从父级接受的数据。</li>
+</ol>
+<p>props的值有两种方式：</p>
+<p>1）字符串数组，数组中的字符串就是传递时的名称；</p>
+<p>2）对象，对象可以设置传递时的类型，也可以设置默认值等；</p>
+<p><img src="https://i.loli.net/2019/10/08/kbKwUJmEgjFx9HI.png" alt=""></p>
+<ol start="12">
+<li>子组件向父组件发送数据：子组件内部先通过&amp;emit()定义发射事件，父组件中监听（类似于系统自带的click等监听），监听到后执行相应的响应函数即可。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//子组件</span><br><span class="line">            methods: &#123;</span><br><span class="line">                btnClick(item) &#123;</span><br><span class="line">                    //发射事件(自定义事件)</span><br><span class="line">                    this.$emit(&apos;item-click&apos;, item)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">//监听</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 监听事件 --&gt;</span><br><span class="line">        &lt;cpn @item-click=&quot;cpnClick&quot;&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">//父组件</span><br><span class="line">            methods: &#123;</span><br><span class="line">                cpnClick(item) &#123;</span><br><span class="line">                    console.log(item);                 </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li><p>父子组件的访问：父组件访问子组件使用$children或者$refs；子组件访问父组件使用$parent；子组件访问根组件使用$root</p>
+</li>
+<li><p>在实际开发中，refs用的比较多一些，因为使用children需要使用下标，但是组件顺序可能会有更改，不利于维护</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;btnClick&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">    &lt;cpn&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;cpn&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;cpn ref=&quot;aaa&quot;&gt;&lt;/cpn&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">………………</span><br><span class="line">            methods: &#123;</span><br><span class="line">            btnClick() &#123;</span><br><span class="line">                // 1.$children</span><br><span class="line">                // console.log(this.$children);</span><br><span class="line">                // this.$children[0].showMessage();</span><br><span class="line">                // console.log(this.$children[1].name);</span><br><span class="line"></span><br><span class="line">                //2.$refs</span><br><span class="line">                this.$refs.aaa.showMessage();</span><br><span class="line">                console.log(this.$refs.aaa.name);  </span><br><span class="line">            &#125;</span><br><span class="line"> ………………</span><br><span class="line">          components: &#123;</span><br><span class="line">            cpn: &#123;</span><br><span class="line">                template: &apos;#cpn&apos;,</span><br><span class="line">                data() &#123;</span><br><span class="line">                    return &#123;</span><br><span class="line">                        name: &apos;我是子组件的name&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                methods: &#123;</span><br><span class="line">                    showMessage() &#123;</span><br><span class="line">                        console.log(&apos;aaaaaaaa&apos;);</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="15">
+<li><p>$parent在实际开发中应用不多，因为组件强调的是复用性，在组件中使用$parent可能会导致其和父组件的耦合度太高。</p>
+</li>
+<li><p>组件的插槽slot是为了让组件有更强的扩展性，往往需要的一些组件之间有很多区别，但也有很多共性，每个都封装成一个单独的不太合理，将所有的都封装成一个也不合理，这里就需要用到slot，slot就是占位，具体占好位置放什么可以由调用者决定；</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;cpn&gt;&lt;button&gt;按钮&lt;/button&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;cpn&gt;&lt;span&gt;哈哈哈&lt;/span&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;cpn&gt;</span><br><span class="line">        &lt;p&gt;哦哦哦&lt;/p&gt;</span><br><span class="line">        &lt;i&gt;呵呵呵&lt;/i&gt;</span><br><span class="line">    &lt;/cpn&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;template id=&quot;cpn&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h2&gt;我是组件&lt;/h2&gt;</span><br><span class="line">        &lt;p&gt;我是组件，嘿嘿嘿&lt;/p&gt;</span><br><span class="line">        &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="17">
+<li>作用域插槽：举例：子组件中包含一组数据，pLanguages: [‘JavaScript’,’Python’,’Java’,’C++’]，要求进行不同的展示效果，例如以列表形式展示，以水平方向展示等等</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;!-- 默认以列表进行展示 --&gt;</span><br><span class="line">    &lt;cpn&gt;&lt;/cpn&gt;</span><br><span class="line">    &lt;!-- 以水平方式进行展示 --&gt;</span><br><span class="line">    &lt;cpn&gt;</span><br><span class="line">        &lt;!-- 目的是获取子组件的pLanguages --&gt;</span><br><span class="line">        &lt;template slot-scope=&quot;slot&quot;&gt;</span><br><span class="line">            &lt;!-- &lt;span v-for=&quot;item in slot.data&quot;&gt;&#123;&#123;item&#125;&#125; ** &lt;/span&gt; --&gt;</span><br><span class="line">            &lt;span&gt;&#123;&#123;slot.data.join(&apos; * &apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">    &lt;/cpn&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;template id=&quot;cpn&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;slot :data=&quot;pLanguages&quot;&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li v-for=&quot;item in pLanguages&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       

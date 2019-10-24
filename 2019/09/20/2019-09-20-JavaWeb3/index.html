@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Gsynf | My Blog">
 <meta property="og:description" content="responseresponse的OutputStream输出数据123456789String data = &amp;quot;中国&amp;quot;;OutputStream out = response.getOutputStream();		&#x2F;&#x2F;字节流out.write(data.getByte());		&#x2F;&#x2F;这样在浏览器显示是正确的----------------------------------">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-23T01:06:27.747Z">
+<meta property="og:updated_time" content="2019-10-24T14:40:05.652Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -438,95 +438,38 @@
 <h2 id="request获取请求头和请求数据"><a href="#request获取请求头和请求数据" class="headerlink" title="request获取请求头和请求数据"></a>request获取请求头和请求数据</h2><p>获取请求头：request.getHeader()/request.getHeaders()/request.getHeaderNames()；</p>
 <p>获取客户端带来的数据：</p>
 <p>首先，客户端一般有两种方式带数据</p>
-<ol>
-<li><pre><code>//通过超链接
-&lt;a href=&quot;RequestDemo?username=xxx&quot;&gt;点我&lt;/a&gt;    
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
-//通过表单
-&lt;form action=&quot;RequestDemo&quot; method=&quot;post&quot;&gt;
-    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;br&gt;
-&lt;/form&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request获取：</span><br></pre></td></tr></table></figure>
-String value = request.getParameter(&quot;username&quot;);
-//tip:获取请求数据要先检查再使用，如先判断输入是否为空或者是否为空格
-if(value != null &amp;&amp; !value,trim().equals(&quot;&quot;)){
- System.out.println(values);
-}</code></pre></li>
-</ol>
-<hr>
-<p>//所有name和对应的value<br>Enumeration e = request.getParameterNames();<br>while(e.hasMoreElements()) {<br>    String name = (String)e.nextElement();<br>    value = request.getParameter(name);<br>    System.out.println(name+”=”+value);<br>}</p>
-<hr>
-<p>//一个name的所有value<br>String[] values = request.getParameterValues(“username”)；<br>for(int i = 0;values != null &amp;&amp; i &lt; values.length;i++){<br>    System.out.println(values[i]);<br>}</p>
-<hr>
-<p>//存到Map中<br>//需要首先先建好一个User.java的对象<br>Map map = request.getParameterMap();<br>User user = new User();<br>//需要导入commons-beanutils.jar和commons-logging,jar<br>BeanUtils.populate(user,map);<br>//有异常try……catch……<br>System.out.println(user);</p>
-<hr>
-<p>//流的方式，但即使获取到也需要解析，因为获取到的格式为“uername=xxx&amp;password=yyy”<br>InputStream in = request.getInputStream();<br>int len = 0;<br>byte buffer[] = new byte[1024];<br>while((len=in.read(buffer))&gt;0){<br>    System.out.println(new String(buffer,0,len));<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request中文乱码</span><br></pre></td></tr></table></figure>
-<p>request.setCharacterEncoding(“UTF-8”);        //只对post提交有效<br>username = new String(username.getBytes(“iso8859-1”),”UTF-8”);    //解决get提交乱码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## request实现请求转发</span><br><span class="line"></span><br><span class="line">请求转发指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</span><br><span class="line"></span><br><span class="line">request对象提供了一个getRequestDispatcher方法，该方法返回一个 RequestDispatcher对象，调用这个对象的forward方法可以实现请求转发。</span><br></pre></td></tr></table></figure>
-<p>String data = “aaaaa”;<br>request.setAttribute(“data”,data);<br>request.getRequestDispatcher(“/1.jsp”).forward(request，response);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request对象同时也是一个域对象，开发人员通过request对象在实现转发时，把数据通过request对象带给其他web资源处理。</span><br><span class="line"></span><br><span class="line">MVC：model-javabean;view-jsp;controller-servlet，流程：jsp收到请求产生数据，数据通过JavaBean封装，JavaBean不适合做输出，会存在request域，jsp再从request中取出进行输出。</span><br><span class="line"></span><br><span class="line">细节一：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前，在servlet程序中写入的部分内容已经被真正的传送到了客户端，forward方法将抛出IIIegalStateException异常，例如。</span><br></pre></td></tr></table></figure>
-<p>if(true){<br>    request.getRequestDispatcher(“/1.jsp”).forward(request，response);<br>}<br>request.getRequestDispatcher(“/2.jsp”).forward(request，response);<br>//解决方案：在第一个forward后加入return;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">细节二：</span><br><span class="line"></span><br><span class="line">如果在调用forward方法之前向servlet引擎的缓冲区，即response中写入了客户端，只要写入到缓冲区中的内容还没有被真正输出到客户端，forward方法就可以被正常执行，原来写入response的内容将被清空，但是，已写入到HttpServletResponse对象中的响应头字段信息保持有效。</span><br><span class="line"></span><br><span class="line">细节三：</span><br><span class="line"></span><br><span class="line">RequestDispatcher对象除了forward方法之外还有一个方法，include方法，例如。</span><br></pre></td></tr></table></figure>
-<p>//例如，每个界面的头脚都一样，单独写一个head.jsp和foot.jsp，在需要的界面引用即可<br>request.getRequestDispatcher(“/head.jsp”).include(request，response);<br>response.getWriter().write(“aaaaa”);<br>request.getRequestDispatcher(“/foot.jsp”).include(request，response);<br>//注意被包含的页面，也就是head.jsp和foot.jsp不要包含全局架构标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># web工程各类地址写法</span><br></pre></td></tr></table></figure>
-<p>//1.<br>request.getRequestDispatcher(“/index.jsp”).forward(request，response);</p>
-<p>//2.<br>response.sendRedirect(“/ProjectName/index.jsp”);</p>
-<p>//3.<br>this.getServletContext().getRealPath(“/index.jsp”);</p>
-<p>//4.<br>this.getServletContext().getResourceAsStream(“/index.jsp”);</p>
-<p>//5.<br>/*<br><a href="/ProjectName/index.jsp">点击</a></p>
-<form action="/ProjectName/index.jsp">
-</form>
-*/
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line"></span><br><span class="line">写地址先写一个斜杠(/)，如果地址是写给服务器用的，这个斜杠就代表web应用；如果地址是写给浏览器的，这个斜杠就代表网站；</span><br><span class="line"></span><br><span class="line"># 利用referer防盗链</span><br></pre></td></tr></table></figure>
-String referer = request.getHeader("referer");        //获得访问链接
-//判断如果是盗链者跳转到首页
-if(referer==null || referer.startsWith("https://localhost")){
-    response.sendRedirect("/ProjectName/index.jsp");
-    return;
-}
-```
+<p>1.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//通过超链接</span><br><span class="line">&lt;a href=&quot;RequestDemo?username=xxx&quot;&gt;点我&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//通过表单</span><br><span class="line">&lt;form action=&quot;RequestDemo&quot; method=&quot;post&quot;&gt;</span><br><span class="line">	用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 
+<p>request获取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">String value = request.getParameter(&quot;username&quot;);</span><br><span class="line">//tip:获取请求数据要先检查再使用，如先判断输入是否为空或者是否为空格</span><br><span class="line">if(value != null &amp;&amp; !value,trim().equals(&quot;&quot;))&#123;</span><br><span class="line">	System.out.println(values);</span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------</span><br><span class="line">//所有name和对应的value</span><br><span class="line">Enumeration e = request.getParameterNames();</span><br><span class="line">while(e.hasMoreElements()) &#123;</span><br><span class="line">	String name = (String)e.nextElement();</span><br><span class="line">	value = request.getParameter(name);</span><br><span class="line">	System.out.println(name+&quot;=&quot;+value);	</span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------</span><br><span class="line">//一个name的所有value</span><br><span class="line">String[] values = request.getParameterValues(“username”)；</span><br><span class="line">for(int i = 0;values != null &amp;&amp; i &lt; values.length;i++)&#123;</span><br><span class="line">	System.out.println(values[i]);	</span><br><span class="line">&#125;</span><br><span class="line">-------------------------------------------------------</span><br><span class="line">//存到Map中</span><br><span class="line">//需要首先先建好一个User.java的对象</span><br><span class="line">Map map = request.getParameterMap();</span><br><span class="line">User user = new User();</span><br><span class="line">//需要导入commons-beanutils.jar和commons-logging,jar</span><br><span class="line">BeanUtils.populate(user,map);</span><br><span class="line">//有异常try……catch……</span><br><span class="line">System.out.println(user);</span><br><span class="line">--------------------------------------------------------</span><br><span class="line">//流的方式，但即使获取到也需要解析，因为获取到的格式为“uername=xxx&amp;password=yyy”</span><br><span class="line">InputStream in = request.getInputStream();</span><br><span class="line">int len = 0;</span><br><span class="line">byte buffer[] = new byte[1024];</span><br><span class="line">while((len=in.read(buffer))&gt;0)&#123;</span><br><span class="line">	System.out.println(new String(buffer,0,len));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="request中文乱码"><a href="#request中文乱码" class="headerlink" title="request中文乱码"></a>request中文乱码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(&quot;UTF-8&quot;);		//只对post提交有效</span><br><span class="line">username = new String(username.getBytes(&quot;iso8859-1&quot;),&quot;UTF-8&quot;);	//解决get提交乱码</span><br></pre></td></tr></table></figure>
 
+<h2 id="request实现请求转发"><a href="#request实现请求转发" class="headerlink" title="request实现请求转发"></a>request实现请求转发</h2><p>请求转发指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</p>
+<p>request对象提供了一个getRequestDispatcher方法，该方法返回一个 RequestDispatcher对象，调用这个对象的forward方法可以实现请求转发。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String data = &quot;aaaaa&quot;;</span><br><span class="line">request.setAttribute(&quot;data&quot;,data);</span><br><span class="line">request.getRequestDispatcher(&quot;/1.jsp&quot;).forward(request，response);</span><br></pre></td></tr></table></figure>
 
+<p>request对象同时也是一个域对象，开发人员通过request对象在实现转发时，把数据通过request对象带给其他web资源处理。</p>
+<p>MVC：model-javabean;view-jsp;controller-servlet，流程：jsp收到请求产生数据，数据通过JavaBean封装，JavaBean不适合做输出，会存在request域，jsp再从request中取出进行输出。</p>
+<p>细节一：</p>
+<p>如果在调用forward方法之前，在servlet程序中写入的部分内容已经被真正的传送到了客户端，forward方法将抛出IIIegalStateException异常，例如。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(true)&#123;</span><br><span class="line">	request.getRequestDispatcher(&quot;/1.jsp&quot;).forward(request，response);</span><br><span class="line">&#125;</span><br><span class="line">request.getRequestDispatcher(&quot;/2.jsp&quot;).forward(request，response);</span><br><span class="line">//解决方案：在第一个forward后加入return;</span><br></pre></td></tr></table></figure>
 
+<p>细节二：</p>
+<p>如果在调用forward方法之前向servlet引擎的缓冲区，即response中写入了客户端，只要写入到缓冲区中的内容还没有被真正输出到客户端，forward方法就可以被正常执行，原来写入response的内容将被清空，但是，已写入到HttpServletResponse对象中的响应头字段信息保持有效。</p>
+<p>细节三：</p>
+<p>RequestDispatcher对象除了forward方法之外还有一个方法，include方法，例如。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//例如，每个界面的头脚都一样，单独写一个head.jsp和foot.jsp，在需要的界面引用即可</span><br><span class="line">request.getRequestDispatcher(&quot;/head.jsp&quot;).include(request，response);</span><br><span class="line">response.getWriter().write(&quot;aaaaa&quot;);</span><br><span class="line">request.getRequestDispatcher(&quot;/foot.jsp&quot;).include(request，response);</span><br><span class="line">//注意被包含的页面，也就是head.jsp和foot.jsp不要包含全局架构标签</span><br></pre></td></tr></table></figure>
 
+<h1 id="web工程各类地址写法"><a href="#web工程各类地址写法" class="headerlink" title="web工程各类地址写法"></a>web工程各类地址写法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//1.</span><br><span class="line">request.getRequestDispatcher(&quot;/index.jsp&quot;).forward(request，response);</span><br><span class="line"></span><br><span class="line">//2.</span><br><span class="line">response.sendRedirect(&quot;/ProjectName/index.jsp&quot;);</span><br><span class="line"></span><br><span class="line">//3.</span><br><span class="line">this.getServletContext().getRealPath(&quot;/index.jsp&quot;);</span><br><span class="line"></span><br><span class="line">//4.</span><br><span class="line">this.getServletContext().getResourceAsStream(&quot;/index.jsp&quot;);</span><br><span class="line"></span><br><span class="line">//5.</span><br><span class="line">/*</span><br><span class="line">&lt;a href=&quot;/ProjectName/index.jsp&quot;&gt;点击&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;/ProjectName/index.jsp&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>总结：</p>
+<p>写地址先写一个斜杠(/)，如果地址是写给服务器用的，这个斜杠就代表web应用；如果地址是写给浏览器的，这个斜杠就代表网站；</p>
+<h1 id="利用referer防盗链"><a href="#利用referer防盗链" class="headerlink" title="利用referer防盗链"></a>利用referer防盗链</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String referer = request.getHeader(&quot;referer&quot;);		//获得访问链接</span><br><span class="line">//判断如果是盗链者跳转到首页</span><br><span class="line">if(referer==null || referer.startsWith(&quot;https://localhost&quot;))&#123;</span><br><span class="line">	response.sendRedirect(&quot;/ProjectName/index.jsp&quot;);</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -752,7 +695,7 @@ if(referer==null || referer.startsWith("https://localhost")){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#response"><span class="nav-number">1.</span> <span class="nav-text">response</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#response的OutputStream输出数据"><span class="nav-number">1.1.</span> <span class="nav-text">response的OutputStream输出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response的Writer输出数据"><span class="nav-number">1.2.</span> <span class="nav-text">response的Writer输出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response下载文件"><span class="nav-number">1.3.</span> <span class="nav-text">response下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response控制浏览器定时刷新"><span class="nav-number">1.4.</span> <span class="nav-text">response控制浏览器定时刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response控制浏览器缓存"><span class="nav-number">1.5.</span> <span class="nav-text">response控制浏览器缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response实现请求重定向"><span class="nav-number">1.6.</span> <span class="nav-text">response实现请求重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response一些细节"><span class="nav-number">1.7.</span> <span class="nav-text">response一些细节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#request"><span class="nav-number">2.</span> <span class="nav-text">request</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RUL和URI"><span class="nav-number">2.1.</span> <span class="nav-text">RUL和URI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request获取请求头和请求数据"><span class="nav-number">2.2.</span> <span class="nav-text">request获取请求头和请求数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#response"><span class="nav-number">1.</span> <span class="nav-text">response</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#response的OutputStream输出数据"><span class="nav-number">1.1.</span> <span class="nav-text">response的OutputStream输出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response的Writer输出数据"><span class="nav-number">1.2.</span> <span class="nav-text">response的Writer输出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response下载文件"><span class="nav-number">1.3.</span> <span class="nav-text">response下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response控制浏览器定时刷新"><span class="nav-number">1.4.</span> <span class="nav-text">response控制浏览器定时刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response控制浏览器缓存"><span class="nav-number">1.5.</span> <span class="nav-text">response控制浏览器缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response实现请求重定向"><span class="nav-number">1.6.</span> <span class="nav-text">response实现请求重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response一些细节"><span class="nav-number">1.7.</span> <span class="nav-text">response一些细节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#request"><span class="nav-number">2.</span> <span class="nav-text">request</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RUL和URI"><span class="nav-number">2.1.</span> <span class="nav-text">RUL和URI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request获取请求头和请求数据"><span class="nav-number">2.2.</span> <span class="nav-text">request获取请求头和请求数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request中文乱码"><span class="nav-number">2.3.</span> <span class="nav-text">request中文乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request实现请求转发"><span class="nav-number">2.4.</span> <span class="nav-text">request实现请求转发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web工程各类地址写法"><span class="nav-number">3.</span> <span class="nav-text">web工程各类地址写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用referer防盗链"><span class="nav-number">4.</span> <span class="nav-text">利用referer防盗链</span></a></li></ol></div>
             
 
           </div>

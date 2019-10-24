@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Gsynf | My Blog">
 <meta property="og:description" content="创建DrawImage Servlet一、创建DrawImage Servlet用来生成验证码图片 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-23T01:07:53.593Z">
+<meta property="og:updated_time" content="2019-10-24T14:40:59.187Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -413,64 +413,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 1 &lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"> 2 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line"> 3 &lt;html&gt;</span><br><span class="line"> 4   &lt;head&gt;</span><br><span class="line"> 5     &lt;title&gt;在Form表单中使用验证码&lt;/title&gt;</span><br><span class="line"> 6     &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> 7     //刷新验证码</span><br><span class="line"> 8     function changeImg(obj,createTypeFlag)&#123;</span><br><span class="line"> 9         document.getElementById(obj.id).src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=&quot;+createTypeFlag+&quot;&amp;&quot;+Math.random();</span><br><span class="line">10     &#125;</span><br><span class="line">11     &lt;/script&gt;</span><br><span class="line">12   &lt;/head&gt;</span><br><span class="line">13   </span><br><span class="line">14   &lt;body&gt;</span><br><span class="line">15         &lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/CheckServlet&quot; method=&quot;post&quot;&gt;</span><br><span class="line">16             数字字母混合验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">17             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage&quot; id=&quot;validateCodeImg1&quot; onclick=&quot;changeImg(this,&apos;nl&apos;)&quot;&gt;</span><br><span class="line">18             &lt;br/&gt;</span><br><span class="line">19             中文验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">20             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=ch&quot; id=&quot;validateCodeImg2&quot; onclick=&quot;changeImg(this,&apos;ch&apos;)&quot;&gt;</span><br><span class="line">21             &lt;br/&gt;</span><br><span class="line">22             英文验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">23             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=l&quot; id=&quot;validateCodeImg3&quot; onclick=&quot;changeImg(this,&apos;l&apos;)&quot;&gt;</span><br><span class="line">24             &lt;br/&gt;</span><br><span class="line">25             数字验证码：&lt;input type=&quot;text&quot; name=&quot;validateCode&quot;/&gt;</span><br><span class="line">26             &lt;img alt=&quot;验证码看不清，换一张&quot; src=&quot;$&#123;pageContext.request.contextPath&#125;/servlet/DrawImage?createTypeFlag=n&quot; id=&quot;validateCodeImg4&quot; onclick=&quot;changeImg(this,&apos;n&apos;)&quot;&gt;</span><br><span class="line">27             &lt;br/&gt;</span><br><span class="line">28             &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">29         &lt;/form&gt;</span><br><span class="line">30   &lt;/body&gt;</span><br><span class="line">31 &lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <h1 id="三、服务器端对form表单提交上来的验证码处理"><a href="#三、服务器端对form表单提交上来的验证码处理" class="headerlink" title="三、服务器端对form表单提交上来的验证码处理"></a><strong>三、服务器端对form表单提交上来的验证码处理</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 1 package gacl.response.study;</span><br><span class="line"> 2 import java.io.IOException;</span><br><span class="line"> 3 import javax.servlet.ServletException;</span><br><span class="line"> 4 import javax.servlet.http.HttpServlet;</span><br><span class="line"> 5 import javax.servlet.http.HttpServletRequest;</span><br><span class="line"> 6 import javax.servlet.http.HttpServletResponse;</span><br><span class="line"> 7 /**</span><br><span class="line"> 8  * @author gacl</span><br><span class="line"> 9  * 服务器端接收到验证码后的处理</span><br><span class="line">10  */</span><br><span class="line">11 public class CheckServlet extends HttpServlet &#123;</span><br><span class="line">12     public void doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">13             throws ServletException, IOException &#123;</span><br><span class="line">14         String clientCheckcode = request.getParameter(&quot;validateCode&quot;);//接收客户端浏览器提交上来的验证码</span><br><span class="line">15         String serverCheckcode = (String) request.getSession().getAttribute(&quot;checkcode&quot;);//从服务器端的session中取出验证码</span><br><span class="line">16         if (clientCheckcode != null &amp;&amp; serverCheckcode != null &amp;&amp; clientCheckcode.equals(serverCheckcode)) &#123;//将客户端验证码和服务器端验证比较，如果相等，则表示验证通过</span><br><span class="line">17             System.out.println(&quot;验证码验证通过！&quot;);</span><br><span class="line">18         &#125;else &#123;</span><br><span class="line">19             System.out.println(&quot;验证码验证失败！&quot;);</span><br><span class="line">20         &#125;</span><br><span class="line">21     &#125;</span><br><span class="line">22 </span><br><span class="line">23     public void doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">24             throws ServletException, IOException &#123;</span><br><span class="line">25         doGet(request, response);</span><br><span class="line">26     &#125;</span><br><span class="line">27 </span><br><span class="line">28 &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

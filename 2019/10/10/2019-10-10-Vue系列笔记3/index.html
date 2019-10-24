@@ -108,7 +108,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;13&#x2F;qBbNAZ9kwSX5oml.png">
 <meta property="og:image" content="c:%5CUsers%5Cgsynf%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570934287208.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;13&#x2F;5MzCDKqNBlLSZiG.png">
-<meta property="og:updated_time" content="2019-10-23T14:03:06.019Z">
+<meta property="og:updated_time" content="2019-10-24T14:43:52.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;11&#x2F;I7D6mBGlnfUhOxj.png">
 
@@ -493,18 +493,17 @@
 <p><img src="https://i.loli.net/2019/10/12/diyYvSRof14FgCI.png" alt=""></p>
 <ol start="18">
 <li><ul>
-<li><p>runtime-compiler—&gt;代码中可以有template</p>
+<li>runtime-compiler—&gt;代码中可以有template</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// template -&gt; ast -&gt; render -&gt; vdom -&gt; UI</span><br><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
-</ul>
-</li>
 </ol>
 <pre><code>* runtime-only---&gt;代码中不可以有任何的template，性能更好，代码量更少，少6KB。
 
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// render -&gt; vdom -&gt; UI</span><br><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// render -&gt; vdom -&gt; UI</span><br><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 ​    </code></pre><ol start="19">
 <li>npm run build/dev具体执行示意</li>
