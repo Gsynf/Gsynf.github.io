@@ -2095,14 +2095,6 @@ public void 方法名() **throws** 自定义Exception {
 <td>wrap-reverse</td>
 <td>规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 <p>6、flex-flow是flex-direction、flex-wrap的简写形式</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">flex-direction</span>  <span class="selector-tag">flex-wrap</span>;</span><br></pre></td></tr></table></figure>
@@ -2583,6 +2575,82 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-CSS入门及提高7</title>
+    <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h1><p>所谓层叠性是指多种CSS样式的叠加。</p>
+<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉。</p>
+<p>比如先给某个标签指定了内部文字颜色为红色，接着又指定了颜色为蓝色，此时出现一个标签指定了相同样式不同值的情况，这就是样式冲突。</p>
+<p>一般情况下，如果出现样式冲突，则会按照CSS书写的顺序，以最后的样式为准。</p>
+<ol>
+<li>样式冲突，遵循的原则是就近原则。 那个样式离着结构近，就执行那个样式。</li>
+<li>样式不冲突，不会层叠</li>
+</ol>
+<h1 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h1><p>所谓继承性是指书写CSS样式表时，子标签会继承父标签的某些样式，如文本颜色和字号。想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">恰当地使用继承可以简化代码，降低CSS样式的复杂性。子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性）</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h1><p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，这时就会出现优先级的问题。</p>
+<h2 id="CSS特殊性"><a href="#CSS特殊性" class="headerlink" title="CSS特殊性"></a>CSS特殊性</h2><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity，我们称为CSS 特性或称非凡性，它是一个衡量CSS值优先级的一个标准 具体规范入如下：</p>
+<p>specificity用一个四位的数 字串(CSS2是三位)来表示，更像四个级别，值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </p>
+<table>
+<thead>
+<tr>
+<th>继承或者* 的贡献值</th>
+<th>0,0,0,0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>每个元素（标签）贡献值为</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类贡献值为</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID贡献值为</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式贡献值</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important贡献值</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<p>权重是可以叠加的</p>
+<p> 比如的例子：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div ul  li   ------&gt;      0,0,0,3</span><br><span class="line"></span><br><span class="line">.nav ul li   ------&gt;      0,0,1,2</span><br><span class="line"></span><br><span class="line">a:hover      -----—&gt;      0,0,1,1</span><br><span class="line"></span><br><span class="line">.nav a       ------&gt;      0,0,1,1   </span><br><span class="line"></span><br><span class="line">#nav p       -----&gt;       0,1,0,1</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<p>1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</p>
+<ol start="2">
+<li>继承的 权重是 0</li>
+</ol>
+<p>总结优先级：</p>
+<ol>
+<li>使用了 !important声明的规则。</li>
+<li>内嵌在 HTML 元素的 style属性里面的声明。</li>
+<li>使用了 ID 选择器的规则。</li>
+<li>使用了类选择器、属性选择器、伪元素和伪类选择器的规则。</li>
+<li>使用了元素选择器的规则。</li>
+<li>只包含一个通用选择器的规则。</li>
+<li>同一类选择器则遵循就近原则。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">总结：权重是优先级的算法，层叠是优先级的表现</span><br></pre></td></tr></table></figure>
+<p>​ </p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-CSS入门及提高8</title>
     <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%988/</url>
     <content><![CDATA[<blockquote>
@@ -2772,82 +2840,6 @@ public void 方法名() **throws** 自定义Exception {
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">10px</span> solid orange;</span><br><span class="line">  <span class="attribute">box-shadow</span>:<span class="number">3px</span> <span class="number">3px</span> <span class="number">5px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(0,0,0,1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发(1)-CSS入门及提高7</title>
-    <url>/2019/08/05/2019-08-05-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%987/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h1><p>所谓层叠性是指多种CSS样式的叠加。</p>
-<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉。</p>
-<p>比如先给某个标签指定了内部文字颜色为红色，接着又指定了颜色为蓝色，此时出现一个标签指定了相同样式不同值的情况，这就是样式冲突。</p>
-<p>一般情况下，如果出现样式冲突，则会按照CSS书写的顺序，以最后的样式为准。</p>
-<ol>
-<li>样式冲突，遵循的原则是就近原则。 那个样式离着结构近，就执行那个样式。</li>
-<li>样式不冲突，不会层叠</li>
-</ol>
-<h1 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h1><p>所谓继承性是指书写CSS样式表时，子标签会继承父标签的某些样式，如文本颜色和字号。想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">恰当地使用继承可以简化代码，降低CSS样式的复杂性。子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性）</span><br></pre></td></tr></table></figure>
-
-<h1 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h1><p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，这时就会出现优先级的问题。</p>
-<h2 id="CSS特殊性"><a href="#CSS特殊性" class="headerlink" title="CSS特殊性"></a>CSS特殊性</h2><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity，我们称为CSS 特性或称非凡性，它是一个衡量CSS值优先级的一个标准 具体规范入如下：</p>
-<p>specificity用一个四位的数 字串(CSS2是三位)来表示，更像四个级别，值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </p>
-<table>
-<thead>
-<tr>
-<th>继承或者* 的贡献值</th>
-<th>0,0,0,0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>每个元素（标签）贡献值为</td>
-<td>0,0,0,1</td>
-</tr>
-<tr>
-<td>每个类，伪类贡献值为</td>
-<td>0,0,1,0</td>
-</tr>
-<tr>
-<td>每个ID贡献值为</td>
-<td>0,1,0,0</td>
-</tr>
-<tr>
-<td>每个行内样式贡献值</td>
-<td>1,0,0,0</td>
-</tr>
-<tr>
-<td>每个!important贡献值</td>
-<td>∞ 无穷大</td>
-</tr>
-</tbody></table>
-<p>权重是可以叠加的</p>
-<p> 比如的例子：</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div ul  li   ------&gt;      0,0,0,3</span><br><span class="line"></span><br><span class="line">.nav ul li   ------&gt;      0,0,1,2</span><br><span class="line"></span><br><span class="line">a:hover      -----—&gt;      0,0,1,1</span><br><span class="line"></span><br><span class="line">.nav a       ------&gt;      0,0,1,1   </span><br><span class="line"></span><br><span class="line">#nav p       -----&gt;       0,1,0,1</span><br></pre></td></tr></table></figure>
-
-<p>注意： </p>
-<p>1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</p>
-<ol start="2">
-<li>继承的 权重是 0</li>
-</ol>
-<p>总结优先级：</p>
-<ol>
-<li>使用了 !important声明的规则。</li>
-<li>内嵌在 HTML 元素的 style属性里面的声明。</li>
-<li>使用了 ID 选择器的规则。</li>
-<li>使用了类选择器、属性选择器、伪元素和伪类选择器的规则。</li>
-<li>使用了元素选择器的规则。</li>
-<li>只包含一个通用选择器的规则。</li>
-<li>同一类选择器则遵循就近原则。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">总结：权重是优先级的算法，层叠是优先级的表现</span><br></pre></td></tr></table></figure>
-<p>​ </p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -3200,6 +3192,72 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-CSS入门及提高2</title>
+    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
+<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
+
+<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
+
+<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+<p>用法基本和类选择器相同。</p>
+<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
+<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
+<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
+<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
+<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
+<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
+<li>:link      /* 未访问的链接 */</li>
+<li>:visited   /* 已访问的链接 */</li>
+<li>:hover     /* 鼠标移动到链接上 */</li>
+<li>:active    /* 选定的链接 */</li>
+</ul>
+<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
+<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
+<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
+<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
+</ul>
+<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-CSS入门及提高1</title>
     <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/</url>
     <content><![CDATA[<blockquote>
@@ -3302,72 +3360,6 @@ public void 方法名() **throws** 自定义Exception {
 
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</span><br><span class="line"></span><br><span class="line">注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</span><br></pre></td></tr></table></figure>
-
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发(1)-CSS入门及提高2</title>
-    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
-<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
-
-<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
-
-<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
-
-<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-<p>用法基本和类选择器相同。</p>
-<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
-<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
-<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
-<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
-<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
-<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
-<li>:link      /* 未访问的链接 */</li>
-<li>:visited   /* 已访问的链接 */</li>
-<li>:hover     /* 鼠标移动到链接上 */</li>
-<li>:active    /* 选定的链接 */</li>
-</ul>
-<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
-<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
-<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
-<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
-<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
-<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
-</ul>
-<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
@@ -3621,6 +3613,68 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-HTML入门与实践1</title>
+    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
+</blockquote>
+<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
+<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
+</li>
+<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
+</li>
+<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
+</li>
+<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
+</li>
+</ol>
+<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
+<ol>
+<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
+<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
+<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
+</ol>
+<p>理想状态的源码：.html .css .js</p>
+<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
+<p>1.双标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.单标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
+<ol>
+<li>html: 5   </li>
+<li>!</li>
+</ol>
+<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
+<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
+
+<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-HTML入门与实践2</title>
     <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B52/</url>
     <content><![CDATA[<blockquote>
@@ -3707,68 +3761,6 @@ public void 方法名() **throws** 自定义Exception {
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词1<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词2<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://i.loli.net/2019/07/16/5d2ddadf1f0e569351.png" alt="总结"></p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发(1)-HTML入门与实践1</title>
-    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
-</blockquote>
-<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
-<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
-</li>
-<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
-</li>
-<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
-</li>
-<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
-</li>
-</ol>
-<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
-<ol>
-<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
-<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
-<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
-</ol>
-<p>理想状态的源码：.html .css .js</p>
-<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
-<p>1.双标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>2.单标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
-<ol>
-<li>html: 5   </li>
-<li>!</li>
-</ol>
-<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
-
-<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
-<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
-<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
-
-<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -4220,6 +4212,26 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
+    <title>Python语言程序设计_1</title>
+    <url>/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/</url>
+    <content><![CDATA[<blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="编译与解释"><a href="#编译与解释" class="headerlink" title="编译与解释"></a>编译与解释</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>将源代码一次性转换为目标代码的过程。类似英文翻译。<br><img src="https://i.loli.net/2019/05/17/5cde554bd813521498.png" alt="编译"></p>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>将源代码逐条转换为目标代码同时逐条运行的过程。类似实时同声传译。<br><img src="https://i.loli.net/2019/05/17/5cde55678fc4c61789.png" alt="解释"></p>
+<h1 id="静态语言和脚本语言"><a href="#静态语言和脚本语言" class="headerlink" title="静态语言和脚本语言"></a>静态语言和脚本语言</h1><h2 id="静态语言"><a href="#静态语言" class="headerlink" title="静态语言"></a>静态语言</h2><p>使用编译执行的编程语言，运行速度更快。C/C++/Java等。</p>
+<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><p>使用解释执行的编程语言，维护更方便。Python/JavaScript/Php等。</p>
+<h1 id="温度转换实例"><a href="#温度转换实例" class="headerlink" title="温度转换实例"></a>温度转换实例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#TempConvert.py</span><br><span class="line">TempStr = input(&quot;请输入带有符号的温度值: &quot;)</span><br><span class="line">if TempStr[-1] in [&apos;F&apos;, &apos;f&apos;]:</span><br><span class="line">    C = (eval(TempStr[0:-1]) - 32)/1.8</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;C&quot;.format(C))</span><br><span class="line">elif TempStr[-1] in [&apos;C&apos;, &apos;c&apos;]:</span><br><span class="line">    F = 1.8*eval(TempStr[0:-1]) + 32</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;F&quot;.format(F))</span><br><span class="line">else:</span><br><span class="line">    print(&quot;输入格式错误&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>MOOC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python语言程序设计_2</title>
     <url>/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_2/</url>
     <content><![CDATA[<blockquote>
@@ -4245,26 +4257,6 @@ from &lt;库名&gt; import *
 </ol>
 <pre><code>import &lt;库名&gt; as &lt;库别名&gt;
 &lt;库别名&gt;.&lt;函数名&gt;（&lt;函数参数&gt;）</code></pre><p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>MOOC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python语言程序设计_1</title>
-    <url>/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/</url>
-    <content><![CDATA[<blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-268001?tid=1206073223#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="编译与解释"><a href="#编译与解释" class="headerlink" title="编译与解释"></a>编译与解释</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>将源代码一次性转换为目标代码的过程。类似英文翻译。<br><img src="https://i.loli.net/2019/05/17/5cde554bd813521498.png" alt="编译"></p>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>将源代码逐条转换为目标代码同时逐条运行的过程。类似实时同声传译。<br><img src="https://i.loli.net/2019/05/17/5cde55678fc4c61789.png" alt="解释"></p>
-<h1 id="静态语言和脚本语言"><a href="#静态语言和脚本语言" class="headerlink" title="静态语言和脚本语言"></a>静态语言和脚本语言</h1><h2 id="静态语言"><a href="#静态语言" class="headerlink" title="静态语言"></a>静态语言</h2><p>使用编译执行的编程语言，运行速度更快。C/C++/Java等。</p>
-<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><p>使用解释执行的编程语言，维护更方便。Python/JavaScript/Php等。</p>
-<h1 id="温度转换实例"><a href="#温度转换实例" class="headerlink" title="温度转换实例"></a>温度转换实例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#TempConvert.py</span><br><span class="line">TempStr = input(&quot;请输入带有符号的温度值: &quot;)</span><br><span class="line">if TempStr[-1] in [&apos;F&apos;, &apos;f&apos;]:</span><br><span class="line">    C = (eval(TempStr[0:-1]) - 32)/1.8</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;C&quot;.format(C))</span><br><span class="line">elif TempStr[-1] in [&apos;C&apos;, &apos;c&apos;]:</span><br><span class="line">    F = 1.8*eval(TempStr[0:-1]) + 32</span><br><span class="line">    print(&quot;转换后的温度是&#123;:.2f&#125;F&quot;.format(F))</span><br><span class="line">else:</span><br><span class="line">    print(&quot;输入格式错误&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -4580,14 +4572,14 @@ from &lt;库名&gt; import *
 <p>[36]通过添加一个分支来预测每个感兴趣区域（RoI）上的分割掩模，并与现有分支进行分类和边界框回归（图1）。掩模分支是应用于每个RoI的小FCN，以像素 - 顶像素方式预测分割掩模。由于R-CNN框架更加快速，面罩R-CNN的实施和训练变得非常简单，这有助于广泛的灵活架构设计。另外，掩码分支只会增加一个小的计算开销，从而实现快速系统和快速实验。<br>原则上，Mask R-CNN是R-CNN的直观扩展，但正确构建掩模分支对于获得好的结果至关重要。最重要的是，更快的RCNN并非针对网络输入和输出之间的像素对像素对齐而设计的。RoIPool [18,12]是参与实例的事实核心操作，为特征提取执行粗略的空间量化，这一点最为明显。为了找到错位，我们提出了一个简单的，无量化的图层，称为RoIAlign，忠实地保留了确切的空间位置。尽管1遵循通用术语，但我们使用对象检测来表示通过边界框而不是掩码进行检测，并使用语义分割来表示每像素分类而不区分实例。但是我们注意到，实例分割既是语义的，也是一种检测形式。<br><img src="https://i.loli.net/2019/04/29/5cc658728ff4e.png" alt="figure2"><br><em>图2.掩盖COCO测试集上的R-CNN结果。这些结果基于ResNet-101 [19]，实现了35.7的掩模AP，并以5 fps运行。面具以彩色显示，还显示了边界框，类别和置信度。</em></p>
 <p>一个看似微小的变化，RoIAlign具有很大的影响：它将掩模精度提高了10％到50％，在更严格的本地化指标下显示出更大的收益。其次，我们发现解耦模板和类别预测至关重要：我们独立预测每个类别的二进制掩码，而不需要在类别间进行竞争，并依靠网络的RoI分类分支来预测类别。相比之下，FCNs通常执行每像素多类别分类，结合分割和分类，并基于我们的实验在分割实例方面效果不佳。<br>没有花里胡哨之力，Mask R-CNN超越了COCO实例分割任务中所有先前的最新单模型结果[28]，其中包括来自2016年竞赛冠军的大量工程项目。作为副产品，我们的方法也擅长COCO物体检测任务。在消融实验中，我们评估了多个基本实例，这使我们能够展示其强大性并分析核心因素的影响。<br>我们的模型可以在GPU上以每帧200毫秒的速度运行，并且在单个8 GPU计算机上进行COCO培训需要一到两天。我们相信，快速训练和测试速度，以及框架的灵活性和准确性，将会对实例分割的未来研究起到一定的作用。<br>最后，我们通过COCO关键点数据集上的人体姿态估计任务展示了我们框架的一般性[28]。通过将每个关键点视为一个热门的二进制掩码，只需进行最少的修改Mask R-CNN可用于检测实例特定的姿势。Mask R-CNN超越2016年COCO关键点竞赛的冠军，同时运行速度为5 fps。因此，面膜R-CNN可以更广泛地视为实例级别识别的灵活框架，并且可以很容易地扩展到更复杂的任务。<br>我们已发布代码以促进未来的研究。</p>
 <h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2.Related Work"></a>2.Related Work</h1><p>R-CNN：基于区域的CNN（R-CNN）方法[13]对边界框对象进行检测是为了关注可管理数量的候选目标区域[42,20]并独立评估卷积网络[25,24]在每个RoI上。R-CNN得到了扩展[18,12]，允许使用RoIPool在功能地图上参与RoI，从而实现更快的速度和更高的准确性。更快的R-CNN [36]通过学习区域建议网络（RPN）的注意机制来推进这一流程。更快速的R-CNN灵活性强，适用于许多后续改进（例如[38,27,21]），并且是几个基准测试中的当前领先框架。<br>实例细分：在RCNN的有效性的推动下，许多实例细分的方法都基于细分提案。早期的方法[13,15,16,9]采用了自下而上的方法[42,2]。DeepMask [33]和以下着作[34,8]学会提出片段候选者，然后由Fast R-CNN进行分类。在这些方法中，分割先于识别，这是缓慢的并且不太准确。同样，戴等人。 [10]提出了一个复杂的多级级联，从包围盒提议中预测段提议，然后进行分类。相反，我们的方法基于面具和类标签的并行预测，它更简单，更灵活。<br>最近，李等人。 [26]将[8]中的段提议系统和[11]中的对象检测系统合并为“完全卷积实例分段”（FCIS）。[8,11,26]中的共同想法是预测一组完全卷积的位置敏感输出通道。这些通道同时处理对象类，框和掩码，使系统更快。但是FCIS在重叠实例上表现出系统性错误并产生虚假边缘（图6），表明它受到分割实例的根本困难的挑战。<br>另一个解决方案家族[23,4,3,29]实例分割是由语义分割的成功驱动的。从每像素分类结果（例如，FCN输出）开始，这些方法试图将相同类别的像素切割成不同的实例。与这些方法的分段第一策略相比，Mask R-CNN基于实例第一策略。我们预计未来将研究更深入的两种战略。</p>
-<h1 id="3-Mask-R-CNN"><a href="#3-Mask-R-CNN" class="headerlink" title="3.Mask R-CNN"></a>3.Mask R-CNN</h1><p>掩码R-CNN在概念上是简单的：更快的R-CNN对于每个候选对象具有两个输出，一个类别标签和一个边界框偏移;为此，我们添加一个输出对象掩码的第三个分支。面具R-CNN因此是一个自然而直观的想法。但是额外的掩码输出与类和盒输出不同，需要提取对象的更精细的空间布局。接下来，我们介绍Mask R-CNN的关键元素，包括像素对像素对齐，这是Fast / Faster R-CNN的主要缺失部分。<br>更快的R-CNN：我们首先回顾一下更快的R-CNN探测器[36]。更快的R-CNN由两个阶段组成。第一阶段称为区域提议网络（RPN），提出候选对象边界框。第二阶段本质上是Fast R-CNN [12]，使用每个候选框中的RoIPool提取特征，并执行分类和边界框回归。两个阶段使用的功能可以共享以加快推断速度。我们引用读者[21]对Faster R-CNN和其他框架进行最新，全面的比较。<br>掩码R-CNN：掩码R-CNN采用相同的两阶段过程，具有相同的第一阶段（即RPN）。在第二阶段，与预测类和盒子偏移并行，Mask R-CNN也为每个RoI输出一个二进制掩码。这与大多数最近的系统形成对比，其中分类依赖于掩模预测（例如[33,10,26]）。我们的方法遵循Fast R-CNN [12]的精神，它并行地应用了边界框分类和回归（其原来大大简化了原始R-CNN的多级流水线[13]）。<br>形式上，在训练期间，我们将每个抽样的RoI的多任务丢失定义为L = Lcls + Lbox + Lmask。分类损失Lcls和边界框损失Lbox与[12]中定义的相同。掩码分支对每个RoI都有一个Km<sup>2</sup>维输出，它编码分辨率为m*m的K个二进制掩码，每个K类一个掩码。为此，我们应用每像素S形，并将Lmask定义为平均二叉交叉熵损失。对于与地面实况类别k相关的RoI，Lmask仅在第k个掩模上定义（其他掩模输出不会造成损失）。<br>我们对Lmask的定义允许网络为每个班级生成口罩，而不需要在班级间进行竞争;我们依靠专用分类分支来预测用于选择输出掩码的类别标签。这样可以将掩码和类别预测分开。这与将FCN [30]应用于语义分割时的常见做法不同，后者通常使用每像素softmax和多项叉熵损失。在这种情况下，跨班级的面具竞争;在我们的例子中，每像素S形和二进制丢失，他们不。我们通过实验显示这个公式对于良好的实例分割结果是关键的。<br><img src="https://i.loli.net/2019/04/29/5cc65a2a8366b.png" alt="figure3"></p>
-<p>掩码表示法：掩码编码输入对象的空间布局。因此，与通过完全连接（fc）层不可避免地折叠成短输出矢量的类标签或框偏移不同，提取掩模的空间结构可以通过卷积提供的像素到像素对应自然地解决。<br>具体而言，我们使用FCN预测每个RoI的m<em>m掩码[30]。这允许掩码分支中的每个层保持显式m * m对象空间布局，而不将其折叠成缺少空间维度的向量表示。与之前采用fc层进行掩模预测的方法不同[33,34,10]，我们的完全卷积表示需要更少的参数，并且如实验所证明的那样更精确。<br>这种像素到像素的行为要求我们的RoI特征（它们本身是小特征图）能够很好地对齐以忠实地保留显式的每像素空间对应关系。这促使我们开发了以下RoAlign图层，该图层在遮罩预测中发挥关键作用。<br>RoIlign：RoIPool [12]是从每个RoI提取小特征映射（例如7×7）的标准操作。RoIPool首先将浮点数RoI量化为特征映射的离散粒度，然后将这个量化的RoI细分为自身量化的空间仓，最后汇总每个仓所涵盖的特征值（通常通过最大池）。例如，通过计算在连续坐标x上执行量化，其中16是特征映射步长并且是舍入;同样地，当分成分箱（例如，7×7）时执行量化。这些量化引入了RoI和提取的特征之间的错位。虽然这可能不会影响分类，这对于小型翻译很有用，但它对预测像素精确的蒙版有很大的负面影响。<br>为了解决这个问题，我们提出一个RoIlign层，它可以消除RoIPool的严格量化，正确地将提取的特征与输入对齐。我们提出的改变很简单：我们避免任何RoI边界或分区的量化（即，我们使用x/16而不是|x/16|）。我们使用双线性插值[22]来计算每个RoI bin中四个有规律采样位置的输入特征的精确值，并汇总结果（使用最大值或平均值），详细信息请参见图3。我们注意到，只要未执行量化，结果对精确的采样位置不敏感，或者采样了多少个点。<br>正如我们在§4.2中所展示的，RoIAlign带来了巨大的改进。我们也比较了[10]中提出的RoIWarp操作。与RoIlign不同，RoIWarp忽略了对齐问题，并在[10]中将RoI与RoIPool一样量化为RoI。所以即使RoIWarp也采用[22]激励的双线性重采样，它可以像RoIPool一样实验（表2c中的更多细节），证明了对齐的关键作用。<br>网络体系结构：为了演示我们的方法的一般性，我们实例化具有多种体系结构的Mask R-CNN。为了清楚起见，我们区分：（i）用于整个图像上的特征提取的卷积骨干架构，以及（ii）用于边界框识别（分类和回归）的网络头和分别应用于每个RoI的掩模预测。我们用命名网络深度特征来表示骨干架构。我们评估深度为50或101层的ResNet [19]和ResNeXt [45]网络。带ResNets的更快的R-CNN的原始实施。<br>[19]从第四阶段的最后卷积层提取特征，我们称之为C4。例如，ResNet-50的骨干用ResNet-50-C4表示。这是[19,10,21,39]中常用的选择。<br>我们还探索了Lin等人最近提出的另一种更有效的骨干。 [27]，称为特征金字塔网络（FPN）。FPN使用具有横向连接的自顶向下架构从单一比例输入构建网络内特征金字塔。更快的R-CNN和FPN骨干网根据其规模从不同层次的特征金字塔中提取RoI特征，但其他方法与vanilla ResNet类似。使用ResNet-FPN主干进行MaskNRCNN特征提取，可以提高精度和速度。有关FPN的更多详细信息，请参阅[27]。<br>对于网络负责人，我们密切关注以前工作中提出的架构，并在其中添加完全卷积掩码预测分支。具体而言，我们从ResNet [19]和FPN [27]论文中扩展了更快的R-CNN盒头。详细情况如图4所示。ResNet-C4主干上包含ResNet的第5级（即9层’res5’[19]），它是计算密集型的。对于FPN，骨干已经包含res5，因此可以使用更少的滤波器来提高效率。我们注意到我们的面具分支有一个简单的结构。更复杂的设计有提高性能的潜力，但不是这项工作的重点。<br><img src="https://i.loli.net/2019/04/29/5cc65b1069756.png" alt="figure4"><br>*图4.头架构：我们扩展了两个现有的更快的RCNN头[19,27]。左/右面板分别显示来自[19]和[27]的ResNet C4和FPN骨干的头部，其中添加了掩膜分支。数字表示空间分辨率和频道。箭头表示可以从上下文推断的conv，deconv或fc图层（conv会保留空间维度，而deconv会增加它）。所有的转换都是3×3，除了输出转换为1×1，解压缩为2×2和步长2，并且我们在隐藏层中使用了ReLU [31]。左：res5表示ResNet的第五阶段，为了简单起见，我们改变了第一阶段的第一阶段，以步幅1（而不是14×14 /步幅2，如[19]中的7×7阶段）操作。右：“×4”表示一连串四次转换。</em></p>
+<h1 id="3-Mask-R-CNN"><a href="#3-Mask-R-CNN" class="headerlink" title="3.Mask R-CNN"></a>3.Mask R-CNN</h1><p>掩码R-CNN在概念上是简单的：更快的R-CNN对于每个候选对象具有两个输出，一个类别标签和一个边界框偏移;为此，我们添加一个输出对象掩码的第三个分支。面具R-CNN因此是一个自然而直观的想法。但是额外的掩码输出与类和盒输出不同，需要提取对象的更精细的空间布局。接下来，我们介绍Mask R-CNN的关键元素，包括像素对像素对齐，这是Fast / Faster R-CNN的主要缺失部分。<br>更快的R-CNN：我们首先回顾一下更快的R-CNN探测器[36]。更快的R-CNN由两个阶段组成。第一阶段称为区域提议网络（RPN），提出候选对象边界框。第二阶段本质上是Fast R-CNN [12]，使用每个候选框中的RoIPool提取特征，并执行分类和边界框回归。两个阶段使用的功能可以共享以加快推断速度。我们引用读者[21]对Faster R-CNN和其他框架进行最新，全面的比较。<br>掩码R-CNN：掩码R-CNN采用相同的两阶段过程，具有相同的第一阶段（即RPN）。在第二阶段，与预测类和盒子偏移并行，Mask R-CNN也为每个RoI输出一个二进制掩码。这与大多数最近的系统形成对比，其中分类依赖于掩模预测（例如[33,10,26]）。我们的方法遵循Fast R-CNN [12]的精神，它并行地应用了边界框分类和回归（其原来大大简化了原始R-CNN的多级流水线[13]）。<br>形式上，在训练期间，我们将每个抽样的RoI的多任务丢失定义为L = Lcls + Lbox + Lmask。分类损失Lcls和边界框损失Lbox与[12]中定义的相同。掩码分支对每个RoI都有一个Km<sup>2</sup>维输出，它编码分辨率为m * m的K个二进制掩码，每个K类一个掩码。为此，我们应用每像素S形，并将Lmask定义为平均二叉交叉熵损失。对于与地面实况类别k相关的RoI，Lmask仅在第k个掩模上定义（其他掩模输出不会造成损失）。<br>我们对Lmask的定义允许网络为每个班级生成口罩，而不需要在班级间进行竞争;我们依靠专用分类分支来预测用于选择输出掩码的类别标签。这样可以将掩码和类别预测分开。这与将FCN [30]应用于语义分割时的常见做法不同，后者通常使用每像素softmax和多项叉熵损失。在这种情况下，跨班级的面具竞争;在我们的例子中，每像素S形和二进制丢失，他们不。我们通过实验显示这个公式对于良好的实例分割结果是关键的。<br><img src="https://i.loli.net/2019/04/29/5cc65a2a8366b.png" alt="figure3"></p>
+<p>掩码表示法：掩码编码输入对象的空间布局。因此，与通过完全连接（fc）层不可避免地折叠成短输出矢量的类标签或框偏移不同，提取掩模的空间结构可以通过卷积提供的像素到像素对应自然地解决。<br>具体而言，我们使用FCN预测每个RoI的m * m掩码[30]。这允许掩码分支中的每个层保持显式m * m对象空间布局，而不将其折叠成缺少空间维度的向量表示。与之前采用fc层进行掩模预测的方法不同[33,34,10]，我们的完全卷积表示需要更少的参数，并且如实验所证明的那样更精确。<br>这种像素到像素的行为要求我们的RoI特征（它们本身是小特征图）能够很好地对齐以忠实地保留显式的每像素空间对应关系。这促使我们开发了以下RoAlign图层，该图层在遮罩预测中发挥关键作用。<br>RoIlign：RoIPool [12]是从每个RoI提取小特征映射（例如7×7）的标准操作。RoIPool首先将浮点数RoI量化为特征映射的离散粒度，然后将这个量化的RoI细分为自身量化的空间仓，最后汇总每个仓所涵盖的特征值（通常通过最大池）。例如，通过计算在连续坐标x上执行量化，其中16是特征映射步长并且是舍入;同样地，当分成分箱（例如，7×7）时执行量化。这些量化引入了RoI和提取的特征之间的错位。虽然这可能不会影响分类，这对于小型翻译很有用，但它对预测像素精确的蒙版有很大的负面影响。<br>为了解决这个问题，我们提出一个RoIlign层，它可以消除RoIPool的严格量化，正确地将提取的特征与输入对齐。我们提出的改变很简单：我们避免任何RoI边界或分区的量化（即，我们使用x/16而不是|x/16|）。我们使用双线性插值[22]来计算每个RoI bin中四个有规律采样位置的输入特征的精确值，并汇总结果（使用最大值或平均值），详细信息请参见图3。我们注意到，只要未执行量化，结果对精确的采样位置不敏感，或者采样了多少个点。<br>正如我们在§4.2中所展示的，RoIAlign带来了巨大的改进。我们也比较了[10]中提出的RoIWarp操作。与RoIlign不同，RoIWarp忽略了对齐问题，并在[10]中将RoI与RoIPool一样量化为RoI。所以即使RoIWarp也采用[22]激励的双线性重采样，它可以像RoIPool一样实验（表2c中的更多细节），证明了对齐的关键作用。<br>网络体系结构：为了演示我们的方法的一般性，我们实例化具有多种体系结构的Mask R-CNN。为了清楚起见，我们区分：（i）用于整个图像上的特征提取的卷积骨干架构，以及（ii）用于边界框识别（分类和回归）的网络头和分别应用于每个RoI的掩模预测。我们用命名网络深度特征来表示骨干架构。我们评估深度为50或101层的ResNet [19]和ResNeXt [45]网络。带ResNets的更快的R-CNN的原始实施。<br>[19]从第四阶段的最后卷积层提取特征，我们称之为C4。例如，ResNet-50的骨干用ResNet-50-C4表示。这是[19,10,21,39]中常用的选择。<br>我们还探索了Lin等人最近提出的另一种更有效的骨干。 [27]，称为特征金字塔网络（FPN）。FPN使用具有横向连接的自顶向下架构从单一比例输入构建网络内特征金字塔。更快的R-CNN和FPN骨干网根据其规模从不同层次的特征金字塔中提取RoI特征，但其他方法与vanilla ResNet类似。使用ResNet-FPN主干进行MaskNRCNN特征提取，可以提高精度和速度。有关FPN的更多详细信息，请参阅[27]。<br>对于网络负责人，我们密切关注以前工作中提出的架构，并在其中添加完全卷积掩码预测分支。具体而言，我们从ResNet [19]和FPN [27]论文中扩展了更快的R-CNN盒头。详细情况如图4所示。ResNet-C4主干上包含ResNet的第5级（即9层’res5’[19]），它是计算密集型的。对于FPN，骨干已经包含res5，因此可以使用更少的滤波器来提高效率。我们注意到我们的面具分支有一个简单的结构。更复杂的设计有提高性能的潜力，但不是这项工作的重点。<br><img src="https://i.loli.net/2019/04/29/5cc65b1069756.png" alt="figure4"><br><em>图4.头架构：我们扩展了两个现有的更快的RCNN头[19,27]。左/右面板分别显示来自[19]和[27]的ResNet C4和FPN骨干的头部，其中添加了掩膜分支。数字表示空间分辨率和频道。箭头表示可以从上下文推断的conv，deconv或fc图层（conv会保留空间维度，而deconv会增加它）。所有的转换都是3×3，除了输出转换为1×1，解压缩为2×2和步长2，并且我们在隐藏层中使用了ReLU [31]。左：res5表示ResNet的第五阶段，为了简单起见，我们改变了第一阶段的第一阶段，以步幅1（而不是14×14 /步幅2，如[19]中的7×7阶段）操作。右：“×4”表示一连串四次转换。</em></p>
 <h2 id="3-1-Implementation-Details"><a href="#3-1-Implementation-Details" class="headerlink" title="3.1.Implementation Details"></a>3.1.Implementation Details</h2><p>我们在现有的快速/更快的R-CNN工作之后设置超参数[12,36,27]。尽管这些决策是在原始文件中进行对象检测的[12,36,27]，但我们发现我们的实例分割系统对它们是强健的。<br>培训：与Fast R-CNN一样，如果RoI的IoU的地面实况框至少为0.5，则认为是正面的，否则为负面。掩模损失Lmask仅在正向RoI上定义。掩码目标是RoI与其关联的地面实况蒙版之间的交集。<br>我们采用图像中心训练[12]。调整图像的大小以使其比例（较短的边缘）为800像素[27]。每个微型批次每个GPU有2个图像，每个图像具有N个采样的RoI，比例为1：3的正负极[12]。C4骨架的N为64（如[12,36]），FPN为512（如[27]）。我们在8个GPU（有效小批量大小为16）上进行160k次迭代训练，学习率为0.02，在120k迭代时减少10。我们使用0.0001的重量衰减和0.9的动量。使用ResNeXt [45]，我们每个GPU训练1个图像，迭代次数相同，初始学习率为0.01。RPN锚点跨越5个尺度和3个纵横比，见[27]。为了方便消融，除非另有说明，否则RPN将单独进行培训并且不会与Mask R-CNN共享特征。对于本文中的每个条目，RPN和Mask R-CNN具有相同的主干，因此它们可共享。<br>推论：在测试时，C4主干的提案编号为300（如[36]），FPN的提案编号为1000（如[27]）。我们对这些提议运行盒子预测分支，然后是非最大抑制[14]。然后将掩码分支应用于得分最高的100个检测框。虽然这与训练中使用的并行计算不同，但它加快了推理速度并提高了准确性（由于使用了更少，更准确的RoI）。掩模分支可以预测每个RoI的K个掩模，但我们只使用第k个掩模，其中k是分类分支预测的类。然后将m×m浮点数掩码输出调整为RoI大小，并在阈值0.5下进行二进制化。<br><img src="https://i.loli.net/2019/04/29/5cc65b990f59b.png" alt="figure5"><br><em>图5.在COCO测试图像上使用ResNet-101-FPN并以5 fps运行并带有35.7掩模AP（表1）的Mask R-CNN的更多结果。</em></p>
 <p><img src="https://i.loli.net/2019/04/29/5cc65bd2acd59.png" alt="table1"><br><em>表1. COCO test-dev上的实例分段掩码AP。跨国公司[10]和FCIS [26]分别是2015年和2016年分类挑战的赢家。没有花里胡哨的，Mask R-CNN胜过了更复杂的FCIS +++，其中包括多尺度训练/测试，水平测试和OHEM [38]。所有条目都是单模型结果。</em></p>
 <p>请注意，由于我们仅计算前100个检测框中的掩码，Mask R-CNN为其较快的R-CNN对象（例如典型模型上的约20％）增加了一个小的开销。</p>
 <h1 id="4-Experiments-Instance-Segmentation"><a href="#4-Experiments-Instance-Segmentation" class="headerlink" title="4.Experiments: Instance Segmentation"></a>4.Experiments: Instance Segmentation</h1><p>我们对Mask R-CNN进行了彻底的比较，并对COCO数据集进行了全面的消融[28]。我们报告标准的COCO指标，包括AP（平均在IoU阈值上），AP50，AP75和APS，APM，APL（AP在不同尺度上）。除非另有说明，否则AP正在使用掩膜IoU进行评估。和以前的工作[5,27]一样，我们训练使用80k列车图像和val图像的35k子集（trainval35k）的联合，并报告其余5k val图像（微型）上的消融。我们还在测试开发中报告结果[28]。</p>
 <h2 id="4-1-Main-Results"><a href="#4-1-Main-Results" class="headerlink" title="4.1.Main Results"></a>4.1.Main Results</h2><p>我们将Mask R-CNN与表1中实例分割中的最新方法进行了比较。我们模型的所有实例都优于先前最先进的模型的基线变体。其中包括MNC [10]和FCIS [26]，分别是2015年和2016年分类挑战的获胜者。ResNet-101-FPN骨干网掩码R-CNN的性能优于FCIS +++ [26]，其中包括多尺度训练/测试，水平流测试和在线硬示例挖掘（OHEM）[38]。虽然超出了本工作的范围，但我们预计许多此类改进将适用于我们的工作。图2和图5中显示了掩膜R-CNN输出。面具R-CNN即使在具有挑战性的条件下也能取得良好效果。在图6中，我们比较了我们的Mask R-CNN基线和FCIS +++ [26]。FCIS +++在重叠的实例中展现出系统性的人为因素，这表明它受到实例分割根本困难的挑战。掩码R-CNN没有显示这样的文物。<br><img src="https://i.loli.net/2019/04/29/5cc65cc9ecfc3.png" alt="figure6&amp;table2"></p>
-<h2 id="4-2-Ablation-Experiments"><a href="#4-2-Ablation-Experiments" class="headerlink" title="4.2. Ablation Experiments"></a>4.2. Ablation Experiments</h2><p>我们运行一些消融来分析Mask R-CNN。结果显示在表2中并在下面详细讨论。<br>架构：表2a显示了具有各种骨架的Mask R-CNN。它受益于更深的网络（50对101）和先进的设计，包括FPN和ResNeXt。我们注意到并非所有框架都自动从更深或更高级的网络中获益（参见[21]中的基准测试）。<br>多项式与独立式掩码：掩码R-CNN分离掩码和类别预测：由于现有的分支预测类别标签，因此我们为每个类别生成一个掩码，而不会在类别间进行竞争（按像素S形和二进制丢失）。在表2b中，我们将其与使用每像素softmax和多项损失（如FCN [30]中常用的）进行比较。这种替代方案将掩模和类别预测的任务相结合，并导致掩模AP（5.5分）的严重损失。这表明一旦实例被整体分类（通过盒子分支），预测二进制掩码就足够了，而不用考虑类别，这使得模型更易于训练。<br>Class-Speci fi c与Class-Agnostic Masks：我们的默认实例化预测了类特定的掩码，即一个m<em>m每个班级的面具。有趣的是，具有分类掩码的掩码R-CNN（即预测单个m*m输出而不管类别）几乎同样有效：它具有29.7掩码AP，而对于ResNet-50-C4上的类别特定对应字符，掩码AP为30.3。这进一步突出了我们的方法中的分工，这种分工在很大程度上将分类和分割分开。<br>Roialign：我们建议的RoIlign层的评估如表2c所示。在这个实验中，我们使用了跨度为16的ResNet50-C4主干。RoIAlign比RoIPool提高了约3个点，其中很大的收益来自高IoU（AP75）。RoIlign对最大/平均水池不敏感;我们在本文的其余部分使用平均值。另外，我们与在MNC [10]中提出的RoIWarp进行比较，该方法也采用双线性采样。正如§3所讨论的那样，RoIWarp仍然量化了RoI，失去了与输入的一致性。从表2c可以看出，RoIWarp的表现与RoIPool相当，比RoIAlign差很多。这突出表明正确的对齐是关键。<br>我们还用一个ResNet-50-C5骨干来评估RoIlign，这个骨干有32个像素的更大步幅。我们使用与图4（右）相同的头，因为res5头不适用。表2d显示RoIAlign提高了掩模AP的7.3点，掩盖AP75 10.5点（相对提高50％）。此外，我们注意到使用RoIAlign，使用步幅-32 C5功能（30.9 AP）比使用步幅-16 C4功能（30.3 AP，表2c）更准确。RoIAlign在很大程度上解决了使用大步功能进行检测和分割的长期挑战。最后，与FPN一起使用时，RoIAlign显示1.5掩模AP和0.5盒AP的增益，FPN具有更精细的多级步幅。对于需要精细对齐的关键点检测，RoIAlign即使使用FPN也显示出较大的增益（表6）。<br><img src="https://i.loli.net/2019/04/29/5cc65e0ebda46.png" alt="table3"><br>*遮罩分支：分割是一个像素到像素的任务，我们通过使用FCN来利用遮罩的空间布局。在表2e中，我们使用ResNet-50-FPN主干比较了多层感知器（MLP）和FCN。使用FCN可以提供2.1 Mbps的AP掩码。我们注意到，我们选择了这个骨干，这样FCN头部的conv层没有经过预先训练，与MLP进行公平比较。</em></p>
+<h2 id="4-2-Ablation-Experiments"><a href="#4-2-Ablation-Experiments" class="headerlink" title="4.2. Ablation Experiments"></a>4.2. Ablation Experiments</h2><p>我们运行一些消融来分析Mask R-CNN。结果显示在表2中并在下面详细讨论。<br>架构：表2a显示了具有各种骨架的Mask R-CNN。它受益于更深的网络（50对101）和先进的设计，包括FPN和ResNeXt。我们注意到并非所有框架都自动从更深或更高级的网络中获益（参见[21]中的基准测试）。<br>多项式与独立式掩码：掩码R-CNN分离掩码和类别预测：由于现有的分支预测类别标签，因此我们为每个类别生成一个掩码，而不会在类别间进行竞争（按像素S形和二进制丢失）。在表2b中，我们将其与使用每像素softmax和多项损失（如FCN [30]中常用的）进行比较。这种替代方案将掩模和类别预测的任务相结合，并导致掩模AP（5.5分）的严重损失。这表明一旦实例被整体分类（通过盒子分支），预测二进制掩码就足够了，而不用考虑类别，这使得模型更易于训练。<br>Class-Speci fi c与Class-Agnostic Masks：我们的默认实例化预测了类特定的掩码，即一个m * m每个班级的面具。有趣的是，具有分类掩码的掩码R-CNN（即预测单个m<em>m输出而不管类别）几乎同样有效：它具有29.7掩码AP，而对于ResNet-50-C4上的类别特定对应字符，掩码AP为30.3。这进一步突出了我们的方法中的分工，这种分工在很大程度上将分类和分割分开。<br>Roialign：我们建议的RoIlign层的评估如表2c所示。在这个实验中，我们使用了跨度为16的ResNet50-C4主干。RoIAlign比RoIPool提高了约3个点，其中很大的收益来自高IoU（AP75）。RoIlign对最大/平均水池不敏感;我们在本文的其余部分使用平均值。另外，我们与在MNC [10]中提出的RoIWarp进行比较，该方法也采用双线性采样。正如§3所讨论的那样，RoIWarp仍然量化了RoI，失去了与输入的一致性。从表2c可以看出，RoIWarp的表现与RoIPool相当，比RoIAlign差很多。这突出表明正确的对齐是关键。<br>我们还用一个ResNet-50-C5骨干来评估RoIlign，这个骨干有32个像素的更大步幅。我们使用与图4（右）相同的头，因为res5头不适用。表2d显示RoIAlign提高了掩模AP的7.3点，掩盖AP75 10.5点（相对提高50％）。此外，我们注意到使用RoIAlign，使用步幅-32 C5功能（30.9 AP）比使用步幅-16 C4功能（30.3 AP，表2c）更准确。RoIAlign在很大程度上解决了使用大步功能进行检测和分割的长期挑战。最后，与FPN一起使用时，RoIAlign显示1.5掩模AP和0.5盒AP的增益，FPN具有更精细的多级步幅。对于需要精细对齐的关键点检测，RoIAlign即使使用FPN也显示出较大的增益（表6）。<br><img src="https://i.loli.net/2019/04/29/5cc65e0ebda46.png" alt="table3"><br>*遮罩分支：分割是一个像素到像素的任务，我们通过使用FCN来利用遮罩的空间布局。在表2e中，我们使用ResNet-50-FPN主干比较了多层感知器（MLP）和FCN。使用FCN可以提供2.1 Mbps的AP掩码。我们注意到，我们选择了这个骨干，这样FCN头部的conv层没有经过预先训练，与MLP进行公平比较。</em></p>
 <h2 id="4-3-Bounding-Box-Detection-Results"><a href="#4-3-Bounding-Box-Detection-Results" class="headerlink" title="4.3.Bounding Box Detection Results"></a>4.3.Bounding Box Detection Results</h2><p>我们将Mask R-CNN与表3中的最新COCO包围盒对象检测进行比较。对于这个结果，即使训练完整的Mask R-CNN模型，只有分类和框输出用于推理（掩码输出被忽略）。使用ResNet-101FPN的面罩R-CNN优于以前所有先进模型的基础变体，其中包括COMI 2016检测挑战赛获胜者GRMI [21]的单模型变体。使用ResNeXt-101-FPN，Mask R-CNN进一步改进了结果，与[39]（使用Inception-ResNet-v2-TDM）的最佳单一模型条目相比，框AP的余量为3.0分。<br>作为进一步的比较，我们训练了一个版本的掩模R-CNN，但没有掩模分支，表3中的“Faster R-CNN，RoIlign”表示。由于RoIlign的原因，该模型的性能比[27]中介绍的模型要好。另一方面，比面具R-CNN低0.9个盒子AP。因此掩模R-CNN在盒子检测上的差距仅仅是由于多任务训练的好处。<br>最后，我们注意到Mask R-CNN在其掩模和盒AP之间获得了一个小间隙：例如，在37.1（掩模，表1）和39.8（框3）之间的2.7个点。这表明我们的方法在很大程度上缩小了对象检测与更具挑战性的实例分割任务之间的差距。</p>
 <h2 id="4-4-Timing"><a href="#4-4-Timing" class="headerlink" title="4.4.Timing"></a>4.4.Timing</h2><p>推论：我们训练了一个ResNet-101-FPN模型，该模型在R-CNN更快的四步训练之后训练RPN和Mask R-CNN阶段之间的特征[36]。Nvidia Tesla M40 GPU（加上15ms CPU时间，将输出调整为原始分辨率）时，该模型以195ms的速度运行，并实现与非共享模式相同的掩模AP。我们还报告说ResNet-101-C4变体需要400毫秒，因为它有一个较重的盒子头（图4），所以我们不建议在实践中使用C4变体。<br>尽管掩模R-CNN速度很快，但我们注意到我们的设计并未针对速度进行优化，并且可以实现更好的速度/精度折衷[21]，例如，通过改变图像尺寸和提案编号，这超出了本白皮书的范围。<br>训练：面具R-CNN训练也很快。在COCO trainval35k上使用ResNet-50-FPN进行培训的同步8 GPU实现需要32小时（每16图像微型批次0.72s），使用ResNet-101-FPN需要44小时。实际上，快速原型设计可以在不到一天的时间内在火车上进行训练时完成。我们希望这种快速培训能够消除该领域的一个主要障碍，并鼓励更多的人对这个具有挑战性的话题进行研究。</p>
 <h1 id="5-Mask-R-CNN-for-Human-Pose-Estimation"><a href="#5-Mask-R-CNN-for-Human-Pose-Estimation" class="headerlink" title="5. Mask R-CNN for Human Pose Estimation"></a>5. Mask R-CNN for Human Pose Estimation</h1><p>我们的框架可以很容易地扩展到人体姿态估计。我们将一个关键点的位置建模为一个单独的热掩模，并采用掩模R-CNN预测K个掩模，每个K个关键点类型（例如左肩，右肘）各一个。这项任务有助于展示Mask R-CNN的灵活性。我们注意到，我们的系统利用了人类姿态的最小领域知识，因为实验主要是为了展示Mask R-CNN框架的一般性。我们期望领域知识（例如，建模结构[6]）将与我们简单的方法相辅相成。<br>实施细节：对关键点进行调整时，我们对细分系统进行细微修改。对于实例的每个K关键点，训练目标是一个热点二进制掩码，其中只有一个像素标记为前景。在训练过程中，对于每个可见的地面真值关键点，我们将 -way softmax输出的交叉熵损失最小化（鼓励[6]是2016年竞赛获胜者，使用多尺度测试，CPM后处理[使用两种模型（Inception-ResNet-1）对G-RMI进行COCO加MPII [1]（25k图像）的训练，并用目标检测器进行滤波，累加约5个点（在个人通信中加以澄清） v2用于边界框检测，ResNet-101用于关键点）。<br><img src="https://i.loli.net/2019/04/29/5cc65f4085801.png" alt="figure7"><br><em>图7.使用Mask R-CNN（ResNet-50-FPN）在COCO测试中的关键点检测结果，以及从相同模型预测的人分割掩码。该模型的关键点AP为63.1，运行速度为5 fps。</em></p>
@@ -4910,8 +4902,8 @@ from &lt;库名&gt; import *
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
-        <tag>Blog</tag>
         <tag>Linux</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -5269,6 +5261,8 @@ from &lt;库名&gt; import *
 <h2 id="Table-vue"><a href="#Table-vue" class="headerlink" title="Table.vue"></a>Table.vue</h2><p>这一部分相对Form.vue而言，相对复杂了一些，表格建立还算简单，时间主要用在了“编辑”、“删除”两个按钮的实现以及对应Dialog的弹出的问题上，对于这两项操作需要对表格中单元的位置进行定位，这里用到了scope的相关内容。在“编辑”按钮的弹窗中，由于忘记了<div>标签耽误了大量时间（也没有报错，就是弹窗不出来）；在“删除”按钮中，如果直接点击即删除将获得的行号直接传给deleteRow函数即可，但是这里添加了确认是否删除的Dialog，所以定义了一个全局变量_index，点击按钮执行handleDelete函数，将获取的行数传给_index，同时打开Dialog，在Dialog中再将_index传给deleteRow函数，具体代码为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;el-table :data=&quot;tableData&quot;</span><br><span class="line">              border</span><br><span class="line">              style=&quot;width: 100%&quot;&gt;</span><br><span class="line">      &lt;el-table-column fixed</span><br><span class="line">                       prop=&quot;date&quot;</span><br><span class="line">                       label=&quot;日期&quot;</span><br><span class="line">                       width=&quot;150&quot;&gt;</span><br><span class="line">        &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-time&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span style=&quot;margin-left: 10px&quot;&gt;&#123;&#123; scope.row.date &#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">      &lt;el-table-column prop=&quot;name&quot;</span><br><span class="line">                       label=&quot;姓名&quot;</span><br><span class="line">                       width=&quot;80&quot;&gt;</span><br><span class="line">        &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">          &lt;el-popover trigger=&quot;hover&quot;</span><br><span class="line">                      placement=&quot;top&quot;&gt;</span><br><span class="line">            &lt;p&gt;姓名: &#123;&#123; scope.row.name &#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;住址: &#123;&#123; scope.row.address &#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;div slot=&quot;reference&quot;</span><br><span class="line">                 class=&quot;name-wrapper&quot;&gt;</span><br><span class="line">              &lt;el-tag size=&quot;medium&quot;&gt;&#123;&#123; scope.row.name &#125;&#125;&lt;/el-tag&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/el-popover&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">      &lt;el-table-column prop=&quot;province&quot;</span><br><span class="line">                       label=&quot;省份&quot;</span><br><span class="line">                       width=&quot;60&quot;&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">      &lt;el-table-column prop=&quot;city&quot;</span><br><span class="line">                       label=&quot;市区&quot;</span><br><span class="line">                       width=&quot;80&quot;&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">      &lt;el-table-column prop=&quot;address&quot;</span><br><span class="line">                       label=&quot;地址&quot;</span><br><span class="line">                       width=&quot;300&quot;&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">      &lt;el-table-column prop=&quot;zip&quot;</span><br><span class="line">                       label=&quot;邮编&quot;</span><br><span class="line">                       width=&quot;80&quot;&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">      &lt;el-table-column fixed=&quot;right&quot;</span><br><span class="line">                       label=&quot;操作&quot;</span><br><span class="line">                       width=&quot;150&quot;&gt;</span><br><span class="line">        &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">          &lt;el-button @click=&quot;handleEdit(scope.$index, scope.row)&quot;</span><br><span class="line">                     size=&quot;small&quot;&gt;编辑&lt;/el-button&gt;</span><br><span class="line">          &lt;el-button @click=&quot;handleDelete(scope.$index,scope.row)&quot;</span><br><span class="line">                     type=&quot;danger&quot;</span><br><span class="line">                     size=&quot;small&quot;&gt;删除&lt;/el-button&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">      &lt;/el-table-column&gt;</span><br><span class="line">    &lt;/el-table&gt;</span><br><span class="line">    &lt;!--删除界面--&gt;</span><br><span class="line">    &lt;el-dialog title=&quot;确认&quot;</span><br><span class="line">               :visible.sync=&quot;deleteFormVisible&quot;</span><br><span class="line">               width=&quot;30%&quot;</span><br><span class="line">               :before-close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;span&gt;确认删除改用户？&lt;/span&gt;</span><br><span class="line">      &lt;span slot=&quot;footer&quot;</span><br><span class="line">            class=&quot;dialog-footer&quot;&gt;</span><br><span class="line">        &lt;el-button @click=&quot;deleteFormVisible = false&quot;&gt;取 消&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot;</span><br><span class="line">                   @click.native.prevent=&quot;deleteRow(_index, tableData)&quot;&gt;确 定&lt;/el-button&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/el-dialog&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--编辑界面--&gt;</span><br><span class="line">    &lt;el-dialog title=&quot;编辑&quot;</span><br><span class="line">               :visible.sync=&quot;editFormVisible&quot;</span><br><span class="line">               :before-close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-form :model=&quot;editForm&quot;</span><br><span class="line">               label-width=&quot;80px&quot;</span><br><span class="line">               :rules=&quot;editFormRules&quot;</span><br><span class="line">               ref=&quot;editForm&quot;&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;日期&quot;&gt;</span><br><span class="line">          &lt;el-date-picker type=&quot;date&quot;</span><br><span class="line">                          placeholder=&quot;选择日期&quot;</span><br><span class="line">                          v-model=&quot;editForm.date&quot;&gt;&lt;/el-date-picker&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;姓名&quot;</span><br><span class="line">                      prop=&quot;name&quot;&gt;</span><br><span class="line">          &lt;el-input v-model=&quot;editForm.name&quot;</span><br><span class="line">                    auto-complete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;省份&quot;&gt;</span><br><span class="line">          &lt;el-input type=&quot;province&quot;</span><br><span class="line">                    v-model=&quot;editForm.province&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;市区&quot;&gt;</span><br><span class="line">          &lt;el-input type=&quot;city&quot;</span><br><span class="line">                    v-model=&quot;editForm.city&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;地址&quot;&gt;</span><br><span class="line">          &lt;el-input type=&quot;address&quot;</span><br><span class="line">                    v-model=&quot;editForm.address&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;邮编&quot;&gt;</span><br><span class="line">          &lt;el-input type=&quot;zip&quot;</span><br><span class="line">                    v-model=&quot;editForm.zip&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">      &lt;/el-form&gt;</span><br><span class="line">      &lt;div slot=&quot;footer&quot;</span><br><span class="line">           class=&quot;dialog-footer&quot;&gt;</span><br><span class="line">        &lt;el-button @click.native=&quot;editFormVisible = false&quot;&gt;取消&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot;</span><br><span class="line">                   @click=&quot;editFormVisible = false&quot;&gt;确定&lt;/el-button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/el-dialog&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleDelete(index, row) &#123;</span><br><span class="line">      this._index = index;</span><br><span class="line">      //console.log(index);</span><br><span class="line">      this.deleteFormVisible = true;</span><br><span class="line">    &#125;,</span><br><span class="line">    handleEdit(index, row) &#123;</span><br><span class="line">      this.editFormVisible = true;</span><br><span class="line">      //console.log(index, row);</span><br><span class="line">      //将每一行的数据赋值给Dialog弹框（这里是重点）</span><br><span class="line">      this.editForm = Object.assign(&#123;&#125;, row);</span><br><span class="line">    &#125;,</span><br><span class="line">    deleteRow(index, rows) &#123;</span><br><span class="line">      rows.splice(index, 1);</span><br><span class="line">      this.deleteFormVisible = false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      _index: &apos;&apos;,</span><br><span class="line">      editFormVisible: false,//编辑界面是否显示</span><br><span class="line">      deleteFormVisible: false,//删除确定界面</span><br><span class="line">      editFormRules: &#123;</span><br><span class="line">        name: [</span><br><span class="line">          &#123; required: true, message: &apos;请输入姓名&apos;, trigger: &apos;blur&apos; &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      //编辑界面数据</span><br><span class="line">      editForm: &#123;</span><br><span class="line">        name: &apos;&apos;,</span><br><span class="line">        date: &apos;&apos;,</span><br><span class="line">        province: &apos;&apos;,</span><br><span class="line">        city: &apos;&apos;,</span><br><span class="line">        address: &apos;&apos;,</span><br><span class="line">        zip: &apos;&apos;,</span><br><span class="line">      &#125;,</span><br><span class="line">      tableData: [&#123;</span><br><span class="line">        date: &apos;2016-05-02&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1519 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        date: &apos;2016-05-04&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1518 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        date: &apos;2016-05-01&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1517 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1516 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1515 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1514 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1513 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1512 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        date: &apos;2016-05-03&apos;,</span><br><span class="line">        name: &apos;王小虎&apos;,</span><br><span class="line">        province: &apos;上海&apos;,</span><br><span class="line">        city: &apos;普陀区&apos;,</span><br><span class="line">        address: &apos;上海市普陀区金沙江路 1511 弄&apos;,</span><br><span class="line">        zip: 200333</span><br><span class="line">      &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+
+
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
@@ -5529,37 +5523,6 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>《跟老齐学python》学习笔记3</title>
-    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<ul>
-<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
-</li>
-<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
-</li>
-<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
-<p>python里简直不要太方便，直接a,b=b,a即可。</p>
-<ul>
-<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
-
-
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《跟老齐学python》学习笔记4</title>
     <url>/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
     <content><![CDATA[<ul>
@@ -5589,6 +5552,37 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
 <li>几个特殊函数，filter、map、reduce、lambda、yield……</li>
 <li>函数尽量达到的要求<br>1 尽量不要使用全局变量。<br>2 如果参数是可变类型数据,则在函数内不要修改它。<br>3 每个函数的功能和目标要单纯,不要试图一个函数做很多事情。<br>4 函数的代码行数尽量少。<br>5 函数的独立性越强越好,不要跟其他的外部东西产生关联。</li>
 </ul>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《跟老齐学python》学习笔记3</title>
+    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<ul>
+<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
+</li>
+<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
+</li>
+<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
+<p>python里简直不要太方便，直接a,b=b,a即可。</p>
+<ul>
+<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
+
+
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
