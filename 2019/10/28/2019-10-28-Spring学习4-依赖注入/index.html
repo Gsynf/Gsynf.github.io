@@ -94,15 +94,15 @@
 
 
 
-<meta name="description" content="bean对象的三种创建方式通过调用构造函数来创建bean对象默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。如果没有构造函数，则创建失败。 12&amp;lt;!-- 配置业务层对象 --&amp;gt;&amp;lt;bean id=&quot;accountService&quot; class=&quot;com.gsynf.service.impl.Accoun">
+<meta name="description" content="注：转载文章请注明出处，谢谢~">
 <meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring学习3">
-<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;10&#x2F;28&#x2F;2019-10-28-Spring%E5%AD%A6%E4%B9%A03&#x2F;index.html">
+<meta property="og:title" content="Spring学习4-依赖注入">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;10&#x2F;28&#x2F;2019-10-28-Spring%E5%AD%A6%E4%B9%A04-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="bean对象的三种创建方式通过调用构造函数来创建bean对象默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。如果没有构造函数，则创建失败。 12&amp;lt;!-- 配置业务层对象 --&amp;gt;&amp;lt;bean id=&quot;accountService&quot; class=&quot;com.gsynf.service.impl.Accoun">
+<meta property="og:description" content="注：转载文章请注明出处，谢谢~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-28T08:03:14.505Z">
+<meta property="og:updated_time" content="2019-10-28T08:07:33.128Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://gsynf.github.io/2019/10/28/2019-10-28-Spring学习3/"/>
+  <link rel="canonical" href="https://gsynf.github.io/2019/10/28/2019-10-28-Spring学习4-依赖注入/"/>
 
 
 
 
 
-  <title>Spring学习3 | Gsynf | My Blog</title>
+  <title>Spring学习4-依赖注入 | Gsynf | My Blog</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A03/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A04-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring学习3</h1>
+          <h1 class="post-title" itemprop="name headline">Spring学习4-依赖注入</h1>
         
 
         <div class="post-meta">
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  566
+                  12
                 </span>
               
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -404,58 +404,7 @@
       
 
       
-        <h1 id="bean对象的三种创建方式"><a href="#bean对象的三种创建方式" class="headerlink" title="bean对象的三种创建方式"></a>bean对象的三种创建方式</h1><h2 id="通过调用构造函数来创建bean对象"><a href="#通过调用构造函数来创建bean对象" class="headerlink" title="通过调用构造函数来创建bean对象"></a>通过调用构造函数来创建bean对象</h2><p>默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。<br>如果没有构造函数，则创建失败。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置业务层对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="通过静态工厂创建bean对象"><a href="#通过静态工厂创建bean对象" class="headerlink" title="通过静态工厂创建bean对象"></a>通过静态工厂创建bean对象</h1><p>工厂类中提供一个静态方法，可以返回要用的bean对象。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 静态工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"staticAccountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.StaticBeanFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/StaticBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"staticAccountService"</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="通过实例工厂创建bean对象"><a href="#通过实例工厂创建bean对象" class="headerlink" title="通过实例工厂创建bean对象"></a>通过实例工厂创建bean对象</h2><p>工厂类中提供一个普通方法，可以返回要用的bean对象。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 实例工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceFactory"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.InstanceBeanFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceAccountService"</span> <span class="attr">factory-bean</span>=<span class="string">"instanceFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/InstanceBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"instanceAccountService"</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="bean对象的作用范围"><a href="#bean对象的作用范围" class="headerlink" title="bean对象的作用范围"></a>bean对象的作用范围</h1><p>它是可以通过配置的方式指定的。配置的属性：bean标签的scope属性。属性的取值：</p>
-<ul>
-<li>singleton：单例范围，默认值；</li>
-<li>prototype：多例对象；</li>
-<li>request：请求范围，也就是只在该次请求和请求的转发中可用，WEB项目中，将Spring创建的bean对象存入到request域中；</li>
-<li>session：会话范围，也就是在一次会话的范围中，WEB项目中，将Spring创建的bean对象存入到session域中；</li>
-<li>global-session：全局会话范围；</li>
-</ul>
-<h1 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h1><p>生命周期要具体分为单例对象和多例对象：</p>
-<ul>
-<li><p>单例对象：</p>
-<ul>
-<li><p>出生：容器创建，对象出生；</p>
-</li>
-<li><p>活着：容器存在，对象就一直可用；</p>
-</li>
-<li><p>死亡：容器销毁，对象消亡；</p>
-</li>
-</ul>
-</li>
-<li><p>多例对象：</p>
-<ul>
-<li>出生：每次使用时，容器会创建对象；</li>
-<li>活着：只要对象在使用过程中，就一直活在；</li>
-<li>死亡：当对象长时间不用并且也没有其他对象引用时，由java的垃圾回收器回收；</li>
-</ul>
-</li>
-</ul>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+        <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       
     </div>
@@ -488,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A04/" rel="next" title="Spring学习4">
-                <i class="fa fa-chevron-left"></i> Spring学习4
+              <a href="/2019/10/27/2019-10-27-Class.forName()%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="next" title="Class.forName()的作用与使用总结">
+                <i class="fa fa-chevron-left"></i> Class.forName()的作用与使用总结
               </a>
             
           </div>
@@ -497,6 +446,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A02-%E5%AF%B9spring%E8%A7%A3%E8%80%A6%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" title="Spring学习2-对spring解耦机制的理解">
+                Spring学习2-对spring解耦机制的理解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -548,17 +501,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -661,22 +605,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bean对象的三种创建方式"><span class="nav-number">1.</span> <span class="nav-text">bean对象的三种创建方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过调用构造函数来创建bean对象"><span class="nav-number">1.1.</span> <span class="nav-text">通过调用构造函数来创建bean对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过静态工厂创建bean对象"><span class="nav-number">2.</span> <span class="nav-text">通过静态工厂创建bean对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过实例工厂创建bean对象"><span class="nav-number">2.1.</span> <span class="nav-text">通过实例工厂创建bean对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bean对象的作用范围"><span class="nav-number">3.</span> <span class="nav-text">bean对象的作用范围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bean对象的生命周期"><span class="nav-number">4.</span> <span class="nav-text">bean对象的生命周期</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
