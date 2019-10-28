@@ -94,15 +94,15 @@
 
 
 
-<meta name="description" content="注：转载文章请注明出处，谢谢~">
+<meta name="description" content="依赖注入概念依赖注入： Dependency Injection ，它是spring框架核心IoC的具体实现。 通过控制反转，把对象的创建交给了spring，但是代码中不可能出现没有依赖的情况，IoC解耦只是降低他们的依赖关系，但不会消除。例如业务层仍会调用持久层的方法，那么使用spring去维护这种业务层和持久层的依赖关系，就是DI的作用。 简单的说，就是坐等框架把对象传入，而不用我们自己去获取">
 <meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring学习4-依赖注入">
 <meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;10&#x2F;28&#x2F;2019-10-28-Spring%E5%AD%A6%E4%B9%A04-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="注：转载文章请注明出处，谢谢~">
+<meta property="og:description" content="依赖注入概念依赖注入： Dependency Injection ，它是spring框架核心IoC的具体实现。 通过控制反转，把对象的创建交给了spring，但是代码中不可能出现没有依赖的情况，IoC解耦只是降低他们的依赖关系，但不会消除。例如业务层仍会调用持久层的方法，那么使用spring去维护这种业务层和持久层的依赖关系，就是DI的作用。 简单的说，就是坐等框架把对象传入，而不用我们自己去获取">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-28T08:07:33.128Z">
+<meta property="og:updated_time" content="2019-10-28T14:47:11.655Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  12
+                  617
                 </span>
               
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -404,7 +404,39 @@
       
 
       
-        <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+        <h1 id="依赖注入概念"><a href="#依赖注入概念" class="headerlink" title="依赖注入概念"></a>依赖注入概念</h1><p>依赖注入： Dependency Injection ，它是spring框架核心IoC的具体实现。</p>
+<p>通过控制反转，把对象的创建交给了spring，但是代码中不可能出现没有依赖的情况，IoC解耦只是降低他们的依赖关系，但不会消除。例如业务层仍会调用持久层的方法，那么使用spring去维护这种业务层和持久层的依赖关系，就是DI的作用。</p>
+<p>简单的说，就是坐等框架把对象传入，而不用我们自己去获取。</p>
+<h1 id="注入的方式"><a href="#注入的方式" class="headerlink" title="注入的方式"></a>注入的方式</h1><h2 id="通过构造函数注入"><a href="#通过构造函数注入" class="headerlink" title="通过构造函数注入"></a>通过构造函数注入</h2><p>  涉及的标签：constructor-arg，该标签是写在bean标签内部的子标签<br>  标签的属性：</p>
+<ul>
+<li>type:指定要注入的参数在构造函数中的类型</li>
+<li>index：指定要注入的参数在构造函数的索引位置</li>
+<li>name：指定参数在构造函数中的名称</li>
+<li>value：指定注入的数据内容，只能指定基本类型数据和String类型数据</li>
+<li>ref：指定其他bean类型数据，写的是其他bean的id，其他bean指的是存在于spring容器中的bean</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 业务层</span></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> Integer age;</span><br><span class="line"><span class="keyword">private</span> Date birthday;</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">AccountServiceImpl</span><span class="params">(String name, Integer age, Date birthday)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">	<span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"gsynf"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"18"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"birthday"</span> <span class="attr">ref</span>=<span class="string">"now"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"now"</span> <span class="attr">class</span>=<span class="string">"java.util.Date"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="通过set方法注入"><a href="#通过set方法注入" class="headerlink" title="通过set方法注入"></a>通过set方法注入</h2><p>涉及的标签：property，该标签是写在bean标签内部的子标签<br>标签的属性：</p>
+<ul>
+<li>name：指定的是set方法的名称，匹配的是类中set后面的部分</li>
+<li>value：指定注入的数据内容，只能指定基本类型数据和String类型数据</li>
+<li>ref：指定其他bean类型数据，写的是其他bean的id，其他bean指的是存在于spring容器中的bean</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 业务层</span></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> Integer age;</span><br><span class="line"><span class="keyword">private</span> Date birthday;</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(Date birthday)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService2"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl2"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"gsynf"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"18"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"birthday"</span> <span class="attr">ref</span>=<span class="string">"now"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过注解方式注入"><a href="#通过注解方式注入" class="headerlink" title="通过注解方式注入"></a>通过注解方式注入</h2><p>这部分在spring的注解会讲到。</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       
     </div>
@@ -501,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -605,6 +646,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖注入概念"><span class="nav-number">1.</span> <span class="nav-text">依赖注入概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注入的方式"><span class="nav-number">2.</span> <span class="nav-text">注入的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过构造函数注入"><span class="nav-number">2.1.</span> <span class="nav-text">通过构造函数注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过set方法注入"><span class="nav-number">2.2.</span> <span class="nav-text">通过set方法注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过注解方式注入"><span class="nav-number">2.3.</span> <span class="nav-text">通过注解方式注入</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
