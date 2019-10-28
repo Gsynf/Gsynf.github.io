@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Spring学习3</title>
+    <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A03/</url>
+    <content><![CDATA[<h1 id="bean对象的三种创建方式"><a href="#bean对象的三种创建方式" class="headerlink" title="bean对象的三种创建方式"></a>bean对象的三种创建方式</h1><h2 id="通过调用构造函数来创建bean对象"><a href="#通过调用构造函数来创建bean对象" class="headerlink" title="通过调用构造函数来创建bean对象"></a>通过调用构造函数来创建bean对象</h2><p>默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。<br>如果没有构造函数，则创建失败。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置业务层对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="通过静态工厂创建bean对象"><a href="#通过静态工厂创建bean对象" class="headerlink" title="通过静态工厂创建bean对象"></a>通过静态工厂创建bean对象</h1><p>工厂类中提供一个静态方法，可以返回要用的bean对象。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 静态工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"staticAccountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.StaticBeanFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/StaticBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"staticAccountService"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="通过实例工厂创建bean对象"><a href="#通过实例工厂创建bean对象" class="headerlink" title="通过实例工厂创建bean对象"></a>通过实例工厂创建bean对象</h2><p>工厂类中提供一个普通方法，可以返回要用的bean对象。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 实例工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceFactory"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.InstanceBeanFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceAccountService"</span> <span class="attr">factory-bean</span>=<span class="string">"instanceFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/InstanceBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"instanceAccountService"</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="bean对象的作用范围"><a href="#bean对象的作用范围" class="headerlink" title="bean对象的作用范围"></a>bean对象的作用范围</h1><p>它是可以通过配置的方式指定的。配置的属性：bean标签的scope属性。属性的取值：</p>
+<ul>
+<li>singleton：单例范围，默认值；</li>
+<li>prototype：多例对象；</li>
+<li>request：请求范围，也就是只在该次请求和请求的转发中可用，WEB项目中，将Spring创建的bean对象存入到request域中；</li>
+<li>session：会话范围，也就是在一次会话的范围中，WEB项目中，将Spring创建的bean对象存入到session域中；</li>
+<li>global-session：全局会话范围；</li>
+</ul>
+<h1 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h1><p>生命周期要具体分为单例对象和多例对象：</p>
+<ul>
+<li><p>单例对象：</p>
+<ul>
+<li><p>出生：容器创建，对象出生；</p>
+</li>
+<li><p>活着：容器存在，对象就一直可用；</p>
+</li>
+<li><p>死亡：容器销毁，对象消亡；</p>
+</li>
+</ul>
+</li>
+<li><p>多例对象：</p>
+<ul>
+<li>出生：每次使用时，容器会创建对象；</li>
+<li>活着：只要对象在使用过程中，就一直活在；</li>
+<li>死亡：当对象长时间不用并且也没有其他对象引用时，由java的垃圾回收器回收；</li>
+</ul>
+</li>
+</ul>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring学习4</title>
+    <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A04/</url>
+    <content><![CDATA[<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring学习2</title>
+    <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A02/</url>
+    <content><![CDATA[<p>个人理解，spring首先创建一个bean.xml的配置文件，创建一个核心容器，然后根据配置文件中bean的id来创建对象，通过这种方式来实现解耦，这和通过工厂模式创建一个bean.propertie配置文件，然后创建map容器存放bean对象是同一种思想：</p>
+<p>工厂模式：</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">ACCOUNTSERVICE</span>=<span class="string">com.gsynf.service.impl.AccountServiceImpl</span></span><br><span class="line"><span class="attr">ACCOUNTDAO</span>=<span class="string">com.gsynf.dao.impl.AccountDaoImpl</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gsynf.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.ResourceBundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.gsynf.service.IAccountService;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: BeanFactory</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 用于创建Bean对象的工厂</span></span><br><span class="line"><span class="comment"> * Bean:在我们工程中，就可以看成是一些对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: gsynf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2019年10月26日 下午5:20:18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 1.它可以用来读取properties文件；</span></span><br><span class="line">	<span class="comment">// 2.它只能用于读取，不能用于写入；</span></span><br><span class="line">	<span class="comment">// 3.它只能读取类路径下的，不在类路径下的不能都读取；</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ResourceBundle bundle = ResourceBundle.getBundle(<span class="string">"config.bean"</span>);	<span class="comment">//参数指的是properties文件的位置，写法是包名.类名，不要写扩展名</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 定义一个容器，用于存放所有的bean对象</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Object&gt; beans = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 使用静态代码块，给容器填充内容</span></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 1.读取所有的key</span></span><br><span class="line">			Enumeration&lt;String&gt; keys =bundle.getKeys();</span><br><span class="line">			<span class="comment">// 2.遍历所有的key</span></span><br><span class="line">			<span class="keyword">while</span>(keys.hasMoreElements()) &#123;</span><br><span class="line">				<span class="comment">//取出key</span></span><br><span class="line">				String key = keys.nextElement();</span><br><span class="line">				<span class="comment">//根据key获取value</span></span><br><span class="line">				String beanPath = bundle.getString(key);</span><br><span class="line">				<span class="comment">//反射创建bean对象</span></span><br><span class="line">				Object value = Class.forName(beanPath).newInstance();</span><br><span class="line">				<span class="comment">//把创建出来的对象和key存入map中</span></span><br><span class="line">				beans.put(key, value);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ExceptionInInitializerError(<span class="string">"初始化容器失败！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@Title</span>: getBean</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@Description</span>: 用于创建bean对象的方法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> beanName  容器中bean的key</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span>			对应的bean对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span>: Object</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getBean</span><span class="params">(String beanName)</span>  </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> beans.get(beanName);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>spring</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 导入spring的约束</span></span><br><span class="line"><span class="comment">spring的IOC约束：beans</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        https://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">   	<span class="comment">&lt;!-- 配置业务层对象</span></span><br><span class="line"><span class="comment">   		bean标签：</span></span><br><span class="line"><span class="comment">   			作用：用于让spring帮我们读取配置后创建对象</span></span><br><span class="line"><span class="comment">   			属性：</span></span><br><span class="line"><span class="comment">   				id:对象的唯一标识</span></span><br><span class="line"><span class="comment">   				class:要创建的对象的全限定类名</span></span><br><span class="line"><span class="comment">   	 --&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">   	</span><br><span class="line">   	<span class="comment">&lt;!-- 配置持久层对象</span></span><br><span class="line"><span class="comment">   				创建的反射对象存在哪里了呢？core container</span></span><br><span class="line"><span class="comment">   	 --&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountDao"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.dao.impl.AccountDaoImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">   	</span><br><span class="line">   	</span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gsynf.ui;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.gsynf.dao.IAccountDao;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.service.IAccountService;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.service.impl.AccountServiceImpl;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Client</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 模拟一个表现层</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: gsynf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2019年10月26日 下午5:14:43</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@Title</span>: main</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@Description</span>: 获取spring的核心容器，并且根据bean的id获取对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span>: void</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1.获取spring的核心容器</span></span><br><span class="line">		ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">		<span class="comment">// 2.根据bean的id获取对象</span></span><br><span class="line">		IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">		IAccountDao adao = ac.getBean(<span class="string">"accountDao"</span>, IAccountDao.class);</span><br><span class="line">		</span><br><span class="line">		System.out.println(as);</span><br><span class="line">		System.out.println(adao);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另：获取spring核心容器详解</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ApplicationContext:BeanFactory子接口的子接口，较为常用</span><br><span class="line">	特点：创建bean对象时，采用立即加载的策略。（当读取完xml配置文件，配置文件中所有的bean对象都已经创建完成）</span><br><span class="line">	使用场景：对象只创建一次，例如单例对象</span><br><span class="line">BeanFactory:springIoc容器的顶层接口</span><br><span class="line">	特点：创建bean对象时，采用延迟加载的策略。（当真正要从容器中获取bean对象时才创建，读取完xml配置文件并不创建）</span><br><span class="line">	使用场景：对象创建多次，例如多例对象</span><br><span class="line"></span><br><span class="line">ClassPathXmlApplicationContext：</span><br><span class="line">	它是通过读取类路径下的配置文件创建spring容器，要求配置文件必须在类路径下。</span><br><span class="line">FileSystemXmlApplicationContext：</span><br><span class="line">	它是通过读取文件系统中的配置文件创建spring容器，要求配置文件必须在文件系统中。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Class.forName()的作用与使用总结</title>
     <url>/2019/10/27/2019-10-27-Class.forName()%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<blockquote>
@@ -1846,14 +1945,17 @@ public void 方法名() **throws** 自定义Exception {
 </li>
 <li><p>查看类的继承关系，ctrl+T</p>
 </li>
+<li><p>查看接口的实现类：ctrl+T</p>
+</li>
 <li><p>查看Eclipse所有快捷键，Ctrl + Shift + L</p>
 </li>
 <li><p>新版本的Eclipse已经默认支持取消“=”等号和空格自动输入，开启方法如下<code>Windows</code>→<code>Preferences</code>→<code>java</code>→<code>Content</code>→<code>Assist</code><br>勾选 Disable insertion triggers except ‘Enter’ 即可</p>
 </li>
 </ul>
 </li>
-<li><p>Junit测试工具<br>(1)方法前加注解@Test，导入Juit包，右侧Outline工具框，选中要测试的方法，右键，Run As–&gt;JUit Test；<br>(2)测试类中最前和最后可以写两个方法，分别加注解@Before和@After或者@BeforeClass和@AfterClass，用于初始化和销毁；<br>(3)断言Assert，判断期望的实际的是否相同，相同则通过测试，否则不通过；</p>
-</li>
+</ol>
+<ol start="29">
+<li>Junit测试工具<br>(1)方法前加注解@Test，导入Juit包，右侧Outline工具框，选中要测试的方法，右键，Run As–&gt;JUit Test；<br>(2)测试类中最前和最后可以写两个方法，分别加注解@Before和@After或者@BeforeClass和@AfterClass，用于初始化和销毁；<br>(3)断言Assert，判断期望的实际的是否相同，相同则通过测试，否则不通过；</li>
 </ol>
 <hr>
 <p>2019年10月27日</p>
@@ -3760,6 +3862,72 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-CSS入门及提高2</title>
+    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
+<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
+
+<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
+
+<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+<p>用法基本和类选择器相同。</p>
+<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
+<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
+<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
+<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
+<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
+<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
+<li>:link      /* 未访问的链接 */</li>
+<li>:visited   /* 已访问的链接 */</li>
+<li>:hover     /* 鼠标移动到链接上 */</li>
+<li>:active    /* 选定的链接 */</li>
+</ul>
+<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
+<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
+<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
+<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
+</ul>
+<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-CSS入门及提高1</title>
     <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/</url>
     <content><![CDATA[<blockquote>
@@ -3862,72 +4030,6 @@ public void 方法名() **throws** 自定义Exception {
 
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</span><br><span class="line"></span><br><span class="line">注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</span><br></pre></td></tr></table></figure>
-
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发(1)-CSS入门及提高2</title>
-    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
-<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
-
-<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
-
-<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
-
-<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-<p>用法基本和类选择器相同。</p>
-<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
-<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
-<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
-<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
-<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
-<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
-<li>:link      /* 未访问的链接 */</li>
-<li>:visited   /* 已访问的链接 */</li>
-<li>:hover     /* 鼠标移动到链接上 */</li>
-<li>:active    /* 选定的链接 */</li>
-</ul>
-<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
-<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
-<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
-<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
-<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
-<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
-</ul>
-<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
@@ -4181,68 +4283,6 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
-    <title>前端开发(1)-HTML入门与实践1</title>
-    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
-</blockquote>
-<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
-<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
-</li>
-<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
-</li>
-<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
-</li>
-<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
-</li>
-</ol>
-<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
-<ol>
-<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
-<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
-<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
-</ol>
-<p>理想状态的源码：.html .css .js</p>
-<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
-<p>1.双标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>2.单标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
-<ol>
-<li>html: 5   </li>
-<li>!</li>
-</ol>
-<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
-
-<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
-<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
-<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
-
-<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端开发(1)-HTML入门与实践2</title>
     <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B52/</url>
     <content><![CDATA[<blockquote>
@@ -4337,19 +4377,65 @@ public void 方法名() **throws** 自定义Exception {
       </tags>
   </entry>
   <entry>
-    <title>LinkDevelop阿里云物联网应用开发方案</title>
-    <url>/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/</url>
+    <title>前端开发(1)-HTML入门与实践1</title>
+    <url>/2019/07/16/2019-07-16-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-HTML%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B51/</url>
     <content><![CDATA[<blockquote>
-<p>阿里云的物联网应用开发，即<a href="https://iot.aliyun.com/products/iotstudio" target="_blank" rel="noopener">Link Develop</a>。虽然现在已经不存在，被IoT Studio所取代，但基本框架并没有改变，所以在此仍然简单了解学习一下。<br>学习视频地址：<a href="https://edu.aliyun.com/course/1392/learn?spm=5176.8764728.aliyun-edu-course-header.15.6926319aoN2rnZ#lesson/11620" target="_blank" rel="noopener">戳这里</a>。</p>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。<br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第一部分：HTML入门与实践；</p>
 </blockquote>
-<h1 id="设备开发"><a href="#设备开发" class="headerlink" title="设备开发"></a>设备开发</h1><p>-将设备模型抽象成三类：属性、服务、事件；<br>-实时查看设备上报的数据并进行在线调试；</p>
-<h1 id="服务编排"><a href="#服务编排" class="headerlink" title="服务编排"></a>服务编排</h1><p>-直接使用官方根据物联网需求建好的服务；<br>-做服务的二次开发；</p>
-<h1 id="Bone开发框架"><a href="#Bone开发框架" class="headerlink" title="Bone开发框架"></a>Bone开发框架</h1><p><a href="https://bone.aliyun.com/" target="_blank" rel="noopener">Bone开发框架</a>分为两部分：Bone Moblie和Bone Web。<br>Bone Web是一个基于react+redux封装的Web开发框架，在使用上进行了简化并且提供了一些常用的UI组件。<br>可以在此下载模板进行三元组的修改之后打包上传，进行构建，实现简单功能的实现。</p>
+<h1 id="Web基础"><a href="#Web基础" class="headerlink" title="Web基础"></a>Web基础</h1><h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ol>
+<li><p>Trident(IE内核)<br>国内许多双核浏览器其中一核便是Trident，美名其曰“兼容模式”。代表：IE、傲游、世界之窗、猎豹、360极速、百度……Windows10发布之后，IE将其内置浏览器命名为Edge，最显著特点就是其新内核EdgeHTML。</p>
+</li>
+<li><p>Gecko(firefox)<br>火狐浏览器采用该内核，特点是代码完全公开，因此开发程序较高，可惜遇到了猪一样的队友flash，神一样的对手chrome，故这几年已经没落。</p>
+</li>
+<li><p>Webkit(safari)<br>代表：safari、傲游3、Android4.4之前默认浏览器。</p>
+</li>
+<li><p>Chromium/Bink(chrome)<br>内置于chrome浏览器中，大部分国产浏览器最新版都采用Bink内核，以及Android4.4之后默认浏览器。</p>
+</li>
+</ol>
+<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><p>Web标准是由W3C和其他标准化组织制定的一系列标准的集合，主要包括结构、表现和行为三个方面。</p>
+<ol>
+<li>结构标准：用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分；</li>
+<li>样式标准：用于设置网页元素的版式、大小、颜色等外观形式，主要指CSS；</li>
+<li>行为标准：指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</li>
+</ol>
+<p>理想状态的源码：.html .css .js</p>
+<h1 id="HTML入门"><a href="#HTML入门" class="headerlink" title="HTML入门"></a>HTML入门</h1><h2 id="html骨架"><a href="#html骨架" class="headerlink" title="html骨架"></a>html骨架</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签及分类"><a href="#标签及分类" class="headerlink" title="标签及分类"></a>标签及分类</h2><p>在HTML页面中，带有“&lt; &gt;”符号的元素被称为HTML标签，如上面提到的 &lt;HTML&gt;、&lt;head&gt;、&lt;body&gt;都是HTML标签。所谓标签就是放在“&lt; &gt;” 标签符中表示某个功能的编码命令，也称为HTML标签或 HTML元素。</p>
+<p>1.双标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">标签名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.单标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签名</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>单标签也称空标签，是指用一个标签符号即可完整地描述某个功能的标签。</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="开发工具sublime"><a href="#开发工具sublime" class="headerlink" title="开发工具sublime"></a>开发工具sublime</h2><p>在页面中输入 以下2个单词</p>
+<ol>
+<li>html: 5   </li>
+<li>!</li>
+</ol>
+<p>在sublime里面然后按下tab键盘即可生成HTML骨架。<br>注意：我这里在官网下载安装sublime text3之后，上述功能并不能使用，解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.Preference ==&gt; Browser Packages，打开文件夹，发现只有一个User文件夹；</span><br><span class="line">2.下载emmet-sublime-master.zip，解压，下载地址：https://github.com/sergeche/emmet-sublime/archive/master.zip</span><br><span class="line">，将解压好的文件夹——复制到第一步所提到的文件夹中；</span><br><span class="line">3.重启sublime，PyV8文件夹自动加载；</span><br><span class="line">4.打开sublime，用command + shift + p调出命令窗口，输入install,选中package control：install package，等待1-2秒，下拉选中emmet回车，等待2-3秒，重启sublime。</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这句话就是告知我们使用的是 html 5 的版本。html有很多版本，那我们应该告诉用户和浏览器我们使用的版本号。</p>
+<!DOCTYPE><p> 标签位于文档的最前面，用于向浏览器说明当前文档使用哪种 HTML 或 XHTML 标准规范，必需在开头处使用&lt;!DOCTYPE&gt;标签为所有的XHTML文档指定XHTML版本和类型，只有这样浏览器才能按指定的文档类型进行解析。</p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><meta charset="UTF-8">
+
+<p>utf-8是目前最常用的字符集编码方式，使用utf-8这样就避免出现字符集不统一而引起乱码的情况了。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
-        <tag>ECS</tag>
-        <tag>IOT</tag>
+        <tag>前端开发</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -4377,6 +4463,22 @@ public void 方法名() **throws** 自定义Exception {
 <li>Ant Design UI组件提供丰富的页面UI组件库，Umi在初始化时选择antd插件即可集成，也可以通过命令行执行npm install -g antd进行安装；</li>
 <li>Dva.js数据流方案，将UI和数据解耦，提高前端的开发效率，Umi在初始化时选择dva插件即可集成，也可以通过命令行执行npm install -g dva进行安装；</li>
 </ol>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>ECS</tag>
+        <tag>IOT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LinkDevelop阿里云物联网应用开发方案</title>
+    <url>/2019/07/15/2019-07-15-LinkDevelop%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<blockquote>
+<p>阿里云的物联网应用开发，即<a href="https://iot.aliyun.com/products/iotstudio" target="_blank" rel="noopener">Link Develop</a>。虽然现在已经不存在，被IoT Studio所取代，但基本框架并没有改变，所以在此仍然简单了解学习一下。<br>学习视频地址：<a href="https://edu.aliyun.com/course/1392/learn?spm=5176.8764728.aliyun-edu-course-header.15.6926319aoN2rnZ#lesson/11620" target="_blank" rel="noopener">戳这里</a>。</p>
+</blockquote>
+<h1 id="设备开发"><a href="#设备开发" class="headerlink" title="设备开发"></a>设备开发</h1><p>-将设备模型抽象成三类：属性、服务、事件；<br>-实时查看设备上报的数据并进行在线调试；</p>
+<h1 id="服务编排"><a href="#服务编排" class="headerlink" title="服务编排"></a>服务编排</h1><p>-直接使用官方根据物联网需求建好的服务；<br>-做服务的二次开发；</p>
+<h1 id="Bone开发框架"><a href="#Bone开发框架" class="headerlink" title="Bone开发框架"></a>Bone开发框架</h1><p><a href="https://bone.aliyun.com/" target="_blank" rel="noopener">Bone开发框架</a>分为两部分：Bone Moblie和Bone Web。<br>Bone Web是一个基于react+redux封装的Web开发框架，在使用上进行了简化并且提供了一些常用的UI组件。<br>可以在此下载模板进行三元组的修改之后打包上传，进行构建，实现简单功能的实现。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -5470,8 +5572,8 @@ from &lt;库名&gt; import *
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>Blog</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -6091,6 +6193,37 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>《跟老齐学python》学习笔记3</title>
+    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<ul>
+<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
+</li>
+<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
+</li>
+<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
+<p>python里简直不要太方便，直接a,b=b,a即可。</p>
+<ul>
+<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《跟老齐学python》学习笔记4</title>
     <url>/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
     <content><![CDATA[<ul>
@@ -6120,37 +6253,6 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
 <li>几个特殊函数，filter、map、reduce、lambda、yield……</li>
 <li>函数尽量达到的要求<br>1 尽量不要使用全局变量。<br>2 如果参数是可变类型数据,则在函数内不要修改它。<br>3 每个函数的功能和目标要单纯,不要试图一个函数做很多事情。<br>4 函数的代码行数尽量少。<br>5 函数的独立性越强越好,不要跟其他的外部东西产生关联。</li>
 </ul>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《跟老齐学python》学习笔记3</title>
-    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<ul>
-<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
-</li>
-<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
-</li>
-<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
-<p>python里简直不要太方便，直接a,b=b,a即可。</p>
-<ul>
-<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
-
-
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
