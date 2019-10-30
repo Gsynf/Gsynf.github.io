@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;jKMZB34fEyl1F27.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;rKuGX5E1kBDwxml.png">
-<meta property="og:updated_time" content="2019-10-28T02:10:57.133Z">
+<meta property="og:updated_time" content="2019-10-29T07:06:17.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;09&#x2F;10&#x2F;jKMZB34fEyl1F27.png">
 
@@ -455,11 +455,13 @@
 
 <p>可见匿名内部类的本质就是一个继承了该类或者实现了该接口的子类匿名对象。所以可以采取以下例子</p>
 <p>可见匿名内部类的本质就是一个继承了该类或者实现了该接口的子类匿名对象。所以可以采取以下例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Inter i = new Inter() &#123;</span><br><span class="line">	public void 方法名()&#123;</span><br><span class="line">	…方法体…</span><br><span class="line">	&#125;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Inter i = <span class="keyword">new</span> Inter() &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> 方法名()&#123;</span><br><span class="line">	…方法体…</span><br><span class="line">	&#125;</span><br><span class="line">&#125;；</span><br><span class="line">i.方法名();</span><br><span class="line">i.方法名();</span><br></pre></td></tr></table></figure>
 
-<p>i.方法名();</p>
-<p>i.方法名();</p>
+
+
 </li>
+</ol>
+<ol start="16">
 <li><p>package<br>在Java类文件的第一句话给出包的名称，类似com.edu.nssc.PackageExample，在这里引用类的时候，必须采用全称引用，程序正文可以采用PackageExample短名称，而且必须严格放置在com/edu/nssc目录下。package name尽量唯一，因此常用域名逆序。</p>
 </li>
 <li><p>import<br>import必须全部放在package之后，定义类之前。</p>
@@ -468,31 +470,20 @@
 <ol start="18">
 <li><p><img src="https://i.loli.net/2019/09/10/rKuGX5E1kBDwxml.png" alt=""></p>
 <p>异常处理<br>(1)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">	可能存在异常的代码；</span><br><span class="line">&#125;catch(异常类名 变量名) &#123;</span><br><span class="line">	异常的处理代码；</span><br><span class="line">	如e.printStackTrace();System.out.println(e.getMessage());System.out.println(e.toString());等</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">	最终执行的模块；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	可能存在异常的代码；</span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类名 变量名) &#123;</span><br><span class="line">	异常的处理代码；</span><br><span class="line">	如e.printStackTrace();System.out.println(e.getMessage());System.out.println(e.toString());等</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	最终执行的模块；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<pre><code>执行流程：程序从try里面的代码开始执行，出现异常会自动生成一个异常类对象提交给JVM，当JVM接收到提交时，会到catch中找匹配的异常，找到后进行异常的处理，因此catch块可以有多个，每个有不同的入口形参，当已发生的异常和某一个catch块中的形参类型一致，那么将执行该catch块中的代码，如果没有一个匹配，catch也不会被触发，最后都进入finally块。
-(2)并不是所有的情况都有权限对异常进行处理，因此方法存在可能异常的语句，但不处理，需要使用throws来声明异常：throws 异常类名；这个格式放在方法的括号后面。
-    (2.1)一个方法被覆盖，覆盖他的方法必须抛出相同的异常或者异常的子类；
-    (2.2)如果父类的方法抛出多个异常，那么重写的子类方法必须抛出那么异常的子类，也就是不能抛出新的异常；
-    (2.3)throws只是抛出或者说延后这个异常，并没有处理，处理还得用try…catch…
-(3)自定义异常：需要继承Exception类及其子类
--继承自Exception，就变成Checked Exception
--继承自RuntimeException，就变成Unchecked Exception
-自定义异常重点在于构造函数：
--可以调用父类Exception的message构造函数
-public 自定义Exception(){}
-public 自定义Exception(String message){
-    super(message);
-}
-其他方法调用
-public void 方法名() **throws** 自定义Exception {
-    //throw new 自定义Exception();
-    **throw** new 自定义Exception(&quot;xxxxxxx&quot;);
-}
--可以自定义自己的成员变量</code></pre><ol start="19">
+<p>执行流程：程序从try里面的代码开始执行，出现异常会自动生成一个异常类对象提交给JVM，当JVM接收到提交时，会到catch中找匹配的异常，找到后进行异常的处理，因此catch块可以有多个，每个有不同的入口形参，当已发生的异常和某一个catch块中的形参类型一致，那么将执行该catch块中的代码，如果没有一个匹配，catch也不会被触发，最后都进入finally块。<br>(2)并不是所有的情况都有权限对异常进行处理，因此方法存在可能异常的语句，但不处理，需要使用throws来声明异常：throws 异常类名；这个格式放在方法的括号后面。<br>    (2.1)一个方法被覆盖，覆盖他的方法必须抛出相同的异常或者异常的子类；<br>    (2.2)如果父类的方法抛出多个异常，那么重写的子类方法必须抛出那么异常的子类，也就是不能抛出新的异常；<br>    (2.3)throws只是抛出或者说延后这个异常，并没有处理，处理还得用try…catch…<br>(3)自定义异常：需要继承Exception类及其子类<br>-继承自Exception，就变成Checked Exception<br>-继承自RuntimeException，就变成Unchecked Exception<br>自定义异常重点在于构造函数：<br>-可以调用父类Exception的message构造函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 自定义Exception()&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> 自定义Exception(String message)&#123;</span><br><span class="line">	<span class="keyword">super</span>(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他方法调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> 方法名() **<span class="keyword">throws</span>** 自定义Exception &#123;</span><br><span class="line">	<span class="comment">//throw new 自定义Exception();</span></span><br><span class="line">	**<span class="keyword">throw</span>** <span class="keyword">new</span> 自定义Exception(<span class="string">"xxxxxxx"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>-可以自定义自己的成员变量</p>
+<p>-可以自定义自己的成员变量</p>
+<p>其他方法调用<br>public void 方法名() <strong>throws</strong> 自定义Exception {<br>    //throw new 自定义Exception();<br>    <strong>throw</strong> new 自定义Exception(“xxxxxxx”);<br>}<br>-可以自定义自己的成员变量</p>
+<ol start="19">
 <li><p>泛型：<br>它提供了编译时类型安全检测机制，该机制允许再编译时检测到非法的类型，它的本质是<strong>参数化类型</strong>，也就是说所操作的数据类型被指定为一个参数。换个说法，其实就是将类型由原来的类型参数化，然后再使用/调用时传入具体的类型。<br>泛型定义格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;类型1，类型2，……&gt;：指定多种类型的格式，多种类型之间用逗号隔开，这里的类型可以看作是形参。</span><br><span class="line">泛型类定义：public class Generic&lt; T &gt;&#123;</span><br><span class="line">	public void show(T t)&#123;</span><br><span class="line">	方法体</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -674,7 +665,7 @@ public void 方法名() **throws** 自定义Exception {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">94</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
