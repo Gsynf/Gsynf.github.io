@@ -97,13 +97,13 @@
 <meta name="description" content="基于一个实例，实现客户信息的增删改查。  dbUtils 中的各种 Handler ArrayHandler：把结果集中的第一行数据转成对象数组。 ArrayListHandler：把结果集中的每一行数据都转成一个对象数组，再存放到List中。 BeanHandler：将结果集中的第一行数据封装到一个对应的JavaBean实例中。 BeanListHandler：将结果集中的每一行数据都封装到一">
 <meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring学习6">
-<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;10&#x2F;30&#x2F;2019-10-30-Spring%E5%AD%A6%E4%B9%A06&#x2F;index.html">
+<meta property="og:title" content="Spring学习6-纯注解及测试类">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;10&#x2F;30&#x2F;2019-10-30-Spring%E5%AD%A6%E4%B9%A06-%E7%BA%AF%E6%B3%A8%E8%A7%A3%E5%8F%8A%E6%B5%8B%E8%AF%95%E7%B1%BB&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
 <meta property="og:description" content="基于一个实例，实现客户信息的增删改查。  dbUtils 中的各种 Handler ArrayHandler：把结果集中的第一行数据转成对象数组。 ArrayListHandler：把结果集中的每一行数据都转成一个对象数组，再存放到List中。 BeanHandler：将结果集中的第一行数据封装到一个对应的JavaBean实例中。 BeanListHandler：将结果集中的每一行数据都封装到一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;30&#x2F;beuDRCaE45YHi2Q.png">
-<meta property="og:updated_time" content="2019-10-30T13:01:07.884Z">
+<meta property="og:updated_time" content="2019-10-31T14:43:53.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;10&#x2F;30&#x2F;beuDRCaE45YHi2Q.png">
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://gsynf.github.io/2019/10/30/2019-10-30-Spring学习6/"/>
+  <link rel="canonical" href="https://gsynf.github.io/2019/10/30/2019-10-30-Spring学习6-纯注解及测试类/"/>
 
 
 
 
 
-  <title>Spring学习6 | Gsynf | My Blog</title>
+  <title>Spring学习6-纯注解及测试类 | Gsynf | My Blog</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/10/30/2019-10-30-Spring%E5%AD%A6%E4%B9%A06/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/10/30/2019-10-30-Spring%E5%AD%A6%E4%B9%A06-%E7%BA%AF%E6%B3%A8%E8%A7%A3%E5%8F%8A%E6%B5%8B%E8%AF%95%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring学习6</h1>
+          <h1 class="post-title" itemprop="name headline">Spring学习6-纯注解及测试类</h1>
         
 
         <div class="post-meta">
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  337
+                  1.9k
                 </span>
               
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -422,6 +422,44 @@
 </ul>
 <h1 id="业务层测试"><a href="#业务层测试" class="headerlink" title="业务层测试"></a>业务层测试</h1><p>项目搭建完毕，还没有进行spring的配置，为了查看业务层是否有问题，新建测试类，在业务层接口右键，新建JUnit Test Case，放到test目录下，next，全选，finish。此时结构目录为：</p>
 <p><img src="https://i.loli.net/2019/10/30/beuDRCaE45YHi2Q.png" alt=""></p>
+<h1 id="纯注解"><a href="#纯注解" class="headerlink" title="纯注解"></a>纯注解</h1><h2 id="目前问题"><a href="#目前问题" class="headerlink" title="目前问题"></a>目前问题</h2><p>使用上一节使用的注解，我们可以实现部分注解，即替换bean.xml中的配置业务层和持久层的内容，基于注解的 IoC 配置已经完成，但是大家都发现了一个问题：我们依然离不开 spring 的 xml 配置文件，那么能不能不写这个 bean.xml，所有配置都用注解来实现呢？</p>
+<p>当然，也需要注意一下，我们选择哪种配置的原则是简化开发和配置方便，而非追求某种技术。</p>
+<p>我们发现，之所以我们现在离不开 xml 配置文件，是因为我们有一句很关键的配置： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 告知spring框架在，读取配置文件，创建容器时，扫描注解，依据注解创建对象，并存入容器中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.gsynf"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，数据源和 JdbcTemplate 的配置也需要靠注解来实现。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置QueryRunner --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"runner"</span> <span class="attr">class</span>=<span class="string">"org.apache.commons.dbutils.QueryRunner"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"ds"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置C3p0连接池 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://服务器IP:3306/spring5?useSSL=false"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"账户名"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"密码"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>  	</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="新注解"><a href="#新注解" class="headerlink" title="新注解"></a>新注解</h2><h3 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h3><p><strong>作用：</strong><br>用于指定 spring 在初始化容器时要扫描的包。作用和在 spring 的 xml 配置文件中的：<br><code>&lt;context:component-scan base-package=&quot;com.gsynf&quot;&gt;&lt;/context:component-scan&gt;</code>是一样的。<br><strong>属性：</strong><br>basePackages：用于指定要扫描的包。和该注解中的 value 属性作用一样。</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p><strong>作用：</strong><br>用于指定当前类是一个 spring 配置类，当创建容器时会从该类上加载注解。获取容器时需要使用AnnotationApplicationContext(有@Configuration 注解的类.class)。<br><strong>属性：</strong><br>value:用于指定配置类的字节码</p>
+<h3 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h3><p><strong>作用：</strong><br>该注解只能写在方法上，表明使用此方法创建一个对象，并且放入 spring 容器。<br><strong>属性：</strong><br>name：给当前@Bean 注解方法创建的对象指定一个名称(即 bean 的 id）。</p>
+<p><strong>注意：</strong></p>
+<p>我们已经把数据源和连接池从配置文件中移除了，此时可以删除 bean.xml 了。但是由于没有了配置文件，创建数据源的配置又都写死在类中了。如何把它们配置出来呢？请看下一个注解。 </p>
+<h3 id="PropertySource"><a href="#PropertySource" class="headerlink" title="@PropertySource"></a>@PropertySource</h3><p><strong>作用：</strong>用于加载.properties 文件中的配置。例如我们配置数据源时，可以把连接数据库的信息写到properties 配置文件中，就可以使用此注解指定 properties 配置文件的位置。<br><strong>属性：</strong>value[]：用于指定 properties 文件位置。如果是在类路径下，需要写上 classpath</p>
+<p><strong>注意：</strong><br>此时我们已经有了两个配置类，但是他们还没有关系。如何建立他们的关系呢？请看下一个注解。 </p>
+<h3 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h3><p><strong>作用：</strong><br>用于导入其他配置类，在引入其他配置类时，可以不用再写@Configuration 注解。当然，写上也没问题。<br><strong>属性：</strong><br>value[]：用于指定其他配置类的字节码。</p>
+<p><strong>注意：</strong><br>我们已经把要配置的都配置好了，但是新的问题产生了，由于没有配置文件了，如何获取容器呢？如下。</p>
+<h3 id="通过注解获取容器"><a href="#通过注解获取容器" class="headerlink" title="通过注解获取容器"></a>通过注解获取容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ac =new AnnotationConfigApplicationContext(SpringConfiguration.class);</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试类中的问题和解决思路"><a href="#测试类中的问题和解决思路" class="headerlink" title="测试类中的问题和解决思路"></a>测试类中的问题和解决思路</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在测试类中，每个测试方法都有以下两行代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">IAccountService as = ac.getBean(<span class="string">"accountService"</span>,IAccountService.class);</span><br></pre></td></tr></table></figure>
+
+<p>这两行代码的作用是获取容器，如果不写的话，直接会提示空指针异常。所以又不能轻易删掉。</p>
+<h2 id="解决思路分析"><a href="#解决思路分析" class="headerlink" title="解决思路分析"></a>解决思路分析</h2><p>针对上述问题，我们需要的是程序能自动帮我们创建容器。一旦程序能自动为我们创建spring 容器，我们就无须手动创建了，问题也就解决了。<br>我们都知道，junit 单元测试的原理，但显然，junit 是无法实现的，因为它自己都无法知晓我们是否使用了 spring 框架，更不用说帮我们创建 spring 容器了。不过好在，junit 给我们暴露了一个注解，可以让我们替换掉它的运行器。<br>这时，我们需要依靠 spring 框架，因为它提供了一个运行器，可以读取配置文件（或注解）来创建容器。我们只需要告诉它配置文件在哪就行了。</p>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h3 id="第一步：拷贝整合junit的必备jar包到lib目录"><a href="#第一步：拷贝整合junit的必备jar包到lib目录" class="headerlink" title="第一步：拷贝整合junit的必备jar包到lib目录"></a>第一步：拷贝整合junit的必备jar包到lib目录</h3><p>jar包为<code>spring-test-xxx.RELEASE.jar</code>。</p>
+<h3 id="第二步：使用-RunWith注解替换原有运行器"><a href="#第二步：使用-RunWith注解替换原有运行器" class="headerlink" title="第二步：使用@RunWith注解替换原有运行器"></a>第二步：使用@RunWith注解替换原有运行器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(classes = &#123;SpringConfiguration.class&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步：使用-ContextConfiguration指定Spring配置文件的位置"><a href="#第三步：使用-ContextConfiguration指定Spring配置文件的位置" class="headerlink" title="第三步：使用@ContextConfiguration指定Spring配置文件的位置"></a>第三步：使用@ContextConfiguration指定Spring配置文件的位置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(classes = &#123;SpringConfiguration.class&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>@ContextConfiguration 注解：</strong><br><strong>locations 属性：</strong>用于指定配置文件的位置。如果是类路径下，需要用 classpath:表明<br><strong>classes 属性：</strong>用于指定注解的类。当不使用 xml 配置时，需要用此属性指定注解类的位置。</p>
+<h3 id="第四步：使用-Autowired给测试类中的变量注入数据"><a href="#第四步：使用-Autowired给测试类中的变量注入数据" class="headerlink" title="第四步：使用@Autowired给测试类中的变量注入数据"></a>第四步：使用@Autowired给测试类中的变量注入数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> ICustomerService cs =<span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>另：</strong></p>
+<p>以上并不适合我，因为我是spring5整合JUint5，解决方案如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit.jupiter.SpringExtension;</span><br><span class="line">………………</span><br><span class="line"><span class="meta">@ExtendWith</span>(SpringExtension.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(classes = &#123;SpringConfiguration.class&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>官方解释</strong>：<code>The *SpringExtension* class is provided by Spring 5 and integrates the Spring TestContext Framework into JUnit 5. The *@ExtendWith* annotation accepts any class that implements the *Extension* interface.</code></p>
+<h2 id="为什么不把测试类配置到xml中"><a href="#为什么不把测试类配置到xml中" class="headerlink" title="为什么不把测试类配置到xml中"></a>为什么不把测试类配置到xml中</h2><p>在解释这个问题之前，先解除大家的疑虑，配到 XML 中能不能用呢？<br>答案是肯定的，没问题，可以使用。<br>那么为什么不采用配置到 xml 中的方式呢？<br><strong>这个原因是这样的：</strong><br><strong>第一：</strong>当我们在 xml 中配置了一个 bean，spring 加载配置文件创建容器时，就会创建对象。<br><strong>第二：</strong>测试类只是我们在测试功能时使用，而在项目中它并不参与程序逻辑，也不会解决需求上的问题，所以创建完了，并没有使用。那么存在容器中就会造成资源的浪费。<br>所以，基于以上两点，我们不应该把测试配置到 xml 文件中。</p>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       
@@ -638,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dbUtils-中的各种-Handler"><span class="nav-number">1.</span> <span class="nav-text">dbUtils 中的各种 Handler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#业务层测试"><span class="nav-number">2.</span> <span class="nav-text">业务层测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dbUtils-中的各种-Handler"><span class="nav-number">1.</span> <span class="nav-text">dbUtils 中的各种 Handler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#业务层测试"><span class="nav-number">2.</span> <span class="nav-text">业务层测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#纯注解"><span class="nav-number">3.</span> <span class="nav-text">纯注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目前问题"><span class="nav-number">3.1.</span> <span class="nav-text">目前问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新注解"><span class="nav-number">3.2.</span> <span class="nav-text">新注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ComponentScan"><span class="nav-number">3.2.1.</span> <span class="nav-text">@ComponentScan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">3.2.2.</span> <span class="nav-text">@Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean"><span class="nav-number">3.2.3.</span> <span class="nav-text">@Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PropertySource"><span class="nav-number">3.2.4.</span> <span class="nav-text">@PropertySource</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Import"><span class="nav-number">3.2.5.</span> <span class="nav-text">@Import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过注解获取容器"><span class="nav-number">3.2.6.</span> <span class="nav-text">通过注解获取容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试类中的问题和解决思路"><span class="nav-number">4.</span> <span class="nav-text">测试类中的问题和解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决思路分析"><span class="nav-number">4.2.</span> <span class="nav-text">解决思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置步骤"><span class="nav-number">4.3.</span> <span class="nav-text">配置步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：拷贝整合junit的必备jar包到lib目录"><span class="nav-number">4.3.1.</span> <span class="nav-text">第一步：拷贝整合junit的必备jar包到lib目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：使用-RunWith注解替换原有运行器"><span class="nav-number">4.3.2.</span> <span class="nav-text">第二步：使用@RunWith注解替换原有运行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：使用-ContextConfiguration指定Spring配置文件的位置"><span class="nav-number">4.3.3.</span> <span class="nav-text">第三步：使用@ContextConfiguration指定Spring配置文件的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：使用-Autowired给测试类中的变量注入数据"><span class="nav-number">4.3.4.</span> <span class="nav-text">第四步：使用@Autowired给测试类中的变量注入数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么不把测试类配置到xml中"><span class="nav-number">4.4.</span> <span class="nav-text">为什么不把测试类配置到xml中</span></a></li></ol></li></ol></div>
             
 
           </div>
