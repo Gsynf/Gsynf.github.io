@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，和之前可能会有重复。  一、SpringBoot简介1.1  原有Spring优缺点分析1.1.1 Spring的优点分析Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spring为企业级Java开发">
+<meta name="description" content="相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，此系列和之前可能会有重复，也算是温故而知新。  一、SpringBoot简介1.1  原有Spring优缺点分析1.1.1 Spring的优点分析Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spri">
 <meta name="keywords" content="Java,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot学习1-简介及入门">
 <meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;11&#x2F;05&#x2F;2019-11-05-SpringBoot%E5%AD%A6%E4%B9%A01-%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%A5%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，和之前可能会有重复。  一、SpringBoot简介1.1  原有Spring优缺点分析1.1.1 Spring的优点分析Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spring为企业级Java开发">
+<meta property="og:description" content="相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，此系列和之前可能会有重复，也算是温故而知新。  一、SpringBoot简介1.1  原有Spring优缺点分析1.1.1 Spring的优点分析Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spri">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="d:&#x2F;Tech&#x2F;SpringBoot&#x2F;SpringBoot%E5%9F%BA%E7%A1%80&#x2F;%E8%AE%B2%E4%B9%89(md,pdf)&#x2F;img&#x2F;5.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;04&#x2F;lQ5kApIt72KBD1n.png">
@@ -110,7 +110,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;04&#x2F;xpLuaAkh4Yrmtev.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;04&#x2F;wALgD5qa8N1IKrX.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;04&#x2F;oCFwZhyjVmbiWOf.png">
-<meta property="og:updated_time" content="2019-11-04T10:09:51.855Z">
+<meta property="og:updated_time" content="2019-11-05T00:59:49.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="d:&#x2F;Tech&#x2F;SpringBoot&#x2F;SpringBoot%E5%9F%BA%E7%A1%80&#x2F;%E8%AE%B2%E4%B9%89(md,pdf)&#x2F;img&#x2F;5.png">
 
@@ -414,7 +414,7 @@
 
       
         <blockquote>
-<p>相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，和之前可能会有重复。</p>
+<p>相比于之前尚硅谷视频，黑马的这个课程更加简便一些，先学习这个，此系列和之前可能会有重复，也算是温故而知新。</p>
 </blockquote>
 <h1 id="一、SpringBoot简介"><a href="#一、SpringBoot简介" class="headerlink" title="一、SpringBoot简介"></a>一、SpringBoot简介</h1><h2 id="1-1-原有Spring优缺点分析"><a href="#1-1-原有Spring优缺点分析" class="headerlink" title="1.1  原有Spring优缺点分析"></a>1.1  原有Spring优缺点分析</h2><h3 id="1-1-1-Spring的优点分析"><a href="#1-1-1-Spring的优点分析" class="headerlink" title="1.1.1 Spring的优点分析"></a>1.1.1 Spring的优点分析</h3><p>Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spring为企业级Java开发提供了一种相对简单的方法，通过依赖注入和面向切面编程，用简单的Java对象（Plain Old Java Object，POJO）实现了EJB的功能。</p>
 <h3 id="1-1-2-Spring的缺点分析"><a href="#1-1-2-Spring的缺点分析" class="headerlink" title="1.1.2 Spring的缺点分析"></a>1.1.2 Spring的缺点分析</h3><p>虽然Spring的组件代码是轻量级的，但它的配置却是重量级的。一开始，Spring用XML配置，而且是很多XML配置。Spring 2.5引入了基于注解的组件扫描，这消除了大量针对应用程序自身组件的显式XML配置。Spring 3.0引入了基于Java的配置，这是一种类型安全的可重构配置方式，可以代替XML。</p>
@@ -513,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/05/2019-11-05-SpringBoot%E5%AD%A6%E4%B9%A03-SpringBoot%E4%B8%8E%E6%95%B4%E5%90%88%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/" rel="next" title="SpringBoot学习3-SpringBoot与整合其他技术">
-                <i class="fa fa-chevron-left"></i> SpringBoot学习3-SpringBoot与整合其他技术
+              <a href="/2019/11/04/2019-11-04-Spring%E5%AD%A6%E4%B9%A010-Spring5%E6%96%B0%E7%89%B9%E6%80%A7/" rel="next" title="Spring学习10-Spring5新特性">
+                <i class="fa fa-chevron-left"></i> Spring学习10-Spring5新特性
               </a>
             
           </div>
@@ -522,6 +522,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/05/2019-11-05-%E8%A7%A3%E6%9E%90Java%E6%A1%86%E6%9E%B6%E4%B8%ADentity%E5%B1%82%EF%BC%8Cmapper%E5%B1%82%EF%BC%8Cservice%E5%B1%82%EF%BC%8Ccontroller%E5%90%84%E5%B1%82%E4%BD%9C%E7%94%A8/" rel="prev" title="解析Java框架中entity层，mapper层，service层，controller各层作用">
+                解析Java框架中entity层，mapper层，service层，controller各层作用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -598,7 +602,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">107</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
