@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="1.简介使用SpringBoot； 1）、创建SpringBoot应用，选中我们需要的模块； 2）、SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来 3）、自己编写业务代码； 自动配置原理？ 这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？xxx 12xxxxAutoConfiguration：帮我们给容器中自动配置">
+<meta name="description" content="1.简介使用SpringBoot； 1）创建SpringBoot应用，选中我们需要的模块； 2）SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来 3）自己编写业务代码； 自动配置原理？ 这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？………… 12xxxxAutoConfiguration：帮我们给容器中自动配置组件">
 <meta name="keywords" content="Java,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot框架学习3-Web开发">
 <meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;2019-11-06-SpringBoot%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A03-Web%E5%BC%80%E5%8F%91&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="1.简介使用SpringBoot； 1）、创建SpringBoot应用，选中我们需要的模块； 2）、SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来 3）、自己编写业务代码； 自动配置原理？ 这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？xxx 12xxxxAutoConfiguration：帮我们给容器中自动配置">
+<meta property="og:description" content="1.简介使用SpringBoot； 1）创建SpringBoot应用，选中我们需要的模块； 2）SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来 3）自己编写业务代码； 自动配置原理？ 这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？………… 12xxxxAutoConfiguration：帮我们给容器中自动配置组件">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;WIecDvfRTYAEHuN.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;aIKME8f5WNwunHm.png">
@@ -112,7 +112,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;my9MbZqdCOB14vh.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;4qRcWgoOT5BJAlU.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;rivEpLfSIM6RyAc.png">
-<meta property="og:updated_time" content="2019-11-05T09:00:02.711Z">
+<meta property="og:updated_time" content="2019-11-05T14:45:14.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;05&#x2F;WIecDvfRTYAEHuN.png">
 
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  9.5k
+                  9.7k
                 </span>
               
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  47
+                  48
                 </span>
               
             </div>
@@ -416,16 +416,16 @@
 
       
         <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>使用SpringBoot；</p>
-<p><strong>1）、创建SpringBoot应用，选中我们需要的模块；</strong></p>
-<p><strong>2）、SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来</strong></p>
-<p><strong>3）、自己编写业务代码；</strong></p>
+<p><strong>1）创建SpringBoot应用，选中我们需要的模块；</strong></p>
+<p><strong>2）SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来</strong></p>
+<p><strong>3）自己编写业务代码；</strong></p>
 <p><strong>自动配置原理？</strong></p>
-<p>这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？xxx</p>
+<p>这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？…………</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxxAutoConfiguration：帮我们给容器中自动配置组件；</span><br><span class="line">xxxxProperties:配置类来封装配置文件的内容；</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="2-SpringBoot对静态资源的映射规则"><a href="#2-SpringBoot对静态资源的映射规则" class="headerlink" title="2.SpringBoot对静态资源的映射规则"></a>2.SpringBoot对静态资源的映射规则</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.resources"</span>, ignoreUnknownFields = <span class="keyword">false</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> <span class="keyword">implements</span> <span class="title">ResourceLoaderAware</span> </span>&#123;</span><br><span class="line">  <span class="comment">//可以设置和静态资源有关的参数，缓存时间等</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-SpringBoot对静态资源的映射规则"><a href="#2-SpringBoot对静态资源的映射规则" class="headerlink" title="2.SpringBoot对静态资源的映射规则"></a>2.SpringBoot对静态资源的映射规则</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.resources"</span>, ignoreUnknownFields = <span class="keyword">false</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> <span class="keyword">implements</span> <span class="title">ResourceLoaderAware</span> </span>&#123;</span><br><span class="line"><span class="comment">//可以设置和静态资源有关的参数，缓存时间等</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -433,39 +433,53 @@
 
 
 
-<p>==1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；==</p>
-<p>​    webjars：以jar包的方式引入静态资源；</p>
-<p><a href="http://www.webjars.org/" target="_blank" rel="noopener">http://www.webjars.org/</a></p>
+<p>1）所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；</p>
+<p>​        webjars：以jar包的方式引入静态资源；<a href="http://www.webjars.org/" target="_blank" rel="noopener">http://www.webjars.org/</a></p>
 <p><img src="https://i.loli.net/2019/11/05/WIecDvfRTYAEHuN.png" alt=""></p>
-<p>localhost:8080/webjars/jquery/3.3.1/jquery.js</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入jquery-webjar--&gt;</span>在访问的时候只需要写webjars下面资源的名称即可</span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时访问localhost:8080/webjars/jquery/3.3.1/jquery.js，发现是可以的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入jquery-webjar--&gt;</span>在访问的时候只需要写webjars下面资源的名称即可</span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>==2）、”/**” 访问当前项目的任何资源，都去（静态资源的文件夹）找映射==</p>
+<p>2）”/**” 访问当前项目的任何资源，都去（静态资源的文件夹）找映射</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;classpath:/META-INF/resources/&quot;, </span><br><span class="line">&quot;classpath:/resources/&quot;,</span><br><span class="line">&quot;classpath:/static/&quot;, </span><br><span class="line">&quot;classpath:/public/&quot; </span><br><span class="line">&quot;/&quot;：当前项目的根路径</span><br></pre></td></tr></table></figure>
 
 <p>localhost:8080/abc ===  去静态资源文件夹里面找abc</p>
-<p>==3）、欢迎页； 静态资源文件夹下的所有index.html页面；被”/**”映射；==</p>
+<p>3）欢迎页： 静态资源文件夹下的所有index.html页面；被”/**”映射；</p>
 <p>​    localhost:8080/   找index页面</p>
-<p>==4）、所有的 **/favicon.ico  都是在静态资源文件下找；==</p>
+<p>4）所有的 **/favicon.ico  都是在静态资源文件下找；</p>
+<p>若要修改上述静态资源的文件夹：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.resources.static-locations</span>=<span class="string">classpath:/hello/,classpath:/hi/</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="3-模板引擎"><a href="#3-模板引擎" class="headerlink" title="3.模板引擎"></a>3.模板引擎</h1><p>JSP、Velocity、Freemarker、Thymeleaf</p>
 <p><img src="https://i.loli.net/2019/11/05/aIKME8f5WNwunHm.png" alt=""></p>
 <p>SpringBoot推荐的Thymeleaf；</p>
 <p>语法更简单，功能更强大；</p>
-<h2 id="3-1引入thymeleaf"><a href="#3-1引入thymeleaf" class="headerlink" title="3.1引入thymeleaf"></a>3.1引入thymeleaf</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          	2.1.6</span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">切换thymeleaf版本</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.9.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- thymeleaf2   layout1--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-1引入thymeleaf"><a href="#3-1引入thymeleaf" class="headerlink" title="3.1引入thymeleaf"></a>3.1引入thymeleaf</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    2.1.6</span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">切换thymeleaf版本</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.9.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- thymeleaf2   layout1--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-
+<p><strong>注：</strong>SpringBoot2.2.0自动安装的starter版本为3.0.11，所以不需要再自己升级了</p>
 <h2 id="3-2Thymeleaf使用"><a href="#3-2Thymeleaf使用" class="headerlink" title="3.2Thymeleaf使用"></a>3.2Thymeleaf使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.thymeleaf"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThymeleafProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Charset DEFAULT_ENCODING = Charset.forName(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> MimeType DEFAULT_CONTENT_TYPE = MimeType.valueOf(<span class="string">"text/html"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_PREFIX = <span class="string">"classpath:/templates/"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SUFFIX = <span class="string">".html"</span>;</span><br><span class="line">  	<span class="comment">//</span></span><br></pre></td></tr></table></figure>
 
-<p>只要我们把HTML页面放在classpath:/templates/，thymeleaf就能自动渲染；</p>
+<p>所以，只要我们把HTML页面放在classpath:/templates/，thymeleaf就能自动渲染，但是需要注意的是，如果只使用@RestController注解是不会自动渲染html页面的，需要使用@Controller和@ResponseBody</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="comment">//查出一些数据在页面展示</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/success"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//classpath:/templates/success.html</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
 <p>使用：</p>
 <p>1、导入thymeleaf的名称空间</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>2、使用thymeleaf语法；</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--th:text 将div里面的文本内容设置为 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello&#125;"</span>&gt;</span>这是显示欢迎信息<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>对应的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="comment">//查出一些数据在页面展示</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/success"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">(Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">        map.put(<span class="string">"hello"</span>,<span class="string">"你好"</span>);</span><br><span class="line">        <span class="comment">//classpath:/templates/success.html</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="3-3语法规则"><a href="#3-3语法规则" class="headerlink" title="3.3语法规则"></a>3.3语法规则</h2><p>1）、th:text；改变当前元素里面的文本内容；</p>
 <p>​    th：任意html属性；来替换原生属性的值</p>
