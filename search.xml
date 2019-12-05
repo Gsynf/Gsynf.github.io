@@ -60,6 +60,29 @@
       </tags>
   </entry>
   <entry>
+    <title>关于Java和MySQL时区不一致</title>
+    <url>/2019/12/04/2019-12-04-%E5%85%B3%E4%BA%8EJava%E5%92%8CMySQL%E6%97%B6%E5%8C%BA%E4%B8%8D%E4%B8%80%E8%87%B4/</url>
+    <content><![CDATA[<blockquote>
+<p>解决项目中的问题</p>
+</blockquote>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>项目中记录udp消息的日志用到了Timestamp</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UdpRecord</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Column</span>(name=<span class="string">"time"</span>,length = <span class="number">255</span>)</span><br><span class="line">    <span class="keyword">private</span> Timestamp time;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Timestamp <span class="title">getTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTime</span><span class="params">(Timestamp time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.time = time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">udpRecord.setTime(getTime());</span><br><span class="line"><span class="function"><span class="keyword">public</span> Timestamp <span class="title">getTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Date date = <span class="keyword">new</span> Date();</span><br><span class="line">    Timestamp time = <span class="keyword">new</span> Timestamp(date.getTime());</span><br><span class="line">    <span class="keyword">return</span> time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是在数据库中发现存的时间并不是当前时间，但是在控制台打印得到的确实是当前时间。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这是因为Java和MySQL时区不一致，其实也就是当前系统的时区和mysql的时区不一致，最简单的办法：</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库连接驱动</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://192.168.1.107/heater?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
+
+<p>加上<code>serverTimezone=Asia/Shanghai</code>即可。</p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于SpringBoot中redis的存取问题</title>
     <url>/2019/12/04/2019-12-04-%E5%85%B3%E4%BA%8ESpringBoot%E4%B8%ADredis%E7%9A%84%E5%AD%98%E5%8F%96%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -81,29 +104,6 @@
         <tag>Java</tag>
         <tag>SpringBoot</tag>
         <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于Java和MySQL时区不一致</title>
-    <url>/2019/12/04/2019-12-04-%E5%85%B3%E4%BA%8EJava%E5%92%8CMySQL%E6%97%B6%E5%8C%BA%E4%B8%8D%E4%B8%80%E8%87%B4/</url>
-    <content><![CDATA[<blockquote>
-<p>解决项目中的问题</p>
-</blockquote>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>项目中记录udp消息的日志用到了Timestamp</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UdpRecord</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Column</span>(name=<span class="string">"time"</span>,length = <span class="number">255</span>)</span><br><span class="line">    <span class="keyword">private</span> Timestamp time;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Timestamp <span class="title">getTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTime</span><span class="params">(Timestamp time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.time = time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">udpRecord.setTime(getTime());</span><br><span class="line"><span class="function"><span class="keyword">public</span> Timestamp <span class="title">getTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Date date = <span class="keyword">new</span> Date();</span><br><span class="line">    Timestamp time = <span class="keyword">new</span> Timestamp(date.getTime());</span><br><span class="line">    <span class="keyword">return</span> time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是在数据库中发现存的时间并不是当前时间，但是在控制台打印得到的确实是当前时间。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这是因为Java和MySQL时区不一致，其实也就是当前系统的时区和mysql的时区不一致，最简单的办法：</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库连接驱动</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://192.168.1.107/heater?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
-
-<p>加上<code>serverTimezone=Asia/Shanghai</code>即可。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -918,6 +918,80 @@
       </tags>
   </entry>
   <entry>
+    <title>关于Pycharm For Linux</title>
+    <url>/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EPycharm%20For%20Linux/</url>
+    <content><![CDATA[<blockquote>
+<p>​    </p>
+</blockquote>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>官网下载Linux版本即可。下载好的文件的名称可能是 ‘pycharm-professional-2019.2.5.tar.gz’。默认下载到“下载”。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd ~/Downloads</span><br><span class="line">&gt; tar -xvzf pycharm-professional-2019.2.5.tar.gz -C ~</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令将会把 PyCharm 软件安装在 home 目录中。</p>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>进入home目录下安装文件的bin文件夹进行启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd ~</span><br><span class="line">&gt; cd pycharm-2019.2.5/bin</span><br><span class="line">&gt; sh pycharm.sh &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="收藏栏固定启动图标"><a href="#收藏栏固定启动图标" class="headerlink" title="收藏栏固定启动图标"></a>收藏栏固定启动图标</h1><p>这样每次启动都比较麻烦，所以想将启动图标固定在收藏栏。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd 桌面</span><br><span class="line">&gt; code pycharm.desktop</span><br><span class="line">这里提示我没有安装code</span><br><span class="line">&gt; sudo snap install code --classic</span><br><span class="line">code安装成功之后再次运行</span><br><span class="line">&gt; code pycharm.desktop</span><br><span class="line">会自动打开vscode,没有vscode的用vi一样</span><br></pre></td></tr></table></figure>
+
+<p>将以下内容写到vscode中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Pycharm</span><br><span class="line">Icon=/home/hpf/pycharm-2019.2.5/bin/pycharm.png</span><br><span class="line">Exec=sh /home/hpf/pycharm-2019.2.5/bin/pycharm.sh</span><br><span class="line">Terminal=false</span><br></pre></td></tr></table></figure>
+
+<p>这时右击桌面文件设置为可运行程序， sudo chmod +x 也一样</p>
+<p><img src="https://i.loli.net/2019/11/28/NgtAdQZb3RLSlOX.png" alt=""></p>
+<p>双击信任一下</p>
+<p><img src="https://i.loli.net/2019/11/28/T5cmAadsoLhH6pP.png" alt=""></p>
+<p>这时候应该就可以打开了</p>
+<p>把图标发到Application里面</p>
+<p><code>sudo mv pycharm.desktop /usr/share/applications/</code></p>
+<p>这时候搜索就可以查到了，右击添加到收藏夹就可以了</p>
+<p><img src="https://i.loli.net/2019/11/28/7HND1ZyUYLdViO3.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/11/28/MD6yBSOCKYJ8oxn.png" alt=""></p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于Django尝试</title>
+    <url>/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E5%B0%9D%E8%AF%95/</url>
+    <content><![CDATA[<blockquote>
+<p>总管负责的电磁加热宣传网站使用的 Bootstrap 和 Django，来玩玩。    </p>
+</blockquote>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>基本思路：使用Pycharm打开仓库clone下来的Django项目，Project Interpreter中选择conda新建的环境。</p>
+<p>但是，clone打开之后</p>
+<p><img src="https://i.loli.net/2019/11/28/bNocFyG2wlK3kQW.png" alt=""></p>
+<p>提示要install requirment，点击之后可以安装部分，但日志提示有一些无法安装，项目也无法运行。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>直接在控制台手动安装requirment.txt中的需求：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Django==2.0</span><br><span class="line">django-ckeditor==5.4.0</span><br><span class="line">django-js-asset==1.0.0</span><br><span class="line">pillow==6.2.0</span><br><span class="line">PyQt5==5.13.1</span><br><span class="line">PyQt5-sip==12.7.0</span><br><span class="line">pytz==2017.3</span><br><span class="line">virtualenv==16.7.6</span><br></pre></td></tr></table></figure>
+
+<p>运行命令<code>pip install -r requirements.txt</code></p>
+<p>其他可以安装，但是pillow安装出现错误。</p>
+<p><img src="https://i.loli.net/2019/11/28/KZYpEmNzhtuJ5Ix.png" alt=""></p>
+<p>选择自己手动安装，<code>pip install pillow</code></p>
+<p>此时运行<code>python manage.py runserver</code>，可以运行。</p>
+<p><img src="https://i.loli.net/2019/11/28/qBizK58tMxFGLjP.png" alt=""></p>
+<p>但是打开浏览器发现加载有误，需要更换迁移一下数据库：</p>
+<p>依次执行</p>
+<p><code>python manage.py makemigrations</code></p>
+<p><code>python manage.py migrate</code></p>
+<p><img src="https://i.loli.net/2019/11/28/rnfo5sSmKQgv2Al.png" alt=""></p>
+<p>再次运行，打开浏览器，成功。</p>
+<p>需要注意一下，以上所有控制台命令前都有(heaterWeb)，即所有包都安装在了conda新建的heaterWeb环境中。</p>
+<p><img src="https://i.loli.net/2019/11/28/T2VbtZcfOkJEIQn.png" alt=""></p>
+<p>/admin输入账户密码即可进入Django管理后台，用于页面内容编辑上传，内容会保存在项目关联的数据库中。</p>
+<p><img src="https://i.loli.net/2019/11/28/LrfivNc3YCBV5PS.png" alt=""></p>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于Django迁移数据库</title>
     <url>/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
     <content><![CDATA[<blockquote>
@@ -989,80 +1063,6 @@
 
 
 
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于Pycharm For Linux</title>
-    <url>/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EPycharm%20For%20Linux/</url>
-    <content><![CDATA[<blockquote>
-<p>​    </p>
-</blockquote>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>官网下载Linux版本即可。下载好的文件的名称可能是 ‘pycharm-professional-2019.2.5.tar.gz’。默认下载到“下载”。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd ~/Downloads</span><br><span class="line">&gt; tar -xvzf pycharm-professional-2019.2.5.tar.gz -C ~</span><br></pre></td></tr></table></figure>
-
-<p>上面的命令将会把 PyCharm 软件安装在 home 目录中。</p>
-<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>进入home目录下安装文件的bin文件夹进行启动</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd ~</span><br><span class="line">&gt; cd pycharm-2019.2.5/bin</span><br><span class="line">&gt; sh pycharm.sh &amp;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="收藏栏固定启动图标"><a href="#收藏栏固定启动图标" class="headerlink" title="收藏栏固定启动图标"></a>收藏栏固定启动图标</h1><p>这样每次启动都比较麻烦，所以想将启动图标固定在收藏栏。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd 桌面</span><br><span class="line">&gt; code pycharm.desktop</span><br><span class="line">这里提示我没有安装code</span><br><span class="line">&gt; sudo snap install code --classic</span><br><span class="line">code安装成功之后再次运行</span><br><span class="line">&gt; code pycharm.desktop</span><br><span class="line">会自动打开vscode,没有vscode的用vi一样</span><br></pre></td></tr></table></figure>
-
-<p>将以下内容写到vscode中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Pycharm</span><br><span class="line">Icon=/home/hpf/pycharm-2019.2.5/bin/pycharm.png</span><br><span class="line">Exec=sh /home/hpf/pycharm-2019.2.5/bin/pycharm.sh</span><br><span class="line">Terminal=false</span><br></pre></td></tr></table></figure>
-
-<p>这时右击桌面文件设置为可运行程序， sudo chmod +x 也一样</p>
-<p><img src="https://i.loli.net/2019/11/28/NgtAdQZb3RLSlOX.png" alt=""></p>
-<p>双击信任一下</p>
-<p><img src="https://i.loli.net/2019/11/28/T5cmAadsoLhH6pP.png" alt=""></p>
-<p>这时候应该就可以打开了</p>
-<p>把图标发到Application里面</p>
-<p><code>sudo mv pycharm.desktop /usr/share/applications/</code></p>
-<p>这时候搜索就可以查到了，右击添加到收藏夹就可以了</p>
-<p><img src="https://i.loli.net/2019/11/28/7HND1ZyUYLdViO3.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/11/28/MD6yBSOCKYJ8oxn.png" alt=""></p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于Django尝试</title>
-    <url>/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E5%B0%9D%E8%AF%95/</url>
-    <content><![CDATA[<blockquote>
-<p>总管负责的电磁加热宣传网站使用的 Bootstrap 和 Django，来玩玩。    </p>
-</blockquote>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>基本思路：使用Pycharm打开仓库clone下来的Django项目，Project Interpreter中选择conda新建的环境。</p>
-<p>但是，clone打开之后</p>
-<p><img src="https://i.loli.net/2019/11/28/bNocFyG2wlK3kQW.png" alt=""></p>
-<p>提示要install requirment，点击之后可以安装部分，但日志提示有一些无法安装，项目也无法运行。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>直接在控制台手动安装requirment.txt中的需求：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Django==2.0</span><br><span class="line">django-ckeditor==5.4.0</span><br><span class="line">django-js-asset==1.0.0</span><br><span class="line">pillow==6.2.0</span><br><span class="line">PyQt5==5.13.1</span><br><span class="line">PyQt5-sip==12.7.0</span><br><span class="line">pytz==2017.3</span><br><span class="line">virtualenv==16.7.6</span><br></pre></td></tr></table></figure>
-
-<p>运行命令<code>pip install -r requirements.txt</code></p>
-<p>其他可以安装，但是pillow安装出现错误。</p>
-<p><img src="https://i.loli.net/2019/11/28/KZYpEmNzhtuJ5Ix.png" alt=""></p>
-<p>选择自己手动安装，<code>pip install pillow</code></p>
-<p>此时运行<code>python manage.py runserver</code>，可以运行。</p>
-<p><img src="https://i.loli.net/2019/11/28/qBizK58tMxFGLjP.png" alt=""></p>
-<p>但是打开浏览器发现加载有误，需要更换迁移一下数据库：</p>
-<p>依次执行</p>
-<p><code>python manage.py makemigrations</code></p>
-<p><code>python manage.py migrate</code></p>
-<p><img src="https://i.loli.net/2019/11/28/rnfo5sSmKQgv2Al.png" alt=""></p>
-<p>再次运行，打开浏览器，成功。</p>
-<p>需要注意一下，以上所有控制台命令前都有(heaterWeb)，即所有包都安装在了conda新建的heaterWeb环境中。</p>
-<p><img src="https://i.loli.net/2019/11/28/T2VbtZcfOkJEIQn.png" alt=""></p>
-<p>/admin输入账户密码即可进入Django管理后台，用于页面内容编辑上传，内容会保存在项目关联的数据库中。</p>
-<p><img src="https://i.loli.net/2019/11/28/LrfivNc3YCBV5PS.png" alt=""></p>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -2021,65 +2021,6 @@ timer.cancel();</code></pre><p><strong>注</strong>：转载文章请注明出�
       </tags>
   </entry>
   <entry>
-    <title>Mybatis学习1-简介及自定义Mybatis</title>
-    <url>/2019/11/06/2019-11-06-Mybatis%E5%AD%A6%E4%B9%A01-%E7%AE%80%E4%BB%8B%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89Mybatis/</url>
-    <content><![CDATA[<h1 id="什么是框架"><a href="#什么是框架" class="headerlink" title="什么是框架"></a>什么是框架</h1><p>它是我们软件开发中的一套解决方案，不同的框架解决的是不同的问题<br>使用框架的好处：<br>框架封装了很多的细节，使开发者可以使用极简的方式实现功能。大大提高开发效率。</p>
-<h1 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h1><p><strong>表现层：</strong><br>是用于展示数据的<br><strong>业务层：</strong><br>是处理业务需求<br><strong>持久层：</strong><br>是和数据库交互的</p>
-<p><img src="https://i.loli.net/2019/11/06/2dtJFuqXZC6PWlb.png" alt=""></p>
-<h1 id="持久层技术解决方案"><a href="#持久层技术解决方案" class="headerlink" title="持久层技术解决方案"></a>持久层技术解决方案</h1><p><strong>JDBC技术：</strong><br>Connection<br>PreparedStatement<br>ResultSet<br><strong>Spring的JdbcTemplate：</strong><br>Spring中对jdbc的简单封装<br><strong>Apache的DBUtils：</strong><br>它和Spring的JdbcTemplate很像，也是对Jdbc的简单封装<br>以上这些都不是框架<br>JDBC是规范</p>
-<p>Spring的JdbcTemplate和Apache的DBUtils都只是工具类</p>
-<h1 id="mybatis的概述"><a href="#mybatis的概述" class="headerlink" title="mybatis的概述"></a>mybatis的概述</h1><p>mybatis是一个持久层框架，用java编写的。<br>它封装了jdbc操作的很多细节，使开发者只需要关注sql语句本身，而无需关注注册驱动，创建连接等繁杂过程。<br>它使用了ORM思想实现了结果集的封装。</p>
-<p><strong>ORM：</strong><br>Object Relational Mappging 对象关系映射<br>简单的说：就是把数据库表和实体类及实体类的属性对应起来，让我们可以操作实体类就实现操作数据库表。<br>user User<br>id userId<br>user_name userName</p>
-<p>我们需要做到<br><em>实体类中的属性和数据库表的字段名称保持一致。</em></p>
-<h1 id="mybatis的入门"><a href="#mybatis的入门" class="headerlink" title="mybatis的入门"></a>mybatis的入门</h1><h2 id="表的创建与数据的插入"><a href="#表的创建与数据的插入" class="headerlink" title="表的创建与数据的插入"></a>表的创建与数据的插入</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> auto_increment,</span><br><span class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'用户名称'</span>,</span><br><span class="line">  <span class="string">`birthday`</span> datetime <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'生日'</span>,</span><br><span class="line">  <span class="string">`sex`</span> <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'性别'</span>,</span><br><span class="line">  <span class="string">`address`</span> <span class="built_in">varchar</span>(<span class="number">256</span>) <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'地址'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span>  (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span>  <span class="keyword">into</span> <span class="string">`user`</span>(<span class="string">`id`</span>,<span class="string">`username`</span>,<span class="string">`birthday`</span>,<span class="string">`sex`</span>,<span class="string">`address`</span>) <span class="keyword">values</span> (<span class="number">41</span>,<span class="string">'老王'</span>,<span class="string">'2018-02-27 17:47:08'</span>,<span class="string">'男'</span>,<span class="string">'北京'</span>),(<span class="number">42</span>,<span class="string">'小二王'</span>,<span class="string">'2018-03-02 15:09:37'</span>,<span class="string">'女'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">43</span>,<span class="string">'小二王'</span>,<span class="string">'2018-03-04 11:34:34'</span>,<span class="string">'女'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">45</span>,<span class="string">'传智播客'</span>,<span class="string">'2018-03-04 12:04:06'</span>,<span class="string">'男'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">46</span>,<span class="string">'老王'</span>,<span class="string">'2018-03-07 17:37:26'</span>,<span class="string">'男'</span>,<span class="string">'北京'</span>),(<span class="number">48</span>,<span class="string">'小马宝莉'</span>,<span class="string">'2018-03-08 11:44:00'</span>,<span class="string">'女'</span>,<span class="string">'北京修正'</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="mybatis环境搭建demo的基本架构"><a href="#mybatis环境搭建demo的基本架构" class="headerlink" title="mybatis环境搭建demo的基本架构"></a>mybatis环境搭建demo的基本架构</h2><p><img src="https://i.loli.net/2019/11/06/x8ywdvBZoO6SRn3.png" alt=""></p>
-<p><strong>第一步：创建maven工程并导入坐标</strong></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.gsynf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>day01_mybatis_01mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.18<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>第二步：创建实体类和dao的接口</strong></p>
-<p><strong>第三步：创建Mybatis的主配置文件</strong></p>
-<p><em>SqlMapConifg.xml</em></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mybatis主配置文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"mysql"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--配置mysql环境--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"mysql"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--配置事务类型--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>&gt;</span><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--配置数据源（连接池）--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--配置连接数据库的基本信息--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://服务器IP/mybatis"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--配置映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"com/gsynf/dao/IUserDao.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>第四步：创建映射配置文件</strong></p>
-<p><em>IUserDao.xml</em></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.gsynf.dao.IUserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="环境搭建的注意事项"><a href="#环境搭建的注意事项" class="headerlink" title="环境搭建的注意事项"></a>环境搭建的注意事项</h2><p><strong>第一个：</strong> 创建IUserDao.xml 和 IUserDao.java时名称是为了和我们之前的知识保持一致。<br>在Mybatis中它把持久层的操作接口名称和映射文件也叫做：Mapper<br>所以：IUserDao 和 IUserMapper是一样的<br><strong>第二个：</strong> 在idea中创建目录的时候，它和包是不一样的<br>包 <em>（Package）</em> 在创建时：com.gsynf.dao它是三级结构<br>目录 <em>（Directory）</em> 在创建时：com.gsynf.dao是一级目录<br><strong>第三个：</strong> mybatis的映射配置文件位置必须和dao接口的包结构相同<br><strong>第四个：</strong> 映射配置文件的mapper标签namespace属性的取值必须是dao接口的全限定类名<br><strong>第五个：</strong> 映射配置文件的操作配置（select），id属性的取值必须是dao接口的方法名</p>
-<p>当我们遵从了第三，四，五点之后，我们在开发中就无须再写dao的实现类。</p>
-<h2 id="mybatis的入门案例"><a href="#mybatis的入门案例" class="headerlink" title="mybatis的入门案例"></a>mybatis的入门案例</h2><p><strong>第一步：</strong> 读取配置文件<br><strong>第二步：</strong> 创建SqlSessionFactory工厂<br><strong>第三步：</strong> 创建SqlSession<br><strong>第四步：</strong> 创建Dao接口的代理对象<br><strong>第五步：</strong> 执行dao中的方法<br><strong>第六步：</strong> 释放资源</p>
-<p><strong>注意事项：</strong><br>不要忘记在映射配置中告知mybatis要封装到哪个实体类中<br>配置的方式：指定实体类的全限定类名</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">………………</span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.gsynf.dao.IUserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultType</span>=<span class="string">"com.gsynf.domain.User"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>mybatis基于注解的入门案例：</strong><br>把IUserDao.xml移除，在dao接口的方法上使用@Select注解，并且指定SQL语句<br>同时需要在SqlMapConfig.xml中的mapper配置时，使用class属性指定dao接口的全限定类名。<br><strong>明确：</strong><br>我们在实际开发中，都是越简便越好，所以都是采用不写dao实现类的方式。<br>不管使用XML还是注解配置。但是Mybatis它是支持写dao实现类的。</p>
-<p><strong>入门案例设计模式分析：</strong></p>
-<p><img src="https://i.loli.net/2019/11/06/f1rPZclaoNQF7gh.png" alt=""></p>
-<h1 id="自定义Mybatis的分析-执行查询所有的分析"><a href="#自定义Mybatis的分析-执行查询所有的分析" class="headerlink" title="自定义Mybatis的分析__执行查询所有的分析"></a>自定义Mybatis的分析__执行查询所有的分析</h1><p>mybatis在使用代理dao的方式实现增删改查时做什么事呢？<br>只有两件事：<br>第一：创建代理对象<br>第二：在代理对象中调用selectList</p>
-<p>自定义mybatis能通过入门案例看到类<br>class　　　　Resources　　使用类加载器读取配置文件的类<br>class　　　　SqlSessionFactoryBuilder　　用于创建一个SqlsessionFactory对象<br>interface　　SqlSessionFactory　　用于打开一个新的SqlSession<br>interface　　SqlSession　　自定义MYbatis中和数据库交互的核心类</p>
-<p><img src="https://i.loli.net/2019/11/06/RLpbqrec9ZGIhaA.png" alt=""></p>
-<p>自定义mybatis开发流程图:</p>
-<p><img src="https://i.loli.net/2019/11/07/PvWyZ4DaN29dwxT.png" alt=""></p>
-<p>Project结构：</p>
-<p><img src="https://i.loli.net/2019/11/07/LvpdzBsjRh89CPT.png" alt=""></p>
-<p>1.读取配置文件用io包里的Resources<br>2.读出所需要的信息交给SqlSessionFactoryBuilder构建者<br>3.构建者使用工具类XMLConfigBuilder构建出DefaultSqlsessionFactory工厂对象，xml读取的信息保存在Configuration里<br>4.工厂里的openSession提供了Sqlsession方法<br>5.再在SqlSession里实现创建代理对象和查询所有的功能</p>
-<p>测试类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gsynf.test;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.gsynf.dao.IUserDao;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.domain.User;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSession;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mybatis的入门案例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.读取配置文件</span></span><br><span class="line">        InputStream in = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line">        <span class="comment">//2.创建SqlSessionFactory工厂</span></span><br><span class="line">        SqlSessionFactoryBuilder builder = <span class="keyword">new</span> SqlSessionFactoryBuilder();</span><br><span class="line">        SqlSessionFactory factory = builder.build(in);</span><br><span class="line">        <span class="comment">//3.使用工厂生产SqlSession对象</span></span><br><span class="line">        SqlSession session = factory.openSession();</span><br><span class="line">        <span class="comment">//4.使用SqlSession创建Dao接口的代理对象</span></span><br><span class="line">        IUserDao userDao = session.getMapper(IUserDao.class);</span><br><span class="line">        <span class="comment">//5.使用代理对象执行方法</span></span><br><span class="line">        List&lt;User&gt; users = userDao.findAll();</span><br><span class="line">        <span class="keyword">for</span> (User user: users) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//6.释放资源</span></span><br><span class="line">        session.close();</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Java</tag>
-        <tag>Mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot框架学习2-日志</title>
     <url>/2019/11/06/2019-11-06-SpringBoot%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A02-%E6%97%A5%E5%BF%97/</url>
     <content><![CDATA[<h1 id="1-日志框架"><a href="#1-日志框架" class="headerlink" title="1.日志框架"></a>1.日志框架</h1><p> 小张：开发一个大型系统；</p>
@@ -2242,6 +2183,65 @@ timer.cancel();</code></pre><p><strong>注</strong>：转载文章请注明出�
       <tags>
         <tag>Java</tag>
         <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mybatis学习1-简介及自定义Mybatis</title>
+    <url>/2019/11/06/2019-11-06-Mybatis%E5%AD%A6%E4%B9%A01-%E7%AE%80%E4%BB%8B%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89Mybatis/</url>
+    <content><![CDATA[<h1 id="什么是框架"><a href="#什么是框架" class="headerlink" title="什么是框架"></a>什么是框架</h1><p>它是我们软件开发中的一套解决方案，不同的框架解决的是不同的问题<br>使用框架的好处：<br>框架封装了很多的细节，使开发者可以使用极简的方式实现功能。大大提高开发效率。</p>
+<h1 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h1><p><strong>表现层：</strong><br>是用于展示数据的<br><strong>业务层：</strong><br>是处理业务需求<br><strong>持久层：</strong><br>是和数据库交互的</p>
+<p><img src="https://i.loli.net/2019/11/06/2dtJFuqXZC6PWlb.png" alt=""></p>
+<h1 id="持久层技术解决方案"><a href="#持久层技术解决方案" class="headerlink" title="持久层技术解决方案"></a>持久层技术解决方案</h1><p><strong>JDBC技术：</strong><br>Connection<br>PreparedStatement<br>ResultSet<br><strong>Spring的JdbcTemplate：</strong><br>Spring中对jdbc的简单封装<br><strong>Apache的DBUtils：</strong><br>它和Spring的JdbcTemplate很像，也是对Jdbc的简单封装<br>以上这些都不是框架<br>JDBC是规范</p>
+<p>Spring的JdbcTemplate和Apache的DBUtils都只是工具类</p>
+<h1 id="mybatis的概述"><a href="#mybatis的概述" class="headerlink" title="mybatis的概述"></a>mybatis的概述</h1><p>mybatis是一个持久层框架，用java编写的。<br>它封装了jdbc操作的很多细节，使开发者只需要关注sql语句本身，而无需关注注册驱动，创建连接等繁杂过程。<br>它使用了ORM思想实现了结果集的封装。</p>
+<p><strong>ORM：</strong><br>Object Relational Mappging 对象关系映射<br>简单的说：就是把数据库表和实体类及实体类的属性对应起来，让我们可以操作实体类就实现操作数据库表。<br>user User<br>id userId<br>user_name userName</p>
+<p>我们需要做到<br><em>实体类中的属性和数据库表的字段名称保持一致。</em></p>
+<h1 id="mybatis的入门"><a href="#mybatis的入门" class="headerlink" title="mybatis的入门"></a>mybatis的入门</h1><h2 id="表的创建与数据的插入"><a href="#表的创建与数据的插入" class="headerlink" title="表的创建与数据的插入"></a>表的创建与数据的插入</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> auto_increment,</span><br><span class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'用户名称'</span>,</span><br><span class="line">  <span class="string">`birthday`</span> datetime <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'生日'</span>,</span><br><span class="line">  <span class="string">`sex`</span> <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'性别'</span>,</span><br><span class="line">  <span class="string">`address`</span> <span class="built_in">varchar</span>(<span class="number">256</span>) <span class="keyword">default</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'地址'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span>  (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span>  <span class="keyword">into</span> <span class="string">`user`</span>(<span class="string">`id`</span>,<span class="string">`username`</span>,<span class="string">`birthday`</span>,<span class="string">`sex`</span>,<span class="string">`address`</span>) <span class="keyword">values</span> (<span class="number">41</span>,<span class="string">'老王'</span>,<span class="string">'2018-02-27 17:47:08'</span>,<span class="string">'男'</span>,<span class="string">'北京'</span>),(<span class="number">42</span>,<span class="string">'小二王'</span>,<span class="string">'2018-03-02 15:09:37'</span>,<span class="string">'女'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">43</span>,<span class="string">'小二王'</span>,<span class="string">'2018-03-04 11:34:34'</span>,<span class="string">'女'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">45</span>,<span class="string">'传智播客'</span>,<span class="string">'2018-03-04 12:04:06'</span>,<span class="string">'男'</span>,<span class="string">'北京金燕龙'</span>),(<span class="number">46</span>,<span class="string">'老王'</span>,<span class="string">'2018-03-07 17:37:26'</span>,<span class="string">'男'</span>,<span class="string">'北京'</span>),(<span class="number">48</span>,<span class="string">'小马宝莉'</span>,<span class="string">'2018-03-08 11:44:00'</span>,<span class="string">'女'</span>,<span class="string">'北京修正'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="mybatis环境搭建demo的基本架构"><a href="#mybatis环境搭建demo的基本架构" class="headerlink" title="mybatis环境搭建demo的基本架构"></a>mybatis环境搭建demo的基本架构</h2><p><img src="https://i.loli.net/2019/11/06/x8ywdvBZoO6SRn3.png" alt=""></p>
+<p><strong>第一步：创建maven工程并导入坐标</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.gsynf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>day01_mybatis_01mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.18<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：创建实体类和dao的接口</strong></p>
+<p><strong>第三步：创建Mybatis的主配置文件</strong></p>
+<p><em>SqlMapConifg.xml</em></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mybatis主配置文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"mysql"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--配置mysql环境--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"mysql"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--配置事务类型--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>&gt;</span><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--配置数据源（连接池）--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--配置连接数据库的基本信息--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://服务器IP/mybatis"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--配置映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"com/gsynf/dao/IUserDao.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第四步：创建映射配置文件</strong></p>
+<p><em>IUserDao.xml</em></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.gsynf.dao.IUserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="环境搭建的注意事项"><a href="#环境搭建的注意事项" class="headerlink" title="环境搭建的注意事项"></a>环境搭建的注意事项</h2><p><strong>第一个：</strong> 创建IUserDao.xml 和 IUserDao.java时名称是为了和我们之前的知识保持一致。<br>在Mybatis中它把持久层的操作接口名称和映射文件也叫做：Mapper<br>所以：IUserDao 和 IUserMapper是一样的<br><strong>第二个：</strong> 在idea中创建目录的时候，它和包是不一样的<br>包 <em>（Package）</em> 在创建时：com.gsynf.dao它是三级结构<br>目录 <em>（Directory）</em> 在创建时：com.gsynf.dao是一级目录<br><strong>第三个：</strong> mybatis的映射配置文件位置必须和dao接口的包结构相同<br><strong>第四个：</strong> 映射配置文件的mapper标签namespace属性的取值必须是dao接口的全限定类名<br><strong>第五个：</strong> 映射配置文件的操作配置（select），id属性的取值必须是dao接口的方法名</p>
+<p>当我们遵从了第三，四，五点之后，我们在开发中就无须再写dao的实现类。</p>
+<h2 id="mybatis的入门案例"><a href="#mybatis的入门案例" class="headerlink" title="mybatis的入门案例"></a>mybatis的入门案例</h2><p><strong>第一步：</strong> 读取配置文件<br><strong>第二步：</strong> 创建SqlSessionFactory工厂<br><strong>第三步：</strong> 创建SqlSession<br><strong>第四步：</strong> 创建Dao接口的代理对象<br><strong>第五步：</strong> 执行dao中的方法<br><strong>第六步：</strong> 释放资源</p>
+<p><strong>注意事项：</strong><br>不要忘记在映射配置中告知mybatis要封装到哪个实体类中<br>配置的方式：指定实体类的全限定类名</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">………………</span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.gsynf.dao.IUserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultType</span>=<span class="string">"com.gsynf.domain.User"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>mybatis基于注解的入门案例：</strong><br>把IUserDao.xml移除，在dao接口的方法上使用@Select注解，并且指定SQL语句<br>同时需要在SqlMapConfig.xml中的mapper配置时，使用class属性指定dao接口的全限定类名。<br><strong>明确：</strong><br>我们在实际开发中，都是越简便越好，所以都是采用不写dao实现类的方式。<br>不管使用XML还是注解配置。但是Mybatis它是支持写dao实现类的。</p>
+<p><strong>入门案例设计模式分析：</strong></p>
+<p><img src="https://i.loli.net/2019/11/06/f1rPZclaoNQF7gh.png" alt=""></p>
+<h1 id="自定义Mybatis的分析-执行查询所有的分析"><a href="#自定义Mybatis的分析-执行查询所有的分析" class="headerlink" title="自定义Mybatis的分析__执行查询所有的分析"></a>自定义Mybatis的分析__执行查询所有的分析</h1><p>mybatis在使用代理dao的方式实现增删改查时做什么事呢？<br>只有两件事：<br>第一：创建代理对象<br>第二：在代理对象中调用selectList</p>
+<p>自定义mybatis能通过入门案例看到类<br>class　　　　Resources　　使用类加载器读取配置文件的类<br>class　　　　SqlSessionFactoryBuilder　　用于创建一个SqlsessionFactory对象<br>interface　　SqlSessionFactory　　用于打开一个新的SqlSession<br>interface　　SqlSession　　自定义MYbatis中和数据库交互的核心类</p>
+<p><img src="https://i.loli.net/2019/11/06/RLpbqrec9ZGIhaA.png" alt=""></p>
+<p>自定义mybatis开发流程图:</p>
+<p><img src="https://i.loli.net/2019/11/07/PvWyZ4DaN29dwxT.png" alt=""></p>
+<p>Project结构：</p>
+<p><img src="https://i.loli.net/2019/11/07/LvpdzBsjRh89CPT.png" alt=""></p>
+<p>1.读取配置文件用io包里的Resources<br>2.读出所需要的信息交给SqlSessionFactoryBuilder构建者<br>3.构建者使用工具类XMLConfigBuilder构建出DefaultSqlsessionFactory工厂对象，xml读取的信息保存在Configuration里<br>4.工厂里的openSession提供了Sqlsession方法<br>5.再在SqlSession里实现创建代理对象和查询所有的功能</p>
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gsynf.test;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.gsynf.dao.IUserDao;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.domain.User;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSession;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> com.gsynf.mybatis.sqlsession.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mybatis的入门案例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.读取配置文件</span></span><br><span class="line">        InputStream in = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line">        <span class="comment">//2.创建SqlSessionFactory工厂</span></span><br><span class="line">        SqlSessionFactoryBuilder builder = <span class="keyword">new</span> SqlSessionFactoryBuilder();</span><br><span class="line">        SqlSessionFactory factory = builder.build(in);</span><br><span class="line">        <span class="comment">//3.使用工厂生产SqlSession对象</span></span><br><span class="line">        SqlSession session = factory.openSession();</span><br><span class="line">        <span class="comment">//4.使用SqlSession创建Dao接口的代理对象</span></span><br><span class="line">        IUserDao userDao = session.getMapper(IUserDao.class);</span><br><span class="line">        <span class="comment">//5.使用代理对象执行方法</span></span><br><span class="line">        List&lt;User&gt; users = userDao.findAll();</span><br><span class="line">        <span class="keyword">for</span> (User user: users) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//6.释放资源</span></span><br><span class="line">        session.close();</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Mybatis</tag>
       </tags>
   </entry>
   <entry>
@@ -3068,6 +3068,67 @@ timer.cancel();</code></pre><p><strong>注</strong>：转载文章请注明出�
       </tags>
   </entry>
   <entry>
+    <title>Spring学习3-bean对象</title>
+    <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A03-bean%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="bean对象的三种创建方式"><a href="#bean对象的三种创建方式" class="headerlink" title="bean对象的三种创建方式"></a>bean对象的三种创建方式</h1><h2 id="通过调用构造函数来创建bean对象"><a href="#通过调用构造函数来创建bean对象" class="headerlink" title="通过调用构造函数来创建bean对象"></a>通过调用构造函数来创建bean对象</h2><p>默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。<br>如果没有构造函数，则创建失败。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置业务层对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="通过静态工厂创建bean对象"><a href="#通过静态工厂创建bean对象" class="headerlink" title="通过静态工厂创建bean对象"></a>通过静态工厂创建bean对象</h1><p>工厂类中提供一个静态方法，可以返回要用的bean对象。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 静态工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"staticAccountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.StaticBeanFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/StaticBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"staticAccountService"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="通过实例工厂创建bean对象"><a href="#通过实例工厂创建bean对象" class="headerlink" title="通过实例工厂创建bean对象"></a>通过实例工厂创建bean对象</h2><p>工厂类中提供一个普通方法，可以返回要用的bean对象。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 实例工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceFactory"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.InstanceBeanFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceAccountService"</span> <span class="attr">factory-bean</span>=<span class="string">"instanceFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/InstanceBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"instanceAccountService"</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="bean对象的作用范围"><a href="#bean对象的作用范围" class="headerlink" title="bean对象的作用范围"></a>bean对象的作用范围</h1><p>它是可以通过配置的方式指定的。配置的属性：bean标签的scope属性。属性的取值：</p>
+<ul>
+<li>singleton：单例范围，默认值；</li>
+<li>prototype：多例对象；</li>
+<li>request：请求范围，也就是只在该次请求和请求的转发中可用，WEB项目中，将Spring创建的bean对象存入到request域中；</li>
+<li>session：会话范围，也就是在一次会话的范围中，WEB项目中，将Spring创建的bean对象存入到session域中；</li>
+<li>global-session：全局会话范围；</li>
+</ul>
+<h1 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h1><p>生命周期要具体分为单例对象和多例对象：</p>
+<ul>
+<li><p>单例对象：</p>
+<ul>
+<li><p>出生：容器创建，对象出生；</p>
+</li>
+<li><p>活着：容器存在，对象就一直可用；</p>
+</li>
+<li><p>死亡：容器销毁，对象消亡；</p>
+</li>
+</ul>
+</li>
+<li><p>多例对象：</p>
+<ul>
+<li>出生：每次使用时，容器会创建对象；</li>
+<li>活着：只要对象在使用过程中，就一直活在；</li>
+<li>死亡：当对象长时间不用并且也没有其他对象引用时，由java的垃圾回收器回收；</li>
+</ul>
+</li>
+</ul>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring学习4-依赖注入</title>
     <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A04-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</url>
     <content><![CDATA[<h1 id="依赖注入概念"><a href="#依赖注入概念" class="headerlink" title="依赖注入概念"></a>依赖注入概念</h1><p>依赖注入： Dependency Injection ，它是spring框架核心IoC的具体实现。</p>
@@ -3157,67 +3218,6 @@ timer.cancel();</code></pre><p><strong>注</strong>：转载文章请注明出�
 <p>​           <img src="https://i.loli.net/2019/10/28/7NgP4CrKkTYG3sX.png" alt=""></p>
 <p>​    这种被动接收的方式获取对象的思想就是控制反转，它是spring框架的核心之一。</p>
 <p>​    它的作用只有一个：削减计算机程序的耦合。</p>
-<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring学习3-bean对象</title>
-    <url>/2019/10/28/2019-10-28-Spring%E5%AD%A6%E4%B9%A03-bean%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h1 id="bean对象的三种创建方式"><a href="#bean对象的三种创建方式" class="headerlink" title="bean对象的三种创建方式"></a>bean对象的三种创建方式</h1><h2 id="通过调用构造函数来创建bean对象"><a href="#通过调用构造函数来创建bean对象" class="headerlink" title="通过调用构造函数来创建bean对象"></a>通过调用构造函数来创建bean对象</h2><p>默认情况下，当我们在spring的配置文件中写了一个bean标签并提供了class属性，spring就会调用默认构造函数创建对象。<br>如果没有构造函数，则创建失败。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置业务层对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"accountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.service.impl.AccountServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="通过静态工厂创建bean对象"><a href="#通过静态工厂创建bean对象" class="headerlink" title="通过静态工厂创建bean对象"></a>通过静态工厂创建bean对象</h1><p>工厂类中提供一个静态方法，可以返回要用的bean对象。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 静态工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"staticAccountService"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.StaticBeanFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/StaticBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"staticAccountService"</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="通过实例工厂创建bean对象"><a href="#通过实例工厂创建bean对象" class="headerlink" title="通过实例工厂创建bean对象"></a>通过实例工厂创建bean对象</h2><p>工厂类中提供一个普通方法，可以返回要用的bean对象。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 实例工厂创建 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceFactory"</span> <span class="attr">class</span>=<span class="string">"com.gsynf.factory.InstanceBeanFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"instanceAccountService"</span> <span class="attr">factory-bean</span>=<span class="string">"instanceFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getBean"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/com/gsynf/factory/InstanceBeanFactory.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceBeanFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> IAccountService <span class="title">getBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client.java</span></span><br><span class="line">IAccountService as = (IAccountService) ac.getBean(<span class="string">"instanceAccountService"</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="bean对象的作用范围"><a href="#bean对象的作用范围" class="headerlink" title="bean对象的作用范围"></a>bean对象的作用范围</h1><p>它是可以通过配置的方式指定的。配置的属性：bean标签的scope属性。属性的取值：</p>
-<ul>
-<li>singleton：单例范围，默认值；</li>
-<li>prototype：多例对象；</li>
-<li>request：请求范围，也就是只在该次请求和请求的转发中可用，WEB项目中，将Spring创建的bean对象存入到request域中；</li>
-<li>session：会话范围，也就是在一次会话的范围中，WEB项目中，将Spring创建的bean对象存入到session域中；</li>
-<li>global-session：全局会话范围；</li>
-</ul>
-<h1 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h1><p>生命周期要具体分为单例对象和多例对象：</p>
-<ul>
-<li><p>单例对象：</p>
-<ul>
-<li><p>出生：容器创建，对象出生；</p>
-</li>
-<li><p>活着：容器存在，对象就一直可用；</p>
-</li>
-<li><p>死亡：容器销毁，对象消亡；</p>
-</li>
-</ul>
-</li>
-<li><p>多例对象：</p>
-<ul>
-<li>出生：每次使用时，容器会创建对象；</li>
-<li>活着：只要对象在使用过程中，就一直活在；</li>
-<li>死亡：当对象长时间不用并且也没有其他对象引用时，由java的垃圾回收器回收；</li>
-</ul>
-</li>
-</ul>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
@@ -6899,6 +6899,72 @@ Class cl3 = Double[].class;
       </tags>
   </entry>
   <entry>
+    <title>前端开发(1)-CSS入门及提高2</title>
+    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
+    <content><![CDATA[<blockquote>
+<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
+</blockquote>
+<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
+<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
+
+<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
+
+<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
+
+<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+<p>用法基本和类选择器相同。</p>
+<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
+<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
+<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
+<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
+<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
+<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
+<li>:link      /* 未访问的链接 */</li>
+<li>:visited   /* 已访问的链接 */</li>
+<li>:hover     /* 鼠标移动到链接上 */</li>
+<li>:active    /* 选定的链接 */</li>
+</ul>
+<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
+<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
+<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
+<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
+</ul>
+<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端开发(1)-CSS入门及提高1</title>
     <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%981/</url>
     <content><![CDATA[<blockquote>
@@ -7001,72 +7067,6 @@ Class cl3 = Double[].class;
 
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</span><br><span class="line"></span><br><span class="line">注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</span><br></pre></td></tr></table></figure>
-
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>前端开发</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发(1)-CSS入门及提高2</title>
-    <url>/2019/07/19/2019-07-19-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91(1)-CSS%E5%85%A5%E9%97%A8%E5%8F%8A%E6%8F%90%E9%AB%982/</url>
-    <content><![CDATA[<blockquote>
-<p>系列课程地址：<a href="https://edu.aliyun.com/roadmap/frontend?spm=5176.8764702.aliyun-edu-index-001.6.324e4679APt7uq" target="_blank" rel="noopener">戳这里</a>。此部分视频网页没有。具体查看这里：<a href="https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。" target="_blank" rel="noopener">https://pan.baidu.com/s/1exZQc9bXadphQfd3k_vYJQ（提取码：7sk1）。</a><br>系列课程共分为三部分：阶段 1：HTML+CSS；阶段 2：JavaScript；阶段 3：开发工具；阶段 4：前端框架；阶段 5：移动及服务端开发。<br>这里介绍阶段 1：HTML+CSS中的第二部分：CSS入门及提高；</p>
-</blockquote>
-<h1 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h1><p>标签选择器是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者</span><br><span class="line">元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>标签选择器最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式。</p>
-<h1 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h1><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签调用的时候用 class=“类名”  即可。</span><br></pre></td></tr></table></figure>
-
-<p>类选择器最大的优势是可以为元素对象定义单独或相同的样式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.长名称或词组可以使用中横线来为选择器命名。</span><br><span class="line">2.不建议使用“_”下划线来命名CSS选择器。</span><br><span class="line">  输入的时候少按一个shift键;</span><br><span class="line">　浏览器兼容问题 (比如使用_tips的选择器命名，在IE6是无效的)</span><br><span class="line">　能良好区分JavaScript变量命名(JS变量命名是用“_”)</span><br><span class="line">3.不要纯数字、中文等命名， 尽量使用英文字母来表示。</span><br></pre></td></tr></table></figure>
-
-<h1 id="多类名选择器"><a href="#多类名选择器" class="headerlink" title="多类名选择器"></a>多类名选择器</h1><p>我们可以给标签指定多个类名，从而达到更多的选择目的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 样式显示效果跟HTML元素中的类名先后顺序没有关系,受CSS样式书写的上下顺序有关。</span><br><span class="line">2. 各个类名中间用空格隔开。</span><br></pre></td></tr></table></figure>
-
-<p>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</p>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器使用“#”进行标识，后面紧跟id名，其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>该语法中，id名即为HTML元素的id属性值，大多数HTML元素都可以定义id属性，元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-<p>用法基本和类选择器相同。</p>
-<h2 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h2><p>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。</p>
-<p>类选择器（class） 好比人的名字，是可以多次重复使用的；</p>
-<p>id选择器好比人的身份证号码，全中国是唯一的，不得重复。只能使用一次。</p>
-<p><strong><em>id选择器和类选择器最大的不同在于使用次数上。</em></strong></p>
-<h1 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h1><p>通配符选择器用“*”号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。其基本语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>这个通配符选择器，作用范围太广，所以一般也不用。</p>
-<h1 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h1><p>伪类选择器用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">为了和我们刚才学的类选择器相区别，类选择器是一个点，比如 <span class="selector-class">.demo</span> &#123;&#125;   而我们的伪类用2个点，就是冒号 ，比如<span class="selector-pseudo">:link</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h2><ul>
-<li>:link      /* 未访问的链接 */</li>
-<li>:visited   /* 已访问的链接 */</li>
-<li>:hover     /* 鼠标移动到链接上 */</li>
-<li>:active    /* 选定的链接 */</li>
-</ul>
-<p>注意写的时候，他们的顺序尽量不要颠倒。按照 lvha的顺序。    </p>
-<h2 id="结构-位置-伪类选择器（CSS3"><a href="#结构-位置-伪类选择器（CSS3" class="headerlink" title="结构(位置)伪类选择器（CSS3)"></a>结构(位置)伪类选择器（CSS3)</h2><ul>
-<li>:first-child :选取属于其父元素的首个子元素的指定选择器</li>
-<li>:last-child :选取属于其父元素的最后一个子元素的指定选择器</li>
-<li>:nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型</li>
-<li>:nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。<br>n 可以是数字、关键词或公式，如odd、even、2n、3n等；</li>
-</ul>
-<h2 id="目标伪类选择器-CSS3"><a href="#目标伪类选择器-CSS3" class="headerlink" title="目标伪类选择器(CSS3)"></a>目标伪类选择器(CSS3)</h2><p> :target目标伪类选择器 :选择器可用于选取当前活动的目标元素</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">		<span class="attribute">color</span>: red;</span><br><span class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
@@ -7919,6 +7919,44 @@ Class cl3 = Double[].class;
       </tags>
   </entry>
   <entry>
+    <title>Python数据分析与展示_3</title>
+    <url>/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/</url>
+    <content><![CDATA[<blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
+</blockquote>
+<h1 id="单元7：Pandas库入门"><a href="#单元7：Pandas库入门" class="headerlink" title="单元7：Pandas库入门"></a>单元7：Pandas库入门</h1><p>Pandas是提供高性能易用数据类型和分析工具的第三方python库，可以说是基于Numpy库。<br>import pandas as pd<br>Pandas提供两个数据类型：Series(一维)、DataFrame(二维及多维)，基于这两种数据类型，可以进行基本操作、运算操作、特征类操作、关联类操作等。</p>
+<h2 id="Series数据类型"><a href="#Series数据类型" class="headerlink" title="Series数据类型"></a>Series数据类型</h2><p>Series类型由一组数据及与之相关的数据索引组成，索引与数据一一对应，索引可以自定义。</p>
+<h3 id="Series类型的创建"><a href="#Series类型的创建" class="headerlink" title="Series类型的创建"></a>Series类型的创建</h3><ol>
+<li>从Python列表创建，index与列表元素个数一致；</li>
+<li>从标量值创建，此时不能省略index；</li>
+<li>从字典类型创建，将字典直接赋给series；</li>
+<li>从adarray类型创建；</li>
+</ol>
+<h3 id="Series类型的基本操作"><a href="#Series类型的基本操作" class="headerlink" title="Series类型的基本操作"></a>Series类型的基本操作</h3><p>由index和values两部分构成，操作类似于ndarray类型，也类似于Python字典类型。需要注意的是，numpy是基于维度的运算，而series是基于索引的运算。</p>
+<h2 id="DataFrame数据类型"><a href="#DataFrame数据类型" class="headerlink" title="DataFrame数据类型"></a>DataFrame数据类型</h2><p>DataFrame类型是由共同相同索引的一组列组成。其实是一个表格型的数据类型，每列值类型可以不同。其中既有行索引（index,axis=0），也有列索引(column,axis=1)。常用来表达二维数据。</p>
+<h3 id="DataFrame类型的创建"><a href="#DataFrame类型的创建" class="headerlink" title="DataFrame类型的创建"></a>DataFrame类型的创建</h3><ol>
+<li>从二维ndarray创建；</li>
+<li>从一维ndarray对象字典创建；</li>
+<li>从列表类型的字典创建；</li>
+</ol>
+<h2 id="Pandas库数据类型操作"><a href="#Pandas库数据类型操作" class="headerlink" title="Pandas库数据类型操作"></a>Pandas库数据类型操作</h2><h3 id="改变Series和DataFrame对象"><a href="#改变Series和DataFrame对象" class="headerlink" title="改变Series和DataFrame对象"></a>改变Series和DataFrame对象</h3><p>增加或者重排：重新索引，通过.reindex()函数实现<br>删除：.drop()</p>
+<h2 id="Pandas库数据类型运算"><a href="#Pandas库数据类型运算" class="headerlink" title="Pandas库数据类型运算"></a>Pandas库数据类型运算</h2><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>算术运算根据行列索引，补齐后运算，补齐时缺项填充NaN(空值)，运算默认产生浮点数，采用+-*/符号进行运算的二元运算将会产生新的对象，还可以使用方法形式进行运算，如.add()、.sub()、.mul()、.div()，这些均可以选择参数。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h3 id="比较运算"><a href="#比较运算" class="headerlink" title="比较运算"></a>比较运算</h3><p>比较运算只能比较相同索引的元素，不进行补齐，采用&gt;&lt;&gt;=&lt;=!=等符号进行运算的二元运算将会产生布尔对象。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
+<h1 id="单元8：Pandas数据特征分析"><a href="#单元8：Pandas数据特征分析" class="headerlink" title="单元8：Pandas数据特征分析"></a>单元8：Pandas数据特征分析</h1><h2 id="数据的排序"><a href="#数据的排序" class="headerlink" title="数据的排序"></a>数据的排序</h2><p>.sort_index(axis=0,ascending=True)方法在指定轴上根据<strong>索引</strong>进行排序，默认升序。<br>.sort_values(axis=0,ascending=True)方法在指定轴上根据<strong>数值</strong>进行排序，默认升序。</p>
+<h2 id="数据的基本统计分析"><a href="#数据的基本统计分析" class="headerlink" title="数据的基本统计分析"></a>数据的基本统计分析</h2><p>基本同numpy相同。<br>.describe()方法可以针对0轴（各列）做统计汇总，包括非空计数、均值、方差等。</p>
+<h2 id="数据的累计统计分析"><a href="#数据的累计统计分析" class="headerlink" title="数据的累计统计分析"></a>数据的累计统计分析</h2><p>.cumsum()、.cumprod()、.cummax()、.cummin()，分别为依次给出前1、2、……、n个数的和、积、最大值、最小值。</p>
+<p>滚动计算（窗口计算）：<br>.rolling(w).sum()、.rolling(w).mean()、.rolling(w).var()、.rolling(w).std()、.rolling(w).min()、.rolling(w).max(),分别为依次给出x相邻w个元素的和、平均值、方差、标准差、最大值、最小值。</p>
+<h2 id="数据的相关分析"><a href="#数据的相关分析" class="headerlink" title="数据的相关分析"></a>数据的相关分析</h2><p>.cov()，计算协方差矩阵；<br>.corr()，计算相关系数矩阵，Pearson、Spearman、Kendall等系数；</p>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>MOOC</tag>
+        <tag>数据分析与展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python语言程序设计_1</title>
     <url>/2019/05/16/2019-05-16-Python%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_1/</url>
     <content><![CDATA[<blockquote>
@@ -7969,44 +8007,6 @@ from &lt;库名&gt; import *
       <tags>
         <tag>Python</tag>
         <tag>MOOC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python数据分析与展示_3</title>
-    <url>/2019/05/16/2019-05-16-Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%B1%95%E7%A4%BA_3/</url>
-    <content><![CDATA[<blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/BIT-1001870002?tid=1206192225#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢北理授课大佬。</p>
-</blockquote>
-<h1 id="单元7：Pandas库入门"><a href="#单元7：Pandas库入门" class="headerlink" title="单元7：Pandas库入门"></a>单元7：Pandas库入门</h1><p>Pandas是提供高性能易用数据类型和分析工具的第三方python库，可以说是基于Numpy库。<br>import pandas as pd<br>Pandas提供两个数据类型：Series(一维)、DataFrame(二维及多维)，基于这两种数据类型，可以进行基本操作、运算操作、特征类操作、关联类操作等。</p>
-<h2 id="Series数据类型"><a href="#Series数据类型" class="headerlink" title="Series数据类型"></a>Series数据类型</h2><p>Series类型由一组数据及与之相关的数据索引组成，索引与数据一一对应，索引可以自定义。</p>
-<h3 id="Series类型的创建"><a href="#Series类型的创建" class="headerlink" title="Series类型的创建"></a>Series类型的创建</h3><ol>
-<li>从Python列表创建，index与列表元素个数一致；</li>
-<li>从标量值创建，此时不能省略index；</li>
-<li>从字典类型创建，将字典直接赋给series；</li>
-<li>从adarray类型创建；</li>
-</ol>
-<h3 id="Series类型的基本操作"><a href="#Series类型的基本操作" class="headerlink" title="Series类型的基本操作"></a>Series类型的基本操作</h3><p>由index和values两部分构成，操作类似于ndarray类型，也类似于Python字典类型。需要注意的是，numpy是基于维度的运算，而series是基于索引的运算。</p>
-<h2 id="DataFrame数据类型"><a href="#DataFrame数据类型" class="headerlink" title="DataFrame数据类型"></a>DataFrame数据类型</h2><p>DataFrame类型是由共同相同索引的一组列组成。其实是一个表格型的数据类型，每列值类型可以不同。其中既有行索引（index,axis=0），也有列索引(column,axis=1)。常用来表达二维数据。</p>
-<h3 id="DataFrame类型的创建"><a href="#DataFrame类型的创建" class="headerlink" title="DataFrame类型的创建"></a>DataFrame类型的创建</h3><ol>
-<li>从二维ndarray创建；</li>
-<li>从一维ndarray对象字典创建；</li>
-<li>从列表类型的字典创建；</li>
-</ol>
-<h2 id="Pandas库数据类型操作"><a href="#Pandas库数据类型操作" class="headerlink" title="Pandas库数据类型操作"></a>Pandas库数据类型操作</h2><h3 id="改变Series和DataFrame对象"><a href="#改变Series和DataFrame对象" class="headerlink" title="改变Series和DataFrame对象"></a>改变Series和DataFrame对象</h3><p>增加或者重排：重新索引，通过.reindex()函数实现<br>删除：.drop()</p>
-<h2 id="Pandas库数据类型运算"><a href="#Pandas库数据类型运算" class="headerlink" title="Pandas库数据类型运算"></a>Pandas库数据类型运算</h2><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>算术运算根据行列索引，补齐后运算，补齐时缺项填充NaN(空值)，运算默认产生浮点数，采用+-*/符号进行运算的二元运算将会产生新的对象，还可以使用方法形式进行运算，如.add()、.sub()、.mul()、.div()，这些均可以选择参数。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
-<h3 id="比较运算"><a href="#比较运算" class="headerlink" title="比较运算"></a>比较运算</h3><p>比较运算只能比较相同索引的元素，不进行补齐，采用&gt;&lt;&gt;=&lt;=!=等符号进行运算的二元运算将会产生布尔对象。<br>不同维度间的运算采用广播运算，默认在1轴。</p>
-<h1 id="单元8：Pandas数据特征分析"><a href="#单元8：Pandas数据特征分析" class="headerlink" title="单元8：Pandas数据特征分析"></a>单元8：Pandas数据特征分析</h1><h2 id="数据的排序"><a href="#数据的排序" class="headerlink" title="数据的排序"></a>数据的排序</h2><p>.sort_index(axis=0,ascending=True)方法在指定轴上根据<strong>索引</strong>进行排序，默认升序。<br>.sort_values(axis=0,ascending=True)方法在指定轴上根据<strong>数值</strong>进行排序，默认升序。</p>
-<h2 id="数据的基本统计分析"><a href="#数据的基本统计分析" class="headerlink" title="数据的基本统计分析"></a>数据的基本统计分析</h2><p>基本同numpy相同。<br>.describe()方法可以针对0轴（各列）做统计汇总，包括非空计数、均值、方差等。</p>
-<h2 id="数据的累计统计分析"><a href="#数据的累计统计分析" class="headerlink" title="数据的累计统计分析"></a>数据的累计统计分析</h2><p>.cumsum()、.cumprod()、.cummax()、.cummin()，分别为依次给出前1、2、……、n个数的和、积、最大值、最小值。</p>
-<p>滚动计算（窗口计算）：<br>.rolling(w).sum()、.rolling(w).mean()、.rolling(w).var()、.rolling(w).std()、.rolling(w).min()、.rolling(w).max(),分别为依次给出x相邻w个元素的和、平均值、方差、标准差、最大值、最小值。</p>
-<h2 id="数据的相关分析"><a href="#数据的相关分析" class="headerlink" title="数据的相关分析"></a>数据的相关分析</h2><p>.cov()，计算协方差矩阵；<br>.corr()，计算相关系数矩阵，Pearson、Spearman、Kendall等系数；</p>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>MOOC</tag>
-        <tag>数据分析与展示</tag>
       </tags>
   </entry>
   <entry>
@@ -8609,8 +8609,53 @@ from &lt;库名&gt; import *
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
       <tags>
-        <tag>Blog</tag>
         <tag>Linux</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构_5</title>
+    <url>/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/</url>
+    <content><![CDATA[<blockquote>
+<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
+</blockquote>
+<h1 id="堆heap"><a href="#堆heap" class="headerlink" title="堆heap"></a>堆heap</h1><h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><p>堆的两个特性：</p>
+<ul>
+<li>结构性：用数组表示的<strong>完全二叉树</strong></li>
+<li>有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</li>
+</ul>
+<h2 id="堆进行的操作"><a href="#堆进行的操作" class="headerlink" title="堆进行的操作"></a>堆进行的操作</h2><p>创建、插入、删除、判断是否已满是否为空，返回最大值最小值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct HNode *Heap; /* 堆的类型定义 */</span><br><span class="line">struct HNode &#123;</span><br><span class="line">    ElementType *Data; /* 存储元素的数组 */</span><br><span class="line">    int Size;          /* 堆中当前元素个数 */</span><br><span class="line">    int Capacity;      /* 堆的最大容量 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef Heap MaxHeap; /* 最大堆 */</span><br><span class="line">typedef Heap MinHeap; /* 最小堆 */</span><br><span class="line"> </span><br><span class="line">#define MAXDATA 1000  /* 该值应根据具体情况定义为大于堆中所有可能元素的值 */</span><br><span class="line"> </span><br><span class="line">MaxHeap CreateHeap( int MaxSize )</span><br><span class="line">&#123; /* 创建容量为MaxSize的空的最大堆 */</span><br><span class="line"> </span><br><span class="line">    MaxHeap H = (MaxHeap)malloc(sizeof(struct HNode));</span><br><span class="line">    H-&gt;Data = (ElementType *)malloc((MaxSize+1)*sizeof(ElementType));</span><br><span class="line">    H-&gt;Size = 0;</span><br><span class="line">    H-&gt;Capacity = MaxSize;</span><br><span class="line">    H-&gt;Data[0] = MAXDATA; /* 定义&quot;哨兵&quot;为大于堆中所有可能元素的值*/</span><br><span class="line"> </span><br><span class="line">    return H;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool IsFull( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool Insert( MaxHeap H, ElementType X )</span><br><span class="line">&#123; /* 将元素X插入最大堆H，其中H-&gt;Data[0]已经定义为哨兵 */</span><br><span class="line">    int i;</span><br><span class="line">  </span><br><span class="line">    if ( IsFull(H) ) &#123; </span><br><span class="line">        printf(&quot;最大堆已满&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size; /* i指向插入后堆中的最后一个元素的位置 */</span><br><span class="line">    for ( ; H-&gt;Data[i/2] &lt; X; i/=2 )</span><br><span class="line">        H-&gt;Data[i] = H-&gt;Data[i/2]; /* 上滤X */</span><br><span class="line">    H-&gt;Data[i] = X; /* 将X插入 */</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">#define ERROR -1 /* 错误标识应根据具体情况定义为堆中不可能出现的元素值 */</span><br><span class="line"> </span><br><span class="line">bool IsEmpty( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == 0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ElementType DeleteMax( MaxHeap H )</span><br><span class="line">&#123; /* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType MaxItem, X;</span><br><span class="line"> </span><br><span class="line">    if ( IsEmpty(H) ) &#123;</span><br><span class="line">        printf(&quot;最大堆已为空&quot;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    MaxItem = H-&gt;Data[1]; /* 取出根结点存放的最大值 */</span><br><span class="line">    /* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span><br><span class="line">    X = H-&gt;Data[H-&gt;Size--]; /* 注意当前堆的规模要减小 */</span><br><span class="line">    for( Parent=1; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line"> </span><br><span class="line">    return MaxItem;</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">/*----------- 建造最大堆 -----------*/</span><br><span class="line">void PercDown( MaxHeap H, int p )</span><br><span class="line">&#123; /* 下滤：将H中以H-&gt;Data[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = H-&gt;Data[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void BuildHeap( MaxHeap H )</span><br><span class="line">&#123; /* 调整H-&gt;Data[]中的元素，使满足最大堆的有序性  */</span><br><span class="line">  /* 这里假设所有H-&gt;Size个元素已经存在H-&gt;Data[]中 */</span><br><span class="line"> </span><br><span class="line">    int i;</span><br><span class="line"> </span><br><span class="line">    /* 从最后一个结点的父节点开始，到根结点1 */</span><br><span class="line">    for( i = H-&gt;Size/2; i&gt;0; i-- )</span><br><span class="line">        PercDown( H, i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="哈夫曼树与哈夫曼编码"><a href="#哈夫曼树与哈夫曼编码" class="headerlink" title="哈夫曼树与哈夫曼编码"></a>哈夫曼树与哈夫曼编码</h1><h2 id="什么是哈夫曼树"><a href="#什么是哈夫曼树" class="headerlink" title="什么是哈夫曼树"></a>什么是哈夫曼树</h2><p>根据结点不同的查找频率来构造更有效的搜索树。</p>
+<p><strong>带权路径长度（WPL）</strong>:设二叉树有n个叶子结点，每个叶子结点带有权值w<sub>K</sub>，从根结点到每个叶子结点的长度为l<sub>K</sub>，则每个叶子结点的带权路径长度之和就是:WPL= w<sub>K</sub>*l<sub>K</sub>从i到k的求和。</p>
+<p><strong>哈夫曼树（最优二叉树）</strong>：WPL最小的二叉树。</p>
+<h2 id="哈夫曼树的构造"><a href="#哈夫曼树的构造" class="headerlink" title="哈夫曼树的构造"></a>哈夫曼树的构造</h2><p>把权值从小到大进行排序，把权值最小的两个并在一起，形成一棵二叉树，每次把权值最小的两棵二叉树合并。</p>
+<h2 id="哈夫曼树的特点"><a href="#哈夫曼树的特点" class="headerlink" title="哈夫曼树的特点"></a>哈夫曼树的特点</h2><ul>
+<li>没有度为1的结点；</li>
+<li>n个叶子结点的哈夫曼树共有2n-1个结点；</li>
+<li>哈夫曼树的任意非叶子结点的左右子树交换后仍是哈夫曼树；</li>
+<li>对于同一组权值，存在不同构的两棵哈夫曼树；</li>
+</ul>
+<h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><p>用二叉树进行编码时如何避免二义性：</p>
+<ol>
+<li>左右分支：0，1</li>
+<li>字符只在叶结点上</li>
+</ol>
+<p>利用哈夫曼树进行编码就是哈夫曼编码。</p>
+<h1 id="集合及运算"><a href="#集合及运算" class="headerlink" title="集合及运算"></a>集合及运算</h1><p>集合运算：交、并、补、差<br>并查集：集合并、查某元素属于什么集合</p>
+<h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><p>可以用树结构表示集合，树的每个结点代表一个集合元素</p>
+<h2 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h2><ol>
+<li>查找某个元素所在的集合；</li>
+<li>集合的并运算<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#define MAXN 1000                  /* 集合最大元素个数 */</span><br><span class="line">typedef int ElementType;           /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef int SetName;               /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MAXN]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>MOOC</tag>
       </tags>
   </entry>
   <entry>
@@ -8720,51 +8765,6 @@ from &lt;库名&gt; import *
 ]]></content>
       <tags>
         <tag>阅读</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构_5</title>
-    <url>/2019/04/03/2019-04-03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_5/</url>
-    <content><![CDATA[<blockquote>
-<p>学习过程主要依照中国MOOC<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/announce" target="_blank" rel="noopener">课程</a>，感谢MOOC，感谢浙大授课大佬。</p>
-</blockquote>
-<h1 id="堆heap"><a href="#堆heap" class="headerlink" title="堆heap"></a>堆heap</h1><h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><p>堆的两个特性：</p>
-<ul>
-<li>结构性：用数组表示的<strong>完全二叉树</strong></li>
-<li>有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</li>
-</ul>
-<h2 id="堆进行的操作"><a href="#堆进行的操作" class="headerlink" title="堆进行的操作"></a>堆进行的操作</h2><p>创建、插入、删除、判断是否已满是否为空，返回最大值最小值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct HNode *Heap; /* 堆的类型定义 */</span><br><span class="line">struct HNode &#123;</span><br><span class="line">    ElementType *Data; /* 存储元素的数组 */</span><br><span class="line">    int Size;          /* 堆中当前元素个数 */</span><br><span class="line">    int Capacity;      /* 堆的最大容量 */</span><br><span class="line">&#125;;</span><br><span class="line">typedef Heap MaxHeap; /* 最大堆 */</span><br><span class="line">typedef Heap MinHeap; /* 最小堆 */</span><br><span class="line"> </span><br><span class="line">#define MAXDATA 1000  /* 该值应根据具体情况定义为大于堆中所有可能元素的值 */</span><br><span class="line"> </span><br><span class="line">MaxHeap CreateHeap( int MaxSize )</span><br><span class="line">&#123; /* 创建容量为MaxSize的空的最大堆 */</span><br><span class="line"> </span><br><span class="line">    MaxHeap H = (MaxHeap)malloc(sizeof(struct HNode));</span><br><span class="line">    H-&gt;Data = (ElementType *)malloc((MaxSize+1)*sizeof(ElementType));</span><br><span class="line">    H-&gt;Size = 0;</span><br><span class="line">    H-&gt;Capacity = MaxSize;</span><br><span class="line">    H-&gt;Data[0] = MAXDATA; /* 定义&quot;哨兵&quot;为大于堆中所有可能元素的值*/</span><br><span class="line"> </span><br><span class="line">    return H;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool IsFull( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bool Insert( MaxHeap H, ElementType X )</span><br><span class="line">&#123; /* 将元素X插入最大堆H，其中H-&gt;Data[0]已经定义为哨兵 */</span><br><span class="line">    int i;</span><br><span class="line">  </span><br><span class="line">    if ( IsFull(H) ) &#123; </span><br><span class="line">        printf(&quot;最大堆已满&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size; /* i指向插入后堆中的最后一个元素的位置 */</span><br><span class="line">    for ( ; H-&gt;Data[i/2] &lt; X; i/=2 )</span><br><span class="line">        H-&gt;Data[i] = H-&gt;Data[i/2]; /* 上滤X */</span><br><span class="line">    H-&gt;Data[i] = X; /* 将X插入 */</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">#define ERROR -1 /* 错误标识应根据具体情况定义为堆中不可能出现的元素值 */</span><br><span class="line"> </span><br><span class="line">bool IsEmpty( MaxHeap H )</span><br><span class="line">&#123;</span><br><span class="line">    return (H-&gt;Size == 0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ElementType DeleteMax( MaxHeap H )</span><br><span class="line">&#123; /* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType MaxItem, X;</span><br><span class="line"> </span><br><span class="line">    if ( IsEmpty(H) ) &#123;</span><br><span class="line">        printf(&quot;最大堆已为空&quot;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    MaxItem = H-&gt;Data[1]; /* 取出根结点存放的最大值 */</span><br><span class="line">    /* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span><br><span class="line">    X = H-&gt;Data[H-&gt;Size--]; /* 注意当前堆的规模要减小 */</span><br><span class="line">    for( Parent=1; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line"> </span><br><span class="line">    return MaxItem;</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">/*----------- 建造最大堆 -----------*/</span><br><span class="line">void PercDown( MaxHeap H, int p )</span><br><span class="line">&#123; /* 下滤：将H中以H-&gt;Data[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = H-&gt;Data[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; Parent*2&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2;</span><br><span class="line">        if( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= H-&gt;Data[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void BuildHeap( MaxHeap H )</span><br><span class="line">&#123; /* 调整H-&gt;Data[]中的元素，使满足最大堆的有序性  */</span><br><span class="line">  /* 这里假设所有H-&gt;Size个元素已经存在H-&gt;Data[]中 */</span><br><span class="line"> </span><br><span class="line">    int i;</span><br><span class="line"> </span><br><span class="line">    /* 从最后一个结点的父节点开始，到根结点1 */</span><br><span class="line">    for( i = H-&gt;Size/2; i&gt;0; i-- )</span><br><span class="line">        PercDown( H, i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="哈夫曼树与哈夫曼编码"><a href="#哈夫曼树与哈夫曼编码" class="headerlink" title="哈夫曼树与哈夫曼编码"></a>哈夫曼树与哈夫曼编码</h1><h2 id="什么是哈夫曼树"><a href="#什么是哈夫曼树" class="headerlink" title="什么是哈夫曼树"></a>什么是哈夫曼树</h2><p>根据结点不同的查找频率来构造更有效的搜索树。</p>
-<p><strong>带权路径长度（WPL）</strong>:设二叉树有n个叶子结点，每个叶子结点带有权值w<sub>K</sub>，从根结点到每个叶子结点的长度为l<sub>K</sub>，则每个叶子结点的带权路径长度之和就是:WPL= w<sub>K</sub>*l<sub>K</sub>从i到k的求和。</p>
-<p><strong>哈夫曼树（最优二叉树）</strong>：WPL最小的二叉树。</p>
-<h2 id="哈夫曼树的构造"><a href="#哈夫曼树的构造" class="headerlink" title="哈夫曼树的构造"></a>哈夫曼树的构造</h2><p>把权值从小到大进行排序，把权值最小的两个并在一起，形成一棵二叉树，每次把权值最小的两棵二叉树合并。</p>
-<h2 id="哈夫曼树的特点"><a href="#哈夫曼树的特点" class="headerlink" title="哈夫曼树的特点"></a>哈夫曼树的特点</h2><ul>
-<li>没有度为1的结点；</li>
-<li>n个叶子结点的哈夫曼树共有2n-1个结点；</li>
-<li>哈夫曼树的任意非叶子结点的左右子树交换后仍是哈夫曼树；</li>
-<li>对于同一组权值，存在不同构的两棵哈夫曼树；</li>
-</ul>
-<h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><p>用二叉树进行编码时如何避免二义性：</p>
-<ol>
-<li>左右分支：0，1</li>
-<li>字符只在叶结点上</li>
-</ol>
-<p>利用哈夫曼树进行编码就是哈夫曼编码。</p>
-<h1 id="集合及运算"><a href="#集合及运算" class="headerlink" title="集合及运算"></a>集合及运算</h1><p>集合运算：交、并、补、差<br>并查集：集合并、查某元素属于什么集合</p>
-<h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><p>可以用树结构表示集合，树的每个结点代表一个集合元素</p>
-<h2 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h2><ol>
-<li>查找某个元素所在的集合；</li>
-<li>集合的并运算<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#define MAXN 1000                  /* 集合最大元素个数 */</span><br><span class="line">typedef int ElementType;           /* 默认元素可以用非负整数表示 */</span><br><span class="line">typedef int SetName;               /* 默认用根结点的下标作为集合名称 */</span><br><span class="line">typedef ElementType SetType[MAXN]; /* 假设集合元素下标从0开始 */</span><br><span class="line"> </span><br><span class="line">void Union( SetType S, SetName Root1, SetName Root2 )</span><br><span class="line">&#123; /* 这里默认Root1和Root2是不同集合的根结点 */</span><br><span class="line">    /* 保证小集合并入大集合 */</span><br><span class="line">    if ( S[Root2] &lt; S[Root1] ) &#123; /* 如果集合2比较大 */</span><br><span class="line">        S[Root2] += S[Root1];     /* 集合1并入集合2  */</span><br><span class="line">        S[Root1] = Root2;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;                         /* 如果集合1比较大 */</span><br><span class="line">        S[Root1] += S[Root2];     /* 集合2并入集合1  */</span><br><span class="line">        S[Root2] = Root1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">SetName Find( SetType S, ElementType X )</span><br><span class="line">&#123; /* 默认集合元素全部初始化为-1 */</span><br><span class="line">    if ( S[X] &lt; 0 ) /* 找到集合的根 */</span><br><span class="line">        return X;</span><br><span class="line">    else</span><br><span class="line">        return S[X] = Find( S, S[X] ); /* 路径压缩 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>MOOC</tag>
       </tags>
   </entry>
   <entry>
@@ -9230,6 +9230,37 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>《跟老齐学python》学习笔记3</title>
+    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<ul>
+<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
+</li>
+<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
+</li>
+<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
+<p>python里简直不要太方便，直接a,b=b,a即可。</p>
+<ul>
+<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
+
+
+<p>以上。</p>
+<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《跟老齐学python》学习笔记4</title>
     <url>/2018/09/26/2018-10-28-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
     <content><![CDATA[<ul>
@@ -9259,37 +9290,6 @@ alert(s); // s仍然为&apos;Test&apos;</code></pre></li>
 <li>几个特殊函数，filter、map、reduce、lambda、yield……</li>
 <li>函数尽量达到的要求<br>1 尽量不要使用全局变量。<br>2 如果参数是可变类型数据,则在函数内不要修改它。<br>3 每个函数的功能和目标要单纯,不要试图一个函数做很多事情。<br>4 函数的代码行数尽量少。<br>5 函数的独立性越强越好,不要跟其他的外部东西产生关联。</li>
 </ul>
-<p>以上。</p>
-<p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《跟老齐学python》学习笔记3</title>
-    <url>/2018/09/26/2018-09-26-%E3%80%8A%E8%B7%9F%E8%80%81%E9%BD%90%E5%AD%A6python%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<ul>
-<li><p>Python开发者有意让违反了缩排规则的程序不能通过编译，以此来强迫程序员养成良好的编程习惯。并且Python语言利用缩排表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键词。增加缩排表示语句块的开始，而减少缩排则表示语句块的结束。<br>哈哈哈，有趣。<br>两个必需的要求：1、必须要通过缩进方式来表示语句块的开始和结束。2、缩进用四个空格（也是必需的，别的方式或许也可以，但不提倡）。</p>
-</li>
-<li><p>zip()函数：它的参数必须是某种序列数据类型，如果是字典，那么视为序列。然后将序列对应的元素依次组成元组，并单做列表中的元素。</p>
-</li>
-<li><p>在python2和3中，print默认最后输出换行，如果输出不想换行，在2中 print xxx ,  加一个逗号即可，但在3中python为一个函数，加逗号就不可行，这里需要添加一个end，end表示字符串结尾添加什么字符</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello=&quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i),</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">(None,)</span><br><span class="line">o</span><br><span class="line">(None,)</span><br><span class="line">r</span><br><span class="line">(None,)</span><br><span class="line">l</span><br><span class="line">(None,)</span><br><span class="line">d</span><br><span class="line">(None,)</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; for i in hello:</span><br><span class="line">	print(i,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两个值对调，其他语言都是引入一个第三个变量，即</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temp=a;</span><br><span class="line">a=b;</span><br><span class="line">b=temp</span><br></pre></td></tr></table></figure>
-<p>python里简直不要太方便，直接a,b=b,a即可。</p>
-<ul>
-<li>range函数返回值需要用list来显示，python3中range（）返回的就是一个对象，但2中返回的就是一个列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; range(3,100,3)</span><br><span class="line">range(3, 100, 3)</span><br><span class="line">&gt;&gt;&gt; list(range(3,100,3))</span><br><span class="line">[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]</span><br></pre></td></tr></table></figure>
-
-
 <p>以上。</p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 ]]></content>
