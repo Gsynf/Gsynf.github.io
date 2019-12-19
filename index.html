@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/19/2019-12-19-vuecli3%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99sockjs-nodeinfo%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/" itemprop="url">关于el-time-picker使用</a></h1>
+                <a class="post-title-link" href="/2019/12/19/2019-12-19-vuecli3%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99sockjs-nodeinfo%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url">vuecli3项目运行报错sockjs-node/info解决方案</a></h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-17T00:00:00+08:00">
-                2019-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T00:00:00+08:00">
+                2019-12-19
               </time>
             
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  463
+                  345
                 </span>
               
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -409,16 +409,339 @@
         
           
           
- 关于el-time-picker使用字符串，解决项目中的问题。
+ 关于vuecli3项目运行报错sockjs-node/info解决方案，解决项目中的问题。
 
-问题时间选择计划采用element提供的，默认数据为从后端请求的当前设置
+问题启动项目后，在内网非本机运行项目时，控制台报错如下： 
 
-从后端请求回来的时间是字符串，格式为：“hh:mm”，但是看element官方文档
-12345678910111213141516171819&lt;te
+报错分析首先，sockjs-node是何方神圣？不难查出，sockjs-node是一个JavaScript库，提供跨浏览器JavaScrip
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/#more" rel="contents">
+            <a class="btn" href="/2019/12/19/2019-12-19-vuecli3%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99sockjs-nodeinfo%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/19/2019-12-19-%E5%85%B3%E4%BA%8Evue%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8F%8A%E8%83%8C%E6%99%AF%E6%98%BE%E7%A4%BA%E7%9A%84bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gsynf | My Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/19/2019-12-19-%E5%85%B3%E4%BA%8Evue%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8F%8A%E8%83%8C%E6%99%AF%E6%98%BE%E7%A4%BA%E7%9A%84bug/" itemprop="url">关于vue路由跳转及背景显示的bug</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T00:00:00+08:00">
+                2019-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  770
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+ 关于vue路由跳转及背景显示的bug，解决项目中的问题。
+
+问题1
+如图，假设从页面1到页面2，浏览器地址栏显示是已经跳转成功的，页面2显示了一部分，但还有一部分，比如背景之类的还是页面1的，只有点击浏览器的刷新才会完全成为页面2。
+解决1之前关于背景图的部分：
+1234567891011121
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/19/2019-12-19-%E5%85%B3%E4%BA%8Evue%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8F%8A%E8%83%8C%E6%99%AF%E6%98%BE%E7%A4%BA%E7%9A%84bug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/18/2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gsynf | My Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/18/2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE/" itemprop="url">CentOS7下后端配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-18T00:00:00+08:00">
+                2019-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+基于阿里云cetos7.4的后端配置。在此记录一下。
+
+一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。
+二、安装redis1.在centOS里通过wget下载redis1wget http://download.redis.io/releases
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/18/2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -632,7 +955,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/15/2019-12-15-Leetcode%E8%AE%B0%E5%BD%952-Array/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -651,7 +974,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/15/2019-12-15-Leetcode%E8%AE%B0%E5%BD%952-Array/" itemprop="url">Leetcode记录2-Array</a></h1>
+                <a class="post-title-link" href="/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/" itemprop="url">关于el-time-picker使用</a></h1>
         
 
         <div class="post-meta">
@@ -663,8 +986,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-15T00:00:00+08:00">
-                2019-12-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-17T00:00:00+08:00">
+                2019-12-17
               </time>
             
 
@@ -695,7 +1018,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  230
+                  463
                 </span>
               
 
@@ -711,7 +1034,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -735,345 +1058,16 @@
         
           
           
-为了强化训练，对题目按照分类去做，此部分为Array。 
+ 关于el-time-picker使用字符串，解决项目中的问题。
 
+问题时间选择计划采用element提供的，默认数据为从后端请求的当前设置
 
-这里不对每道题都做记录。
-
-
-118题， Pascal’s Triangle ，给一个整数，返回杨辉三角，主要休息二维列表的使用
-
-123456789101112class Solution:    def generate(self,
+从后端请求回来的时间是字符串，格式为：“hh:mm”，但是看element官方文档
+12345678910111213141516171819&lt;te
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/12/15/2019-12-15-Leetcode%E8%AE%B0%E5%BD%952-Array/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/13/2019-12-13-%E5%85%B3%E4%BA%8E%E4%B8%BB%E7%BA%BF%E7%A8%8B%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BA%BF%E7%A8%8B%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gsynf | My Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/13/2019-12-13-%E5%85%B3%E4%BA%8E%E4%B8%BB%E7%BA%BF%E7%A8%8B%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BA%BF%E7%A8%8B%E6%95%B0%E6%8D%AE/" itemprop="url">关于主线程获取子线程数据</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T00:00:00+08:00">
-                2019-12-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  787
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
- 在主线程中获取子线程的数据，解决项目中的问题。
-
-在进行多线程编程中，比较重要也是比较困难的一个操作就是如何获取线程中的信息。
-轮询比较常见的一种解决方案是，让线程类获取方法在结果字段设置之前返回一个标志值。然后主线程定时询问获取方法，看是否返回了标志之外的值。该方法不断测试str的值是否为”H
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/13/2019-12-13-%E5%85%B3%E4%BA%8E%E4%B8%BB%E7%BA%BF%E7%A8%8B%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BA%BF%E7%A8%8B%E6%95%B0%E6%8D%AE/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/05/2019-12-05-Leetcode%E8%AE%B0%E5%BD%951/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gsynf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gsynf | My Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/05/2019-12-05-Leetcode%E8%AE%B0%E5%BD%951/" itemprop="url">Leetcode记录1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-05T00:00:00+08:00">
-                2019-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  740
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-建议使用英文，遇到不会的题目，社区会有很多讨论者给出答案，而中文版的较少，而且锻炼自己对于英文编程题目的理解。 
-
-
-这里不对每道题都做记录。
-
-
-13题， Roman to Integer，用了一个字典，苦恼于如何分情况写规则，看了评论区，用了两个字典，妙啊，真香。
-14题，Longest Co
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/05/2019-12-05-Leetcode%E8%AE%B0%E5%BD%951/#more" rel="contents">
+            <a class="btn" href="/2019/12/17/2019-12-17-%E5%85%B3%E4%BA%8Eel-time-picker%E4%BD%BF%E7%94%A8/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1115,7 +1109,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
   </nav>
 
 
@@ -1160,7 +1154,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">131</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
