@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,MySQL," />
+  <meta name="keywords" content="Linux,SpringBoot," />
 
 
 
@@ -95,7 +95,7 @@
 
 
 <meta name="description" content="基于阿里云cetos7.4的后端配置。在此记录一下。  一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。 二、安装redis1.在centOS里通过wget下载redis1wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.9.tar.gz  2.在&#x2F;usr&#x2F;local里面创建redis目录（这个是安">
-<meta name="keywords" content="Linux,MySQL">
+<meta name="keywords" content="Linux,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7下后端配置">
 <meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;12&#x2F;18&#x2F;2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE&#x2F;index.html">
@@ -105,7 +105,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;2bWNDOy8Z5tkPmo.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;s7wMyvhx5gabmTp.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;RTnz3iQxUjbINYa.png">
-<meta property="og:updated_time" content="2019-12-20T07:35:39.220Z">
+<meta property="og:updated_time" content="2019-12-26T01:13:53.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;2bWNDOy8Z5tkPmo.png">
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.9k
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -473,15 +473,37 @@
 <p>日志文件名.log：是nohup把command的输出重定向到当前目录的指定的“日志文件名.log”文件中，即输出内容不打印到屏幕上，而是输出到”日志文件名.log”文件中。不指定文件名会在当前目录创建nohup.out，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。</p>
 <p>2&gt;&amp;1：2就是标准错误，1是标准输出，该命令相当于把标准错误重定向到标准输出么。这里&amp;相当于标准错误等效于标准输出，即把标准错误和标准输出同时输出到指定的“日志文件名.log”文件中。</p>
 <h2 id="8-停止服务"><a href="#8-停止服务" class="headerlink" title="8.停止服务"></a>8.停止服务</h2><p>控制台输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps 或者 ps -ef | grep 包名</span><br></pre></td></tr></table></figure>
 
 <p>找到刚才运行的进程id，输入下面的命令关闭进程</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 进程id</span><br></pre></td></tr></table></figure>
 
+<h2 id="9-生产环境部署"><a href="#9-生产环境部署" class="headerlink" title="9.生产环境部署"></a>9.生产环境部署</h2><p>生产linux服务器下，可以编写统一脚本管理启动重启：</p>
+<p><strong>单一脚本：</strong></p>
+<p> 在自定义目录创建 wss.sh 脚本，编辑内容如下。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">这里可替换为你自己的执行程序，其他代码无需更改</span></span><br><span class="line">APP_NAME=websocketserver-0.0.1-SNAPSHOT.jar</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">使用说明，用来提示输入参数</span></span><br><span class="line">usage() &#123;</span><br><span class="line">    echo "Usage: sh 脚本名.sh [start|stop|restart|status]"</span><br><span class="line">    exit 1</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">检查程序是否在运行</span></span><br><span class="line">is_exist()&#123;</span><br><span class="line">  pid=`ps -ef|grep $APP_NAME|grep -v grep|awk '&#123;print $2&#125;' `</span><br><span class="line"><span class="meta">  #</span><span class="bash">如果不存在返回1，存在返回0     </span></span><br><span class="line">  if [ -z "$&#123;pid&#125;" ]; then</span><br><span class="line">    return 1</span><br><span class="line">  else</span><br><span class="line">    return 0</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">启动方法</span></span><br><span class="line">start()&#123;</span><br><span class="line">  is_exist</span><br><span class="line">  if [ $? -eq "0" ]; then</span><br><span class="line">    echo "$&#123;APP_NAME&#125; is already running. pid=$&#123;pid&#125; ."</span><br><span class="line">  else</span><br><span class="line">    nohup java -jar /mnt/ssd1/project/websocket/$APP_NAME &gt; /mnt/ssd1/project/websocket/websocketserverlog.file 2&gt;&amp;1 &amp;</span><br><span class="line">    echo "$&#123;APP_NAME&#125; start success"</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">停止方法</span></span><br><span class="line">stop()&#123;</span><br><span class="line">  is_exist</span><br><span class="line">  if [ $? -eq "0" ]; then</span><br><span class="line">    kill -9 $pid</span><br><span class="line">  else</span><br><span class="line">    echo "$&#123;APP_NAME&#125; is not running"</span><br><span class="line">  fi  </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">输出运行状态</span></span><br><span class="line">status()&#123;</span><br><span class="line">  is_exist</span><br><span class="line">  if [ $? -eq "0" ]; then</span><br><span class="line">    echo "$&#123;APP_NAME&#125; is running. Pid is $&#123;pid&#125;"</span><br><span class="line">  else</span><br><span class="line">    echo "$&#123;APP_NAME&#125; is NOT running."</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">重启</span></span><br><span class="line">restart()&#123;</span><br><span class="line">  stop</span><br><span class="line">  start</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">根据输入参数，选择执行对应方法，不输入则执行使用说明</span></span><br><span class="line">case "$1" in</span><br><span class="line">  "start")</span><br><span class="line">    start</span><br><span class="line">    ;;</span><br><span class="line">  "stop")</span><br><span class="line">    stop</span><br><span class="line">    ;;</span><br><span class="line">  "status")</span><br><span class="line">    status</span><br><span class="line">    ;;</span><br><span class="line">  "restart")</span><br><span class="line">    restart</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    usage</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
 
+<p>注意在start()方法中根据自己情况修改启动命令，之后就可以通过 wss.sh start | stop | restart 实现启动，停止，重启操作了。</p>
+<p>补充下<strong>sh xxx.sh与./xxx.sh区别</strong></p>
+<p>sh xxx.sh 是不需要有执行权限</p>
+<p>./xxx.sh 是需要有执行权限的，可以通过 <code>chmod +x xxx.sh</code> 赋予权限</p>
+<p><strong>三个脚本:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.启动 脚本 start.sh  2.停止脚本 stop.sh  3.重启脚本  restart.sh</span><br></pre></td></tr></table></figure>
 
+<p>启动之前先授权一下 : <code>chmod a+x 文件.sh</code>，以后执行脚本使用<code>./start|stop|restart.sh</code>即可。</p>
+<p>启动服务脚本：vi start.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> #!/bin/bash</span><br><span class="line"></span><br><span class="line">echo starting</span><br><span class="line"></span><br><span class="line">nohup java -jar 项目.jar &gt; log.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
+<p>停止服务脚本：vi stop.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  #!/bin/bash</span><br><span class="line"></span><br><span class="line">PID=$(ps -ef | grep 项目.jar | grep -v grep | awk &apos;&#123; print $2 &#125;&apos;)</span><br><span class="line"></span><br><span class="line"> if [ -z &quot;$PID&quot; ]</span><br><span class="line"> then</span><br><span class="line"> echo Application is already stopped</span><br><span class="line"></span><br><span class="line"> else</span><br><span class="line"> echo $PID</span><br><span class="line"> kill $PID</span><br><span class="line"> fi</span><br></pre></td></tr></table></figure>
 
+<p>停止脚本的流程就是，通过ps查找到该项目进程id，然后kill掉。</p>
+<p>重启脚本：vi restart.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo stop application</span><br><span class="line">source stop.sh</span><br><span class="line">echo start application</span><br><span class="line">source start.sh</span><br></pre></td></tr></table></figure>
+
+<p>重启脚本流程好理解，依次调用停止，启动即可。</p>
+<p>之后还可以利用这三个脚本文件设置开机自启。</p>
+<h1 id="五、开放udp端口"><a href="#五、开放udp端口" class="headerlink" title="五、开放udp端口"></a>五、开放udp端口</h1><p>在阿里云安全组以及防火墙都要开放端口，注意要开放udp协议，不是tcp。</p>
 <p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       
@@ -502,7 +524,7 @@
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
         </div>
       
@@ -525,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/19/2019-12-20-%E5%85%B3%E4%BA%8Evue-cli3%E6%89%93%E5%8C%85/" rel="prev" title="关于vue-cli3打包">
-                关于vue-cli3打包 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/19/2019-12-19-vuecli3%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99sockjs-nodeinfo%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="prev" title="vuecli3项目运行报错sockjs-node/info解决方案">
+                vuecli3项目运行报错sockjs-node/info解决方案 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -617,7 +639,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -706,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、安装mysql"><span class="nav-number">1.</span> <span class="nav-text">一、安装mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、安装redis"><span class="nav-number">2.</span> <span class="nav-text">二、安装redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在centOS里通过wget下载redis"><span class="nav-number">2.1.</span> <span class="nav-text">1.在centOS里通过wget下载redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在-usr-local里面创建redis目录（这个是安装目录，自己随意放）"><span class="nav-number">2.2.</span> <span class="nav-text">2.在/usr/local里面创建redis目录（这个是安装目录，自己随意放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解压到创建的目录"><span class="nav-number">2.3.</span> <span class="nav-text">3.解压到创建的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-进入目录编译一下，用make命令编译一下"><span class="nav-number">2.4.</span> <span class="nav-text">4.进入目录编译一下，用make命令编译一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-编译生成的可执行文件拷贝到-usr-local-bin目录下"><span class="nav-number">2.5.</span> <span class="nav-text">5.编译生成的可执行文件拷贝到/usr/local/bin目录下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-进入redis-4-0-9执行安装命令make-install"><span class="nav-number">2.6.</span> <span class="nav-text">6.进入redis-4.0.9执行安装命令make install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-执行基本配置"><span class="nav-number">2.7.</span> <span class="nav-text">7.执行基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-查看开机启动列表"><span class="nav-number">2.8.</span> <span class="nav-text">8.查看开机启动列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-开启关闭命令"><span class="nav-number">2.9.</span> <span class="nav-text">9.开启关闭命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-远程登陆redis"><span class="nav-number">2.10.</span> <span class="nav-text">10.远程登陆redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-开放端口"><span class="nav-number">2.11.</span> <span class="nav-text">11.开放端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-补充"><span class="nav-number">2.12.</span> <span class="nav-text">12.补充</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、安装JDK"><span class="nav-number">3.</span> <span class="nav-text">三、安装JDK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、springboot项目打包"><span class="nav-number">4.</span> <span class="nav-text">四、springboot项目打包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-打开端口"><span class="nav-number">4.1.</span> <span class="nav-text">1.打开端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-注意更改数据源"><span class="nav-number">4.2.</span> <span class="nav-text">2.注意更改数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-修改pom-xml"><span class="nav-number">4.3.</span> <span class="nav-text">3.修改pom.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-打包"><span class="nav-number">4.4.</span> <span class="nav-text">4.打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">4.5.</span> <span class="nav-text">5.运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-打开防火墙"><span class="nav-number">4.6.</span> <span class="nav-text">6.打开防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-改为后台运行"><span class="nav-number">4.7.</span> <span class="nav-text">7.改为后台运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-停止服务"><span class="nav-number">4.8.</span> <span class="nav-text">8.停止服务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、安装mysql"><span class="nav-number">1.</span> <span class="nav-text">一、安装mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、安装redis"><span class="nav-number">2.</span> <span class="nav-text">二、安装redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在centOS里通过wget下载redis"><span class="nav-number">2.1.</span> <span class="nav-text">1.在centOS里通过wget下载redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在-usr-local里面创建redis目录（这个是安装目录，自己随意放）"><span class="nav-number">2.2.</span> <span class="nav-text">2.在/usr/local里面创建redis目录（这个是安装目录，自己随意放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解压到创建的目录"><span class="nav-number">2.3.</span> <span class="nav-text">3.解压到创建的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-进入目录编译一下，用make命令编译一下"><span class="nav-number">2.4.</span> <span class="nav-text">4.进入目录编译一下，用make命令编译一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-编译生成的可执行文件拷贝到-usr-local-bin目录下"><span class="nav-number">2.5.</span> <span class="nav-text">5.编译生成的可执行文件拷贝到/usr/local/bin目录下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-进入redis-4-0-9执行安装命令make-install"><span class="nav-number">2.6.</span> <span class="nav-text">6.进入redis-4.0.9执行安装命令make install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-执行基本配置"><span class="nav-number">2.7.</span> <span class="nav-text">7.执行基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-查看开机启动列表"><span class="nav-number">2.8.</span> <span class="nav-text">8.查看开机启动列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-开启关闭命令"><span class="nav-number">2.9.</span> <span class="nav-text">9.开启关闭命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-远程登陆redis"><span class="nav-number">2.10.</span> <span class="nav-text">10.远程登陆redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-开放端口"><span class="nav-number">2.11.</span> <span class="nav-text">11.开放端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-补充"><span class="nav-number">2.12.</span> <span class="nav-text">12.补充</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、安装JDK"><span class="nav-number">3.</span> <span class="nav-text">三、安装JDK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、springboot项目打包"><span class="nav-number">4.</span> <span class="nav-text">四、springboot项目打包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-打开端口"><span class="nav-number">4.1.</span> <span class="nav-text">1.打开端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-注意更改数据源"><span class="nav-number">4.2.</span> <span class="nav-text">2.注意更改数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-修改pom-xml"><span class="nav-number">4.3.</span> <span class="nav-text">3.修改pom.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-打包"><span class="nav-number">4.4.</span> <span class="nav-text">4.打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">4.5.</span> <span class="nav-text">5.运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-打开防火墙"><span class="nav-number">4.6.</span> <span class="nav-text">6.打开防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-改为后台运行"><span class="nav-number">4.7.</span> <span class="nav-text">7.改为后台运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-停止服务"><span class="nav-number">4.8.</span> <span class="nav-text">8.停止服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-生产环境部署"><span class="nav-number">4.9.</span> <span class="nav-text">9.生产环境部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、开放udp端口"><span class="nav-number">5.</span> <span class="nav-text">五、开放udp端口</span></a></li></ol></div>
             
 
           </div>
