@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, Gsynf" />
+  <meta name="keywords" content="Linux,vue,SpringBoot," />
 
 
 
@@ -94,13 +94,15 @@
 
 
 
-<meta name="description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gsynf | My Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;tags&#x2F;Blog&#x2F;index.html">
+<meta name="description" content="基于阿里云cetos7.4的项目。在此记录一下。  更换前端直接将npm run build打包生成的文件在apache-tomcat-8.5.45&#x2F;webapps&#x2F;heater中替换即可。 更换后端jar包先jps查看运行的进程，kill -9 进程号杀死，然后service redis_6379 stop停止redis，再上传新的jar包，service redis_6379 start启动">
+<meta name="keywords" content="Linux,vue,SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于项目部署服务器后更换">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;12&#x2F;26&#x2F;2019-12-26-%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E6%9B%B4%E6%8D%A2&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="顺风不浪，逆风不怂！形而上学，不行退学！">
+<meta property="og:description" content="基于阿里云cetos7.4的项目。在此记录一下。  更换前端直接将npm run build打包生成的文件在apache-tomcat-8.5.45&#x2F;webapps&#x2F;heater中替换即可。 更换后端jar包先jps查看运行的进程，kill -9 进程号杀死，然后service redis_6379 stop停止redis，再上传新的jar包，service redis_6379 start启动">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-26T07:59:01.805Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://gsynf.github.io/tags/Blog/"/>
+  <link rel="canonical" href="https://gsynf.github.io/2019/12/26/2019-12-26-关于项目部署服务器后更换/"/>
 
 
 
 
 
-  <title>标签: Blog | Gsynf | My Blog</title>
+  <title>关于项目部署服务器后更换 | Gsynf | My Blog</title>
   
 
 
@@ -161,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/Gsynf" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -290,166 +292,205 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Blog<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/26/2019-12-26-%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E6%9B%B4%E6%8D%A2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gsynf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gsynf | My Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/01/2019-12-01-%E4%B8%BAGithubPages%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D/" itemprop="url">
-              
-                <span itemprop="name">为GithubPages添加域名</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">关于项目部署服务器后更换</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-01T00:00:00+08:00"
-              content="2019-12-01" >
-          12-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T00:00:00+08:00">
+                2019-12-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  264
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/04/2019-11-04-%E5%8D%9A%E5%AE%A2%E7%BF%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E4%BF%AE%E5%A4%8D/" itemprop="url">
-              
-                <span itemprop="name">博客翻页显示修复</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-04T00:00:00+08:00"
-              content="2019-11-04" >
-          11-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/09/2019-04-09-Linux%E4%B8%8BGithub%E4%BD%BF%E7%94%A8/" itemprop="url">
-              
-                <span itemprop="name">Linux下Github使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-09T00:00:00+08:00"
-              content="2019-04-09" >
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/25/2019-02-25-MarkdownPad%E8%AF%95%E7%94%A8/" itemprop="url">
-              
-                <span itemprop="name">MarkdownPad试用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-25T00:00:00+08:00"
-              content="2019-02-25" >
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/19/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" itemprop="url">
-              
-                <span itemprop="name">为博客添加 Gitalk 评论插件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-19T00:00:00+08:00"
-              content="2017-12-19" >
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <blockquote>
+<p>基于阿里云cetos7.4的项目。在此记录一下。</p>
+</blockquote>
+<h1 id="更换前端"><a href="#更换前端" class="headerlink" title="更换前端"></a>更换前端</h1><p>直接将<code>npm run build</code>打包生成的文件在apache-tomcat-8.5.45/webapps/heater中替换即可。</p>
+<h1 id="更换后端jar包"><a href="#更换后端jar包" class="headerlink" title="更换后端jar包"></a>更换后端jar包</h1><p>先<code>jps</code>查看运行的进程，<code>kill -9 进程号</code>杀死，然后<code>service redis_6379 stop</code>停止redis，再上传新的jar包，<code>service redis_6379 start</code>启动redis，最后<code>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;</code>后台运行jar包，立即网页查看可能会出现network error，稍等即可。</p>
+<h1 id="开机重启"><a href="#开机重启" class="headerlink" title="开机重启"></a>开机重启</h1><ul>
+<li><p>开启firewallD，<code>service firewalld restart</code></p>
+</li>
+<li><p>开启mysql，已开机自启</p>
+</li>
+<li><p>开启redis，已开机自启</p>
+</li>
+<li><p>前端运行，<code>cd /</code>    <code>cd /usr/local/tomcat/apache-tomcat-8.5.45/bin</code>   <code>sh shartup.sh</code></p>
+</li>
+<li><p>后端运行 <code>cd /</code>   <code>cd home</code>    <code>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;</code></p>
+</li>
+<li><p>重启之后遇到过redis的6379.conf配置文件变更的情况导致无法远程连接，按照之前<a href="https://gsynf.top/2019/12/18/2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE/#more" target="_blank" rel="noopener">Centos7下后端配置</a>中的介绍再次修改即可。</p>
+</li>
+</ul>
+<p><strong>注</strong>：转载文章请注明出处，谢谢~</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/19/2019-12-20-%E5%85%B3%E4%BA%8Evue-cli3%E6%89%93%E5%8C%85/" rel="next" title="关于vue-cli3打包">
+                <i class="fa fa-chevron-left"></i> 关于vue-cli3打包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/23/2019-12-23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85/" rel="prev" title="机器学习系列补充">
+                机器学习系列补充 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -457,6 +498,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -477,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -585,6 +639,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更换前端"><span class="nav-number">1.</span> <span class="nav-text">更换前端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更换后端jar包"><span class="nav-number">2.</span> <span class="nav-text">更换后端jar包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开机重启"><span class="nav-number">3.</span> <span class="nav-text">开机重启</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -699,10 +769,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
