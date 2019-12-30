@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="学习过程主要依照寒小阳系列博客，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。  逻辑回归初步 对于某些数据分布，很难从线性模型中找到一个直线能较好的分离开两种数据。而逻辑回归诞生就是为了干这事的，逻辑回归简单来说就等于线性回归乘以sigmoid函数，通过逻辑回归，我们可以将线性回归得到的可能无穷多的值，压缩到0和1的范围内。  从初等数学视角解读逻辑回归博客中图片全挂">
+<meta name="description" content="学习过程主要依照寒小阳系列博客，部分代码由于引用包的问题会有修改，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。  逻辑回归初步 对于某些数据分布，很难从线性模型中找到一个直线能较好的分离开两种数据。而逻辑回归诞生就是为了干这事的，逻辑回归简单来说就等于线性回归乘以sigmoid函数，通过逻辑回归，我们可以将线性回归得到的可能无穷多的值，压缩到0和1的范围内。  从初等">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习系列补充">
-<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2020&#x2F;01&#x2F;23&#x2F;2019-12-23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;12&#x2F;23&#x2F;2019-12-23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="学习过程主要依照寒小阳系列博客，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。  逻辑回归初步 对于某些数据分布，很难从线性模型中找到一个直线能较好的分离开两种数据。而逻辑回归诞生就是为了干这事的，逻辑回归简单来说就等于线性回归乘以sigmoid函数，通过逻辑回归，我们可以将线性回归得到的可能无穷多的值，压缩到0和1的范围内。  从初等数学视角解读逻辑回归博客中图片全挂">
+<meta property="og:description" content="学习过程主要依照寒小阳系列博客，部分代码由于引用包的问题会有修改，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。  逻辑回归初步 对于某些数据分布，很难从线性模型中找到一个直线能较好的分离开两种数据。而逻辑回归诞生就是为了干这事的，逻辑回归简单来说就等于线性回归乘以sigmoid函数，通过逻辑回归，我们可以将线性回归得到的可能无穷多的值，压缩到0和1的范围内。  从初等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T14:30:58.837Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;26&#x2F;ZHehOtzaQB8WnEu.png">
+<meta property="og:updated_time" content="2019-12-27T07:42:04.058Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;26&#x2F;ZHehOtzaQB8WnEu.png">
 
 
 
@@ -132,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="https://gsynf.github.io/2020/01/23/2019-12-23-机器学习系列补充/"/>
+  <link rel="canonical" href="https://gsynf.github.io/2019/12/23/2019-12-23-机器学习系列补充/"/>
 
 
 
@@ -306,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/01/23/2019-12-23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/12/23/2019-12-23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -335,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-23T00:00:00+08:00">
-                2020-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T00:00:00+08:00">
+                2019-12-23
               </time>
             
 
@@ -367,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  627
+                  1.2k
                 </span>
               
 
@@ -383,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -405,13 +407,20 @@
 
       
         <blockquote>
-<p>学习过程主要依照寒小阳<a href="https://blog.csdn.net/han_xiaoyang" target="_blank" rel="noopener">系列博客</a>，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。</p>
+<p>学习过程主要依照寒小阳<a href="https://blog.csdn.net/han_xiaoyang" target="_blank" rel="noopener">系列博客</a>，部分代码由于引用包的问题会有<a href="https://www.kesci.com/home/project/5bfe39b3954d6e0010681cd1" target="_blank" rel="noopener">修改</a>，B站也有其Kaggle学习视频，感谢。这里只针对其博客某些地方进行补充。</p>
 </blockquote>
 <h1 id="逻辑回归初步"><a href="#逻辑回归初步" class="headerlink" title="逻辑回归初步"></a>逻辑回归初步</h1><ul>
 <li>对于某些数据分布，很难从线性模型中找到一个直线能较好的分离开两种数据。而逻辑回归诞生就是为了干这事的，逻辑回归简单来说就等于线性回归乘以sigmoid函数，通过逻辑回归，我们可以将线性回归得到的可能无穷多的值，压缩到0和1的范围内。</li>
 </ul>
 <h1 id="从初等数学视角解读逻辑回归"><a href="#从初等数学视角解读逻辑回归" class="headerlink" title="从初等数学视角解读逻辑回归"></a>从初等数学视角解读逻辑回归</h1><p>博客中图片全挂，无法阅读，<a href="https://chenrudan.github.io/blog/2016/01/09/logisticregression.html" target="_blank" rel="noopener">以此代之</a>。（有点复杂……）</p>
 <h1 id="逻辑回归应用之Kaggle泰坦尼克之灾"><a href="#逻辑回归应用之Kaggle泰坦尼克之灾" class="headerlink" title="逻辑回归应用之Kaggle泰坦尼克之灾"></a>逻辑回归应用之Kaggle泰坦尼克之灾</h1><ul>
+<li>jupyter实现代码自动补全<ul>
+<li>Anaconda Prompt中<code>python -m pip install jupyter_contrib_nbextensions</code></li>
+<li>Anaconda Prompt中<code>jupyter contrib nbextension install --user --skip-running-check</code></li>
+<li>上面两个步骤都没报错后，启动 Jupyter Notebook，上面选项栏会出现 Nbextensions 的选项 </li>
+<li>Nbextensions 中勾选 “Table of Contents” 以及 “Hinterland” </li>
+</ul>
+</li>
 <li>matplotlib.pyplot绘图中文标签无法显示</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>] <span class="comment">#用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="literal">False</span> <span class="comment">#用来正常显示负号</span></span><br></pre></td></tr></table></figure>
@@ -433,6 +442,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig=plt.figure(figsize=(<span class="number">12</span>,<span class="number">10</span>)) <span class="comment"># 设置画布大小</span></span><br></pre></td></tr></table></figure>
 
 <ul>
+<li>as_matrix() 报警告<code>FutureWarning: Method .as_matrix will be removed in a future version. Use .values  instead</code>, 根据提示：把<code>as_matrix()</code>改为<code>values</code>即可 </li>
+<li>利用Logistic回归算法进行数据建模 ，提示警告<code>FutureWarning: Default solver will be changed to &#39;lbfgs&#39;……</code>，解决方法：传入参数后即可消除警告：<code>clf = linear_model.LogisticRegression(C=1.0, penalty=&#39;l1&#39;, tol=1e-6, solver=&#39;liblinear&#39;)</code>， LogisticRegerssion算法的solver仅支持以下几个参数’liblinear’, ‘newton-cg’, ‘lbfgs’, ‘sag’, ‘saga’。 </li>
 <li>pandas有时因为行数或列数太多显示不全，而用省略号代替</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pd.options.display.max_columns = <span class="literal">None</span></span><br><span class="line">pd.options.display.max_rows = <span class="literal">None</span></span><br><span class="line"><span class="comment"># 以下无效</span></span><br><span class="line"><span class="comment"># pd.set_option('display.max_rows', None)    # 显示的最大行数（避免只显示部分行数据）</span></span><br><span class="line"><span class="comment"># pd.set_option('display.max_columns', None)   # 显示的最大列数（避免列显示不全）</span></span><br></pre></td></tr></table></figure>
@@ -442,7 +453,27 @@
 <li>答：这样也可以, 不过这里用 dummies 函数自带的功能进行 one-hot 更好,因为后面1,2,3等舱位变成100, 010, 001,如果手动改成0,1,2,数据的范围就不统一了,不利于后面的训练 就 sex 而言, 手动改成0,1完全可以，但也就不符合one-hot编码了</li>
 </ul>
 </li>
+<li>在使用其他分类器部分44行<code>if str.find(big_string, substring) != -1:</code>报错<code>AttributeError: module &#39;string&#39; has no attribute &#39;find&#39;</code>，这是因为python版本升级，函数名称已有改变，只需要将string改为str即可。</li>
+<li>在使用其他分类器部分190行</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grid_search = GridSearchCV(pipeline, param_grid=param_grid, verbose=<span class="number">3</span>,scoring=<span class="string">'accuracy'</span>,\</span><br><span class="line">cv=StratifiedShuffleSplit(Y_train, n_iter=<span class="number">10</span>, test_size=<span class="number">0.2</span>, train_size=<span class="literal">None</span>, indices=<span class="literal">None</span>, \</span><br><span class="line">random_state=seed, n_iterations=<span class="literal">None</span>)).fit(X_train, Y_train)</span><br></pre></td></tr></table></figure>
+
+<p>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TypeError: __init__() got an unexpected keyword argument &apos;n_iter&apos;</span><br><span class="line">TypeError: __init__() got an unexpected keyword argument &apos;indices&apos;</span><br><span class="line">TypeError: __init__() got an unexpected keyword argument &apos;n_iterations&apos;</span><br></pre></td></tr></table></figure>
+
+<p>将报错的全删</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv=StratifiedShuffleSplit(Y_train, test_size=<span class="number">0.2</span>, train_size=<span class="literal">None</span>,random_state=seed)).fit(X_train, Y_train)</span><br></pre></td></tr></table></figure>
+
+<p>但是又有新的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: only integer scalar arrays can be converted to a scalar index</span><br></pre></td></tr></table></figure>
+
+<p>所以又将代码恢复到了最初，本质在于原sklearn.cross_validation 包中StratifiedShuffleSplit的接口和现在sklearn.model_selection包中StratifiedShuffleSplit的接口不一样，然鹅网格搜索这一部分由于接口很多都改变，导致越改越乱……(先ε=ε=ε=┏(゜ロ゜;)┛，具体可<a href="https://blog.csdn.net/Douhh_sisy/article/details/80616045" target="_blank" rel="noopener">参考</a></p>
+<ul>
+<li>总结</li>
+</ul>
+<p>对于任何的机器学习问题，不要一上来就追求尽善尽美，先用自己会的算法撸一个baseline的model出来，再进行后续的分析步骤，一步步提高。</p>
+<p>在问题的结果过程中：</p>
+<p>『对数据的认识太重要了！』<br>『数据中的特殊点/离群点的分析和处理太重要了！』<br>『特征工程(feature engineering)太重要了！』<br>『模型融合(model ensemble)太重要了！』<br>本文中用机器学习解决问题的过程大概如下图所示：<br><img src="https://i.loli.net/2019/12/26/ZHehOtzaQB8WnEu.png" alt=""></p>
 <p><strong><em>注</em></strong>：转载文章请注明出处，谢谢~</p>
 
       
@@ -474,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/26/2019-12-26-%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E6%9B%B4%E6%8D%A2/" rel="next" title="关于项目部署服务器后更换">
-                <i class="fa fa-chevron-left"></i> 关于项目部署服务器后更换
+              <a href="/2019/12/19/2019-12-20-%E5%85%B3%E4%BA%8Evue-cli3%E6%89%93%E5%8C%85/" rel="next" title="关于vue-cli3打包">
+                <i class="fa fa-chevron-left"></i> 关于vue-cli3打包
               </a>
             
           </div>
@@ -483,6 +514,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/26/2019-12-26-%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E6%9B%B4%E6%8D%A2/" rel="prev" title="关于项目部署服务器后更换">
+                关于项目部署服务器后更换 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
