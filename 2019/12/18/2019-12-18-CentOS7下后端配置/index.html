@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="基于阿里云cetos7.4的后端配置。在此记录一下。  一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。 二、安装redis1.在centOS里通过wget下载redis1wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.9.tar.gz  2.在&#x2F;usr&#x2F;local里面创建redis目录（这个是安">
+<meta name="description" content="基于阿里云cetos7.4的后端配置。在此记录一下。  一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。 二、安装redis1.在centOS里通过wget下载redis1wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.9.tar.gz   &#x2F;&#x2F;版本去redis官网查看最新即可  2.在&#x2F;usr&#x2F;">
 <meta name="keywords" content="Linux,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7下后端配置">
 <meta property="og:url" content="https:&#x2F;&#x2F;gsynf.github.io&#x2F;2019&#x2F;12&#x2F;18&#x2F;2019-12-18-CentOS7%E4%B8%8B%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="Gsynf | My Blog">
-<meta property="og:description" content="基于阿里云cetos7.4的后端配置。在此记录一下。  一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。 二、安装redis1.在centOS里通过wget下载redis1wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.9.tar.gz  2.在&#x2F;usr&#x2F;local里面创建redis目录（这个是安">
+<meta property="og:description" content="基于阿里云cetos7.4的后端配置。在此记录一下。  一、安装mysql之前已经讲过，详见，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。 二、安装redis1.在centOS里通过wget下载redis1wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.9.tar.gz   &#x2F;&#x2F;版本去redis官网查看最新即可  2.在&#x2F;usr&#x2F;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;2bWNDOy8Z5tkPmo.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;s7wMyvhx5gabmTp.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;RTnz3iQxUjbINYa.png">
-<meta property="og:updated_time" content="2019-12-26T03:23:39.858Z">
+<meta property="og:updated_time" content="2020-01-07T01:33:35.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;18&#x2F;2bWNDOy8Z5tkPmo.png">
 
@@ -412,7 +412,7 @@
 <p>基于阿里云cetos7.4的后端配置。在此记录一下。</p>
 </blockquote>
 <h1 id="一、安装mysql"><a href="#一、安装mysql" class="headerlink" title="一、安装mysql"></a>一、安装mysql</h1><p>之前已经讲过，<a href="https://gsynf.top/2019/08/30/2019-08-30-CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85MySQL%E5%8F%8A%E8%BF%9E%E6%8E%A5/" target="_blank" rel="noopener">详见</a>，注意要在阿里云的安全组中打开3306端口，否则无法远程连接。</p>
-<h1 id="二、安装redis"><a href="#二、安装redis" class="headerlink" title="二、安装redis"></a>二、安装redis</h1><h2 id="1-在centOS里通过wget下载redis"><a href="#1-在centOS里通过wget下载redis" class="headerlink" title="1.在centOS里通过wget下载redis"></a>1.在centOS里通过wget下载redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-4.0.9.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="二、安装redis"><a href="#二、安装redis" class="headerlink" title="二、安装redis"></a>二、安装redis</h1><h2 id="1-在centOS里通过wget下载redis"><a href="#1-在centOS里通过wget下载redis" class="headerlink" title="1.在centOS里通过wget下载redis"></a>1.在centOS里通过wget下载redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-4.0.9.tar.gz   //版本去redis官网查看最新即可</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-在-usr-local里面创建redis目录（这个是安装目录，自己随意放）"><a href="#2-在-usr-local里面创建redis目录（这个是安装目录，自己随意放）" class="headerlink" title="2.在/usr/local里面创建redis目录（这个是安装目录，自己随意放）"></a>2.在/usr/local里面创建redis目录（这个是安装目录，自己随意放）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">mkdir redis</span><br></pre></td></tr></table></figure>
 
@@ -547,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/19/2019-12-19-%E5%85%B3%E4%BA%8Evue%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8F%8A%E8%83%8C%E6%99%AF%E6%98%BE%E7%A4%BA%E7%9A%84bug/" rel="prev" title="关于vue路由跳转及背景显示的bug">
-                关于vue路由跳转及背景显示的bug <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/19/2019-12-20-%E5%85%B3%E4%BA%8Evue-cli3%E6%89%93%E5%8C%85/" rel="prev" title="关于vue-cli3打包">
+                关于vue-cli3打包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +626,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-count">134</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -751,7 +751,7 @@
         <div class="copyright" >
   
   &copy;  2017 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
