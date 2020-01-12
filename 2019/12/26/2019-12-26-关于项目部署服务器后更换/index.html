@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Gsynf | My Blog">
 <meta property="og:description" content="基于阿里云cetos7.4的项目。在此记录一下。  更换前端直接将npm run build打包生成的文件在apache-tomcat-8.5.45&#x2F;webapps&#x2F;heater中替换即可。 更换后端jar包先jps查看运行的进程，kill -9 进程号杀死，然后service redis_6379 stop停止redis，再上传新的jar包，service redis_6379 start启动">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-26T07:59:01.805Z">
+<meta property="og:updated_time" content="2020-01-12T13:03:01.105Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  264
+                  269
                 </span>
               
 
@@ -410,6 +410,8 @@
 <h1 id="更换前端"><a href="#更换前端" class="headerlink" title="更换前端"></a>更换前端</h1><p>直接将<code>npm run build</code>打包生成的文件在apache-tomcat-8.5.45/webapps/heater中替换即可。</p>
 <h1 id="更换后端jar包"><a href="#更换后端jar包" class="headerlink" title="更换后端jar包"></a>更换后端jar包</h1><p>先<code>jps</code>查看运行的进程，<code>kill -9 进程号</code>杀死，然后<code>service redis_6379 stop</code>停止redis，再上传新的jar包，<code>service redis_6379 start</code>启动redis，最后<code>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;</code>后台运行jar包，立即网页查看可能会出现network error，稍等即可。</p>
 <h1 id="开机重启"><a href="#开机重启" class="headerlink" title="开机重启"></a>开机重启</h1><ul>
+<li><p>init 6 /reboot重启</p>
+</li>
 <li><p>开启firewallD，<code>service firewalld restart</code></p>
 </li>
 <li><p>开启mysql，已开机自启</p>
@@ -547,7 +549,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">136</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
