@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E6%96%B0%E5%BB%BAAPP/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/06/01/2020-06-01-%E5%85%B3%E4%BA%8E%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E6%96%B0%E5%BB%BAAPP/" itemprop="url">关于Django新建APP</a></h1>
+                <a class="post-title-link" href="/2020/06/01/2020-06-01-%E5%85%B3%E4%BA%8E%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" itemprop="url">关于工程中一些问题的解决</a></h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T00:00:00+08:00">
-                2019-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T00:00:00+08:00">
+                2020-06-01
               </time>
             
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  282
+                  357
                 </span>
               
 
@@ -409,18 +409,19 @@
         
           
           
-新建APP
+解决工程中的问题。
 
-命令1python manage.py startapp Name
-
-配置文件在setting.py中加入新增加的APP
-123456INSTALLED_APPS = [	………………    'honor',    'aboutus',    'news',]
-
-修改新增APP中文件
+一问题：
+IDEA中导入工程，有些java文件左下角出现小黄色的J。
+解决方案：
+File里打开project structure找到Modules，把还没有添加进来的进行添加，或者全部删去，去掉Root路径后，重新添加。
+二问题：
+控制台报错：
+1objc[999]: Cl
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E6%96%B0%E5%BB%BAAPP/#more" rel="contents">
+            <a class="btn" href="/2020/06/01/2020-06-01-%E5%85%B3%E4%BA%8E%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -471,7 +472,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/05/24/2020-05-24-Mybatis%20@SelectProvider%E6%B3%A8%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -490,7 +491,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url">关于Django迁移数据库</a></h1>
+                <a class="post-title-link" href="/2020/05/24/2020-05-24-Mybatis%20@SelectProvider%E6%B3%A8%E8%A7%A3/" itemprop="url">Mybatis @SelectProvider注解</a></h1>
         
 
         <div class="post-meta">
@@ -502,8 +503,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T00:00:00+08:00">
-                2019-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-24T00:00:00+08:00">
+                2020-05-24
               </time>
             
 
@@ -534,7 +535,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  454
+                  340
                 </span>
               
 
@@ -574,13 +575,14 @@
         
           
           
- Django中每一个模型model都对应于数据库中的一张表，每个模型中的字段都对应于数据库表的列。  默认是sqlite3数据库，所以我们需要将其修改成mysql数据库。     
+原：这里。
 
-修改settings.py配置信息123456789101112131415161718192021# Data
+作用实习项目中MyBatis中用到了@selectProvider，功能就是用来单独写一个class类与方法，用来提供一些xml或者注解中不好写的sql。其实就是用用自定义的provider类构造SQL语句
+用法12type 属性用于指定获取sql语句的指定类method 属性用于指
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93/#more" rel="contents">
+            <a class="btn" href="/2020/05/24/2020-05-24-Mybatis%20@SelectProvider%E6%B3%A8%E8%A7%A3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -631,7 +633,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EPycharm%20For%20Linux/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/05/20/2020-05-20-Java%20%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -650,7 +652,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EPycharm%20For%20Linux/" itemprop="url">关于Pycharm For Linux</a></h1>
+                <a class="post-title-link" href="/2020/05/20/2020-05-20-Java%20%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" itemprop="url">Java 面试高频知识点整理</a></h1>
         
 
         <div class="post-meta">
@@ -662,8 +664,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T00:00:00+08:00">
-                2019-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-20T00:00:00+08:00">
+                2020-05-20
               </time>
             
 
@@ -694,7 +696,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  313
+                  73.4k
                 </span>
               
 
@@ -710,7 +712,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  258
                 </span>
               
             </div>
@@ -734,14 +736,14 @@
         
           
           
-​    
+Java 面试高频知识点整理
 
-下载官网下载Linux版本即可。下载好的文件的名称可能是 ‘pycharm-professional-2019.2.5.tar.gz’。默认下载到“下载”。
-12&gt; cd ~/Downloads&gt; tar -xvzf pycharm-professional-2019.2
+排序算法 9P1：排序算法的分类排序算法可以分为内部排序和外部排序，在内存中进行的排序称为内部排序，当要排序的数据量很大时无法全部拷贝到内存，需要使用外存进行排序，这种排序称为外部排序。
+内部排序包括比较排序和非比较排序，比较排序包括插入排序、选择排序、交换排序和归
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EPycharm%20For%20Linux/#more" rel="contents">
+            <a class="btn" href="/2020/05/20/2020-05-20-Java%20%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -792,7 +794,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E5%B0%9D%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/05/18/2020-05-18-%E5%85%B3%E4%BA%8E%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssh%E5%AF%86%E9%92%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -811,7 +813,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E5%B0%9D%E8%AF%95/" itemprop="url">关于Django尝试</a></h1>
+                <a class="post-title-link" href="/2020/05/18/2020-05-18-%E5%85%B3%E4%BA%8E%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssh%E5%AF%86%E9%92%A5/" itemprop="url">关于一台电脑配置多个ssh密钥</a></h1>
         
 
         <div class="post-meta">
@@ -823,8 +825,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T00:00:00+08:00">
-                2019-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-18T00:00:00+08:00">
+                2020-05-18
               </time>
             
 
@@ -855,7 +857,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  317
+                  545
                 </span>
               
 
@@ -871,7 +873,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -895,16 +897,15 @@
         
           
           
-总管负责的电磁加热宣传网站使用的 Bootstrap 和 Django，来玩玩。    
+之前在自己电脑上配置了GitHub的ssh，实习时需要再配置另一个，配置完成之后发现无法git clone，解决方法在此记录。
 
-问题基本思路：使用Pycharm打开仓库clone下来的Django项目，Project Interpreter中选择conda新建的环境。
-但是，clone打开之后
-
-提示要install requirm
+问题常规
+ssh-keygen -t rsa -C xxx@mail.com生成rsa文件；
+复制id_rsa.pub文件中的pub key，添加到github或者对应
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/28/2019-11-28-%E5%85%B3%E4%BA%8EDjango%E5%B0%9D%E8%AF%95/#more" rel="contents">
+            <a class="btn" href="/2020/05/18/2020-05-18-%E5%85%B3%E4%BA%8E%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssh%E5%AF%86%E9%92%A5/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -955,7 +956,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2019/11/21/2019-11-21-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/">
+    <link itemprop="mainEntityOfPage" href="https://gsynf.github.io/2020/05/12/2020-05-12-RPC%E4%B9%8BThrift/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gsynf">
@@ -974,7 +975,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/21/2019-11-21-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/" itemprop="url">关于网络通信</a></h1>
+                <a class="post-title-link" href="/2020/05/12/2020-05-12-RPC%E4%B9%8BThrift/" itemprop="url">RPC之Thrift</a></h1>
         
 
         <div class="post-meta">
@@ -986,8 +987,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-21T00:00:00+08:00">
-                2019-11-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-12T00:00:00+08:00">
+                2020-05-12
               </time>
             
 
@@ -1018,7 +1019,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  948
+                  2.2k
                 </span>
               
 
@@ -1034,7 +1035,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  9
                 </span>
               
             </div>
@@ -1057,13 +1058,18 @@
       
         
           
-          网络通信例子：    
-下载资源资源上传从服务器（某个网络终端）取得数据向其他计算机发送消息接收其他计算机发送的消息计算机之间的交流，计算机之间数据的传递
-ip地址简述：ip地址是网络中计算机的唯一标识。举例：xx.xx.xx.xx  xx是0-255之间的一个数字问题：        什么是局域网
+          
+参照：https://www.cnblogs.com/yjmyzz/tag/thrift/
+
+
+实习准备，需要了解一下Thrift，在此做简单记录。
+
+微服务优势
+独立缩放。每一个服务的缩放可用三个轴来表示。x轴-水平可扩展，即某个服务器上的某个服务是否可以在其他服务器中同样部署；y-轴，业务可扩
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/21/2019-11-21-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/#more" rel="contents">
+            <a class="btn" href="/2020/05/12/2020-05-12-RPC%E4%B9%8BThrift/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1105,7 +1111,7 @@ ip地址简述：ip地址是网络中计算机的唯一标识。举例：xx.xx.x
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
   </nav>
 
 
@@ -1150,7 +1156,7 @@ ip地址简述：ip地址是网络中计算机的唯一标识。举例：xx.xx.x
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">164</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1163,7 +1169,7 @@ ip地址简述：ip地址是网络中计算机的唯一标识。举例：xx.xx.x
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
